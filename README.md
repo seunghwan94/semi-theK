@@ -9,6 +9,11 @@
 <small> 조장 : 이상원 </small>  
 <small> 조원 : 이승환 원유진 김한민 </small>
 
+## References  <small>(참조 링크)</small>  
+
+- [chartJS] : https://www.chartjs.org/
+- [금지어 사전] : https://velog.io/@persestitan/Java-BadWordFiltering-%EC%9A%95-%EB%B9%84%EC%86%8D%EC%96%B4-%ED%95%84%ED%84%B0-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC?ref=codenary
+
 ## Tech Stack  <small>(기술 스택)</small>  
 
 *본 프로젝트에서는 다음과 같은 기술을 활용하였습니다.*
@@ -40,6 +45,7 @@
 > * 24.11.12 => *주제 선정(다각화하는 K-컬쳐 외국인 관광객 커뮤니티(정보) 플랫폼 개발 프로젝트)*
 > * 24.11.13 => *기능 계획 정의서 초안 작성*
 > * 24.11.14 => *기능 계획 정의서 프로토타입 작성 완료 + 비주얼 목업 및 화면계획서 작성 시작*
+> * 24.11.15 => *기능 계획 정의서 수정 및 구현부 분담 + 주말계획 토의(ERD, HTML 구조부 구상 준비)*
 
 
 
