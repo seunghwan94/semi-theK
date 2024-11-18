@@ -19,7 +19,7 @@
       video{
         width: 100%;
         height: 100vh;
-        object-fit: fill;
+        object-fit: fill; 
       }
       .class-box{
         position: absolute;
