@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.rtl.min.css" integrity="sha512-rXhL8a+X3wTosWn2Zgd/5L8rfWrpff7qdOnl7Wg1n2zHk8lHGhiSujoyxoKw1nf43kZAzJoe0Z0ymr2Kkku7lQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Dashboard</title>
+
+    <style>
+        body {
+            /* overflow-x: hidden; */
+        }
+        .bg-black{
+            background-color: #222;
+        }
+        .navbar-wrapper {
+            position: relative;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+        }
+        .sidebar {
+            height: 100vh;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 67px;
+        }
+
+        .sidebar a:hover, .sidebar a.active {
+            background-color: #495057;
+        }
+        .content {
+            margin-top: 60px;
+            margin-left: 200px;
+            padding: 20px;
+        }
+        .card-body > p {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar-wrapper">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-black">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="javascript:void(0)"><h3>Logo</h3></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
+                    <form class="d-flex">
+                        <a class="navbar-brand ps-4" href="#">
+                            <img src="user.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill"> 
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="sidebar bg-black">
+        <a href="#" class="px-4 py-2 fs-5 d-block text-decoration-none text-light active">Home</a>
+        <a href="#" class="px-4 py-2 fs-5 d-block text-decoration-none text-light">공지사항</a>
+        <a href="#" class="px-4 py-2 fs-5 d-block text-decoration-none text-light">관리자</a>
+        <a href="#" class="px-4 py-2 fs-5 d-block text-decoration-none text-light">통계</a>
+        <a href="#" class="px-4 py-2 fs-5 d-block text-decoration-none text-light">관리</a>
+    </div>
+
+    <div class="content">
+        <h1 class="text-dark fw-bold">home</h1>
+
+
+
+
+            
+    </div>
+</body>
+</html>

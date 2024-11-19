@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.rtl.min.css" integrity="sha512-rXhL8a+X3wTosWn2Zgd/5L8rfWrpff7qdOnl7Wg1n2zHk8lHGhiSujoyxoKw1nf43kZAzJoe0Z0ymr2Kkku7lQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Dashboard</title>
+
+    <style>
+        body {
+            /* overflow-x: hidden; */
+        }
+        .bg-black{
+            background-color: #222;
+        }
+        .navbar-wrapper {
+            position: relative;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+        }
+        .sidebar {
+            height: 100vh;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 67px;
+        }
+
+        .sidebar a:hover, .sidebar a.active {
+            background-color: #495057;
+        }
+        .content {
+            margin-top: 60px;
+            margin-left: 200px;
+            padding: 20px;
+        }
+        .card-body > p {
+            text-align: right;
+        }
+        thead th:nth-child(2), tbody td:nth-child(2){
+            text-align: left;
+        }
+
+        .page-link {
+            color: #999; 
+            background-color: #222;
+            border-color: #495057;
+        }
+        .page-item.active .page-link {
+            z-index: 1;
+            color: #ccc;
+            font-weight:bold;
+            background-color: #4e4e4e;
+            border-color: #495057;
+        
+        }
+        .page-link:focus, .page-link:hover {
+            color: #ccc;
+            background-color: #222; 
+            border-color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar-wrapper">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-black">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="javascript:void(0)"><h3>Logo</h3></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
+                    <form class="d-flex">
+                        <a class="navbar-brand ps-4" href="#">
+                            <img src="user.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill"> 
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="sidebar bg-black">
+        <a href="#" class="px-4 py-2 fs-5 d-block text-decoration-none text-light">Home</a>
+        <a href="#" class="px-4 py-2 fs-5 d-block text-decoration-none text-light active">공지사항</a>
+        <a href="#" class="px-4 py-2 fs-5 d-block text-decoration-none text-light">관리자</a>
+        <a href="#" class="px-4 py-2 fs-5 d-block text-decoration-none text-light">통계</a>
+        <a href="#" class="px-4 py-2 fs-5 d-block text-decoration-none text-light">관리</a>
+    </div>
+
+    <div class="content">
+        <h1 class="text-dark fw-bold">공지사항</h1>
+        <div class="p-5 pb-5 fw-bold">
+            <table class="table table-dark table-striped table-hover text-center">
+                <thead class="fs-3">
+                    <tr>
+                        <th scope="col" style="width: 5%;">No</th>
+                        <th scope="col" >제목</th>
+                        <th scope="col" style="width: 10%;">작성자</th>
+                        <th scope="col" style="width: 15%;">작성일</th>
+                        <th scope="col" style="width: 15%;">공개여부</th>
+                    </tr>
+                </thead>
+                <tbody class="fs-5">
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>2024년 the-k 공지사항</td>
+                        <td>상원</td>
+                        <td>2024/11/19</td>
+                        <td>
+                            <div class="form-check form-switch d-flex justify-content-center">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>2024년 the-k 공지사항</td>
+                        <td>승환</td>
+                        <td>2024/11/19</td>
+                        <td>
+                            <div class="form-check form-switch d-flex justify-content-center">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>2024년 the-k 공지사항</td>
+                        <td>한민</td>
+                        <td>2024/11/19</td>
+                        <td>
+                          <div class="form-check form-switch d-flex justify-content-center">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="">
+                          </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>2024년 the-k 공지사항</td>
+                        <td>유진</td>
+                        <td>2024/11/19</td>
+                        <td>
+                            <div class="form-check form-switch d-flex justify-content-center">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="">
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-center">
+                <div>
+                    <ul class="pagination ">
+                      <li class="page-item disabled">
+                        <a class="page-link" href="#">&laquo;</a>
+                      </li>
+                      <li class="page-item active">
+                        <a class="page-link" href="#">1</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">4</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">5</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">&raquo;</a>
+                      </li>
+                    </ul>
+                  </div>
+            </div>
+        </div>
+
+
+
+            
+    </div>
+</body>
+</html>
