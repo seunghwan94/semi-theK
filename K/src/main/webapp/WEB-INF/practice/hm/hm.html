@@ -1,10 +1,104 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>the-kprac</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel="icon" href="imgs/favicon.ico">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.17/jquery.bxslider.min.js" integrity="sha512-LaBO0tZh1+6Ebk+EnHt/WsGM0UnmkCXfQ1rfhGmpa5MXUdslNuSSELBRcteHKz4k4ny+Op10Ax2fPoTNq+VcUg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+    <style>
+
+    </style>
+<body class="p-2 bg-dark">
+    <header class="container-fluid bg-light border-bottom-light">
+        <div>
+            <nav class="navbar navbar-expand-sm fixed-top justify-content-start" style="background-color: #000;">
+                <div class="container-fluid">
+                    <a href="#" class="navbar-brand">
+                        <video src="C:\Users\USER\Desktop\SemiProject\K\src\main\webapp\WEB-INF\practice\sangwon\K_1.mp4" alt="mp4" width="125" muted autoplay playsinline loop></video>
+                    </a>
+                    <ul class="navbar-nav me-auto list-group">
+                        <li class="nav-item mx-5"><a class="nav-link float-start text-light" href="#"><i class="fa-solid fa-house-flag"></i>&nbsp;&nbsp;공지사항 </a></li>
+                        <li class="nav-item mx-5"><a class="nav-link float-start text-light" href="#"><i class="fa-solid fa-image"></i>&nbsp;&nbsp;Kallery </a></li>
+                        <li class="nav-item mx-5"><a class="nav-link float-start text-light" href="#"><i class="fa-solid fa-rectangle-ad"></i>&nbsp;&nbsp;프로모션 </a></li>
+                        <li class="nav-item dropdown mx-5">
+                            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-signs-post"></i>&nbsp;&nbsp;K - 시판</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"> 자유게시판</a></li>
+                                <li><a class="dropdown-item" href="#"> 정보게시판</a></li>
+                                <li><a class="dropdown-item" href="#"> 모임게시판</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-outline-dark text-white" type="button">
+                            <i class="fa-solid fa-magnifying-glass fw-big"></i>&nbsp;&nbsp;Search
+                        </button>
+                    </form>
+                    <div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <hr>
+    <main class="container my-5 mx-auto">
+        <h3>Slideshow 2</h3>
+        <div class="container w-75" style="height: 300px;">
+            <ul id="slider2">
+                <li><img src="https://cdn.discordapp.com/attachments/1112901898685657103/1308755709911109662/semiPhoto_7.jpg?ex=673f193c&is=673dc7bc&hm=50b6f3c2d8d761f48d176018867a18703a664d9d27a08a7936de4e3119b0cbff&" /></li>
+                <li><img src="https://cdn.discordapp.com/attachments/1112901898685657103/1308755733227245610/semiPhoto_6.jpg?ex=673f1942&is=673dc7c2&hm=d3f4701d3fd6ce44b62daa3a2efbe4e2999e1fe3f0b662d41db145472891c8a8&" /></li>
+                <li><img src="https://cdn.discordapp.com/attachments/1112901898685657103/1308755709911109662/semiPhoto_7.jpg?ex=673f193c&is=673dc7bc&hm=50b6f3c2d8d761f48d176018867a18703a664d9d27a08a7936de4e3119b0cbff&" /></li>
+            </ul>
+        </div>
+        <div>
+            <div class="border">
+                <a>자유게시판</a>
+                <ul>
+
+                </ul>
+            </div>
+            <div class="border">
+                <a>정보게시판</a>
+                <ul>
+
+                </ul>
+            </div>
+            <div class="border">
+                <a>모임게시판</a>
+                <ul>
+
+                </ul>
+            </div>
+            <div class="border">
+                <a>지역게시판</a>
+                <ul>
+
+                </ul>
+            </div>
+        </div>
+    </main>
+    <footer class="container-fluid fixed-bottom bg-secondary text-center text-light">
+        <!-- <div class="clearfix ">
+            <img src="C:\Users\USER\Desktop\SemiProject\K\src\main\webapp\WEB-INF\practice\sangwon\1.png" width="125">
+        </div> -->
+        <address class="small"><i>푸터푸터푸터</i></address>
+        <d class="small"><i>copyrights All rights resereved &copy;</i></d>
+    </footer>
 </body>
-</html>
+<script>
+    $('#slider2').bxSlider({
+        auto: true,
+        autoControls: true,
+        pause: 3500,
+        slideMargin: 5
+    });
+</script>
