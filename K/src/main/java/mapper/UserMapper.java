@@ -1,5 +1,7 @@
 package mapper;
 
-public class UserMapper {
+import vo.User;
 
+public interface UserMapper {
+	User select();
 }

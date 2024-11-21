@@ -12,9 +12,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-	private String id;
-	private String pw;
-	private String nickname;
-	private Date createdate;
-	
+//	private String id;
+//	private String pw;
+//	private String nickname;
+//	private Date createdate;
+	private int no;
+	private String name;
 }
