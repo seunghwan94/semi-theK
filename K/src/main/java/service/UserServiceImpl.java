@@ -26,15 +26,11 @@ public class UserServiceImpl implements UserService {
 	
 		}
 	}
-	public static void main(String[] args) {
-		User t =  new UserServiceImpl().findBy("eee");
-		System.out.println(t);
-
-	}
+	
 	@Override
 	public boolean login(String id, String pw) {
-		// TODO Auto-generated method stub
-		return false;
+		User u =findBy(id);
+		return u != null && u.getPw().equals(pw);
 	}
 
 	@Override
