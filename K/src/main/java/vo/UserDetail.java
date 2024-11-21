@@ -24,6 +24,5 @@ public class UserDetail {
 	private Date createdate;
 	private Date updatedate;
 	
-	
 
 }
