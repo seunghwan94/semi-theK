@@ -1,196 +1,151 @@
 <!DOCTYPE html>
 <html lang="ko" data-bs-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- font start -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
+  <!-- font end -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>Document</title>
+  <style>
 
-    <title>Dashboard</title>
+    @media (max-width: 576px) {
+        .side-navbar {  
+            flex-direction: column;  
+            position: relative;
+        } 
+        .navbar {
+            text-align: center;
+        }
+        .navbar-nav {
+            width: 100%;
+        }
+        .main-contain {
+            margin-top: 0;
+        }
+        .main {
+            margin-top : 1 !important;
+        }
+        .main > div > div {
+            flex-direction: column;  
+        }
+
+    }
+    .gothic-a1-regular {
+        font-family: "Gothic A1", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    .navbar-nav > li > a:hover, .navbar-nav > li > .active {
+        background-color: #aaa;
+        color: #222;
+        border-radius: 15px;
+        width: 100%;
+    }
+  </style>
 
 </head>
-<body>
-    <div class="navbar-wrapper">
-        <nav class="navbar navbar-expand-lg">
+<body class="gothic-a1-regular">
+    
+    <div class="side-navbar fixed-top d-flex min-vh-100 w-100" >
+        <!-- navbar start -->
+        <nav class="navbar border-end border-bottom col-auto col-sm-3 col-md-2 col-xl-1 px-sm-2 px-0 align-items-center align-items-sm-start" style="min-width: 180px;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><h3>Logo</h3></a>
-            </div>
-            <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
-                <form class="d-flex">
-                    <a class="navbar-brand ps-4" href="#">
-                        <img src="user.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill"> 
+                <div class="container-fluid ps-4 pt-3 m-2">
+                    <a class="navbar-brand" href="#">
+                      <img src="light_logo.png" alt="1" style="width: 40px;">
                     </a>
-                </form>
+                </div>
+                <ul class="navbar-nav py-4 w-100">
+                    <li class="nav-item py-1">
+                        <a class="nav-link p-2 active" href="home.html"><i class="fa-solid fa-house"></i> home</a>
+                    </li>
+                    <li class="nav-item py-1">
+                        <a class="nav-link ps-2" href="announcements.html"><i class="fa-solid fa-bullhorn"></i> 공지사항</a>
+                    </li>
+                    <li class="nav-item py-1">
+                        <a class="nav-link ps-2" href="statistics.html"><i class="fa-solid fa-chart-simple"></i> 통계</a>
+                    </li>
+                    <li class="nav-item py-1">
+                        <a class="nav-link ps-2" href="management.html"><i class="fa-regular fa-comment-dots"></i> 관리</a>
+                    </li>
+                    <li class="nav-item py-1">
+                        <a class="nav-link ps-2" href="setting.html"><i class="fa-solid fa-gear"></i> 설정</a>
+                    </li>
+                </ul>
             </div>
         </nav>
-    </div>
-
-
-
-    <!-- <div class="container-fluid">
-        <div class="row flex-nowrap">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
-                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                    <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <span class="fs-5 d-none d-sm-inline">Menu</span>
-                    </a>
-                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link align-middle px-0">
-                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
-                            <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
-                        </li>
-                        <li>
-                            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                                <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Bootstrap</span></a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
-                                <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
-                        </li>
-                    </ul>
-                    <hr>
-                    <div class="dropdown pb-4">
-                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
-                            <span class="d-none d-sm-inline mx-1">loser</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                            <li><a class="dropdown-item" href="#">New project...</a></li>
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Sign out</a></li>
-                        </ul>
+        <!-- navbar end -->
+         <!-- navbar end -->
+        <div class="main-contain w-100">
+            <div class="main m-5">
+                <h1>home</h1>
+                <div class="w-100">
+                    <div class="d-flex">
+                        <div class="col-auto col-sm-4 p-3">
+                            <div class="card text-white bg-dark mb-3">
+                                <div class="card-header">총 회원</div>
+                                <div class="card-body">
+                                    <h3 class="card-title">24,212 명</h3>
+                                    <p class="card-text">지금까지 가입한 회원 수</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto col-sm-4 p-3">
+                            <div class="card text-white bg-dark mb-3">
+                                <div class="card-header">프로모션 기부 금액</div>
+                                <div class="card-body">
+                                    <h3 class="card-title"><i class="fa-solid fa-won-sign"></i> 24,212</h3>
+                                    <p class="card-text">지금까지 기부 받은 총 금액</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto col-sm-4 p-3">
+                            <div class="card text-white bg-dark mb-3">
+                                <div class="card-header">추가적인 숫자통계</div>
+                                <div class="card-body">
+                                    <h3 class="card-title"><i class="fa-solid fa-won-sign"></i> 24,212</h3>
+                                    <p class="card-text">지금까지 가입한 회원 수</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col py-3">
-                Content area...
-            </div>
-        </div>
-    </div> -->
-
-    <div class="content">
-        <h1 class="text-dark fw-bold">Home</h1>
-        <div class="d-flex justify-content-between p-4 pb-0 fw-bold">
-            <div class="col-4 p-3">
-                <div class="card text-white bg-dark mb-3">
-                    <div class="card-header">총 회원</div>
-                    <div class="card-body">
-                      <h3 class="card-title">24212 명</h3>
-                      <p class="card-text">지금까지 가입한 회원 수</p>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-4 p-3">
-                <div class="card text-white bg-dark mb-3">
-                    <div class="card-header">프로모션 기부 금액</div>
-                    <div class="card-body">
-                      <h3 class="card-title"><i class="fa-solid fa-won-sign"></i> 24212</h3>
-                      <p class="card-text">지금까지 기부 받은 총 금액</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4 p-3">
-                <div class="card text-white bg-dark mb-3">
-                    <div class="card-header">추가적인 숫자통계</div>
-                    <div class="card-body">
-                      <h3 class="card-title"><i class="fa-solid fa-won-sign"></i> 24212</h3>
-                      <p class="card-text">지금까지 가입한 회원 수</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="main">
-            <div class="d-flex justify-content-between p-4 pt-0 fw-bold">
-                <div class="col-8 p-3">
-                    <div class="card border-dark mb-3 h-100">
-                        <div class="card-header">하루 평균 방문자수</div>
-                        <div class="card-body">
-                            <canvas id="myChart1"></canvas>
+                    <div class="d-flex justify-content-between pt-0 fw-bold ">
+                        <div class="col-auto col-xl-8 p-3">
+                            <div class="card col-12 col-xl-11  border-dark mb-3 h-100">
+                                <div class="card-header">하루 평균 방문자수</div>
+                                <div class="card-body bg-light">
+                                    <canvas id="myChart1"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto col-xl-4 p-3">
+                            <div class="card col-12 col-xl-11 border-dark mb-3 h-100">
+                                <div class="card-header">가입 지역</div>
+                                <div class="card-body bg-light">
+                                    <canvas id="myChart2"></canvas>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-4 p-3">
-                    <div class="card border-dark mb-3 h-100">
-                        <div class="card-header">가입 지역</div>
-                        <div class="card-body">
-                            <canvas id="myChart4"></canvas>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="d-flex m-5 justify-content-evenly">
-                <div class="col-5 p-3 m-2">
-                    <canvas id="myChart3"></canvas>
-                </div>
-                <div class="col-5 p-3 m-2">
-                    <canvas id="myChart2"></canvas>
-                </div>
             </div>
         </div>
-
-
-
-            
     </div>
+
 
 
     <script>
         const ctx1 = document.getElementById('myChart1');
         const ctx2 = document.getElementById('myChart2');
-        const ctx3 = document.getElementById('myChart3');
-        const ctx4 = document.getElementById('myChart4');
 
         new Chart(ctx1, {
           type: 'bar',
@@ -219,71 +174,7 @@
           }
         });
 
-
         new Chart(ctx2, {
-            type: 'line',
-            data: {
-                labels: ['자유게시판', '후기 및 정보', '모임 홍보', '지역별', '외국인들취미', '공유일기장'],
-                datasets: [{
-                label: '# 카테고리별 게시글 통계',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        stacked: true
-                    }
-                }
-            }
-        });
-
-        new Chart(ctx3, {
-            type: 'radar',
-            data: {
-                labels: [
-                    'Eating',
-                    'Drinking',
-                    'Sleeping',
-                    'Designing',
-                    'Coding',
-                    'Cycling',
-                    'Running'
-                ],
-                datasets: [{
-                    label: 'My First Dataset',
-                    data: [65, 59, 90, 81, 56, 55, 40],
-                    fill: true,
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgb(255, 99, 132)',
-                    pointBackgroundColor: 'rgb(255, 99, 132)',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: 'rgb(255, 99, 132)'
-                }, {
-                    label: 'My Second Dataset',
-                    data: [28, 48, 40, 19, 96, 27, 100],
-                    fill: true,
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    borderColor: 'rgb(54, 162, 235)',
-                    pointBackgroundColor: 'rgb(54, 162, 235)',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: 'rgb(54, 162, 235)'
-                }]
-            },
-            options: {
-                elements: {
-                line: {
-                    borderWidth: 3
-                }
-                }
-            },
-        });
-
-
-        new Chart(ctx4, {
             type: 'polarArea',
             data: {
                 labels: [
@@ -316,5 +207,8 @@
             },
         });
       </script>
+
+
+
 </body>
 </html>
