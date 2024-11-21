@@ -47,6 +47,9 @@
 > * 24.11.14 => *기능 계획 정의서 프로토타입 작성 완료 + 비주얼 목업 및 화면계획서 작성 시작*
 > * 24.11.15 => *기능 계획 정의서 수정 및 구현부 분담 + 주말계획 토의(ERD, HTML 구조부 구상 준비)*
 > * 24.11.18 => *기능 계획 정의서 프로토타입 컨펌 + 역할 분담표 및 개발 진척도 기록 표 기획 시작 +비주얼 목업 게시판 상세보기, 관리자 페이지, 갤러리 외 작업 완료 + ERD 기획 시작*
+> * 24.11.19 => *html 구조 구현(intro, index, manager, header, footer) WIP*
+> * 24.11.20 => *html 구조 구현(intro, index, manager, header, footer) + 1 WIP*
+> * 24.11.21 => *html 구조 구현(intro, index, manager, header, footer) + 2 WIP // INCLUDE JSP 파일 작성(head, header)*
 
 
 
