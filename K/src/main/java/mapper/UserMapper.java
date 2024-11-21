@@ -3,5 +3,7 @@ package mapper;
 import vo.User;
 
 public interface UserMapper {
-	User select();
+	String insert(User user);
+	User selectOne(User user);
+	
 }

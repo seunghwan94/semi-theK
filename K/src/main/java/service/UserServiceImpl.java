@@ -11,16 +11,18 @@ import vo.User;
 public class UserServiceImpl implements UserService {
 
 	@Override
-	public int register(User user) {
-		// TODO Auto-generated method stub
-		return 0;
+	public String register(User user) {
+		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			UserMapper mapper = session.getMapper(UserMapper.class);
+				return mapper.insert(user);
+		}
 	}
 
 	@Override
 	public User findBy(String id) {
-		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession()){
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			UserMapper mapper=session.getMapper(UserMapper.class);
-				return mapper.select();
+				return mapper.selectOne(id);
 	
 		}
 	}
