@@ -30,3 +30,6 @@ local.properties
 /src/main/resources/rebel.xml
 
 Servers/
+
+/.apt_generated/
+/.apt_generated_tests/
