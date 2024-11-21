@@ -12,7 +12,7 @@ public class TestServiceImpl implements TestService{
 	public User findBy(String id) {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession()){
 			UserMapper mapper=session.getMapper(UserMapper.class);
-			return mapper.select();
+			return mapper.selectOne(id);
 		}
 	}
 	

@@ -36,10 +36,41 @@ public class UserDto {
 		}catch (SQLException | ClassNotFoundException e) {
 			// TODO: handle exception
 			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+			}catch (SQLException ignore) {}
+		
+		}
+		return 0;
+	}
+	private static final UserDto dto = new UserDto(); 
+	
+	public static UserDto getInstance() { //싱글턴 메서드 
+		return dto;
+	}
+	private UserDto() {} //기본 생성자
+
+	public User selectOne(String id) throws ClassNotFoundException, SQLException {
+		User user = null;
+		String sql = "select * from tbl_user where id =?";
+		try(Connection conn = DBConn.getConnection(); PreparedStatement pstmt=conn.prepareStatement(sql)){
+			pstmt.setString(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) { //다음 행이 있는지 없는지
+				user = User.builder()
+						.id(rs.getString("id"))
+						.pw(rs.getString("pw"))
+						.nickname(rs.getString("nickname"))
+						.build();
+			}
+		}catch (ClassNotFoundException | SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
 		}
 		
-		return 0;
-		
+		return user;
 	}
-
+	
 }
