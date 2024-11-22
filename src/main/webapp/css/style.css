@@ -1,2 +1,16 @@
 @charset "utf-8";
 
+.gothic-a1-regular {
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+ul {
+    list-style: none;
+}
+.navbar-nav>li>a:hover {
+    background-color: #656565;
+    color: #fff;
+    border-radius: 15px;
+    width: 100%;
+}
