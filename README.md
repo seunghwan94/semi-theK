@@ -50,6 +50,4 @@
 > * 24.11.19 => *html 구조 구현(intro, index, manager, header, footer) WIP*
 > * 24.11.20 => *html 구조 구현(intro, index, manager, header, footer) + 1 WIP*
 > * 24.11.21 => *html 구조 구현(intro, index, manager, header, footer) + 2 WIP // INCLUDE JSP 파일 작성(head, header)*
-
-
-
+> * 24.11.21 => *html 구조 구현(intro, manager, header, footer, post) + 3 WIP // index 틀 완성*
