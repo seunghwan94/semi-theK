@@ -3,17 +3,7 @@
 <html>
 <head>
 	<jsp:include page="../common/head.jsp"	/>
-	<style type="text/css">
-		.bxslider1>*,
-		.bxslider2>* {
-		     padding: 20px 0;
-		 }
-		 #slide-container>* {
-		     margin: 20px;
-		     padding: 10px;
-		     border: 10px solid;
-		 }
-  	</style>
+
 </head>
 <body>
 	<jsp:include page="../common/header.jsp"/>

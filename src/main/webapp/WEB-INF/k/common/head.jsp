@@ -12,20 +12,5 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
 <!-- font end -->
+
 <title>test</title>
-<style>
-.gothic-a1-regular {
-    font-family: "Gothic A1", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-ul {
-    list-style: none;
-}
-.navbar-nav>li>a:hover {
-    background-color: #656565;
-    color: #fff;
-    border-radius: 15px;
-    width: 100%;
-}
-</style>

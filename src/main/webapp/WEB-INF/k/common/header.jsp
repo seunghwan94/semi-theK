@@ -3,7 +3,7 @@
 <div>
 <nav class="navbar navbar-expand-sm fixed-top justify-content-start" style="background-color: #000;">
 <div class="container-fluid">
-<a href="#" class="navbar-brand"> <video src="https://cdn.discordapp.com/attachments/1112901898685657103/1308755650007793724/K_1.mp4?ex=673fc1ee&is=673e706e&hm=007d483fadcaef3208ca646ba16873a068ae61ce35c5b3cf45848fbe63239c85&" alt="mp4" width="125" muted autoplay playsinline loop></video>
+<a href="#" class="navbar-brand"> <video src="../K/src/main/webapp/WEB-INF/k/files/common/k_intro.mp4" alt="mp4" width="125" muted autoplay playsinline loop></video>
 </a>
 <ul class="navbar-nav me-auto list-group">
 <li class="nav-item mx-5"><a class="nav-link float-start text-light" href="#"><i class="fa-solid fa-house-flag"></i>&nbsp;&nbsp; <b>공지사항</b> </a></li>
