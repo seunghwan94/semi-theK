@@ -18,7 +18,7 @@ public class Signup extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/WEB-INF/pracice/sangwon/intro").forward(req, resp);// 이거 내일 수정해야 됨
+		req.getRequestDispatcher("/WEB-INF/k/user/intro.jsp").forward(req, resp);// 이거 내일 수정해야 됨
 	}
 	
 	@Override

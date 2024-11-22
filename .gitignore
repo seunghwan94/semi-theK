@@ -33,3 +33,4 @@ Servers/
 
 /.apt_generated/
 /.apt_generated_tests/
+/src/main/java/practice/*
