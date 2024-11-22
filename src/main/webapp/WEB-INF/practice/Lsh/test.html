@@ -18,10 +18,12 @@
   <style>
 
     @media (max-width: 576px) {
-        .main > div > div {
+        .align-items-start {
             flex-direction: column;  
         }
-
+        .v-pills-home-child {
+            flex-direction: column;
+        }
     }
     .gothic-a1-regular {
         font-family: "Gothic A1", sans-serif;
@@ -59,8 +61,40 @@
         </div>
 
 
-        <div class="tab-content" id="v-pills-tabContent">
-            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">test</div>
+        <div class="tab-content  w-100" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                <h3>Home</h3>
+                <div class="v-pills-home-child d-flex">
+                    <div class="col-auto col-sm-4 p-3">
+                        <div class="card text-white bg-dark mb-3">
+                            <div class="card-header">총 회원</div>
+                            <div class="card-body">
+                                <h3 class="card-title">24,212 명</h3>
+                                <p class="card-text">지금까지 가입한 회원 수</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto col-sm-4 p-3">
+                        <div class="card text-white bg-dark mb-3">
+                            <div class="card-header">프로모션 기부 금액</div>
+                            <div class="card-body">
+                                <h3 class="card-title"><i class="fa-solid fa-won-sign"></i> 24,212</h3>
+                                <p class="card-text">지금까지 기부 받은 총 금액</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto col-sm-4 p-3">
+                        <div class="card text-white bg-dark mb-3">
+                            <div class="card-header">추가적인 숫자통계</div>
+                            <div class="card-body">
+                                <h3 class="card-title"><i class="fa-solid fa-won-sign"></i> 24,212</h3>
+                                <p class="card-text">지금까지 가입한 회원 수</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
             <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">aaa</div>
             <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">ddd</div>
             <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
