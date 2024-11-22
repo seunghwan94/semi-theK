@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.PostMapper">
+<resultMap type="vo.Post" id="post">
+	<id column="pno" property="pno"/>
+	<result column="title" property="title"/>
+	<result column="user_id" property="userId"/>
+	<result column="content" property="content"/>
+	<result column="view_cnt" property="viewCnt"/>
+	<result column="create_date" property="createDate"/>
+	<result column="update_date" property="updateDate"/>
+	<result column="cno" property="cno"/>
+	<!-- <result column="attach_flag"/> -->
+</resultMap>
+	<select id="selectOne" resultMap="post">
+		select tp.*, 1 from tbl_post tp where pno = #{pno} 
+	</select>
+	
+	<update id="increaseViewCount">
+		update tbl_post set view_cnt = view_cnt + 1 where pno = #{pno}
+	</update>
+	
+	<update id="delete">
+		delete from tbl_post where pno = #{pno}
+	</update>
+	
+	<insert id="insert" >
+		insert into tbl_post(title, user_id, content, cno) 
+		values(#{title}, #{user_id}, #{content}, #{cno})
+		<selectKey order ="AFTER" keyProperty="pno" resultType="long">
+			select max(pno) from tbl_post
+		</selectKey>  
+	</insert>
+
+
+</mapper>
+  

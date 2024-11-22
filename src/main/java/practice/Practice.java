@@ -8,12 +8,12 @@
 //import javax.servlet.http.HttpServletRequest;
 //import javax.servlet.http.HttpServletResponse;
 //
-//@WebServlet("/index")
+//@WebServlet("/intro")
 //public class Practice extends HttpServlet {
 //
 //	@Override
 //	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		req.getRequestDispatcher("/WEB-INF/k/common/template.jsp").forward(req, resp);
+//		req.getRequestDispatcher("/WEB-INF/k/user/intro.jsp").forward(req, resp);
 //	}
 //
 //}

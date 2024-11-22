@@ -7,7 +7,7 @@
 	<link rel='stylesheet'href='css/indexbxslider.css'>
 	<link rel='stylesheet'href='css/style.css'>
 </head>
-<body class="bg-secondary">
+<body class="bg-dark">
 	<jsp:include page="../common/header.jsp"/>
 	<hr>
     <main class="container my-5 mx-auto p-3 justify-content-center">
@@ -148,7 +148,7 @@
        			</div>
 			</div>
 	</main>
-<footer class="container-fluid fixed-bottom bg-dark text-center text-light">
+<footer class="container-fluid fixed-bottom bg-secondary text-center text-light">
     <address class="small"><i>푸터푸터푸터</i> ${cp} </address>
     <d class="small"><i>copyrights All rights resereved &copy;</i></d>
 </footer>
