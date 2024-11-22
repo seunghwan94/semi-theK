@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko" data-bs-theme="dark">
 <head>
@@ -31,56 +31,73 @@
 	rel="stylesheet">
 <!-- font end -->
 <title>intro</title>
-<style>
-video {
-	width: 100%;
-	height: 100vh;
-	object-fit: fill;
-}
 
-.gothic-a1-regular {
-	font-family: "Gothic A1", sans-serif;
-	font-weight: 400;
-	font-style: normal;
-}
+<!-- <style>
+      body  {
+        overflow: hidden;
+      }
+      video{
+        width: 100%;
+        height: 100vh;
+        object-fit: fill; 
+      }
+      .gothic-a1-regular {
+        font-family: "Gothic A1", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
 
-.class-box {
-	position: absolute;
-	right: 15%;
-	top: 30%;
-	z-index: 0;
-	width: 20%;
-}
-</style>
+
+
+
+
+
+      
+      .class-box{
+        position: absolute;
+        right: 15%;
+        top: 30%;
+        z-index: 0;
+        width: 20%;
+      }
+       .login-box{
+        margin-bottom: 20%;
+        text-align: center;    
+      } 
+      div > img{
+            margin-left:35% ;
+            width: 30%;
+            height: 40%;
+        }
+
+      button >.id_pw{
+        margin-left: auto;
+
+      }
+      .signpu{
+        margin-right: auto;
+
+      }
+       -->
+
+<!-- </style> -->
 </head>
-<body class="gothic-a1-regular">
-	<div>
-		<video src="${cp}files/common/k_intro.mp4" muted autoplay playsinline></video>
-		<div class="class-box text-center">
-			<p class="fs-1" style="color: #fff;">한국 여행 어디든</p>
-			<div>
-				<button type="button" id="signin"
-					class="login-box btn btn-light w-100 m-0" data-bs-toggle="modal"
-					data-bs-target="#signinModal">로그인</button>
-				<div class="d-flex justify-content-between">
-					<button type="button" id="id_pw" class="btn text-secondary p-0"
-						data-bs-toggle="modal" data-bs-target="#id_pwModal">아이디/비밀번호
-						찾기</button>
-					<button type="button" id="signup" class="btn text-secondary p-0"
-						data-bs-toggle="modal" data-bs-target="#signupModal">회원가입</button>
-
-					<body class="gothic-a1-regular">
-						<div class="modal fade" id="signupModal" tabindex="-1"
-							aria-labelledby="exampleModalLabel" aria-hidden="false">
-							<div class="modal-dialog modal-dialog-centered">
-								<div class="modal-content">
-								</div>
-							</div>
-						</div>
-				</div>
-			</div>
+	
+		<div class="modal-body">
+			<input type="email" class="form-control my-3" id="email"
+				placeholder="이메일" name="email"> <input type="password"
+				class="form-control my-3" id="email" placeholder="비밀번호" name="pwd">
 		</div>
-	</div>
-</body>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-dark">확인</button>
+			<button type="button" class="btn btn-dark" data-bs-dismiss="modal">취소</button>
+		
+		</div>
+	
 
+
+
+
+</body>
+  
 </html>
