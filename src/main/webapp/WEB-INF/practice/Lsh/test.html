@@ -13,24 +13,64 @@
   <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
   <!-- font end -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+  <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+ 
   <title>Document</title>
   <style>
 
     @media (max-width: 576px) {
-        .align-items-start {
-            flex-direction: column;  
-        }
-        .v-pills-home-child {
+        /* 사이드 바 */
+        body > div:nth-child(1), #v-pills-home > div:nth-child(2) , #v-pills-home > div:nth-child(3){
             flex-direction: column;
         }
+        .nav {
+            align-items: center;   
+        }
+        .nav div:nth-child(1) {
+            width: 30%;
+        }
+        .nav div:nth-child(2) {
+            display: flex;
+            width: 100%;
+            justify-content: space-around
+        }
+        .nav div:nth-child(2) > button > span {
+            display: none;
+        }
+
     }
+    @media (max-width: 768px) {
+        /* 메뉴 관리 */
+        #nav-profile > div > div:nth-child(1){
+            flex-direction: column !important;
+        }
+        .icon-arrow-right > i:nth-child(1) {
+            display: none !important;
+        }
+        .icon-arrow-right > i:nth-child(2) {
+            display: block !important;
+        }
+        
+    }
+
+
     .gothic-a1-regular {
         font-family: "Gothic A1", sans-serif;
         font-weight: 400;
         font-style: normal;
     }
-
+    /* 마우스 커서 변경 (드레그 앤 드랍)*/
+    .grabbable {
+        cursor: move;
+        cursor: grab;
+        cursor: -moz-grab;
+        cursor: -webkit-grab;
+    }
+    .grabbable:active {
+        cursor: grabbing;
+        cursor: -moz-grabbing;
+        cursor: -webkit-grabbing;
+    }
   </style>
 
 </head>
@@ -42,29 +82,30 @@
                   <img src="light_logo.png" class="w-50 m-3" alt="1">
                 </a>
             </div>
-
-            <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
-                <i class="fa-solid fa-house"></i> home
-            </button>
-            <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">
-                <i class="fa-solid fa-bullhorn"></i> 공지사항
-            </button>
-            <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">
-                <i class="fa-solid fa-chart-simple"></i> 통계
-            </button>
-            <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
-                <i class="fa-regular fa-comment-dots"></i> 관리
-            </button>
-            <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
-                <i class="fa-solid fa-gear"></i> 설정
-            </button>
+            <div>
+                <button class="nav-link w-100 m-3 active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                    <i class="fa-solid fa-house pe-2"></i><span>home</span>
+                </button>
+                <button class="nav-link w-100 m-3 " id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                    <i class="fa-solid fa-bullhorn pe-2"></i><span>통계</span>
+                </button>
+                <button class="nav-link w-100 m-3 " id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                    <i class="fa-solid fa-chart-simple pe-2"></i><span>관리</span>
+                </button>
+                <button class="nav-link w-100 m-3 " id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                    <i class="fa-regular fa-comment-dots pe-2"></i><span>Q & A</span>
+                </button>
+                <button class="nav-link w-100 m-3 " id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                    <i class="fa-solid fa-gear pe-2"></i><span>설정</span>
+                </button>
+            </div>
         </div>
 
 
         <div class="tab-content  w-100" id="v-pills-tabContent">
-            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+            <div class="tab-pane fade p-5 show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                 <h3>Home</h3>
-                <div class="v-pills-home-child d-flex">
+                <div class="d-flex">
                     <div class="col-auto col-sm-4 p-3">
                         <div class="card text-white bg-dark mb-3">
                             <div class="card-header">총 회원</div>
@@ -93,11 +134,192 @@
                         </div>
                     </div>
                 </div>
+                <div class="d-flex justify-content-between pt-0 fw-bold ">
+                    <div class="col-auto col-xl-8 p-3">
+                        <div class="card col-12 col-xl-11  border-dark mb-3 h-100">
+                            <div class="card-header">하루 평균 방문자수</div>
+                            <div class="card-body bg-light">
+                                <canvas id="myChart1"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto col-xl-4 p-3">
+                        <div class="card col-12 col-xl-11 border-dark mb-3 h-100">
+                            <div class="card-header">가입 지역</div>
+                            <div class="card-body bg-light">
+                                <canvas id="myChart2"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
+
             </div>
-            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">aaa</div>
-            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">ddd</div>
-            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+            <div class="tab-pane fade p-5" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                <h3>통계</h3>
+                <div class="d-flex justify-content-between pt-0 fw-bold ">
+                    <div class="col-auto col-xl-8 p-3">
+                        <div class="card col-12 col-xl-11  border-dark mb-3 h-100">
+                            <div class="card-header">하루 평균 방문자수</div>
+                            <div class="card-body bg-light">
+                                <canvas id="myChart1"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto col-xl-4 p-3">
+                        <div class="card col-12 col-xl-11 border-dark mb-3 h-100">
+                            <div class="card-header">가입 지역</div>
+                            <div class="card-body bg-light">
+                                <canvas id="myChart2"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade p-5" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                <h3>관리</h3>
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                      <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">유저</button>
+                      <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">메뉴</button>
+                      <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Taboo</button>
+                      <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">프로모션</button>
+                      <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">공지사항</button>
+                    </div>
+                </nav>
+                <!-- 관리 -->
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade p-4 show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <h3>유저 관리</h3>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">NickName</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">grade</th>
+                                    <th scope="col">last_login</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>test@naver.com</td>
+                                    <td>상원</td>
+                                    <td>상조장</td>
+                                    <td>M</td>
+                                    <td>마스터</td>
+                                    <td>2024-11-22 11:10:10</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>test@gmail.com</td>
+                                    <td>이승환</td>
+                                    <td>짱</td>
+                                    <td>M</td>
+                                    <td>일반</td>
+                                    <td>2024-11-22 11:10:10</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>test@gmail.com</td>
+                                    <td>한민</td>
+                                    <td>캡</td>
+                                    <td>M</td>
+                                    <td>관리자</td>
+                                    <td>2024-11-22 11:10:10</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>test@gmail.com</td>
+                                    <td>유진</td>
+                                    <td>초울트라</td>
+                                    <td>G</td>
+                                    <td>관리자</td>
+                                    <td>2024-11-22 11:10:10</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="tab-pane fade p-4" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <h3>메뉴 관리</h3>
+                        <div class="card p-3">
+                            <div class="d-flex flex-row justify-content-center align-items-center">
+                                <!-- 비적용 -->
+                                <div class="card m-3 bg-light w-50">
+                                    <div class="card-header text-dark d-flex align-items-center justify-content-between">
+                                        비적용 
+                                        <button type="button" class="btn btn-outline-secondary btn-sm" id="btn-meun-input">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <ul id="sortable1" class="list-group list-group-flush connectedSortable mb-2 grabbable">
+                                        <li class="list-group-item ui-state-default">Item 1</li>
+                                        <li class="list-group-item ui-state-default">Item 2</li>
+                                        <li class="list-group-item ui-state-default">Item 3</li>
+                                        <li class="list-group-item ui-state-default">Item 4</li>
+                                        <li class="list-group-item ui-state-default">Item 5</li>
+                                    </ul>
+                                    <div class="card-footer p-0 d-none" id="menu-input">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="추가할 메뉴를 작성하세요." aria-label="btn-mune-add" aria-describedby="btn-mune-add">
+                                            <button class="btn btn-outline-secondary" type="button" id="btn-mune-add">추가</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 화살표 -->
+                                <div class="icon-arrow-right">
+                                    <i class="fa-solid fa-right-long"></i>
+                                    <i class="fa-solid fa-down-long d-none"></i>
+                                </div>
+                                <!-- 적용 -->
+                                <div class="card m-3 bg-light w-50">
+                                    <div class="card-header text-dark">적용</div>
+                                    <ul id="sortable2" class="list-group list-group-flush connectedSortable mb-2 grabbable">
+                                        <li class="list-group-item ui-state-highlight">Item 1</li>
+                                        <li class="list-group-item ui-state-highlight">Item 2</li>
+                                        <li class="list-group-item ui-state-highlight">Item 3</li>
+                                        <li class="list-group-item ui-state-highlight">Item 4</li>
+                                        <li class="list-group-item ui-state-highlight">Item 5</li>
+                                    </ul>
+                                    <div class="card-footer p-0 d-none"></div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <button class="btn btn-secondary" type="button" id="btn-mune-add">추가</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">Taboo</div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">프로모션</div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">공지사항</div>
+                </div>
+
+            </div>
+            <div class="tab-pane fade p-5" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                <h3>Q & A</h3>
+            </div>
+            <script>
+                $( function() {
+                    $( "#sortable1, #sortable2" ).sortable({
+                        connectWith: ".connectedSortable"
+                    }).disableSelection();
+                } );
+                $("#btn-meun-input").click(function(){
+                    $("#menu-input").removeClass("d-none");
+                });
+                $(document).on('change','.input-group',function(){                    
+                    $("#sortable1").append(`<li class="list-group-item ui-state-highlight">${$.trim($(".input-group > input").val())}</li>`);
+                    $(".input-group > input").val("");
+                    $("#menu-input").addClass("d-none");
+                }) 
+
+
+            </script>
         </div>
 
 
