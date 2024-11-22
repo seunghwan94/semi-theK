@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<jsp:include page="../common/head.jsp"	/>
+	<jsp:include page="../common/head.jsp"/>
 	<link rel='stylesheet'href='css/indexbxslider.css'>
 	<link rel='stylesheet'href='css/style.css'>
 </head>
-<body>
+<body class="bg-dark">
 	<jsp:include page="../common/header.jsp"/>
 	<hr>
     <div class="expand-sm bg-light" style="height: 30%;">
@@ -15,24 +15,11 @@
     <main class="container my-5 mx-auto p-2 justify-content-center">
         <div id="slide-container">
             <ul class="bxslider1">
-                <li>
-                    <img src="http://placehold.it/1220x300&text=Slide-One" />
-                </li>
-                <li>
-                    <img src="http://placehold.it/1220x300&text=Slide-Two" />
-                </li>
-                <li>
-                    <img src="http://placehold.it/1220x300&text=Slide-Three" />
-                </li>
-                <li>
-                    <img src="http://placehold.it/1220x300&text=Slide-Four" />
-                </li>
-                <li>
-                    <img src="http://placehold.it/1220x300&text=Slide-Five" />
-                </li>
-                <li>
-                    <img src="http://placehold.it/1220x300&text=Slide-Six" />
-                </li>
+            <c:forEach var="u" begin="1" end="5" >
+            	<li>
+  					<img src="https://placehold.co/1200x300?text=Slider+${u}"/>          	
+            	</li>
+            </c:forEach>
             </ul>
         </div>
      </main>
