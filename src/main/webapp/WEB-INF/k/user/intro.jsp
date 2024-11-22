@@ -74,7 +74,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <img src="--1.png">
+                    <img src="${cp}files/common/light_logo.png">
                     <h5 class="modal-title" id="exampleModalLabel"></h5>
                 
                 </div>

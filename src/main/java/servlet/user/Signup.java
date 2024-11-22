@@ -37,6 +37,7 @@ public class Signup extends HttpServlet{
 		System.out.println(user);
 		
 		service.register(user);
+		
 		resp.sendRedirect("singup");
 	}
 	
