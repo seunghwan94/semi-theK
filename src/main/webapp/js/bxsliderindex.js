@@ -4,7 +4,7 @@ var promoslider = $('.bxslider1').bxSlider({
     slideMargin: 15,
     controls: false,
     auto: true, //should be set to true
-    pause: 5000
+    pause: 3500
 });
 $(promoslider).bxSlider();
 

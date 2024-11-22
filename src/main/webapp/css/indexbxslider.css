@@ -1,10 +1,9 @@
 @charset "UTF-8";
 
 .bxslider1 > *, .bxslider2 > * {
-     padding: 20px 0;
+     padding: 0px;
 }
-#slide-container>* {
-     margin: 20px;
-     padding: 10px;
-     border: 10px solid;
+#slide-container>* {    
+     padding: 0px;
+     border: 3px;
 }

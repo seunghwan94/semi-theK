@@ -10,11 +10,12 @@
 <li class="nav-item mx-5"><a class="nav-link float-start text-light" href="#"><i class="fa-solid fa-image"></i>&nbsp;&nbsp; <b>Kallery</b> </a></li>
 <li class="nav-item mx-5"><a class="nav-link float-start text-light" href="#"><i class="fa-solid fa-rectangle-ad"></i>&nbsp;&nbsp; <b>프로모션</b> </a></li>
 <li class="nav-item dropdown mx-5"><a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-signs-post"></i>&nbsp;&nbsp;<b> K - 시판</b></a>
-<ul class="dropdown-menu">
-<li><a class="dropdown-item" href="#"> 자유게시판</a></li>
-<li><a class="dropdown-item" href="#"> 정보게시판</a></li>
-<li><a class="dropdown-item" href="#"> 모임게시판</a></li>
-</ul></li>
+	<ul class="dropdown-menu">
+		<li><a class="dropdown-item" href="#"> 자유게시판</a></li>
+		<li><a class="dropdown-item" href="#"> 정보게시판</a></li>
+		<li><a class="dropdown-item" href="#"> 모임게시판</a></li>
+	</ul>
+</li>
 </ul>
 <form class="d-flex">
 <button class="btn btn-outline-dark text-white" type="button" id="searchbtn">
