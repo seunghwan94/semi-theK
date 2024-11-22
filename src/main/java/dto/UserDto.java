@@ -17,6 +17,7 @@ public class UserDto {
 	public int insert(User user) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		
 	
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
@@ -58,9 +59,14 @@ public class UserDto {
 		try(Connection conn = DBConn.getConnection(); PreparedStatement pstmt=conn.prepareStatement(sql)){
 			pstmt.setString(1, id);
 			ResultSet rs = pstmt.executeQuery();
+			
+			
 			if(rs.next()) { //다음 행이 있는지 없는지
 				user = User.builder()
 						.id(rs.getString("id"))
+						.id(rs.getString("id"))
+						.att(rs.getString("att"))
+						.pw(rs.getString("pw"))
 						.pw(rs.getString("pw"))
 						.nickname(rs.getString("nickname"))
 						.build();

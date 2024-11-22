@@ -56,7 +56,7 @@
 </head>
   <body class="gothic-a1-regular">
       <div>  
-        <video src="k_1.mp4" muted autoplay playsinline></video>
+        <video src="${cp}files/common/k_intro.mp4" muted autoplay playsinline></video>
         <div class="class-box text-center">
           <p class="fs-1"style="color: #fff;">한국 여행 어디든</p>
             <div>
@@ -95,7 +95,7 @@
       <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
               <div class="modal-header">
-                  <img src="--1.png">
+                  <img src="${cp}files/common/light_logo.png">
                   <h5 class="modal-title" id="exampleModalLabel"></h5>
               </div>
                   <div class="modal-body">
@@ -123,7 +123,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <img src="--1.png">
+                    <img src="${cp}files/common/light_logo.png">
                     <h5 class="modal-title" id="signupModalLabel"></h5>
                  
                 </div>
