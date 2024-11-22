@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    font-family: "Gothic A1", Arial, sans-serif;
+  }
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 120%;
+    background-color: #d4d4d4;
+    text-align: left;
+    padding: 0px 20px 1px 0px;
+    font-size: 11px;
+    color: #333;
+    border-bottom: 3px solid #ccc;
+  }
+  footer .breadcrumb {
+    display: flex;
+    justify-content: flex-start;
+    align-items: end 0px;
+    gap: 10px;
+    margin: 0px 10px 0px;
+    padding: 5px 0px 0px;
+  }
+  footer .breadcrumb img {
+    width: 100px;
+    height: 100px;
+    margin: 0px 50px 0% 30px;
+    position: absolute;
+  }
+  footer .breadcrumb a {
+    color: hwb(208 0% 83%);
+    text-decoration: dotted;
+    
+  }
+  footer .breadcrumb a:hover {
+    color: hwb(208 0% 70%);
+  }
+  footer .icon {
+    display: flex;
+    margin-left: 510px;
+    
+
+  }
+  footer .ar-label{
+    margin: 0px 0px 0px 190px;
+    font-size: 16px;
+  }
+  #f1 {
+    margin: 0 200px 0;
+    padding: 0;
+  }
+
+
+  
