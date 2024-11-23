@@ -24,12 +24,16 @@
 						찾기</button>
 					<button type="button" id="signup" class="btn text-secondary p-0"
 						data-bs-toggle="modal" data-bs-target="#signupModal">회원가입</button>
+					
 
 					<!--로그인 버튼시 -->		
 						<div class="modal fade" id="signinModal" 
 							aria-labelledby="exampleModalLabel" aria-hidden="false">
 							<div class="modal-dialog modal-dialog-centered">
 								<div class="modal-content">
+								<div class="modal-header d-flex justify-content-center">
+				                    <img class="w-25" src="${cp}files/common/dark_logo.png">
+				                </div>
 								<jsp:include page="signin.jsp" />			
 								</div>
 							</div>
@@ -39,6 +43,9 @@
 							aria-labelledby="exampleModalLabel" aria-hidden="false">
 							<div class="modal-dialog modal-dialog-centered">
 								<div class="modal-content">
+								<div class="modal-header d-flex justify-content-center">
+				                    <img class="w-25" src="${cp}files/common/dark_logo.png">
+				                </div>
 								<jsp:include page="findpw.jsp" />									
 								</div>
 							</div>
@@ -49,6 +56,9 @@
 							aria-labelledby="exampleModalLabel" aria-hidden="false">
 							<div class="modal-dialog modal-dialog-centered">
 								<div class="modal-content">
+								<div class="modal-header d-flex justify-content-center">
+				                    <img class="w-25" src="${cp}files/common/dark_logo.png">
+				                </div>
 								<jsp:include page="signup.jsp" />			
 								</div>
 							</div>
