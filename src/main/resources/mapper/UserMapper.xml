@@ -7,7 +7,7 @@
     select * from tbl_user where id = #{id} 
   </select>
   <insert id="insert">
-  INSERT  INTO tbl_user (id,pw,nick_name)
-  values (#{id},#{pw},#{nick_name})
+  INSERT  INTO tbl_user (id,pw,att,nick_name)
+  values (#{id},#{pw},#{att},#{nickName})
   </insert>
 </mapper>
