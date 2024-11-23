@@ -85,8 +85,8 @@
                 <a class="nav-link w-100 m-3" href="home.html"><i class="fa-solid fa-house pe-2"></i><span>home</span></a>
                 <a class="nav-link w-100 m-3" href="statistics.html"><i class="fa-solid fa-bullhorn pe-2"></i><span>통계</span></a>
                 <a class="nav-link w-100 m-3 active" href="management.html"><i class="fa-solid fa-chart-simple pe-2"></i><span>관리</span></a>
-                <a class="nav-link w-100 m-3 " href="test3.html"><i class="fa-regular fa-comment-dots pe-2"></i><span>Q & A</span></a>
-                <a class="nav-link w-100 m-3 " href="setting.html"><i class="fa-solid fa-gear pe-2"></i><span>설정</span></a>
+                <a class="nav-link w-100 m-3" href="test3.html"><i class="fa-regular fa-comment-dots pe-2"></i><span>Q & A</span></a>
+                <a class="nav-link w-100 m-3" href="setting.html"><i class="fa-solid fa-gear pe-2"></i><span>설정</span></a>
             </div>
         </div>
 
@@ -96,79 +96,107 @@
                 <h3>관리</h3>
                 <!-- navtab -->
                 <ul class="nav nav-tabs">
-                    <li class="nav-item"><a class="nav-link active" href="management.html">유저</a></li>
+                    <li class="nav-item"><a class="nav-link" href="management.html">유저</a></li>
                     <li class="nav-item"><a class="nav-link" href="management_menu.html">메뉴</a></li>
-                    <li class="nav-item"><a class="nav-link" href="management_taboo.html">Taboo</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="management_taboo.html">Taboo</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">공지사항</a></li>
                 </ul>
 
                 <!-- 관리 -->
                 <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade p-4 show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <h3>유저 관리</h3>
-                        <table class="table table-hover">
+                    <div class="tab-pane fade p-4 show active" id="nav-home-detail" role="tabpanel" aria-labelledby="nav-home-detail-tab">
+                        <h3>Taboo</h3>
+
+                        <table class="table table-hover text-center">
                             <thead>
                                 <tr>
-                                    <th scope="col">No</th>
-                                    <th scope="col">Id</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">NickName</th>
-                                    <th scope="col">Gender</th>
-                                    <th scope="col">grade</th>
-                                    <th scope="col">last_login</th>
+                                    <th scope="col" style="width: 2%;">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                        </div>
+                                    </th>
+                                    <th scope="col" style="width: 5%;">No</th>
+                                    <th scope="col" class="text-start">금지 단어</th>
+                                    <th scope="col" style="width: 8%;">작성자</th>
+                                    <th scope="col" style="width: 13%;">등록날짜</th>
+                                    <th scope="col" class="text-start" style="width: 8%;">사용여부</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="move">
-                                    <th scope="row">1</th>
-                                    <td>test@naver.com</td>
+                                    <th scope="row">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                        </div>
+                                    </th>
+                                    <td>1</td>
+                                    <td class="text-start">새끼</td>
                                     <td>상원</td>
-                                    <td>상조장</td>
-                                    <td>M</td>
-                                    <td>마스터</td>
                                     <td>2024-11-22 11:10:10</td>
+                                    <td>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">2</th>
-                                    <td>test@gmail.com</td>
-                                    <td>이승환</td>
-                                    <td>짱</td>
-                                    <td>M</td>
-                                    <td>일반</td>
+                                    <th scope="row">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                        </div>
+                                    </th>
+                                    <td>2</td>
+                                    <td class="text-start">ㅗ</td>
+                                    <td>승환</td>
                                     <td>2024-11-22 11:10:10</td>
+                                    <td>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">3</th>
-                                    <td>test@gmail.com</td>
+                                    <th scope="row">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                        </div>
+                                    </th>
+                                    <td>3</td>
+                                    <td class="text-start">꺼져</td>
                                     <td>한민</td>
-                                    <td>캡</td>
-                                    <td>M</td>
-                                    <td>관리자</td>
                                     <td>2024-11-22 11:10:10</td>
+                                    <td>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">4</th>
-                                    <td>test@gmail.com</td>
+                                    <th scope="row">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                        </div>
+                                    </th>
+                                    <td>4</td>
+                                    <td class="text-start">임마</td>
                                     <td>유진</td>
-                                    <td>초울트라</td>
-                                    <td>G</td>
-                                    <td>관리자</td>
                                     <td>2024-11-22 11:10:10</td>
+                                    <td>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                        </div>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-outline-secondary mt-1 me-2" >삭제</button>
+                            <button class="btn btn-secondary mt-1 me-2" >저 장</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        
-        $(".move").click(function(){
-            location.href = "management_user.html";
-        })
-
-    </script>
-
 </body>
 </html>

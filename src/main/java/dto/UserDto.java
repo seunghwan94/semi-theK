@@ -31,7 +31,7 @@ public class UserDto {
 			
 			pstmt.setString(idx++, user.getId());
 			pstmt.setString(idx++, user.getPw());
-			pstmt.setString(idx++, user.getNickname());
+			pstmt.setString(idx++, user.getNickName());
 			
 			return pstmt.executeUpdate();
 		}catch (SQLException | ClassNotFoundException e) {
@@ -65,10 +65,10 @@ public class UserDto {
 				user = User.builder()
 						.id(rs.getString("id"))
 						.id(rs.getString("id"))
-						.att(rs.getString("att"))
+//						.att(rs.getString("att"))
 						.pw(rs.getString("pw"))
 						.pw(rs.getString("pw"))
-						.nickname(rs.getString("nickname"))
+						.nickName(rs.getString("nickname"))
 						.build();
 			}
 		}catch (ClassNotFoundException | SQLException e) {

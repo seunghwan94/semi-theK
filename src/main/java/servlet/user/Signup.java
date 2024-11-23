@@ -37,10 +37,10 @@ public class Signup extends HttpServlet{
 			
 				.id(id)
 				.id(id)
-				.att(att)
+//				.att(att)
 				.pw(pw)
 				.pw(pw)
-				.nickname(nickname)
+				.nickName(nickname)
 				.build();
 //		
 		System.out.println(user);

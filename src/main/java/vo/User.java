@@ -9,13 +9,13 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+//@NoArgsConstructor
 @AllArgsConstructor
-@NoArgsConstructor
 public class User {
 	private String id;
-	private String att;
+//	private String att;
 	private String pw;
-	private String nickname;
-	private Date createdate;
+	private String nickName;
+	private Date createDate;
 
 }

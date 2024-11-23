@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+@media (max-width: 576px) {
+    /* 사이드 바 */
+    body > div:nth-child(1), #v-pills-home > div:nth-child(2) , #v-pills-home > div:nth-child(3){
+        flex-direction: column;
+    }
+    .nav {
+        align-items: center;   
+    }
+    .nav div:nth-child(1) {
+        width: 30%;
+    }
+    .nav div:nth-child(2) {
+        display: flex;
+        width: 100%;
+        justify-content: space-around
+    }
+    .nav div:nth-child(2) > a > span {
+        display: none;
+    }
+
+}
+@media (max-width: 768px) {
+    /* 메뉴 관리 */
+    #nav-profile > div > div:nth-child(1){
+        flex-direction: column !important;
+    }
+    .icon-arrow-right > i:nth-child(1) {
+        display: none !important;
+    }
+    .icon-arrow-right > i:nth-child(2) {
+        display: block !important;
+    }
+    
+}
+
+
+.gothic-a1-regular {
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+/* 마우스 커서 변경 (드레그 앤 드랍)*/
+.grabbable {
+    cursor: move;
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+.grabbable:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}

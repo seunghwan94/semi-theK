@@ -34,7 +34,7 @@
             width: 100%;
             justify-content: space-around
         }
-        .nav div:nth-child(2) > button > span {
+        .nav div:nth-child(2) > a > span {
             display: none;
         }
 
@@ -82,27 +82,27 @@
                   <img src="light_logo.png" class="w-50 m-3" alt="1">
                 </a>
             </div>
-            <div>
-                <button class="nav-link w-100 m-3 active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
+            <div class="text-center">
+                <a class="nav-link w-100 m-3" href="test.html" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
                     <i class="fa-solid fa-house pe-2"></i><span>home</span>
-                </button>
-                <button class="nav-link w-100 m-3 " id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                </a>
+                <a class="nav-link w-100 m-3 active" href="test1.html" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                     <i class="fa-solid fa-bullhorn pe-2"></i><span>통계</span>
-                </button>
-                <button class="nav-link w-100 m-3 " id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                </a>
+                <a class="nav-link w-100 m-3 " href="test2.html" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">
                     <i class="fa-solid fa-chart-simple pe-2"></i><span>관리</span>
-                </button>
-                <button class="nav-link w-100 m-3 " id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                </a>
+                <a class="nav-link w-100 m-3 " href="test3.html" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
                     <i class="fa-regular fa-comment-dots pe-2"></i><span>Q & A</span>
-                </button>
-                <button class="nav-link w-100 m-3 " id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                </a>
+                <a class="nav-link w-100 m-3 " href="test4.html" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
                     <i class="fa-solid fa-gear pe-2"></i><span>설정</span>
-                </button>
+                </a>
             </div>
         </div>
 
 
-        <div class="tab-content  w-100" id="v-pills-tabContent">
+        <div class="tab-content w-100" id="v-pills-tabContent">
             <div class="tab-pane fade p-5 show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                 <h3>Home</h3>
                 <div class="d-flex">
@@ -183,7 +183,7 @@
                       <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">유저</button>
                       <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">메뉴</button>
                       <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Taboo</button>
-                      <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">프로모션</button>
+                      <!-- <button class="nav-link" id="nav-home-detail-tab" data-bs-toggle="tab" data-bs-target="#nav-home-detail" type="button" role="tab" aria-controls="nav-home-detail" aria-selected="false">프로모션</button> -->
                       <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">공지사항</button>
                     </div>
                 </nav>
@@ -243,6 +243,12 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="tab-pane fade p-4" id="nav-home-detail" role="tabpanel" aria-labelledby="nav-home-detail-tab">
+                        <h3>상세 정보</h3>
+                        <p>유저 상세 내용이 여기에 표시됩니다.</p>
+                    </div>
+
+
                     
                     <div class="tab-pane fade p-4" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                         <h3>메뉴 관리</h3>
@@ -303,6 +309,8 @@
             <div class="tab-pane fade p-5" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
                 <h3>Q & A</h3>
             </div>
+
+
             <script>
                 $( function() {
                     $( "#sortable1, #sortable2" ).sortable({
@@ -317,8 +325,6 @@
                     $(".input-group > input").val("");
                     $("#menu-input").addClass("d-none");
                 }) 
-
-
             </script>
         </div>
 

@@ -13,153 +13,273 @@
   <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
   <!-- font end -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+  <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+ 
   <title>Document</title>
   <style>
 
     @media (max-width: 576px) {
-        .side-navbar {  
-            flex-direction: column;  
-            position: relative;
-        } 
-        .navbar {
-            text-align: center;
+        /* 사이드 바 */
+        body > div:nth-child(1), #v-pills-home > div:nth-child(2) , #v-pills-home > div:nth-child(3){
+            flex-direction: column;
         }
-        .navbar-nav {
+        .nav {
+            align-items: center;   
+        }
+        .nav div:nth-child(1) {
+            width: 30%;
+        }
+        .nav div:nth-child(2) {
+            display: flex;
             width: 100%;
+            justify-content: space-around
         }
-        .main-contain {
-            margin-top: 0;
-        }
-        .main {
-            margin-top : 1 !important;
-        }
-        .main > div > div {
-            flex-direction: column;  
+        .nav div:nth-child(2) > a > span {
+            display: none;
         }
 
     }
+    @media (max-width: 768px) {
+        /* 메뉴 관리 */
+        #nav-profile > div > div:nth-child(1){
+            flex-direction: column !important;
+        }
+        .icon-arrow-right > i:nth-child(1) {
+            display: none !important;
+        }
+        .icon-arrow-right > i:nth-child(2) {
+            display: block !important;
+        }
+        
+    }
+
+
     .gothic-a1-regular {
         font-family: "Gothic A1", sans-serif;
         font-weight: 400;
         font-style: normal;
     }
-    .navbar-nav > li > a:hover, .navbar-nav > li > .active {
-        background-color: #656565;
-        color: #fff;
-        border-radius: 15px;
-        width: 100%;
+    /* 마우스 커서 변경 (드레그 앤 드랍)*/
+    .grabbable {
+        cursor: move;
+        cursor: grab;
+        cursor: -moz-grab;
+        cursor: -webkit-grab;
+    }
+    .grabbable:active {
+        cursor: grabbing;
+        cursor: -moz-grabbing;
+        cursor: -webkit-grabbing;
     }
   </style>
 
 </head>
 <body class="gothic-a1-regular">
-    
-    <div class="side-navbar fixed-top d-flex min-vh-100 w-100" >
-        <!-- navbar start -->
-        <nav class="navbar border-end border-bottom col-auto col-sm-3 col-md-2 col-xl-1 px-sm-2 px-0 align-items-center align-items-sm-start" style="min-width: 180px;">
-            <div class="container-fluid">
-                <div class="container-fluid ps-4 pt-3 m-2">
-                    <a class="navbar-brand" href="#">
-                      <img src="light_logo.png" alt="1" style="width: 40px;">
-                    </a>
-                </div>
-                <ul class="navbar-nav py-4 w-100">
-                    <li class="nav-item py-1">
-                        <a class="nav-link p-2" href="home.html"><i class="fa-solid fa-house"></i> home</a>
-                    </li>
-                    <li class="nav-item py-1">
-                        <a class="nav-link ps-2" href="announcements.html"><i class="fa-solid fa-bullhorn"></i> 공지사항</a>
-                    </li>
-                    <li class="nav-item py-1">
-                        <a class="nav-link ps-2 active" href="statistics.html" ><i class="fa-solid fa-chart-simple"></i> 통계</a>
-                    </li>
-                    <li class="nav-item py-1">
-                        <a class="nav-link ps-2" href="management.html"><i class="fa-regular fa-comment-dots"></i> 관리</a>
-                    </li>
-                    <li class="nav-item py-1">
-                        <a class="nav-link ps-2" href="setting.html"><i class="fa-solid fa-gear"></i> 설정</a>
-                    </li>
-                </ul>
+    <div class="d-flex align-items-start">
+        <div class="nav flex-column nav-pills me-3 col-auto col-sm-3 col-md-2 col-xl-1" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <div class="container-fluid ps-4 pt-3 m-2 text-center">
+                <a class="navbar-brand" href="#">
+                  <img src="light_logo.png" class="w-50 m-3" alt="1">
+                </a>
             </div>
-        </nav>
-        <!-- navbar end -->
-         <!-- main start -->
-        <div class="main-contain w-100">
-            <div class="main m-5">
-                <h1>통계</h1>
-                <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                      <a class="nav-link " href="#">게시판</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" href="#">댓글</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">방문자</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link disabled" href="#">유저</a>
-                    </li>
-                </ul>
-
-
-                <!-- 게시판 -->
-                <div class="w-100 p-3">
-                    <table class="table table-hover text-center">
-                        <thead>
-                          <tr>
-                            <th style="width: 5%;">No</th>
-                            <th class="text-start">Title</th>
-                            <th style="width: 13%;">Writer</th>
-                            <th style="width: 13%;">Date</th>
-                            <th style="width: 8%;">check</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td class="text-start">testdml gksrkddl anjfk tkffk</td>
-                            <td>john@example.com</td>
-                            <td>2024-11-21</td>
-                            <td>
-                                <div class="d-flex justify-content-center form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="mySwitch" name="darkmode" value="yes" checked>
-                                </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>2</td>
-                            <td class="text-start">Moe</td>
-                            <td>mary@example.com</td>
-                            <td>2024-11-21</td>
-                            <td>
-                                <div class="d-flex justify-content-center form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="mySwitch" name="darkmode" value="yes" checked>
-                                </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>3</td>
-                            <td class="text-start">Dooley</td>
-                            <td>july@example.com</td>
-                            <td>2024-11-21</td>
-                            <td>
-                                <div class="d-flex justify-content-center form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="mySwitch" name="darkmode" value="yes" checked>
-                                </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-
+            <div class="text-center">
+                <a class="nav-link w-100 m-3" href="home.html">
+                    <i class="fa-solid fa-house pe-2"></i><span>home</span>
+                </a>
+                <a class="nav-link w-100 m-3 active" href="statistics.html">
+                    <i class="fa-solid fa-bullhorn pe-2"></i><span>통계</span>
+                </a>
+                <a class="nav-link w-100 m-3 " href="management.html">
+                    <i class="fa-solid fa-chart-simple pe-2"></i><span>관리</span>
+                </a>
+                <a class="nav-link w-100 m-3 " href="test3.html">
+                    <i class="fa-regular fa-comment-dots pe-2"></i><span>Q & A</span>
+                </a>
+                <a class="nav-link w-100 m-3 " href="setting.html">
+                    <i class="fa-solid fa-gear pe-2"></i><span>설정</span>
+                </a>
             </div>
         </div>
-        <!-- main end -->
+
+
+        <div class="tab-content w-100" id="v-pills-tabContent">
+            <div class="tab-pane fade p-5 show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                <h3>통계</h3>
+                <div class="d-flex justify-content-between pt-0 fw-bold ">
+                    <div class="col-auto col-xl-8 p-3">
+                        <div class="card col-12 col-xl-11  border-dark mb-3 h-100">
+                            <div class="card-header">하루 평균 방문자수</div>
+                            <div class="card-body bg-light">
+                                <canvas id="myChart1"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto col-xl-4 p-3">
+                        <div class="card col-12 col-xl-11 border-dark mb-3 h-100">
+                            <div class="card-header">가입 지역</div>
+                            <div class="card-body bg-light">
+                                <canvas id="myChart2"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+           
+        </div>
+
+
     </div>
 
+    <script>
+        $( function() {
+            $( "#sortable1, #sortable2" ).sortable({
+                connectWith: ".connectedSortable"
+            }).disableSelection();
+        } );
+        $("#btn-meun-input").click(function(){
+            $("#menu-input").removeClass("d-none");
+        });
+        $(document).on('change','.input-group',function(){                    
+            $("#sortable1").append(`<li class="list-group-item ui-state-highlight">${$.trim($(".input-group > input").val())}</li>`);
+            $(".input-group > input").val("");
+            $("#menu-input").addClass("d-none");
+        }) 
+    </script>
+
+
+<!-- 
+    <div class="side-navbar fixed-top d-flex min-vh-100 w-100" >
+
+        <nav class="navbar border-end border-bottom col-auto col-sm-3 col-md-2 col-xl-1 px-sm-2 px-0 align-items-center align-items-sm-start" style="min-width: 180px;">
+            <div class="container-fluid">
+                
+                
+            </div>
+        </nav>
+        <div class="main-contain w-100">
+            <div class="main m-5">
+                <h1>home</h1>
+                <div class="w-100">
+                    <div class="d-flex">
+                        <div class="col-auto col-sm-4 p-3">
+                            <div class="card text-white bg-dark mb-3">
+                                <div class="card-header">총 회원</div>
+                                <div class="card-body">
+                                    <h3 class="card-title">24,212 명</h3>
+                                    <p class="card-text">지금까지 가입한 회원 수</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto col-sm-4 p-3">
+                            <div class="card text-white bg-dark mb-3">
+                                <div class="card-header">프로모션 기부 금액</div>
+                                <div class="card-body">
+                                    <h3 class="card-title"><i class="fa-solid fa-won-sign"></i> 24,212</h3>
+                                    <p class="card-text">지금까지 기부 받은 총 금액</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto col-sm-4 p-3">
+                            <div class="card text-white bg-dark mb-3">
+                                <div class="card-header">추가적인 숫자통계</div>
+                                <div class="card-body">
+                                    <h3 class="card-title"><i class="fa-solid fa-won-sign"></i> 24,212</h3>
+                                    <p class="card-text">지금까지 가입한 회원 수</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between pt-0 fw-bold ">
+                        <div class="col-auto col-xl-8 p-3">
+                            <div class="card col-12 col-xl-11  border-dark mb-3 h-100">
+                                <div class="card-header">하루 평균 방문자수</div>
+                                <div class="card-body bg-light">
+                                    <canvas id="myChart1"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto col-xl-4 p-3">
+                            <div class="card col-12 col-xl-11 border-dark mb-3 h-100">
+                                <div class="card-header">가입 지역</div>
+                                <div class="card-body bg-light">
+                                    <canvas id="myChart2"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+
+    <script>
+        const ctx1 = document.getElementById('myChart1');
+        const ctx2 = document.getElementById('myChart2');
+
+        new Chart(ctx1, {
+          type: 'bar',
+          data: {
+            labels: ['11/16', '11/17', '11/18', '11/19', '11/20', '11/21'],
+            datasets: [{
+              label: '# 하루 방문 수',
+              data: [12, 19, 3, 5, 2, 3],
+              borderWidth: 1
+            },{
+              label: '# 남자',
+              data: [8, 10, 1, 2, 1, 1],
+              borderWidth: 1
+            },{
+              label: '# 여자',
+              data: [4, 9, 2, 3, 1, 2],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+
+        new Chart(ctx2, {
+            type: 'polarArea',
+            data: {
+                labels: [
+                    '서울',
+                    '경기도',
+                    '충청도',
+                    '전라도',
+                    '경상도',
+                    '강원도'
+                ],
+                datasets: [{
+                    label: 'My First Dataset',
+                    data: [11, 16, 7, 3, 14,2],
+                    backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(75, 192, 192)',
+                    'rgb(255, 205, 86)',
+                    'rgb(201, 203, 207)',
+                    'rgb(54, 162, 235)',
+                    'rgb(54, 162, 0)'
+                    ]
+                }]
+            },
+            options: {
+                elements: {
+                line: {
+                    borderWidth: 3
+                }
+                }
+            },
+        });
+      </script>
 
 
 
