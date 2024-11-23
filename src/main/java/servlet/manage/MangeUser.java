@@ -1,4 +1,4 @@
-package practice;
+package servlet.manage;
 
 import java.io.IOException;
 import java.util.List;
@@ -12,14 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 import service.ManageServiceImpl;
 import vo.User;
 
-@WebServlet("/test")
-public class Practice extends HttpServlet {
-
+@SuppressWarnings("serial")
+@WebServlet("/manage/user")
+public class MangeUser extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		List<User> userArr =  new ManageServiceImpl().list();
+		System.out.println(userArr);
 		
-		req.getRequestDispatcher("/WEB-INF/k/manage/manage_user.jsp").forward(req, resp);
+		req.setAttribute("menu", "manage");
+		req.setAttribute("tab", "u");
+		req.setAttribute("users", userArr);	
+		req.getRequestDispatcher("/WEB-INF/k/manage/manageUser.jsp").forward(req, resp);
 	}
-
 }

@@ -4,8 +4,9 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.ManageMapper">
   <select id="selectAll" resultType="vo.User">
-    select * 
+	select * from tbl_user
+<!--     select * 
 	from tbl_user tu, tbl_user_detail tud 
-	where tu.id  = tud.id
+	where tu.id  = tud.id -->
   </select>
 </mapper>

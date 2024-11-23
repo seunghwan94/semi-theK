@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html lang="ko" data-bs-theme="dark">
 <head>
-<meta charset="UTF-8">
 	<jsp:include page="../common/head.jsp"/>
 	<link rel='stylesheet'href='css/manage.css'>
 </head>
@@ -16,6 +15,9 @@
         <div class="tab-content w-100" id="v-pills-tabContent">
             <div class="tab-pane fade p-5 show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                 <h3>Home</h3>
+                
+                
+                
                 <div class="d-flex">
                     <div class="col-auto col-sm-4 p-3">
                         <div class="card text-white bg-dark mb-3">

@@ -7,19 +7,19 @@
         </a>
     </div>
     <div class="text-center">
-        <a class="nav-link w-100 m-3 ${menu == 'home'? 'active' : '' }" href="home.html">
+        <a class="nav-link w-100 m-3 ${menu == 'home'? 'active' : '' }" href="${cp}manage/home">
             <i class="fa-solid fa-house pe-2"></i><span>home</span>
         </a>
-        <a class="nav-link w-100 m-3 ${menu == 'statistics'? 'active' : '' }" href="statistics.html">
+        <a class="nav-link w-100 m-3 ${menu == 'statistics'? 'active' : '' }" href="${cp}manage/statistics">
             <i class="fa-solid fa-bullhorn pe-2"></i><span>통계</span>
         </a>
-        <a class="nav-link w-100 m-3 ${menu == 'manage'? 'active' : '' }" href="management.html">
+        <a class="nav-link w-100 m-3 ${menu == 'manage'? 'active' : '' }" href="${cp}manage/user">
             <i class="fa-solid fa-chart-simple pe-2"></i><span>관리</span>
         </a>
-        <a class="nav-link w-100 m-3 ${menu == 'home'? 'active' : '' }" href="test3.html">
+        <a class="nav-link w-100 m-3 ${menu == 'qna'? 'active' : '' }" href="manage/qna">
             <i class="fa-regular fa-comment-dots pe-2"></i><span>Q & A</span>
         </a>
-        <a class="nav-link w-100 m-3 ${menu == 'home'? 'active' : '' }" href="setting.html">
+        <a class="nav-link w-100 m-3 ${menu == 'setting'? 'active' : '' }" href="${cp}manage/setting">
             <i class="fa-solid fa-gear pe-2"></i><span>설정</span>
         </a>
     </div>
