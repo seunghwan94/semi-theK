@@ -48,9 +48,10 @@
 	                                    <td>${user.id}</td>
 	                                    <%-- <td>${user.name}</td> --%>
 	                                    <td>상조장</td>
+	                                    <td>${user.nickName}</td>
 	                                    <td>M</td>
 	                                    <td>마스터</td>
-	                                    <td>2024-11-22 11:10:10</td>
+	                                    <td>${user.createDate}</td>
 	                                </tr>
                                 </c:forEach>
                                 <tr>
