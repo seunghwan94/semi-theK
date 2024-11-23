@@ -13,9 +13,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class User {
 	private String id;
-	private String att;
 	private String pw;
 	private String nickName;
+	private String att;
 	private Date createDate;
 
 }
