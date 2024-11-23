@@ -16,7 +16,3 @@
         <button type="button" class="btn btn-dark">확인</button>
         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">취소</button>
   </div>
-
-
-</body>
-</html>

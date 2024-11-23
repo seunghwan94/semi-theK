@@ -24,9 +24,11 @@
 						찾기</button>
 					<button type="button" id="signup" class="btn text-secondary p-0"
 						data-bs-toggle="modal" data-bs-target="#signupModal">회원가입</button>
-					
-
-					<!--로그인 버튼시 -->		
+				</div>
+			</div>
+		</div>
+	</div>
+						<!--로그인 버튼시 -->		
 						<div class="modal fade" id="signinModal" 
 							aria-labelledby="exampleModalLabel" aria-hidden="false">
 							<div class="modal-dialog modal-dialog-centered">
@@ -64,10 +66,6 @@
 							</div>
 						</div>
 					</div>							
-				</div>
-			</div>
-		</div>
-	</div>
 </body>
 
 </html>

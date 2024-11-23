@@ -16,14 +16,13 @@ import service.UserServiceImpl;
 import vo.User;
 
 @WebServlet("/signin")
-public class Singin extends HttpServlet {
+public class Signin extends HttpServlet {
 	private UserService service = new UserServiceImpl();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		req.getRequestDispatcher("/WEB-INF/k/user/intro.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/k/user/signin.jsp").forward(req, resp);
 	}
 
 	@Override

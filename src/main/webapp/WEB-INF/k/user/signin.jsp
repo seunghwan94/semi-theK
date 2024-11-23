@@ -2,10 +2,14 @@
     pageEncoding="UTF-8"%>
 	
 		<div class="modal-body">
-			<input type="email" class="form-control my-3" id="email"
-				placeholder="이메일" name="email"> <input type="password"
-				class="form-control my-3" id="email" placeholder="비밀번호" name="pwd">
+			<input type="email" class="form-control my-3" id="id"  value="${cookie['remember-id'].value}" placeholder="이메일" name="email">
+			<input type="password" class="form-control my-3" id="pwd" placeholder="비밀번호" name="pwd">
+			<div class="form-check form-switch my-3">
+               <input class="form-check-input" type="checkbox" id="mySwitch" name="remember-id" value="yes" ${empty cookie['remember-id'] ? '' : 'checked'}>
+               <label class="form-check-label" for="mySwitch">아이디 기억</label>
+        	</div>	
 		</div>
+		
 		<div class="modal-footer">
 			<button type="button" class="btn btn-dark">확인</button>
 			<button type="button" class="btn btn-dark" data-bs-dismiss="modal">취소</button>

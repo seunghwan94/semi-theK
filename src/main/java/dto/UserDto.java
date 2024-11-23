@@ -22,7 +22,7 @@ public class UserDto {
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
 		
-			String sql = "INSERT  INTO tbl_user (id,pw,nick_name) values (?,?,?)";
+			String sql = "INSERT  INTO tbl_user (id,pw,att,nick_name) values (?,?,?,?)";
 			
 			conn = DBConn.getConnection();
 			pstmt = conn.prepareStatement(sql);
