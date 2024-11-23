@@ -5,7 +5,7 @@
 <html lang="ko" data-bs-theme="dark">
 <head>
 	<jsp:include page="../common/head.jsp"/>
-<link rel='stylesheet'href='css/user.css'>
+<link rel='stylesheet'href='${cp}css/user.css'>
 </head>
 
 <body class="gothic-a1-regular">

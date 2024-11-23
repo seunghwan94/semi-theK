@@ -12,8 +12,8 @@
 			<input type="text" class="form-control" placeholder="이메일 인증" aria-label="이메일 인증" aria-describedby="button-addon2" name="att">
 			<button class="btn btn-secondary" type="button" id="button-addon2">확인</button>
 		</div>
-		<input type="password" class="form-control my-3" id="email" placeholder="비밀번호" name="pwd"> <input type="password"
-			class="form-control my-3" id="email" placeholder="비밀번호 확인" name="pwd">
+		<input type="password" class="form-control my-3" id="pwd" placeholder="비밀번호" name="pwd"> 
+		<input type="password" class="form-control my-3" id="pwd" placeholder="비밀번호 확인" name="pwd">
 		<input type="text" class="form-control my-3" id="nickname" placeholder="닉네임" name="nickname">
 	</div>
 	<div class="modal-footer">

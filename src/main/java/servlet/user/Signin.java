@@ -19,19 +19,20 @@ import vo.User;
 public class Signin extends HttpServlet {
 	private UserService service = new UserServiceImpl();
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		req.getRequestDispatcher("/WEB-INF/k/user/signin.jsp").forward(req, resp);
-	}
+//	@Override
+//	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//		// TODO Auto-generated method stub
+//		req.getRequestDispatcher("/WEB-INF/k/user/signin.jsp").forward(req, resp);
+//	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		req.setCharacterEncoding("utf-8");
-		String id = req.getParameter("id");
-		String pw = req.getParameter("pw");
+		String id = req.getParameter("useremail");
+		String pw = req.getParameter("pwd");
 		String saveid = req.getParameter("remember-id");
+		System.out.println("123");
 
 		if (service.login(id, pw)) {
 			HttpSession session = req.getSession();

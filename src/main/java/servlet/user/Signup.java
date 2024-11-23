@@ -49,12 +49,11 @@ public class Signup extends HttpServlet{
 		if (url != null && !url.equals("")) {
 			redirectURL = URLDecoder.decode(url, "utf-8");
 		}
+		service.register(user);
 		resp.sendRedirect(redirectURL);
 
 		System.out.println(user);
 		
-		service.register(user);
-		resp.sendRedirect("/signup");
 	}
 	
 	

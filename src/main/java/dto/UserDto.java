@@ -64,9 +64,7 @@ public class UserDto {
 			if(rs.next()) { //다음 행이 있는지 없는지
 				user = User.builder()
 						.id(rs.getString("id"))
-						.id(rs.getString("id"))
-//						.att(rs.getString("att"))
-						.pw(rs.getString("pw"))
+						.att(rs.getString("att"))
 						.pw(rs.getString("pw"))
 						.nickName(rs.getString("nickname"))
 						.build();
