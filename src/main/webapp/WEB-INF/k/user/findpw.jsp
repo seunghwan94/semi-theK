@@ -42,8 +42,9 @@
           <button class="btn btn-secondary" type="button" id="button-addon2">이메일 발송</button>
         </div>
           <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="이메일 인증" aria-label="이메일 인증" aria-describedby="button-addon2">
-          <button class="btn btn-secondary" type="button" id="button-addon2">확인</button>
+	          <input type="text" class="form-control" placeholder="이메일 인증" aria-label="이메일 인증" aria-describedby="button-addon2">
+	          <button class="btn btn-secondary" type="button" id="button-addon2">확인</button>
+	       </div>
     </div>
 
     <div class="modal-footer">
