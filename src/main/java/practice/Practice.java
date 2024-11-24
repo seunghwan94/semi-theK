@@ -12,14 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 import service.ManageServiceImpl;
 import vo.User;
 
-@WebServlet("/test")
+@WebServlet("/test1")
 public class Practice extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		
-		req.getRequestDispatcher("/WEB-INF/k/manage/manage_user.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/k/manage/home.jsp").forward(req, resp);
 	}
 
 }
