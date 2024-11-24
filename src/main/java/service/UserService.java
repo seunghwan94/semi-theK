@@ -7,7 +7,7 @@ import vo.User;
 public interface UserService {
 
 	//회원가입
-	String register(User user);
+	int register(User user);
 	
 	//조회
 	User findBy(String id);

@@ -11,7 +11,7 @@ import vo.User;
 public class UserServiceImpl implements UserService {
 
 	@Override
-	public String register(User user) {
+	public int register(User user) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			UserMapper mapper = session.getMapper(UserMapper.class);
 				return mapper.insert(user);
