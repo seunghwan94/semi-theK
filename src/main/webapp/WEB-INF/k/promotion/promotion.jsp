@@ -4,17 +4,17 @@
 <head>
 	<jsp:include page="../common/head.jsp"	/>
 </head>
-<body>
+<body class="bg-dark d-flex flex-column min-vh-100">
 	<jsp:include page="../common/header.jsp"/>
-	
-	<main class="container text-light border-light">
+	<main class="container text-light border-light flex-grow-1">
+	<hr>
+		<div>
         <div id="demo" class="carousel slide mt-5 d-block" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
             </div>
-    
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="https://placehold.co/1300x150?text=the-Kpromo1" alt="Los Angeles" class="d-block">
@@ -27,11 +27,9 @@
                 </div>
             </div>
         </div>
-
         <div class="d-flex bg-light mt-5 ">
             <h3 class="text-start">premium-promotions</h3>
         </div>
-
         <!-- 프로모션 박스 시작-->
         <div class="row mt-5 promo-box-1">
             <div class="col-sm-6">
@@ -82,6 +80,29 @@
                 </div>
             </div>
         </div>
+        <div class="row mt-5 promo-box-1">
+            <div class="col-sm-6">
+                <div class="border border-light border-3">
+                    <img src="https://placehold.co/635x150?text=premium-" alt="premium-promo-1" >
+                </div>
+            </div>
+            <div class="col-sm-1">
+            </div>
+            <div class="col-sm-5 text-center text-light">
+                <div class="d-block border-light">
+                    <div class="row">
+                        <div class="border col-12">
+                            promo title
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="border col-12">
+                            <p>promo contentpromo content promo contentpromo content promo contentpromo content promo contentpromo content promo contentpromo content promo contentpromo content promo contentpromo content promo contentpromo content promo contentpromo content promo contentpromo content promo content</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <hr class="border-light">
         <div class="row">
             <div class="col-sm-6">
@@ -102,7 +123,7 @@
                 </div>
             </div>
         </div>
-
+	</div>
     </main>
     
 	<jsp:include page="../common/footer.jsp"/>

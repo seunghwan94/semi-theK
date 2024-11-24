@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="ko" data-bs-theme="dark">
 <head>
   <meta charset="UTF-8">
@@ -17,11 +17,11 @@
 <body>
     <footer>
     <div class="breadcrumb">
-        <img src="https://media.discordapp.net/attachments/1306176259117813763/1308984943233208351/--1.png?ex=6743e33a&is=674291ba&hm=f7039d286bc36255fa83f37d6156766059cb72a2c4ebc4fad79548c6916a863f&=&format=webp&quality=lossless&width=624&height=904" alt="로고" class="img mt-5 pt-">
+        <img src="https://media.discordapp.net/attachments/1306176259117813763/1308984943233208351/--1.png?ex=6743e33a&is=674291ba&hm=f7039d286bc36255fa83f37d6156766059cb72a2c4ebc4fad79548c6916a863f&=&format=webp&quality=lossless&width=624&height=904" alt="ë¡ê³ " class="img mt-5 pt-">
   <div class="ar-label mt-5"> 
-      <a href="https://docs.github.com/ko" aria-label="사이트맵">github</a> /
-      <a href="#" aria-label="개인정보처리방침">발표 자료</a> /
-      <a href="#" aria-label="이메일수집거부">ppt 자료</a>
+      <a href="https://docs.github.com/ko" aria-label="ì¬ì´í¸ë§µ">github</a> /
+      <a href="#" aria-label="ê°ì¸ì ë³´ì²ë¦¬ë°©ì¹¨">ë°í ìë£</a> /
+      <a href="#" aria-label="ì´ë©ì¼ìì§ê±°ë¶">ppt ìë£</a>
   </div>   
     <div class="icon">
       <span><i class="fa-brands fa-google-play fa-3x m-3 pt-4"></i></span>
@@ -30,10 +30,17 @@
     </div>
   </div>
 <div class="f1_copy mb-4 pb-3">
-  <div id="f1">서울 구로구 디지털로 306 대륭포스트타워 2차 203호</div>
-  <div id="f1">대표번호: 02-8362-9674</div>
-  <div id="f1">Copyrightⓒ gogle Corp 2010, 2022 All Rights Reserved</div>
+  <div id="f1">ìì¸ êµ¬ë¡êµ¬ ëì§í¸ë¡ 306 ëë¥­í¬ì¤í¸íì 2ì°¨ 203í¸</div>
+  <div id="f1">ëíë²í¸: 02-8362-9674</div>
+  <div id="f1">Copyrightâ gogle Corp 2010, 2022 All Rights Reserved</div>
 </div>    
 </footer>
 </body>
-</html>
+</html>-->
+
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<footer class="container bg-dark text-center text-light border-top border-light border-5 p-2 mt-auto">
+<address class="small"><i>푸터푸터푸터</i> ${cp} </address>
+<d class="small"><i>copyrights All rights reserved &copy;</i></d>
+</footer>

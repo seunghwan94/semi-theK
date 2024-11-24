@@ -4,13 +4,12 @@
 <head>
 	<jsp:include page="../common/head.jsp"	/>
 </head>
-<body>
-	<div class="wrap">
-		<jsp:include page="../common/header.jsp"/>
-		<main>
-		
-		</main>
-		<jsp:include page="../common/footer.jsp"/>
-	</div>
+<body class="bg-dark d-flex flex-column min-vh-100">
+<div class="wrap">
+<main class="flex-grow-1">
+<jsp:include page="../common/header.jsp"/>
+</main>
+<jsp:include page="../common/footer.jsp"/>
+</div>
 </body>
 </html>
