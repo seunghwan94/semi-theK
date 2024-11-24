@@ -1,4 +1,4 @@
-package servlet.promotion;
+package servlet.post;
 
 import java.io.IOException;
 
@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/promotion")
-public class Promotion extends HttpServlet {
+@WebServlet("/list")
+public class List extends HttpServlet{
+
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/WEB-INF/k/promotion/promotion.jsp").forward(req, resp);
+		req.getRequestDispatcher("WEB-INF/k/post/list.jsp").forward(req, resp);
 	}
-	
 }

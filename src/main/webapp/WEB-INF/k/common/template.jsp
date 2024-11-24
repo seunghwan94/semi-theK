@@ -5,7 +5,12 @@
 	<jsp:include page="../common/head.jsp"	/>
 </head>
 <body>
-	<jsp:include page="../common/header.jsp"/>
-	<jsp:include page="../common/footer.jsp"/>
+	<div class="wrap">
+		<jsp:include page="../common/header.jsp"/>
+		<main>
+		
+		</main>
+		<jsp:include page="../common/footer.jsp"/>
+	</div>
 </body>
 </html>

@@ -8,8 +8,8 @@
 	<jsp:include page="../common/header.jsp"/>
 	<main class="container mt-5">
         <h2 class="my-4 fw-bold">POSTS</h2>
-        <table class="table table-hover text-center border border-dark">
-            <thead>
+        <table class="table table-hover text-center">
+            <thead class="border-bottom border-light">
                 <tr>
                     <th style="width: 10%;"> 글 번호 </th>
                     <th> 제목 </th>
@@ -24,7 +24,7 @@
                 <tr>
                     <td>1</td>
                     <td><a href="#" class="text-decoration-none">titleSample</a></td>
-                    <td><button type="button" class="btn text-decoration-none post-writer" data-bs-toggle="popover" title="Profile Info" data-bs-content="프로필 정보">writer</button></td>
+                    <td><button type="button" class="btn text-decoration-none post-writer" data-bs-toggle="popover" title="${cp}Profile Info" data-bs-content="${cp}프로필 정보">writer</button></td>
                     <td>2024/11/07</td>
                     <td>0</td>
                     <td>0</td>
