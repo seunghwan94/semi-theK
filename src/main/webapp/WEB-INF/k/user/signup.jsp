@@ -3,14 +3,14 @@
 
 <form method="post" action="signup">
 	<div class="modal-body">
+	
 		<div class="input-group mb-3">
 			<input type="email" class="form-control my-3" id="signUpEmail" placeholder="사용 할 이메일" name="useremail">
 			<button class="btn btn-secondary my-3" type="button" id="button-sign-email">이메일 발송</button>
 		</div>
 		<div class="input-group mb-3">
 			<input type="text" class="form-control" id="emailCheck" placeholder="이메일 인증" aria-label="이메일 인증" aria-describedby="button-addon2" name="att">
-			<button class="btn btn-secondary" type="button"
-				id="button-sign-email-check">확인</button>
+			<button class="btn btn-secondary" type="button" id="button-sign-email-check">확인</button>
 		</div>
 			<input type="password" class="form-control my-3" id="pwd1" placeholder="비밀번호" name="pwd1"> 
 			<input type="password" class="form-control my-3" id="pwd2" placeholder="비밀번호 확인" name="pwd2">
@@ -56,26 +56,32 @@
 		$("#button-sign-email").click(function (){
 			const emailcheck = $("#signUpEmail").val();
 			console.log(emailcheck);
-			rndText(emailcheck,function(data) {
-				console.log(data);
-				alert("이메일 발송");
-
-		
-			});
-		});
-	});	
-		const url = "/k/usermail";
-		function rndText(mailsender,callback) {
-			console.log(mailsender);
-			const data = JSON.stringify(mailsender);
+	 		/* rndText(emailcheck,function(data) {
+					console.log(data);   */
+			alert("이메일 발송");
+			const url = "/K/useremail";
+			const data = JSON.stringify({emailcheck});
 			$.post({ url, data })
 				.done(function(data) {
 					console.log(data);
-					if (callback)
-						callback(data);
-	
+						
+					/* 버튼 눌렀을 시 
+					   인풋에 적어 놓은 이메일을 로그로 확인하고
+					   그것을 에이잭스에 넣기는데 그걸 넣기는게 성공함수
+					   그리고 uri을 아까 내가 만든 써블릿으로 넘긴다*/	
 				});
-		};
+			
+		});	
+	
+	});				
+	/* $("#signUpEmail").click(function(){
+		$.ajax({url : "/k/emailcontroller"})
+		.done(function(data) {			
+		})
+	}) */
+	
+			
+						
 
     
 </script>

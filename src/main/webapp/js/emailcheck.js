@@ -20,8 +20,11 @@ console.log("asdasd");
 		$.post({ url, data })
 			.done(function(data) {
 				console.log(data);
-			
-
+			/*	$.getJSON(reformedUrl).done(function(data) {
+				   if(callback)
+				   callback(data);
+				 });
+*/
 			});
 	}
 	return { rndText }

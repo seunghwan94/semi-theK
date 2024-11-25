@@ -7,8 +7,8 @@
     select * from tbl_user where id = #{id} 
   </select>
   <insert id="insert">
-  INSERT  INTO tbl_user (id,pw,nick_name,att)
-  values (#{id},#{pw},#{nickName},#{att})
+  INSERT  INTO tbl_user (id,pw,nick_name)
+  values (#{id},#{pw},#{nickName})
   </insert>
   <insert id="insertDetail">
   INSERT  INTO tbl_user_detail (id)

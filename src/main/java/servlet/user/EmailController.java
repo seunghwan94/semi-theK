@@ -16,16 +16,18 @@ import jakarta.mail.Session;
 import utils.Mailsender;
 import vo.UserEmail;
 
-@WebServlet("/usermail")
+@WebServlet("/useremail")
 public class EmailController extends HttpServlet {
 
-	UserEmail email = new UserEmail();
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Gson gson = new Gson();
+		Map< String, String> map =gson.fromJson(req.getReader(), Map.class);//2번째는 타입 어떻게 받을거냐 
+		System.out.println(map);
 		// 누구에게 보낼것인가
-		String receiver = "1@aaaaa";
-		
+		String receiver = map.get("emailcheck");//emailcheck 객체를 signup에서 가져온다
+	
 		// 메일 발송
 		Session session = new Mailsender().init();
 	    String rndText = String.format("%08d", (int)(Math.random() * 100000000));
@@ -35,20 +37,12 @@ public class EmailController extends HttpServlet {
 	    // 되돌려줘야해.
 	    Map<String, String> ret = new HashMap<>();
 	    ret.put("text", rndText);
-	    Gson gson = new Gson();
 	    
 	    resp.setContentType("application/json; charset=utf-8");
 	    resp.getWriter().print(gson.toJson(ret));
 	       
 	}
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
-	}
-
-	
 	
 	
 
