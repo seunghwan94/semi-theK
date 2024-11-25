@@ -20,20 +20,24 @@
 <div class="container-fluid mt-5 p-2 mx-auto text-center">
 <div class="row">
 <div class="col-sm-5 p-3"><hr class="text-light">
-<b><a href="${cp}/list?category=5" class="p-2 mt-4 big text-light">${cp}시판</a></b><hr class="text-light">
-<c:forEach var="p" begin="1" end="5">
-<ul class="p-0">
-<li>
-<div class="row p-2 border-bottom mx-auto text-light">
-<div class="col-sm-1 small"><d class="small">${p}</d></div>
-<div class="col-sm-6 text-truncate"><a href="#" class="text-light"><d class="small">제목제목제목제목</d></a></div>
-<div class="col-sm-1"><a href="#" class="text-light"><d class="small">[10]</d></a></div>
-<div class="col-sm-2"><a href="#" class="text-light"><d class="small"><i class="fa-solid fa-heart small">:${p}</i></d></a></div>
-<div class="col-sm-2 small"><a href="#" class="text-light"><d class="small">2020020${p}</d></a></div>
-</div>
-</li>
-</ul>
+
+<c:forEach items="subC" var="s">
+<a href="${cp}list?cno=5" class="p-2 mt-4 big text-light">${s.cname} </a><hr class="text-light">
+	<c:forEach items="posts" var="p" begin="1" end="5">
+		<ul class="p-0">
+			<li>
+				<div class="row p-2 border-bottom mx-auto text-light">
+					<div class="col-sm-1 small"><d class="small">${p.pno}</d></div>
+					<div class="col-sm-6 text-truncate"><a href="#" class="text-light"><d class="small">${p.title}</d></a></div>
+					<div class="col-sm-1"><a href="#" class="text-light"><d class="small">[0]</d></a></div>
+					<div class="col-sm-2"><a href="#" class="text-light"><d class="small"><i class="fa-solid fa-heart small"></i></d></a></div>
+					<div class="col-sm-2 small"><a href="#" class="text-light"><d class="small">${p.createDate}</d></a></div>
+				</div>
+			</li>
+		</ul>
+	</c:forEach>
 </c:forEach>
+	
 </div>
 <div class="col-sm-2"></div>
 <div class="col-sm-5 p-3"><hr class="text-light">

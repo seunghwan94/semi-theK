@@ -20,13 +20,12 @@
                     <th style="width: 10%;"> 댓글 </th>
                 </tr>
             </thead>
-
             <tbody>
-            	<c:forEach items="posts" var="p">
+            	<c:forEach items="${posts}" var="p">
             		<tr>
             			<td>${p.pno}</td>
                    		<td><a href="${cp}/view?pno=${p.pno}" class="text-decoration-none">${p.title}</a></td>
-            			<td><button type="button" class="btn text-decoration-none post-writer" data-bs-toggle="popover" title="${p.writer}" data-bs-content="${cp}프로필 정보">${p.writer}</button></td>
+            			<td><button type="button" class="btn text-decoration-none post-writer" data-bs-toggle="popover" title="${p.userId}" data-bs-content="${cp}프로필 정보">${p.userId}</button></td>
            			    <td>${p.createDate}</td>
    	                    <td>${p.viewCnt}</td>
                   		<td>?</td>

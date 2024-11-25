@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Select;
 import vo.Post;
 
 public interface PostMapper {
-	List<Post> selectList();
+	List<Post> selectList(int cno);
 	
 	Post selectOne(int pno);
 	

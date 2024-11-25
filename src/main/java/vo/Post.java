@@ -16,5 +16,4 @@ public class Post {
 	private final Date createDate; // 게시글 등록일
 	private final Date updateDate; // 게시글 업데이트 날짜
 	private final int cno; // 게시글 카테고리 번호(외래키)
-		
 }

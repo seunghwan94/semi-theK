@@ -18,6 +18,7 @@
   	<mappers>
   		<mapper resource="mapper/UserMapper.xml"/>
   		<mapper resource="mapper/ManageMapper.xml"/>
+  		<mapper resource="mapper/PostMapper.xml"/>
   		<mapper resource="mapper/CategoryMapper.xml"/>
     </mappers>
 </configuration>
