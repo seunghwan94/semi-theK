@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
+//@NoArgsConstructor
+//@AllArgsConstructor
 public class Post {
 	private final int pno; // 게시글 번호
 	private final String title; // 게시글 제목

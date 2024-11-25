@@ -12,7 +12,7 @@
 	<result column="cno" property="cno"/>
 	<!-- <result column="attach_flag"/> -->
 </resultMap>
-	<select id="selectOne" resultMap="post">
+	<select id="selectOne" resultMap="vo.post">
 		select tp.*, 1 from tbl_post tp where pno = #{pno} 
 	</select>
 	
@@ -31,7 +31,5 @@
 			select max(pno) from tbl_post
 		</selectKey>  
 	</insert>
-
-
 </mapper>
   
