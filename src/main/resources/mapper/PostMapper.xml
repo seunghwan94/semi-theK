@@ -32,11 +32,15 @@
 	</update>
 	
 	<select id="lastList2" resultMap="post">
-		(SELECT * from tbl_post where cno = 5 order by pno desc limit 5)
-		union all
-		(SELECT * from tbl_post where cno = 6 order by pno desc limit 5)
-		union all
-		(SELECT * from tbl_post where cno = 7 order by pno desc limit 5)
+			(SELECT * from tbl_post where cno = 5 order by pno desc limit 5)
+			union all
+			(SELECT * from tbl_post where cno = 6 order by pno desc limit 5)
+			union all
+			(SELECT * from tbl_post where cno = 7 order by pno desc limit 5)
+			union all
+			(SELECT * from tbl_post where cno = 8 order by pno desc limit 5)
+			union all
+			(SELECT * from tbl_post where cno = 10 order by pno desc limit 5)
   	</select>
 	
 	<insert id="insert" >

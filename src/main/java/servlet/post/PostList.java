@@ -21,6 +21,7 @@ public class PostList extends HttpServlet{
 		int idx = req.getQueryString().indexOf('=');
 		String cno = req.getQueryString().substring(idx+1);
 		System.out.println(cno);
+		
 		req.setAttribute("posts", service.listPost(Integer.parseInt(cno)));
 		System.out.println(Integer.parseInt(cno));
 		req.getRequestDispatcher("WEB-INF/k/post/list.jsp").forward(req, resp);
