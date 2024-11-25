@@ -11,6 +11,7 @@ import java.sql.Statement;
 
 import utils.DBConn;
 import vo.User;
+import vo.UserDetail;
 
 
 public class UserDto {
@@ -22,7 +23,8 @@ public class UserDto {
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
 		
-			String sql = "INSERT  INTO tbl_user (id,pw,att,nick_name) values (?,?,?,?)";
+			String sql = "INSERT INTO tbl_user (id,pw,att,nick_name) values (?,?,?,?)";
+			
 			
 			conn = DBConn.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -46,11 +48,42 @@ public class UserDto {
 		}
 		return 0;
 	}
+	public int insert(UserDetail userDetail) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+	
+		try {
+			Class.forName("org.mariadb.jdbc.Driver");
+		
+			String sql = "INSERT INTO tbl_user_detail (id) values (?)";
+			
+			
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			int idx= 1;
+			
+			pstmt.setString(idx++, userDetail.getId());
+			return pstmt.executeUpdate();
+		}catch (SQLException | ClassNotFoundException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+			}catch (SQLException ignore) {}
+		
+		}
+		return 0;
+	}
 	private static final UserDto dto = new UserDto(); 
 	
 	public static UserDto getInstance() { //싱글턴 메서드 
 		return dto;
 	}
+	
 	private UserDto() {} //기본 생성자
 
 	public User selectOne(String id) throws ClassNotFoundException, SQLException {
@@ -64,7 +97,6 @@ public class UserDto {
 			if(rs.next()) { //다음 행이 있는지 없는지
 				user = User.builder()
 						.id(rs.getString("id"))
-						.att(rs.getString("att"))
 						.pw(rs.getString("pw"))
 						.nickName(rs.getString("nickname"))
 						.build();
