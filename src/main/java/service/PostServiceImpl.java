@@ -16,4 +16,12 @@ public class PostServiceImpl implements PostService {
 		}
 	}
 
+	@Override
+	public List<Post> lastPost() {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			PostMapper mapper = session.getMapper(PostMapper.class);
+			return mapper.lastList();
+		}
+	}
+
 }

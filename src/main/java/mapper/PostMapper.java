@@ -14,6 +14,8 @@ public interface PostMapper {
 	@Select("select now()")
 	String now();
 	
+	List<Post> lastList();
+	
 	int write(Post post);
 	
 	int insert(Post post);

@@ -5,4 +5,5 @@ import vo.Post;
 
 public interface PostService {
 	List<Post> listPost(int cno);
+	List<Post> lastPost();
 }

@@ -15,6 +15,10 @@
 		select tp.* from tbl_post tp where cno = #{cno} order by create_date DESC
 	</select>
 
+	<select id="lastList" resultType="vo.Post">
+		select tp.* from tbl_post tp order by pno DESC limit 5 
+	</select>
+
 	<select id="selectOne" resultType="vo.Post">
 		select tp.*, 1 from tbl_post tp where pno = #{pno} 
 	</select>

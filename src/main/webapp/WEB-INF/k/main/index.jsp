@@ -21,20 +21,22 @@
 <div class="row">
 <div class="col-sm-5 p-3"><hr class="text-light">
 
-<c:forEach items="subC" var="s">
-<a href="${cp}list?cno=5" class="p-2 mt-4 big text-light">${s.cname} </a><hr class="text-light">
-	<c:forEach items="posts" var="p" begin="1" end="5">
-		<ul class="p-0">
-			<li>
-				<div class="row p-2 border-bottom mx-auto text-light">
-					<div class="col-sm-1 small"><d class="small">${p.pno}</d></div>
-					<div class="col-sm-6 text-truncate"><a href="#" class="text-light"><d class="small">${p.title}</d></a></div>
-					<div class="col-sm-1"><a href="#" class="text-light"><d class="small">[0]</d></a></div>
-					<div class="col-sm-2"><a href="#" class="text-light"><d class="small"><i class="fa-solid fa-heart small"></i></d></a></div>
-					<div class="col-sm-2 small"><a href="#" class="text-light"><d class="small">${p.createDate}</d></a></div>
-				</div>
-			</li>
-		</ul>
+<c:forEach items="${subC}" var="s">
+<a href="${cp}list?cno=${s.cno}" class="p-2 mt-4 big text-light">${s.cname} </a><hr class="text-light">
+	<c:forEach items="${posts}" var="p" >
+		<c:if test="${s.cno == p.cno}">
+			<ul class="p-0">
+				<li>
+					<div class="row p-2 border-bottom mx-auto text-light">
+						<div class="col-sm-1 small"><d class="small">${p.pno}</d></div>
+						<div class="col-sm-6 text-truncate"><a href="#" class="text-light"><d class="small">${p.title}</d></a></div>
+						<div class="col-sm-1"><a href="#" class="text-light"><d class="small">[0]</d></a></div>
+						<div class="col-sm-2"><a href="#" class="text-light"><d class="small"><i class="fa-solid fa-heart small"></i></d></a></div>
+						<div class="col-sm-2 small"><a href="#" class="text-light"><d class="small">${p.createDate}</d></a></div>
+					</div>
+				</li>
+			</ul>
+		</c:if>
 	</c:forEach>
 </c:forEach>
 	
