@@ -10,4 +10,8 @@
   INSERT  INTO tbl_user (id,pw,nick_name,att)
   values (#{id},#{pw},#{nickName},#{att})
   </insert>
+  <insert id="insertDetail">
+  INSERT  INTO tbl_user_detail (id)
+  values (#{id})
+  </insert>
 </mapper>

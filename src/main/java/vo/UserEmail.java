@@ -9,12 +9,10 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-//@NoArgsConstructor
 @AllArgsConstructor
-public class User {
-	private String id;
-	private String pw;
-	private String nickName;
-	private Date createDate;
-
+@NoArgsConstructor
+public class UserEmail {
+	String email;
+	int att;
+	Date create_date;
 }

@@ -3,11 +3,14 @@ package service;
 import java.util.List;
 
 import vo.User;
+import vo.UserDetail;
 
 public interface UserService {
 
 	//회원가입
 	int register(User user);
+	
+	int register(UserDetail userDetail);
 	
 	//조회
 	User findBy(String id);

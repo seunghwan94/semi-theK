@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import service.UserService;
 import service.UserServiceImpl;
 import vo.User;
+import vo.UserDetail;
 
 @WebServlet("/signup")
 public class Signup extends HttpServlet{
@@ -38,11 +39,13 @@ public class Signup extends HttpServlet{
 		User user = User.builder()
 			
 				.id(id)
-				.att(att)
 				.pw(pw)
 				.nickName(nickname)
 				.build();
-//		
+		
+		UserDetail userDetail = UserDetail.builder()
+		.id(id).build();
+				
 		System.out.println(user);
 		String redirectURL = req.getContextPath() + "/intro";
 		String url = req.getParameter("url");
@@ -50,11 +53,13 @@ public class Signup extends HttpServlet{
 			redirectURL = URLDecoder.decode(url, "utf-8");
 		}
 		service.register(user);
+		service.register(userDetail);
 		resp.sendRedirect(redirectURL);
-
 		System.out.println(user);
+		System.out.println(userDetail);
 		
 	}
+	
 	
 	
 }

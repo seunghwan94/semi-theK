@@ -22,7 +22,7 @@ public class Mailsender {
         Session session = new Mailsender().init();
         String rndText = String.format("%08d", (int)(Math.random() * 100000000));
         System.out.println(rndText);
-        send(session, "메일발송테스트", "내용맨" + rndText, "tkddnjs8097@gmail.com", "tkddnjs3351@naver.com", "ghj1150@naver.com");
+        send(session, "The-k 인증번호", "<h1>인증번호</h1>" + rndText, "tkddnjs8097@gmail.com");
     }
 	public static Address[] converToInternetAddressArrayy(String[] emailAddresses) {
 		InternetAddress[] internetAddresses = new InternetAddress[emailAddresses.length];
@@ -42,7 +42,7 @@ public class Mailsender {
 		Properties props = new Properties();
 		Properties authProps = new Properties();
 		try {
-			props.load(getClass().getClassLoader().getResourceAsStream("mail.properties"));
+			props.load(getClass().getClassLoader().getResourceAsStream("mail.properties")); 
 			authProps.load(getClass().getClassLoader().getResourceAsStream("mail_auth.properties"));
 		} catch (IOException e) {
 			// TODO: handle exception
@@ -59,7 +59,7 @@ public class Mailsender {
 	public static void send(Session session, String title,String content,String... to) {
 		Message msg = new MimeMessage(session);
 		try {
-			InternetAddress address = new InternetAddress("admin@javaman.shop","관리자",ENCODE);
+			InternetAddress address = new InternetAddress("sangwon97.com","관리자",ENCODE);
 			msg.setFrom(address);
 			msg.addRecipients(Message.RecipientType.TO, converToInternetAddressArrayy(to));
 			msg.setSubject(title);
