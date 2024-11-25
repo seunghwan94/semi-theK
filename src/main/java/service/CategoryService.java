@@ -4,5 +4,6 @@ import java.util.List;
 import vo.Category;
 
 public interface CategoryService {
-	List<Category> selectlist();
+	List<Category> listMain();
+	List<Category> listSub();
 }

@@ -1,13 +1,13 @@
 package mapper;
 
-//import java.util.List;
+import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
 
 import vo.Post;
 
 public interface PostMapper {
-//	List<Post> selectList(Criteria cri);
+	List<Post> selectList();
 	
 	Post selectOne(int pno);
 	
@@ -18,7 +18,7 @@ public interface PostMapper {
 	
 	int insert(Post post);
 	
-//	int getCount(Criteria cri);
+//	int getCount(C);
 	
 	int update(Post post);
 	

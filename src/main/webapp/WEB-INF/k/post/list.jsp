@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 	<jsp:include page="../common/head.jsp"	/>
 </head>
-<body>
+<body class="bg-dark">
 	<jsp:include page="../common/header.jsp"/>
 	<main class="container mt-5">
         <h2 class="my-4 fw-bold">POSTS</h2>
@@ -21,54 +22,16 @@
             </thead>
 
             <tbody>
+            	<c:forEach items="posts" var="p">
+            		<tr>
+            			<td>${p.pno}</td>
+                   		<td><a href="${cp}/view?pno=${p.pno}" class="text-decoration-none">${p.title}</a></td>
+            			<td><button type="button" class="btn text-decoration-none post-writer" data-bs-toggle="popover" title="${p.writer}" data-bs-content="${cp}프로필 정보">${p.writer}</button></td>
+           			    <td>${p.createDate}</td>
+   	                    <td>${p.viewCnt}</td>
+                  		<td>?</td>
+            	</c:forEach>
                 <tr>
-                    <td>1</td>
-                    <td><a href="#" class="text-decoration-none">titleSample</a></td>
-                    <td><button type="button" class="btn text-decoration-none post-writer" data-bs-toggle="popover" title="${cp}Profile Info" data-bs-content="${cp}프로필 정보">writer</button></td>
-                    <td>2024/11/07</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td><a href="#" class="text-decoration-none">titleSample</a></td>
-                    <td><button type="button" class="btn text-decoration-none post-writer" data-bs-toggle="popover" title="Profile Info" data-bs-content="프로필 정보">writer</button></td>
-                    <td>2024/11/07</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td><a href="#" class="text-decoration-none">titleSample</a></td>
-                    <td><button type="button" class="btn text-decoration-none post-writer" data-bs-toggle="popover" title="Profile Info" data-bs-content="프로필 정보">writer</button></td>
-                    <td>2024/11/07</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td><a href="#" class="text-decoration-none">titleSample</a></td>
-                    <td><button type="button" class="btn text-decoration-none post-writer" data-bs-toggle="popover" title="Profile Info" data-bs-content="프로필 정보">writer</button></td>
-                    <td>2024/11/07</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td><a href="#" class="text-decoration-none">titleSample</a></td>
-                    <td><button type="button" class="btn text-decoration-none post-writer" data-bs-toggle="popover" title="Profile Info" data-bs-content="프로필 정보">writer</button></td>
-                    <td>2024/11/07</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td><a href="#" class="text-decoration-none">titleSample</a></td>
-                    <td><button type="button" class="btn text-decoration-none post-writer" data-bs-toggle="popover" title="Profile Info" data-bs-content="프로필 정보">writer</button></td>
-                    <td>2024/11/07</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
                 </tbody>
         </table>
         <ul class="pagination justify-content-center">

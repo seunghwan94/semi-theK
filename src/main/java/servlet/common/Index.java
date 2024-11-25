@@ -14,11 +14,9 @@ import vo.Category;
 
 @WebServlet("/index")
 public class Index extends HttpServlet {
-	List<Category> categories =  new CategorySerivceImpl().selectlist();
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setAttribute("categories", categories);	
 		req.getRequestDispatcher("/WEB-INF/k/main/index.jsp").forward(req, resp);
 	}
 	

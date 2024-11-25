@@ -11,11 +11,14 @@
 	<result column="isuse" property="isUse"/>
 	<result column="create_date" property="createDate"/>
 	<result column="update_date" property="updateDate"/>
+	<result column="icon" property="icon"/>
+	<result column="pathname" property="pathName"/>
 </resultMap>
-
 	<select id="selectMain" resultType="vo.Category">
 		select * from tbl_category tc WHERE sub_category = 'main' AND isuse = 'y'
 	</select>
-	
-	
+
+	<select id="selectSub" resultType="vo.Category">
+		select * from tbl_category tc WHERE sub_category = 'sub' AND isuse = 'y'
+	</select>
 </mapper>

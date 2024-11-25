@@ -20,7 +20,7 @@
 <div class="container-fluid mt-5 p-2 mx-auto text-center">
 <div class="row">
 <div class="col-sm-5 p-3"><hr class="text-light">
-<b><a href="#" class="p-2 mt-4 big text-light">${cp}시판</a></b><hr class="text-light">
+<b><a href="${cp}/list?category=5" class="p-2 mt-4 big text-light">${cp}시판</a></b><hr class="text-light">
 <c:forEach var="p" begin="1" end="5">
 <ul class="p-0">
 <li>

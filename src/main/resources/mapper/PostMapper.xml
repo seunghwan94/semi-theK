@@ -12,6 +12,10 @@
 	<result column="cno" property="cno"/>
 	<!-- <result column="attach_flag"/> -->
 </resultMap>
+	<select id="selectList" resultMap="vo.post">
+		select tp.* from tbl_post tp where cno = #{cno}
+	</select>
+
 	<select id="selectOne" resultMap="vo.post">
 		select tp.*, 1 from tbl_post tp where pno = #{pno} 
 	</select>
