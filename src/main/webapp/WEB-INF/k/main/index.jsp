@@ -41,7 +41,7 @@
 </c:forEach>
 	
 </div>
-<div class="col-sm-2"></div>
+<!-- <div class="col-sm-2"></div>
 <div class="col-sm-5 p-3"><hr class="text-light">
 <b><a href="#" class="p-2 mt-4 text-light big">${cp}시판</a></b><hr class="text-light">
 <c:forEach var="p" begin="1" end="5">
@@ -66,7 +66,7 @@
 </c:forEach>
 </ul>
 </div>
-</div>
+</div> -->
 </main>
 <jsp:include page="../common/footer.jsp"/>
 <script src="${cp}js/bxsliderindex.js"></script>

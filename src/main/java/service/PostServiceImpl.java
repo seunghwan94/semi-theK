@@ -20,7 +20,7 @@ public class PostServiceImpl implements PostService {
 	public List<Post> lastPost() {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			PostMapper mapper = session.getMapper(PostMapper.class);
-			return mapper.lastList();
+			return mapper.lastList2();
 		}
 	}
 

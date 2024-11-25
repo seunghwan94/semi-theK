@@ -15,6 +15,8 @@ public interface PostMapper {
 	String now();
 	
 	List<Post> lastList();
+
+	List<Post> lastList2();
 	
 	int write(Post post);
 	
