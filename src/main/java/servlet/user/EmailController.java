@@ -27,19 +27,21 @@ public class EmailController extends HttpServlet {
 		System.out.println(map);
 		// 누구에게 보낼것인가
 		String receiver = map.get("emailcheck");//emailcheck 객체를 signup에서 가져온다
-	
 		// 메일 발송
 		Session session = new Mailsender().init();
 	    String rndText = String.format("%08d", (int)(Math.random() * 100000000));
 	    System.out.println(rndText);
 	    Mailsender.send(session, "The-k 인증번호", "<h1>인증번호</h1>" + rndText, receiver);
 
-	    // 되돌려줘야해.
+	    // 되돌려줘야해
 	    Map<String, String> ret = new HashMap<>();
 	    ret.put("text", rndText);
 	    
+	   
 	    resp.setContentType("application/json; charset=utf-8");
 	    resp.getWriter().print(gson.toJson(ret));
+	    
+	  
 	       
 	}
 

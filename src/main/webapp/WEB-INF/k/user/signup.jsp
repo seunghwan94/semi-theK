@@ -58,7 +58,7 @@
 			console.log(emailcheck);
 	 		/* rndText(emailcheck,function(data) {
 					console.log(data);   */
-			alert("이메일 발송");
+			alert("이메일 전송");
 			const url = "/K/useremail";
 			const data = JSON.stringify({emailcheck});
 			$.post({ url, data })
