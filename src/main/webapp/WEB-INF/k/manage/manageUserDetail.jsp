@@ -5,7 +5,7 @@
 <html lang="ko" data-bs-theme="dark">
 <head>
 	<jsp:include page="../common/head.jsp"/>
-	<link rel='stylesheet'href='css/manage.css'>
+	<link rel='stylesheet'href='${cp}css/manage.css'>
 </head>
 <body>
 <body class="gothic-a1-regular">
@@ -13,16 +13,14 @@
     	
         <jsp:include page="sidebar.jsp"></jsp:include>
 		<!-- main -->
-        <div class="tab-content w-100" id="v-pills-tabContent">
-            <div class="tab-pane fade p-5 show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-            
-            <h3>관리</h3>
+        <div class="tab-content w-100">
+            <div class="tab-pane fade p-5 show active">
+            	<h3>관리</h3>
                 <!-- navtab -->
                 <jsp:include page="manageTab.jsp"></jsp:include>
-
                 <!-- 관리 -->
                 <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade p-4 show active" id="nav-home-detail" role="tabpanel" aria-labelledby="nav-home-detail-tab">
+                    <div class="tab-pane fade p-4 show active" role="tabpanel" aria-labelledby="nav-home-detail-tab">
                         <h3>상세 정보</h3>
                         <div class="card">
                             <div class="card-header">

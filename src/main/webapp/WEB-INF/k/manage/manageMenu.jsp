@@ -5,7 +5,9 @@
 <html lang="ko" data-bs-theme="dark">
 <head>
 	<jsp:include page="../common/head.jsp"/>
-	<link rel='stylesheet'href='css/manage.css'>
+	<link rel='stylesheet'href='${cp}css/manage.css'>
+	<!-- jquery ui -->
+	<script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
 </head>
 <body>
 <body class="gothic-a1-regular">
@@ -13,16 +15,15 @@
     	
         <jsp:include page="sidebar.jsp"></jsp:include>
 		<!-- main -->
-        <div class="tab-content w-100" id="v-pills-tabContent">
-            <div class="tab-pane fade p-5 show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-            
-            <h3>관리</h3>
+        <div class="tab-content w-100">
+            <div class="tab-pane fade p-5 show active">
+            	<h3>관리</h3>
                 <!-- navtab -->
                 <jsp:include page="manageTab.jsp"></jsp:include>
                 <!-- 관리 -->
                 <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade p-4 show active" id="nav-home-detail" role="tabpanel" aria-labelledby="nav-home-detail-tab">
-                    <h3>메뉴 관리</h3>
+                    <div class="tab-pane fade p-4 show active" role="tabpanel" aria-labelledby="nav-home-detail-tab">
+                    	<h3>메뉴 관리</h3>
                         <div class="card p-3">
                             <div class="d-flex flex-row justify-content-center align-items-center">
                                 <!-- 비적용 -->
@@ -34,11 +35,11 @@
                                         </button>
                                     </div>
                                     <ul id="sortable1" class="list-group list-group-flush connectedSortable mb-2 grabbable">
-                                        <li class="list-group-item ui-state-default">Item 1</li>
-                                        <li class="list-group-item ui-state-default">Item 2</li>
-                                        <li class="list-group-item ui-state-default">Item 3</li>
-                                        <li class="list-group-item ui-state-default">Item 4</li>
-                                        <li class="list-group-item ui-state-default">Item 5</li>
+                                    	<c:forEach var="m" items="${menuCategory}">
+                                    		<c:if test="${m.isUse != 'y'}">
+	                                        	<li class="list-group-item ui-state-default">${m.cname}</li>
+	                                        </c:if>
+                                    	</c:forEach>
                                     </ul>
                                     <div class="card-footer p-0 d-none" id="menu-input">
                                         <div class="input-group">
@@ -53,14 +54,16 @@
                                     <i class="fa-solid fa-down-long d-none"></i>
                                 </div>
                                 <!-- 적용 -->
+                                
                                 <div class="card m-3 bg-light w-50">
                                     <div class="card-header text-dark">적용</div>
+                                    
                                     <ul id="sortable2" class="list-group list-group-flush connectedSortable mb-2 grabbable">
-                                        <li class="list-group-item ui-state-highlight">Item 1</li>
-                                        <li class="list-group-item ui-state-highlight">Item 2</li>
-                                        <li class="list-group-item ui-state-highlight">Item 3</li>
-                                        <li class="list-group-item ui-state-highlight">Item 4</li>
-                                        <li class="list-group-item ui-state-highlight">Item 5</li>
+                                        <c:forEach var="m" items="${menuCategory}">
+                                    		<c:if test="${m.isUse == 'y'}">
+	                                        	<li class="list-group-item ui-state-highlight">${m.cname}</li>
+	                                        </c:if>
+                                    	</c:forEach>
                                     </ul>
                                     <div class="card-footer p-0 d-none"></div>
                                 </div>
@@ -84,7 +87,7 @@
             $("#menu-input").removeClass("d-none");
         });
         $(document).on('change','.input-group',function(){                    
-            $("#sortable1").append(`<li class="list-group-item ui-state-highlight">${$.trim($(".input-group > input").val())}</li>`);
+            $("#sortable1").append(`<li class="list-group-item ui-state-highlight">\${$.trim($(".input-group > input").val())}</li>`);
             $(".input-group > input").val("");
             $("#menu-input").addClass("d-none");
         }) 

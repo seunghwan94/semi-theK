@@ -10,17 +10,16 @@
 <body>
 <body class="gothic-a1-regular">
     <div class="d-flex align-items-start">
-    	
         <jsp:include page="sidebar.jsp"></jsp:include>
 		<!-- main -->
-        <div class="tab-content w-100" id="v-pills-tabContent">
-            <div class="tab-pane fade p-5 show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+        <div class="tab-content w-100">
+            <div class="tab-pane fade p-5 show active">
                 <h3>관리</h3>
                 <!-- navtab -->
 				<jsp:include page="manageTab.jsp"></jsp:include>
                 <!-- 관리 -->
-                <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade p-4 show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="tab-content">
+                    <div class="tab-pane fade p-4 show active">
                         <h3>유저 관리</h3>
                         <table class="table table-hover">
                             <thead>
@@ -50,15 +49,36 @@
                             </tbody>
                         </table>
                     </div>
+                    
+                    <div class="">
+				        <ul class="pagination justify-content-center my-5">
+				          <c:if test="${pageDto.doublePrev}">
+					      	<li class="page-item"><a class="page-link" href="manage?page=${pageDto.startPage-1}&${pageDto.cri.qs}"><i class="fa-solid fa-angles-left"></i></a></li>
+					      </c:if>
+					      <c:if test="${pageDto.prev}">
+				       	  	<li class="page-item"><a class="page-link" href="list?page=${pageDto.cri.page-1}&${pageDto.cri.qs}"><i class="fa-solid fa-angle-left"></i></a></li>
+				          </c:if>
+				
+				          <c:forEach begin="${pageDto.startPage}" end="${pageDto.endPage}" var="page">
+				          	<li class="page-item ${page == pageDto.cri.page ? 'active' : ''}"><a class="page-link" href="list?page=${page}&amount=${pageDto.cri.amount}&category=${pageDto.cri.category}" >${page}</a></li>
+				          </c:forEach>
+				 
+				          <c:if test="${pageDto.next}">
+					      	<li class="page-item"><a class="page-link" href="list?page=${pageDto.cri.page+1}&${pageDto.cri.qs}"><i class="fa-solid fa-angle-right"></i></a></li>
+					      </c:if>
+					      <c:if test="${pageDto.doubleNext}">
+					      	<li class="page-item"><a class="page-link" href="list?page=${pageDto.endPage+1}&${pageDto.cri.qs}"><i class="fa-solid fa-angles-right"></i></a></li>
+					      </c:if>
+				        </ul>
+			      	</div>
                 </div>
             </div>
         </div>
 	</div>        
-        <script>
-        	$(".move").click(function(){
-        		
-        		location.href = ${cp}+"manage/userDetail?id="+ $(this).data("userId");
-        	});
-        </script>
+    <script>
+    	$(".move").click(function(){
+    		location.href = ${cp}+"manage/userDetail?id="+ $(this).data("userId");
+    	});
+    </script>
 </body>
 </html>

@@ -3,10 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.ManageMapper">
-  <select id="selectAll" resultType="vo.User">
+  <select id="selectAllUser" resultType="vo.User">
 	select * from tbl_user
-<!--     select * 
-	from tbl_user tu, tbl_user_detail tud 
-	where tu.id  = tud.id -->
+  </select>
+  <select id="selectAllTaboo" resultType="vo.Taboo">
+	select * from tbl_taboo
+  </select>
+  <select id="selectAllMenu" resultType="vo.Category">
+	select * from tbl_category where main_category = 'menu'
   </select>
 </mapper>

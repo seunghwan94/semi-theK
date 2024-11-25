@@ -6,19 +6,42 @@ import org.apache.ibatis.session.SqlSession;
 
 import mapper.ManageMapper;
 import utils.MybatisInit;
+import vo.Category;
+import vo.Taboo;
 import vo.User;
 
 public class ManageServiceImpl implements ManageService{
 
 	@Override
-	public List<User> list() {
+	public List<User> listUser() {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			ManageMapper mapper = session.getMapper(ManageMapper.class);
-			return mapper.selectAll();
+			return mapper.selectAllUser();
 		}
 	}
+	
+	
+	@Override
+	public List<Taboo> listTaboo() {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			ManageMapper mapper = session.getMapper(ManageMapper.class);
+			return mapper.selectAllTaboo();
+		}
+	}
+
+	
+
+	@Override
+	public List<Category> listMenu() {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			ManageMapper mapper = session.getMapper(ManageMapper.class);
+			return mapper.selectAllMenu();
+		}
+	}
+
+
 	public static void main(String[] args) {
-		List<User> t =  new ManageServiceImpl().list();
+		List<Category> t =  new ManageServiceImpl().listMenu();
 		System.out.println(t);
 	}
 }

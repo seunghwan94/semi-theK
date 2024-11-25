@@ -17,7 +17,7 @@ import vo.User;
 public class MangeUser extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<User> userArr =  new ManageServiceImpl().list();
+		List<User> userArr =  new ManageServiceImpl().listUser();
 		System.out.println(userArr);
 		
 		req.setAttribute("menu", "manage");
