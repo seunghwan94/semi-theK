@@ -6,7 +6,7 @@ import lombok.*;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+//@NoArgsConstructor
 @Builder
 public class Category {
 	

@@ -39,9 +39,29 @@ public class ManageServiceImpl implements ManageService{
 		}
 	}
 
+	
+
+	@Override
+	public int addMenu(String cname) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			ManageMapper mapper = session.getMapper(ManageMapper.class);
+			return mapper.insert(cname);
+		}
+	}
+
+	
+
+	@Override
+	public int modifyMenu(String cname, int parentCno, int sort, String isuse) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			ManageMapper mapper = session.getMapper(ManageMapper.class);
+			return mapper.update(cname, parentCno, sort, isuse);
+		}
+	}
+
 
 	public static void main(String[] args) {
-		List<Category> t =  new ManageServiceImpl().listMenu();
+		int t =  new ManageServiceImpl().modifyMenu("sssss");
 		System.out.println(t);
 	}
 }

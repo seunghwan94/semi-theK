@@ -13,4 +13,8 @@ public interface ManageService {
 	
 	List<Category> listMenu();
 	
+	int addMenu(String cname);
+	
+	int modifyMenu(String cname, int parent_cno, int sort, String isuse);
+	
 }

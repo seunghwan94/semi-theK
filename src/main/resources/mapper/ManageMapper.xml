@@ -10,6 +10,9 @@
 	select * from tbl_taboo
   </select>
   <select id="selectAllMenu" resultType="vo.Category">
-	select * from tbl_category where main_category = 'menu'
+	select * from tbl_category where main_category = 'menu' and sub_category = 'sub'
   </select>
+  <insert id="insert">
+	  INSERT  INTO tbl_category (cname, main_category, sub_category, sort, isuse) values (#{cname},'menu','sub',0,'n')
+  </insert>
 </mapper>
