@@ -14,7 +14,7 @@ import vo.Category;
 
 @WebServlet("/index")
 public class Index extends HttpServlet {
-	List<Category> categories =  new CategorySerivceImpl().selectMain();
+	List<Category> categories =  new CategorySerivceImpl().selectlist();
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

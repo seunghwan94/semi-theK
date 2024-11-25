@@ -16,8 +16,9 @@ public class Category {
 	private String subCategory;
 	private int parentCno;
 	private int sort;
-	private String isUse;
+	private String isUse; 
 	private Date createDate; // 등록일
 	private Date updateDate; // 수정일
-	
+	private String icon; // 아이콘
+	private String pathName; // 경로명
 }
