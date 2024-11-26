@@ -13,6 +13,7 @@
     <jsp:include page="../common/header.jsp" />
     <hr>
     <main class="container my-5 mx-auto p-3 justify-content-center">
+    <hr>
         <div id="slide-container">
             <ul class="bxslider1">
                 <c:forEach var="u" begin="1" end="5">
@@ -26,10 +27,9 @@
                 <c:if test="${status.index % 2 == 0}">
                     <div class="row align-items-stretch">
                 </c:if>
-
                 <div class="col-sm-5 p-3">
                     <hr class="text-light">
-                    <b><a href="${cp}list?cno=${s.cno}" class="p-2 mt-4 mb-0 big text-light">${s.icon} ${s.cname}</a></b>
+                    <b><a href="${cp}list?cno=${s.cno}" class="p-2 mt-4 mb-0 big text-light bg-secondary">${s.icon} ${s.cname}</a></b>
                     <hr class="text-light">
                     <ul class="p-0 small">
                         <c:forEach items="${posts}" var="p">
@@ -38,7 +38,7 @@
                                     <div class="row p-2 border-bottom mx-auto text-light">
                                         <div class="col-sm-1 small">${p.pno}</div>
                                         <div class="col-sm-6 text-truncate">
-                                            <a href="#" class="text-decoration-none text-light">${p.title}</a>
+                                            <a href="${cp}list/view?pno=${p.pno}" class="text-decoration-none text-light">${p.title}</a>
                                         </div>
                                         <div class="col-sm-1">
                                             <a href="#" class="text-decoration-none text-light">[0]</a>

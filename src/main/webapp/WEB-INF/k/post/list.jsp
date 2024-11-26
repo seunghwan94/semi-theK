@@ -65,16 +65,16 @@
         	<div class="col-sm-8"></div>
         	<div class="col-sm-2">
        	        <ul class="pagination justify-content-end bg-dark">
-		            <li class="page-item bg-dark"><a class="page-link bg-dark text-decoration-none" href="#"><i class="fa-solid fa-angles-left"></i></a></li>
-		            <li class="page-item bg-dark active"><a class="page-link bg-dark text-decoration-none" href="#">1</a></li>
-		            <li class="page-item bg-dark"><a class="page-link bg-dark text-decoration-none" href="#">2</a></li>
-		            <li class="page-item bg-dark"><a class="page-link bg-dark text-decoration-none" href="#">3</a></li>
-		            <li class="page-item bg-dark"><a class="page-link bg-dark text-decoration-none" href="#"><i class="fa-solid fa-angles-right"></i></a></li>
+		            <li class="page-item bg-dark text-light"><a class="page-link bg-dark text-decoration-none" href="#"><i class="fa-solid fa-angles-left"></i></a></li>
+		            <li class="page-item bg-dark active text-light"><a class="page-link bg-dark text-decoration-none" href="#">1</a></li>
+		            <li class="page-item bg-dark text-light"><a class="page-link bg-dark text-decoration-none" href="#">2</a></li>
+		            <li class="page-item bg-dark text-light"><a class="page-link bg-dark text-decoration-none" href="#">3</a></li>
+		            <li class="page-item bg-dark text-light"><a class="page-link bg-dark text-decoration-none" href="#"><i class="fa-solid fa-angles-right"></i></a></li>
             	</ul>
         	</div>
         </div>
         
-        
+        <d class="small text-secondary allign-center mb-3"><i class="small"> // 운영정책에 위반되는 게시글 게시 시 통보 없이 이용이 정지될 수 있습니다.</i></d>
     </main>
 	<jsp:include page="../common/footer.jsp"/>
 </body>

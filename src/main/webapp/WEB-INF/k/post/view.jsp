@@ -27,14 +27,12 @@
                 
                 <label for="updatedate" class="form-label mt-3"><i class="fa-solid fa-file-signature"></i><b> Altered date </b></label>
                 <input type="text" class="form-control text-secondary small" id="updatedate" placeholder="updatedate" name="updatedate" value="${post.updateDate}" disabled>
-				
 				<hr>
-				
-             	<div class="text-center mt-5 mb-2">
-             		<c:if test="${post.userId}">
+             	<div class="text-center mt-5 mb-5">
+             		<!-- <c:if test="${post.userId}"> -->
 	             		<a href="modify?pno=${post.pno}&${criteria.qs2}" class="btn btn-outline-light"> ALTER POST </a>
 	             		<a href="remove?pno=${post.pno}&${criteria.qs2}" class="btn btn-outline-light" onclick="return confirm('Delete this post?')"> DELETE POST </a>
-             		</c:if>
+             		<!-- </c:if> -->
              	</div>
 				
 			</main>

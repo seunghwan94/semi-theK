@@ -28,6 +28,7 @@ public class PostServiceImpl implements PostService {
 	public Post view(int pno) {
 		try (SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			PostMapper mapper = session.getMapper(PostMapper.class);
+			mapper.increaseViewCount(pno);
 			return mapper.selectOne(pno); 
 		}
 	}
