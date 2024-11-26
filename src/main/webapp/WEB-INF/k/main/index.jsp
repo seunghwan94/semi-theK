@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
@@ -12,7 +11,7 @@
 <body class="bg-dark d-flex flex-column min-vh-100 gothic-a1-regular">
     <jsp:include page="../common/header.jsp" />
     <hr>
-    <main class="container my-5 mx-auto p-3 justify-content-center">
+    <main class="container my-5 mx-auto p-2 justify-content-center">
     <hr>
         <div id="slide-container">
             <ul class="bxslider1">
@@ -22,14 +21,14 @@
             </ul>
         </div>
 
-        <div class="container-fluid mt-5 p-2 mx-auto text-center">
+        <div class="container-fluid mt-4 p-2 mx-auto text-center">
             <c:forEach items="${subC}" var="s" varStatus="status">
                 <c:if test="${status.index % 2 == 0}">
                     <div class="row align-items-stretch">
                 </c:if>
                 <div class="col-sm-5 p-3">
                     <hr class="text-light">
-                    <b><a href="${cp}list?cno=${s.cno}" class="p-2 mt-4 mb-0 big text-light bg-secondary">${s.icon} ${s.cname}</a></b>
+                    <b><a href="${cp}list?cno=${s.cno}" class="p-2 mt-4 mb-0 big text-light bg-secondary text-decoration-none">${s.icon} ${s.cname}</a></b>
                     <hr class="text-light">
                     <ul class="p-0 small">
                         <c:forEach items="${posts}" var="p">
@@ -60,13 +59,12 @@
                 <c:if test="${status.index % 2 == 0}">
                     <div class="col-sm-2"></div>
                 </c:if>
-
                 <c:if test="${status.index % 2 == 1}">
                     </div>
                 </c:if>
 
                 <c:if test="${status.index == 1 }">
-                    <div class="row justify-content-center mt-4">
+                    <div class="row justify-content-center mt-4 mb-4">
                         <ul class="col-sm-12 bxslider2">
                             <c:forEach var="bx" begin="1" end="8">
                                 <li class="text-start">
