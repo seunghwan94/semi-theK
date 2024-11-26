@@ -7,28 +7,25 @@ import org.apache.catalina.mapper.Mapper;
 import org.apache.ibatis.session.SqlSession;
 
 import mapper.EmailMapper;
+import mapper.ManageMapper;
 import utils.MybatisInit;
 import vo.UserEmail;
 
 public class UserEmailServiceImpl implements UserEmailService   {
 
-	@Override
-	public Map<String, List<UserEmail>> list(String email, int att) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
-	public String email(String email) {
-		return null;
+	public int addAtt(UserEmail userEmail) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			EmailMapper mapper = session.getMapper(EmailMapper.class);
+			return mapper.insert(userEmail);
+		}
 	}
-
-	@Override
-	public int save(int att) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
+//	public static void main(String[] args) {
+//		 UserEmail userEmail = new UserEmail().builder().email("zd").att(Integer.parseInt("1231231")).build();
+//		    int i = new UserEmailServiceImpl().addAtt(userEmail);//
+//		    System.out.println(i);
+//	}
 	
 
 }

@@ -12,7 +12,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserEmail {
+	int no;
 	String email;
 	int att;
-	Date create_date;
+	Date createDate;
 }

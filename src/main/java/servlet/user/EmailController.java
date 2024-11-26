@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 import jakarta.mail.Session;
+import service.UserEmailServiceImpl;
 import utils.Mailsender;
 import vo.UserEmail;
 
@@ -21,7 +22,8 @@ public class EmailController extends HttpServlet {
 
 	
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("뭘까");
 		Gson gson = new Gson();
 		Map< String, String> map =gson.fromJson(req.getReader(), Map.class);//2번째는 타입 어떻게 받을거냐 
 		System.out.println(map);
@@ -32,6 +34,8 @@ public class EmailController extends HttpServlet {
 	    String rndText = String.format("%08d", (int)(Math.random() * 100000000));
 	    System.out.println(rndText);
 	    Mailsender.send(session, "The-k 인증번호", "<h1>인증번호</h1>" + rndText, receiver);
+	    UserEmail userEmail = new UserEmail().builder().email(receiver).att(Integer.parseInt(rndText)).build();
+	    int i = new UserEmailServiceImpl().addAtt(userEmail);
 
 	    // 되돌려줘야해
 	    Map<String, String> ret = new HashMap<>();
