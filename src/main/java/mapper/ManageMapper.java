@@ -3,8 +3,10 @@ package mapper;
 import java.util.List;
 
 import vo.Category;
+import vo.Post;
 import vo.Taboo;
 import vo.User;
+import vo.UserDetail;
 
 public interface ManageMapper {
 	List<User> selectAllUser();
@@ -18,4 +20,8 @@ public interface ManageMapper {
 	int insertTaboo(String keyWord);
 	int deleteTaboo(String string);
 	int updateTaboo(Taboo taboo);
+
+	List<UserDetail> selectAllUserDetail();
+
+	List<Post> selectAllAnnPost();
 }

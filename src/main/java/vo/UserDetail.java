@@ -16,13 +16,13 @@ public class UserDetail {
 	private String name;
 	private char gender;
 	private String addr;
-	private String detailaddr;
-	private String selfintro;
+	private String detailAddr;
+	private String selfIntro;
 	private String grade;
 	private int mtno;
-	private Date lastlogin;
-	private Date createdate;
-	private Date updatedate;
+	private Date lastLogin;
+	private Date createDate;
+	private Date updateDate;
 	
 
 }

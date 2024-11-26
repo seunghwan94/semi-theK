@@ -6,6 +6,10 @@
   <select id="selectAllUser" resultType="vo.User">
 	select * from tbl_user
   </select>
+  <select id="selectAllUserDetail" resultType="vo.UserDetail">
+	select * from tbl_user_detail
+  </select>
+  
   <select id="selectAllTaboo" resultType="vo.Taboo">
 	select * from tbl_taboo
   </select>
@@ -20,10 +24,6 @@
 		select max(cno) from tbl_category
 	  </selectKey>
   </insert>
-  <insert id="insertTaboo" >
-	  INSERT  INTO tbl_taboo (key_word, user_id, isuse) values (#{keyWord},'test@naver.com', 1)
-  </insert>
-  
   <update id="update">
 	  update tbl_category set 
 	  	sort = #{sort},
@@ -31,12 +31,26 @@
 	  	parent_cno = #{parentCno}
 	  	where cno = #{cno}
   </update>
-
   <delete id="delete">
   	delete from tbl_category where cno = #{cno} 
   </delete>
+  
+  
+  <insert id="insertTaboo" >
+	  INSERT  INTO tbl_taboo (key_word, user_id, isuse) values (#{keyWord},'test@naver.com', 1)
+  </insert>
+  <update id="updateTaboo">
+		update tbl_taboo set 
+	  	isuse = #{isUse},
+	  	update_date = now()
+	  	where key_word = #{keyWord}
+  </update>
   <delete id="deleteTaboo">
   	delete from tbl_taboo where key_word = #{keyWord} 
   </delete>
   
+  
+  <select id="selectAllAnnPost" resultType="vo.Post">
+	select * from tbl_post
+  </select>
 </mapper>

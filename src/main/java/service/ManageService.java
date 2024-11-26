@@ -5,6 +5,7 @@ import java.util.List;
 import vo.Category;
 import vo.Taboo;
 import vo.User;
+import vo.UserDetail;
 
 public interface ManageService {
 	List<User> listUser();
@@ -19,6 +20,8 @@ public interface ManageService {
 	int removeTaboo(Taboo t);
 
 	int modifyTaboo(Taboo taboo);
+
+	List<UserDetail> listUserDetail();
 
 	
 }

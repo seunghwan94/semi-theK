@@ -40,8 +40,6 @@
 	                            </thead>
 	                            <tbody>
 		                            <c:forEach var="taboo" items="${tabooArr}" varStatus="status">
-										<input type="hidden" name="userId" value="${taboo.userId}">
-										<input type="hidden" name="isUse" value="${taboo.isUse}">
 		                                <tr class="move">
 		                                    <th scope="row">
 		                                        <div class="form-check">
@@ -115,7 +113,7 @@
                                         </th>
                                         <td>\${parseInt($("tbody > tr").last().children("td").eq(0).text()) + 1}</td>
                                         <td class="text-start">\${taboo}</td>
-                                        <td>유진</td>
+                                        <td>승환</td>
                                         <td>2024-11-22 11:10:10</td>
                                         <td>
                                             <div class="form-check form-switch">
@@ -141,15 +139,14 @@
         /* 여기 수정할 차례  */
 		$("#btn-modify").click(function(){
 			let arr=[];
-			let $chk = ""; 
+			let $target = []; 
 			$('input[name="isUse"]').each(function(){
-				$chk = $(this);
 				let obj = {
-						keyWord : $chk.val(),
-						isUse : $chk.val()
-						
-						} 
+							keyWord : $(this).closest("tr").find('input[name="keyWord"]').val(),
+							isUse : $(this).is(':checked') ? 1 : 0
+						  } 
 				arr.push(obj);
+				$target.push($(this).closest("tr"));
 			});
 			
 			$.ajax({
@@ -159,6 +156,9 @@
                 data: JSON.stringify(arr),
                 success: function (res) {
                     if (res=='success') {
+                    	
+                    	
+                    	
                         alert("적용 되었습니다.");
                     } else {
                         alert("적용 실패하였습니다");
@@ -174,11 +174,11 @@
 
 		$("#btn-remove").click(function(){
 			let arr=[];
-			let $chk = ""; 
+			let $target = []; 
 			$('input[name="keyWord"]:checked').each(function(){
-				$chk = $(this);
-				let obj = {keyWord : $chk.val() } 
+				let obj = {keyWord : $(this).val() } 
 				arr.push(obj);
+				$target.push($(this).closest("tr"));
 			});
 			
 			$.ajax({
@@ -188,8 +188,11 @@
                 data: JSON.stringify(arr),
                 success: function (res) {
                     if (res=='success') {
-                    	$chk.parent().parent().parent().remove();
+                    	$target.forEach(function(data){
+                    		data.remove();
+                    	})
                         alert("적용 되었습니다.");
+                        
                     } else {
                         alert("적용 실패하였습니다");
                     }

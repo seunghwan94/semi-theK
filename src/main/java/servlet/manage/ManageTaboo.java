@@ -80,26 +80,32 @@ public class ManageTaboo extends HttpServlet {
 
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
 		Gson gson = new Gson();
 		List<Object> list = gson.fromJson(req.getReader(), List.class);
-	    boolean chk = true;
-	    
-	    for(Object s : list) {
-	    	Map<String, String> map = (Map<String, String>) s;
-	    	Taboo t = Taboo.builder().keyWord(map.get("keyWord")).build();
-	    	int i = new ManageServiceImpl().modifyTaboo(t);
-			if (i != 1) {
-				chk = false;
-				break;
-			}
+		boolean chk = true;
+
+		for (Object s : list) {
+		    Map<String, Object> map = (Map<String, Object>) s; // `Object`로 선언하여 유연하게 처리
+		    System.out.println(map.toString());
+
+		    Taboo t = Taboo.builder().keyWord((String) map.get("keyWord")).isUse(((Number) map.get("isUse")).intValue()).build();
+		    System.out.println(t);
+
+		    int i = new ManageServiceImpl().modifyTaboo(t);
+		    
+		    System.out.println(i);
+		    
+		    if (i != 1) {
+		        chk = false;
+		        break;
+		    }
 		}
-	    
+
 		resp.setContentType("application/json; charset=utf-8");
 		if (chk) {
-			resp.getWriter().print(gson.toJson("success"));        	
-		}else {
-			resp.getWriter().print(gson.toJson("fail"));        	
+		    resp.getWriter().print(gson.toJson("success"));
+		} else {
+		    resp.getWriter().print(gson.toJson("fail"));
 		}
 	}
 	

@@ -7,8 +7,10 @@ import org.apache.ibatis.session.SqlSession;
 import mapper.ManageMapper;
 import utils.MybatisInit;
 import vo.Category;
+import vo.Post;
 import vo.Taboo;
 import vo.User;
+import vo.UserDetail;
 
 public class ManageServiceImpl implements ManageService{
 
@@ -19,6 +21,14 @@ public class ManageServiceImpl implements ManageService{
 			return mapper.selectAllUser();
 		}
 	}
+	@Override
+	public List<UserDetail> listUserDetail() {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			ManageMapper mapper = session.getMapper(ManageMapper.class);
+			return mapper.selectAllUserDetail();
+		}
+	}
+	
 	
 	
 	@Override
@@ -88,6 +98,13 @@ public class ManageServiceImpl implements ManageService{
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			ManageMapper mapper = session.getMapper(ManageMapper.class);
 			return mapper.deleteTaboo(t.getKeyWord());
+		}
+	}
+
+	public List<Post> listAnn() {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			ManageMapper mapper = session.getMapper(ManageMapper.class);
+			return mapper.selectAllAnnPost();
 		}
 	}
 
