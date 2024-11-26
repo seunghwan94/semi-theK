@@ -173,11 +173,8 @@
                 data: JSON.stringify(arr),
                 
                 success: function (res) {
-                	
                     if (res=='success') {
-                        
                         alert("적용 되었습니다.");
-                        
                     } else {
                         alert("적용 실패하였습니다");
                     }

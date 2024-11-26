@@ -12,12 +12,18 @@
   <select id="selectAllMenu" resultType="vo.Category">
 	select * from tbl_category where main_category = 'menu' and sub_category = 'sub'
   </select>
+  
+  
   <insert id="insert" >
 	  INSERT  INTO tbl_category (cname, main_category, sub_category, sort, isuse) values (#{cname},'menu','sub',0,'n')
 	  <selectKey order="AFTER" keyProperty="cno" resultType="int">
 		select max(cno) from tbl_category
 	  </selectKey>
   </insert>
+  <insert id="insertTaboo" >
+	  INSERT  INTO tbl_taboo (key_word, user_id, isuse) values (#{keyWord},'test@naver.com', 1)
+  </insert>
+  
   <update id="update">
 	  update tbl_category set 
 	  	sort = #{sort},
@@ -25,7 +31,12 @@
 	  	parent_cno = #{parentCno}
 	  	where cno = #{cno}
   </update>
+
   <delete id="delete">
   	delete from tbl_category where cno = #{cno} 
   </delete>
+  <delete id="deleteTaboo">
+  	delete from tbl_taboo where key_word = #{keyWord} 
+  </delete>
+  
 </mapper>

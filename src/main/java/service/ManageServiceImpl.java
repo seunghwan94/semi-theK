@@ -47,6 +47,17 @@ public class ManageServiceImpl implements ManageService{
 		}
 	}
 
+
+	
+	@Override
+	public int addTaboo(String keyWord) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			ManageMapper mapper = session.getMapper(ManageMapper.class);
+			return mapper.insertTaboo(keyWord);
+		}
+	}
+
+
 	@Override
 	public int modifyMenu(Category categroy) {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
@@ -63,11 +74,31 @@ public class ManageServiceImpl implements ManageService{
 		}
 	}
 
-//	public static void main(String[] args) {
-//
-//		int t = new ManageServiceImpl().addMenu("123456"); 
-//		System.out.println(t);
-//	}
+	
+	@Override	
+	public int modifyTaboo(Taboo taboo) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			ManageMapper mapper = session.getMapper(ManageMapper.class);
+			return mapper.updateTaboo(taboo);
+		}
+	}
+
+	@Override
+	public int removeTaboo(Taboo t) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			ManageMapper mapper = session.getMapper(ManageMapper.class);
+			return mapper.deleteTaboo(t.getKeyWord());
+		}
+	}
+
+	public static void main(String[] args) {
+		Taboo t = Taboo.builder().keyWord("뭐").build(); 
+		int i = new ManageServiceImpl().removeTaboo(t);
+	}
+
+
+
+
 
 
 }

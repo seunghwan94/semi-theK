@@ -28,7 +28,7 @@
 	                                <tr>
 	                                    <th scope="col" style="width: 2%;">
 	                                        <div class="form-check">
-	                                            <input class="form-check-input" type="checkbox" value="" id="check-all" checked>
+	                                            <input class="form-check-input" type="checkbox" value="" id="check-all">
 	                                        </div>
 	                                    </th>
 	                                    <th scope="col" style="width: 5%;">No</th>
@@ -53,8 +53,8 @@
 		                                    <td>${taboo.userId}</td>
 		                                    <td>${taboo.createDate }</td>
 		                                    <td>
-		                                        <div class="form-check form-switch">
-		                                            <input class="form-check-input" type="checkbox" ${taboo.isUse==1 ? "checked" : ""}>
+		                                        <div class="form-check form-switch"> 
+		                                            <input class="form-check-input" type="checkbox" name="isUse" ${taboo.isUse==1 ? "checked" : ""} >
 		                                        </div>
 		                                    </td>
 		                                </tr>
@@ -69,8 +69,8 @@
 	
 	                        <div class="d-flex justify-content-end mt-3">
 	                            <button type="button" class="btn btn-secondary mt-1 me-2" id="btn-input-add">추가</button>
-	                            <button class="btn btn-outline-secondary mt-1 me-2" >삭제</button>
-	                            <button class="btn btn-secondary mt-1 me-2" >저 장</button>
+	                            <button type="button" class="btn btn-outline-secondary mt-1 me-2" id="btn-remove" >삭제</button>
+	                            <button type="button" class="btn btn-secondary mt-1 me-2" id="btn-modify" >저 장</button>
 	                        </div>
                         </form>
                     </div>
@@ -94,32 +94,114 @@
             $(".input-group").toggle();
             
         });
+        
+        /* 추가 */
         $("#btn-keyword-add").click(function() {
         	const taboo = $.trim($(".input-group > input").val());
-            $(".input-group > input").val("");
-            $(".input-group").hide();
-            const str = `<tr>
-                            <th scope="row">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                </div>
-                            </th>
-                            <td>\${parseInt($("tbody > tr").last().children("td").eq(0).text()) + 1}</td>
-                            <td class="text-start">\${taboo}</td>
-                            <td>유진</td>
-                            <td>2024-11-22 11:10:10</td>
-                            <td>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                                </div>
-                            </td>
-                        </tr>` ;
+        	$.ajax({
+                url: "${cp}/manage/taboo",
+                type: "post",
+                contentType: "application/json; charse=utf-8",
+                data: JSON.stringify({keyWord:taboo}),
+                success: function (res) {
+                    if (res=='success') {
+                    	$(".input-group > input").val("");
+                        $(".input-group").hide();
+                        const str = `<tr>
+                                        <th scope="row">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                            </div>
+                                        </th>
+                                        <td>\${parseInt($("tbody > tr").last().children("td").eq(0).text()) + 1}</td>
+                                        <td class="text-start">\${taboo}</td>
+                                        <td>유진</td>
+                                        <td>2024-11-22 11:10:10</td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                            </div>
+                                        </td>
+                                    </tr>` ;
+                        
+                        $("tbody").append(str);
+                        
+                        alert("적용 되었습니다.");
+                    } else {
+                        alert("적용 실패하였습니다");
+                    }
+                },
+                error: function () {
+                    alert("서버에서 오류가 발생했습니다.");
+                }
+            });
             
-            $("tbody").append(str);
         });
 
+        /* 여기 수정할 차례  */
+		$("#btn-modify").click(function(){
+			let arr=[];
+			let $chk = ""; 
+			$('input[name="isUse"]').each(function(){
+				$chk = $(this);
+				let obj = {
+						keyWord : $chk.val(),
+						isUse : $chk.val()
+						
+						} 
+				arr.push(obj);
+			});
+			
+			$.ajax({
+                url: "${cp}/manage/taboo",
+                type: "put",
+                contentType: "application/json; charse=utf-8",
+                data: JSON.stringify(arr),
+                success: function (res) {
+                    if (res=='success') {
+                        alert("적용 되었습니다.");
+                    } else {
+                        alert("적용 실패하였습니다");
+                    }
+                },
+                error: function () {
+                    alert("서버에서 오류가 발생했습니다.");
+                }
+            });
+			
+			
+		});
 
-
+		$("#btn-remove").click(function(){
+			let arr=[];
+			let $chk = ""; 
+			$('input[name="keyWord"]:checked').each(function(){
+				$chk = $(this);
+				let obj = {keyWord : $chk.val() } 
+				arr.push(obj);
+			});
+			
+			$.ajax({
+                url: "${cp}/manage/taboo",
+                type: "delete",
+                contentType: "application/json; charse=utf-8",
+                data: JSON.stringify(arr),
+                success: function (res) {
+                    if (res=='success') {
+                    	$chk.parent().parent().parent().remove();
+                        alert("적용 되었습니다.");
+                    } else {
+                        alert("적용 실패하였습니다");
+                    }
+                },
+                error: function () {
+                    alert("서버에서 오류가 발생했습니다.");
+                }
+            });
+			
+			
+		});
+		
     </script>
 </body>
 </html>
