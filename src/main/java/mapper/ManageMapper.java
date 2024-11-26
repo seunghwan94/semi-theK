@@ -10,6 +10,7 @@ public interface ManageMapper {
 	List<User> selectAllUser();
 	List<Taboo> selectAllTaboo();
 	List<Category> selectAllMenu();
-	int insert(String cname);
-	int update(String cname, int parentCno, int sort, String isuse);
+	int insert(Category category);
+	int update(Category categroy);
+	int delete(int cno);
 }

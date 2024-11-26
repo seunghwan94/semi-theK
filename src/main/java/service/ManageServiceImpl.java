@@ -29,8 +29,6 @@ public class ManageServiceImpl implements ManageService{
 		}
 	}
 
-	
-
 	@Override
 	public List<Category> listMenu() {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
@@ -39,29 +37,38 @@ public class ManageServiceImpl implements ManageService{
 		}
 	}
 
-	
-
 	@Override
 	public int addMenu(String cname) {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			ManageMapper mapper = session.getMapper(ManageMapper.class);
-			return mapper.insert(cname);
+			Category c = Category.builder().cname(cname).build();
+			mapper.insert(c);
+			return c.getCno();
 		}
 	}
-
-	
 
 	@Override
-	public int modifyMenu(String cname, int parentCno, int sort, String isuse) {
+	public int modifyMenu(Category categroy) {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			ManageMapper mapper = session.getMapper(ManageMapper.class);
-			return mapper.update(cname, parentCno, sort, isuse);
+			return mapper.update(categroy);
+		}
+	}
+	
+	@Override
+	public int deleteMenu(int cno) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			ManageMapper mapper = session.getMapper(ManageMapper.class);
+			return mapper.delete(cno);
 		}
 	}
 
+//	public static void main(String[] args) {
+//
+//		int t = new ManageServiceImpl().addMenu("123456"); 
+//		System.out.println(t);
+//	}
 
-	public static void main(String[] args) {
-		int t =  new ManageServiceImpl().modifyMenu("sssss");
-		System.out.println(t);
-	}
+
 }
+

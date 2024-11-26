@@ -37,10 +37,13 @@
 	                                            <i class="fa-solid fa-plus"></i>
 	                                        </button>
 	                                    </div>
-	                                    <ul id="sortable1" class="list-group list-group-flush connectedSortable mb-2 grabbable">
+	                                    <ul id="sortable1" class="list-group list-group-flush connectedSortable mb-2 grabbable" data-parent="0">
 	                                    	<c:forEach var="m" items="${menuCategory}">
 	                                    		<c:if test="${m.isUse != 'y'}">
-		                                        	<li class="list-group-item ui-state-default">${m.cname}</li>
+		                                        	<li class="list-group-item ui-state-default d-flex align-items-center justify-content-between" data-cno="${m.cno}">
+		                                        		${m.cname}
+		                                        		<button type="button" class="btn btn-outline-danger p-0 px-1"><i class="fa-solid fa-minus"></i></button>
+	                                        		</li>
 		                                        </c:if>
 	                                    	</c:forEach>
 	                                    </ul>
@@ -69,23 +72,34 @@
 	                                <div class="card m-3 bg-light w-50">
 	                                    <div class="card-header text-dark">적용</div>
 	                                    <div class="card mb-3">
-		                                    <ul class="list-group list-group-flush connectedSortable ">
-		                                       	<li class="list-group-item ui-state-highlight text-secondary">공지사항</li>
-		                                       	<li class="list-group-item ui-state-highlight text-secondary">Kallery</li>
-		                                       	<li class="list-group-item ui-state-highlight text-secondary">프로모션</li>
+		                                    <ul class="list-group list-group-flush connectedSortable">
+		                                       	<li class="list-group-item ui-state-highlight text-secondary " data-cno="1">공지사항 (고정)</li>
 		                                    </ul>
 	                                    </div>
 	                                    
 	                                    <div class="card mb-3">
 		                                    <ul class="list-group list-group-flush connectedSortable">
-		                                       	<li class="list-group-item ui-state-highlight text-secondary">K - 시판</li>
+		                                       	<li class="list-group-item ui-state-highlight text-secondary" data-cno="2">Kallery (고정)</li>
+		                                    </ul>
+	                                    </div>
+	                                    <div class="card mb-3">
+		                                    <ul class="list-group list-group-flush connectedSortable">
+		                                       	<li class="list-group-item ui-state-highlight text-secondary" data-cno="3">프로모션 (고정)</li>
+		                                    </ul>
+	                                    </div>
+	                                    <div class="card mb-3">
+		                                    <ul class="list-group list-group-flush connectedSortable">
+		                                       	<li class="list-group-item ui-state-highlight text-secondary">K - 시판 (고정)</li>
 		                                    </ul>
 		                                    
 		                                    
-		                                    <ul id="sortable2" class="list-group list-group-flush connectedSortable grabbable">
+		                                    <ul id="sortable2" class="list-group list-group-flush connectedSortable grabbable" data-parent="4">
 		                                        <c:forEach var="m" items="${menuCategory}">
 		                                    		<c:if test="${m.parentCno==4 && m.isUse == 'y'}">
-			                                        	<li class="list-group-item ui-state-highlight">${m.cname}</li>
+		                                        		<li class="list-group-item ui-state-default d-flex align-items-center justify-content-between" data-cno="${m.cno}">
+			                                        		${m.cname}
+			                                        		<button type="button" class="btn btn-outline-danger p-0 px-1"><i class="fa-solid fa-minus"></i></button>
+			                                        	</li>
 			                                        </c:if>
 		                                    	</c:forEach>
 		                                    </ul>
@@ -93,12 +107,15 @@
 	                                  	
 	                                  	<div class="card mb-3">
 		                                    <ul class="list-group list-group-flush connectedSortable">
-		                                       	<li class="list-group-item ui-state-highlight text-secondary">기타</li>
+		                                       	<li class="list-group-item ui-state-highlight text-secondary">기타 (고정)</li>
 		                                    </ul> 
-		                                    <ul id="sortable3" class="list-group list-group-flush connectedSortable grabbable">
+		                                    <ul id="sortable3" class="list-group list-group-flush connectedSortable grabbable" data-parent="7" >
 		                                        <c:forEach var="m" items="${menuCategory}">
 		                                    		<c:if test="${m.parentCno==7 && m.isUse == 'y'}">
-			                                        	<li class="list-group-item ui-state-highlight">${m.cname}</li>
+		                                        		<li class="list-group-item ui-state-default d-flex align-items-center justify-content-between" data-cno="${m.cno}">
+			                                        		${m.cname}
+			                                        		<button type="button" class="btn btn-outline-danger p-0 px-1"><i class="fa-solid fa-minus"></i></button>
+			                                        	</li>
 			                                        </c:if>
 		                                    	</c:forEach>
 		                                    </ul>
@@ -120,86 +137,53 @@
        </div>
    </div>
 	<script>
+	
 		/* 드레그앤 드랍 */
         $( function() {
             $( "#sortable1, #sortable2, #sortable3" ).sortable({
                 connectWith: ".connectedSortable"
             }).disableSelection();
         });
+		
         /* 적용 버튼 클릭시 */
-        $("#btn-mune-modify").click(function (event) {
-        	/* .index라는 */
-        	/* <ul>
-	        	<li data-cno="1">고정1</li>
-	        	<li data-cno="2">고정2</li>
-	        	<li data-cno="3">고정3</li>
-	        	<li data-cno="4">고정4/li>
-        	</ul 
-        	arr = [];
-        	let obj = {
-        			sort: $(this).index(),
-        			cno: $(this).data("cno"),
-        			text: $(this).text(),
-        			parent : $(this).parent().find("li:first").data("cno");
-        				}
+        $("#btn-mune-modify").click(function () {
+        	const arr = [];
+			
+        	$("ul li").each(function(){
+        		if($(this).filter("[data-cno]").parent().is("[data-parent]")){
+        			let parentCno = $(this).parent().data("parent");
+        			let isUse = parentCno == 0 ? "n" : "y";
+        			let obj ={
+        					sort : $(this).index(),
+        					cno : $(this).data("cno"),
+        					cname : $(this).text(),
+        					isUse,
+        					parentCno
+        			};
+        			arr.push(obj);
+        		}
+        	});
         	
-        	arr.push(obj);
-        	
-        	*/
-        	
-        	
-            let lArr = [];
-            $("#sortable1 li").each(function () {
-            	lArr.push($(this).text().trim());
-            });
-            
-            let r4Arr = [];
-            $("#sortable2 li").each(function () {
-            	r4Arr.push($(this).text().trim());
-            });
-            
-            let r7Arr = [];
-            $("#sortable3 li").each(function () {
-            	r7Arr.push($(this).text().trim());
-            });
-            
-            let test = [{ 
-            	cno : 1,
-            	sort : 1,
-            	parent : 2,
-            	isuse: 'y'
-            }];
-            
-            
-            
-            const data = {
-            		lArr :  lArr,
-            		r4Arr : r4Arr,
-            		r7Arr : r7Arr
-            }
+        	console.log(arr);
             
             $.ajax({
                 url: "${cp}/manage/menu",
                 type: "PUT",
-                contentType: "application/json",
-                data: JSON.stringify(data),
-                
+                contentType: "application/json; charse=utf-8",
+                data: JSON.stringify(arr),
                 
                 success: function (res) {
                 	
-                	
                     if (res=='success') {
-                        $("#sortable1").append(`<li class="list-group-item ui-state-default">\${addMenu}</li>`);
-                        $(".input-group > input").val(""); 
-                        $("#menu-input").addClass("d-none");
-                        alert("메뉴가 추가되었습니다.");
+                        
+                        alert("적용 되었습니다.");
                         
                     } else {
-                        alert("같은 이름의 메뉴가 있습니다.");
+                        alert("적용 실패하였습니다");
                     }
                 },
                 error: function () {
-                    alert("서버 오류가 발생했습니다.");
+                    alert("서버에서 오류가 발생했습니다.");
                 }
             });
             
@@ -207,7 +191,7 @@
         });
         
         
-        /* + 버튼 클릭시 */
+        /* + 버튼 클릭시 데이터 추가 */
         $(document).on('change','.input-group',function(){   
         	const addMenu = $.trim($(".input-group > input").val());
         	$.ajax({
@@ -216,8 +200,13 @@
                 contentType: "application/json",
                 data: JSON.stringify({ cname: addMenu }),
                 success: function (res) {
-                    if (res=='success') {
-                        $("#sortable1").append(`<li class="list-group-item ui-state-default">\${addMenu}</li>`);
+                    if (typeof res == 'number') {
+                    	
+                        $("#sortable1").append(`<li class="list-group-item ui-state-default d-flex align-items-center justify-content-between" data-cno="\${res}">
+                        							\${addMenu}
+					                        		<button type="button" class="btn btn-outline-danger p-0 px-1"><i class="fa-solid fa-minus"></i></button>
+		                        				</li>`);
+                        
                         $(".input-group > input").val(""); 
                         $("#menu-input").addClass("d-none");
                         alert("메뉴가 추가되었습니다.");
@@ -233,12 +222,32 @@
         	
         })
         
-        
+       
         /* 메뉴 추가 시 */        
         $("#btn-meun-input").click(function(){
             $("#menu-input").removeClass("d-none");
         });
 
+        $(document).on('click', '.btn-outline-danger', function() {
+        	
+        	if(confirm("삭제하시겠습니까?")){
+	        	const li = $(this).parent();
+	        	$.ajax({
+	                url: "${cp}/manage/menu",
+	                type: "delete",
+	                contentType: "application/json",
+	                data: JSON.stringify({ cno : li.data("cno") }),
+	                success: function (res) {
+                        li.remove();
+                        alert("삭제 되었습니다.");
+	                },
+	                error: function () {
+	                    alert("서버 오류가 발생했습니다.");
+	                }
+	            });
+        	}
+			
+		})
     </script>
 </body>
 </html>
