@@ -31,11 +31,11 @@ public class EmailController extends HttpServlet {
 		String receiver = map.get("emailcheck");//emailcheck 객체를 signup에서 가져온다
 		// 메일 발송
 		Session session = new Mailsender().init();
-	    String rndText = String.format("%08d", (int)(Math.random() * 100000000));
+	    String rndText = String.format("%05d", (int)(Math.random() * 100000));
 	    System.out.println(rndText);
 	    Mailsender.send(session, "The-k 인증번호", "<h1>인증번호</h1>" + rndText, receiver);
 	    UserEmail userEmail = new UserEmail().builder().email(receiver).att(Integer.parseInt(rndText)).build();
-	    int i = new UserEmailServiceImpl().addAtt(userEmail);
+//	    int i = new UserEmailServiceImpl().addAtt(userEmail);
 
 	    // 되돌려줘야해
 	    Map<String, String> ret = new HashMap<>();
@@ -44,9 +44,14 @@ public class EmailController extends HttpServlet {
 	   
 	    resp.setContentType("application/json; charset=utf-8");
 	    resp.getWriter().print(gson.toJson(ret));
-	    
-	  
-	       
+	           
+	}
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String uri = req.getRequestURI();
+		uri= uri.replace(req.getContextPath() + "/useremail","");
+		System.out.println("uri");
 	}
 
 	

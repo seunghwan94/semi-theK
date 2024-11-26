@@ -24,7 +24,7 @@ $(function(){
 		const emailcheck =$("#signUpEmail").val();
 		console.log(emailcheck);
 		alert("이메일 전송")
-		const url="/k/useremail";
+		const url="${cp}useremail";
 		const data = JSON.stringify({emailcheck});
 		$.post({url , data})
 			.done(function(data){})		

@@ -64,17 +64,29 @@ $(function () {
 			const emailcheck = $("#signUpEmail2").val();
 			console.log(emailcheck);
 			alert("이메일 전송");
-			const url = "${cp}/useremail";
+			const url = "${cp}useremail";
 			const data = JSON.stringify({emailcheck});
 			$.post({ url, data })
-				.done(function(data){})
-				
-			
+			.done(function(data){})
+		
 		});	
-	
 	});				
 	
-	
+	$(function () {
+		$("#button-sign-email-check").click(function () {
+			const emc = $("#emailCheck").val();
+			console.log(emc);
+			const url = "${cp}useremail"
+			const data = JSON.stringify({emc});
+			console.log(url);
+			console.log(data);
+			$.get({url,data})	
+			.done(function (data) {
+			alert("이메일 인증 완료");
+				
+			})
+		})
+	})
 			
 
     
