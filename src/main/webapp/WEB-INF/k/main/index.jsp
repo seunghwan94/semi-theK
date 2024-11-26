@@ -9,7 +9,7 @@
     <link rel='stylesheet' href='css/indexbxslider.css'>
     <link rel='stylesheet' href='css/style.css'>
 </head>
-<body class="bg-dark d-flex flex-column min-vh-100">
+<body class="bg-dark d-flex flex-column min-vh-100 gothic-a1-regular">
     <jsp:include page="../common/header.jsp" />
     <hr>
     <main class="container my-5 mx-auto p-3 justify-content-center">
@@ -66,7 +66,7 @@
                 </c:if>
 
                 <c:if test="${status.index == 1 }">
-                    <div class="row justify-content-center text-center mt-4">
+                    <div class="row justify-content-center mt-4">
                         <ul class="col-sm-12 bxslider2">
                             <c:forEach var="bx" begin="1" end="8">
                                 <li class="text-start">

@@ -42,7 +42,7 @@
             	<c:forEach items="${posts}" var="p">
             		<tr>
             			<td>${p.pno}</td>
-                   		<td><a href="${cp}/view?pno=${p.pno}" class="text-white text-decoration-none">${p.title}</a></td>
+                   		<td><a href="${cp}view?pno=${p.pno}" class="text-white text-decoration-none">${p.title}</a></td>
             			<td><button type="button" class="btn text-decoration-none text-white post-writer" data-bs-toggle="popover" title="${p.userId}" data-bs-content="프로필 정보">${p.userId}</button></td>
            			    <td><fmt:formatDate value="${p.createDate}" pattern="yyyy/MM/dd" /></td>
    	                    <td>${p.viewCnt}</td>
