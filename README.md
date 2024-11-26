@@ -13,6 +13,7 @@
 
 - [chartJS] : https://www.chartjs.org/
 - [금지어 사전] : https://velog.io/@persestitan/Java-BadWordFiltering-%EC%9A%95-%EB%B9%84%EC%86%8D%EC%96%B4-%ED%95%84%ED%84%B0-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC?ref=codenary
+- [smartEditor] : https://github.com/naver/smarteditor2/releases
 
 ## Tech Stack  <small>(기술 스택)</small>  
 
