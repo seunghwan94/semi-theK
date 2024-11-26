@@ -24,11 +24,15 @@ public class View extends HttpServlet{
 			Commons.printMsg("SYSTEM :: ERR / INVALID APPROACH", "list", resp);
 			return;
 		}
-		Long pno = Long.valueOf(pnoString);
-		req.setAttribute("post", postService.view(pno));
-		super.doGet(req, resp);
+		int idx = req.getQueryString().indexOf('=');
+		String pno = req.getQueryString().substring(idx+1);
+		req.setAttribute("post", postService.view(Integer.parseInt(pno)));
+		req.getRequestDispatcher("/WEB-INF/k/post/view.jsp").forward(req,resp);
 	}
-	
-	
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		super.doPost(req, resp);
+	}
 	
 }

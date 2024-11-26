@@ -48,5 +48,6 @@
 			select max(pno) from tbl_post
 		</selectKey>  
 	</insert>
+	
 </mapper>
   
