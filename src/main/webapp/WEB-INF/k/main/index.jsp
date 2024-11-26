@@ -29,28 +29,27 @@
 
                 <div class="col-sm-5 p-3">
                     <hr class="text-light">
-                    <a href="${cp}list?cno=${s.cno}" class="p-2 mt-4 big text-light">${s.cname}</a>
+                    <b><a href="${cp}list?cno=${s.cno}" class="p-2 mt-4 mb-0 big text-light">${s.icon} ${s.cname}</a></b>
                     <hr class="text-light">
-
-                    <ul class="p-0">
+                    <ul class="p-0 small">
                         <c:forEach items="${posts}" var="p">
                             <c:if test="${s.cno == p.cno}">
                                 <li>
                                     <div class="row p-2 border-bottom mx-auto text-light">
                                         <div class="col-sm-1 small">${p.pno}</div>
                                         <div class="col-sm-6 text-truncate">
-                                            <a href="#" class="text-light">${p.title}</a>
+                                            <a href="#" class="text-decoration-none text-light">${p.title}</a>
                                         </div>
                                         <div class="col-sm-1">
-                                            <a href="#" class="text-light">[0]</a>
+                                            <a href="#" class="text-decoration-none text-light">[0]</a>
                                         </div>
                                         <div class="col-sm-2">
-                                            <a href="#" class="text-light">
+                                            <a href="#" class="text-decoration-none text-light">
                                                 <i class="fa-solid fa-heart small"></i>
                                             </a>
                                         </div>
-										<div class="col-sm-2 small">
-										    <fmt:formatDate value="${p.createDate}" pattern="yyyy-MM-dd" />
+										<div class="col-sm-2 small small small">
+										    <fmt:formatDate value="${p.createDate}" pattern="yyyy/MM/dd" />
 										</div>
                                     </div>
                                 </li>

@@ -17,13 +17,13 @@ public class PostList extends HttpServlet{
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println(req.getRequestURL());
+//		System.out.println(req.getRequestURL());
 		int idx = req.getQueryString().indexOf('=');
 		String cno = req.getQueryString().substring(idx+1);
-		System.out.println(cno);
+//		System.out.println(cno);
 		
 		req.setAttribute("posts", service.listPost(Integer.parseInt(cno)));
-		System.out.println(Integer.parseInt(cno));
+//		System.out.println(Integer.parseInt(cno));
 		req.getRequestDispatcher("WEB-INF/k/post/list.jsp").forward(req, resp);
 	}
 }
