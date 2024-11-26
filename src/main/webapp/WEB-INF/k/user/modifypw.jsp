@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<form method="post" action=findpw>
+<form method="post" action=modifypw>
     <div class="modal-body">
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="signUpEmail" placeholder="이메일" aria-label="이메일" aria-describedby="button-addon2">

@@ -19,8 +19,8 @@
 					data-bs-target="#signinModal">로그인</button>
 					
 				<div class="d-flex justify-content-between">
-					<button type="button" id="id_pw" class="btn text-secondary p-0"
-						data-bs-toggle="modal" data-bs-target="#id_pwModal">아이디/비밀번호
+					<button type="button" id="modify" class="btn text-secondary p-0"
+						data-bs-toggle="modal" data-bs-target="#modifyModal">아이디/비밀번호
 						찾기</button>
 					<button type="button" id="signup" class="btn text-secondary p-0"
 						data-bs-toggle="modal" data-bs-target="#signupModal">회원가입</button>
@@ -28,46 +28,45 @@
 			</div>
 		</div>
 	</div>
-						<!--로그인 버튼시 -->		
-						<div class="modal fade" id="signinModal" 
-							aria-labelledby="exampleModalLabel" aria-hidden="false">
-							<div class="modal-dialog modal-dialog-centered">
-								<div class="modal-content">
-								<div class="modal-header d-flex justify-content-center">
-				                    <img class="w-25" src="${cp}files/common/dark_logo.png">
-				                </div>
-								<jsp:include page="signin.jsp" />			
-								</div>
-							</div>
-						</div>		
-					<!--비밀번호찾기 버튼시 -->
-						<div class="modal fade" id="id_pwModal" tabindex="-1"
-							aria-labelledby="exampleModalLabel" aria-hidden="false">
-							<div class="modal-dialog modal-dialog-centered">
-								<div class="modal-content">
-								<div class="modal-header d-flex justify-content-center">
-				                    <img class="w-25" src="${cp}files/common/dark_logo.png">
-				                </div>
-								<jsp:include page="modifypw.jsp" />									
-								</div>
-							</div>
-						</div>
-					<!--회원가입 버튼시 -->	
-					<div class="gothic-a1-regular">
-						<div class="modal fade" id="signupModal" tabindex="-1"
-							aria-labelledby="exampleModalLabel" aria-hidden="false">
-							<div class="modal-dialog modal-dialog-centered">
-								<div class="modal-content">
-								<div class="modal-header d-flex justify-content-center">
-				                    <img class="w-25" src="${cp}files/common/dark_logo.png">
-				                </div>
-								<jsp:include page="userconsent.jsp" />
-								
-											
-								</div>
-							</div>
-						</div>
-					</div>							
+	<!--로그인 버튼시 -->		
+	<div class="modal fade" id="signinModal" 
+		aria-labelledby="exampleModalLabel" aria-hidden="false">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+			<div class="modal-header d-flex justify-content-center">
+                   <img class="w-25" src="${cp}files/common/dark_logo.png">
+               </div>
+			<jsp:include page="signin.jsp" />			
+			</div>
+		</div>
+	</div>		
+<!--비밀번호찾기 버튼시 -->
+	<div class="modal fade" id="modifyModal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="false">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header d-flex justify-content-center">
+                    <img class="w-25" src="${cp}files/common/dark_logo.png">
+                </div>
+                <jsp:include page="modifypw.jsp" />													
+			</div>
+		</div>
+	</div>
+<!--회원가입 버튼시 -->	
+<!-- <div class="gothic-a1-regular"> -->
+	<div class="modal fade" id="signupModal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="false">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header d-flex justify-content-center">
+                    <img class="w-25" src="${cp}files/common/dark_logo.png">
+                </div>
+					<jsp:include page="userconsent.jsp" />						           
+					<jsp:include page="signup.jsp" />			              
+			</div>
+		</div>
+	</div>			
+						
 </body>
 
 </html>

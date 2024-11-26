@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<div class="signup-view d-none">
 <form method="post" action="signup">
 	<div class="modal-body">
 	
@@ -24,10 +24,17 @@
 		</div>
 
 </form>
+</div>
 <script src="${cp}js/emailcheck.js"></script>
 <script type="text/javascript">
 
-	
+$(function () {
+	$("#consentok").click(function() {
+		$(".ucs-view").addClass("d-none");
+		$(".signup-view").removeClass("d-none");
+		
+	})
+})
     $(function(){
         $("#alert-success").hide();
         $("#alert-danger").hide();
