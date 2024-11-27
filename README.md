@@ -15,9 +15,11 @@
 - [금지어 사전] : https://velog.io/@persestitan/Java-BadWordFiltering-%EC%9A%95-%EB%B9%84%EC%86%8D%EC%96%B4-%ED%95%84%ED%84%B0-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC?ref=codenary
 - [smartEditor] : https://github.com/naver/smarteditor2/releases
 
+
 ## Tech Stack  <small>(기술 스택)</small>  
 
 *본 프로젝트에서는 다음과 같은 기술을 활용하였습니다.*
+
 
 ### Languages  <small>(사용 언어)</small>
 
@@ -41,6 +43,7 @@
 - ![Google Sheets](https://img.shields.io/badge/Google%20Sheets-0F9D58?style=for-the-badge&logo=googlesheets&logoColor=white)
 - ![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)
 
+
 ## **Development TimeLine** <small>(진척도 기록)</small>
 
 > * 24.11.12 => *주제 선정(다각화하는 K-컬쳐 외국인 관광객 커뮤니티(정보) 플랫폼 개발 프로젝트)*
@@ -51,5 +54,8 @@
 > * 24.11.19 => *html 구조 구현(intro, index, manager, header, footer) WIP*
 > * 24.11.20 => *html 구조 구현(intro, index, manager, header, footer) + 1 WIP*
 > * 24.11.21 => *html 구조 구현(intro, index, manager, header, footer) + 2 WIP // INCLUDE JSP 파일 작성(head, header)*
-> * 24.11.21 => *html 구조 구현(intro, manager, header, footer, post) + 3 WIP // index 틀 완성*
-> * 24.11.25 => *html 구조 구현(footer, post) + sevlet, mapper, service 파일 + 5 WIP*
+> * 24.11.21 => *html 구조 구현(intro, manager, header, footer, post) + 3 WIP*
+> * 24.11.25 => *html 구조 구현(footer, post) + sevlet, mapper, service + 4 WIP*
+> * 24.11.26 => *html 구조 구현(user, post, manage, footer) + sevlet, mapper, service + 5 WIP // INCLUDE JSP (Quill API) + 1 WIP*
+> * 24.11.27 => *html 구조 구현(user, post, manage) + sevlet, mapper, service + 6 WIP // INCLUDE JSP (Quill API) + 2 WIP*
+> * 
