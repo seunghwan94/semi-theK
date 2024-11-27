@@ -7,4 +7,5 @@ public interface PostService {
 	List<Post> listPost(int cno);
 	List<Post> lastPost();
 	Post view(int pno);
+	int addPost(Post post);
 }

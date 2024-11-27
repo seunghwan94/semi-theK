@@ -43,10 +43,7 @@
 	
 	<insert id="insert" >
 		insert into tbl_post(title, user_id, content, cno) 
-		values(#{title}, #{user_id}, #{content}, #{cno})
-		<selectKey order ="AFTER" keyProperty="pno" resultType="long">
-			select max(pno) from tbl_post
-		</selectKey>  
+		values(#{title}, #{userId}, #{content}, #{cno})
 	</insert>
 	
 </mapper>

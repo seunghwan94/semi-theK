@@ -64,7 +64,7 @@
 <script>
 	$(".write-button").click(function(){
 		console.log(${cno});
-		const url = "list/post/write?cno=" + ${cno};
+		const url = "post/write?cno=" + ${cno};
 		location.href= url;
 	})
 </script>
