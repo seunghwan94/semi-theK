@@ -11,7 +11,7 @@
 				<form method="post">
 					<div class="input-group container m-2">
 						<span class="input-group-text">제목</span>
-						<input type="text" class="form-control" placeholder="input text" name="title">
+						<input type="text" class="form-control" placeholder="input title here" name="title" id="post-title">
 					</div>
 					<div>
 						<jsp:include page="../common/writer.jsp"/>
@@ -20,11 +20,11 @@
 					<div class="p-3 container">
 						<div class="input-group container m-2">
 							<span class="input-group-text">태그</span>
-							<input type="text" class="form-control" placeholder="예시 = #소통해요">
+							<input type="text" class="form-control" placeholder="예시 = #소통해요" name="tag" id="post-tag">
 						</div>
 						<div class="input-group container m-2">
 							<span class="input-group-text">작성자</span>
-							<input type="text" class="form-control" value="${userId}" name="writer">
+							<input type="text" class="form-control" value="${userId}" name="writer" id="post-writer">
 						</div>
 					</div>
 					<button type="button" class="btn btn-outline-secondary mt-2 post-button">작성하기</button>
@@ -37,15 +37,18 @@
 		$(".post-button").click(function(){
 			// console.log(${cno});
 			// const url = "list/post/write?cno=" + ${cno};
+			const myTitle = $("#post-title").val();
 			const myContent = $("#editor .ql-editor").html();
+			const myId = $("#post-writer").val();
+			console.log(myTitle);
 			console.log(myContent);
-			const data = {"title" : "ddd" , "content" : myContent, "userId" : "dd"   }
+			console.log(myId);
+			const data = {"title" : myTitle , "content" : myContent, "userId" : myId, "cno" : 5};
             $.ajax({
                 url: "${cp}post/write",
-                type: "POST",
+                type: "post",
                 contentType: "application/json; charse=utf-8",
                 data: JSON.stringify(data),
-                
                 success: function (res) {
                     if (res=='success') {
                         alert("적용 되었습니다.");

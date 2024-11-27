@@ -12,7 +12,7 @@
 				<ul class="dropdown-menu bg-secondary">
 					<c:forEach items="${subC}" var="s"> 
 						<c:if test="${s.parentCno == m.cno}">
-							<li><a class="dropdown-item" href="${cp}/${s.pathName}">${s.icon} ${s.cname}</a></li>
+							<li><a class="dropdown-item" href="${cp}${s.cno}">${s.icon} ${s.cname}</a></li>
 						</c:if>
 					</c:forEach>
 				</ul>

@@ -38,13 +38,14 @@ public class Write extends HttpServlet{
 		Post post = gson.fromJson(req.getReader(), Post.class);
 //        resp.setContentType("application/json; charset=utf-8");
         System.out.println(post);
-        try {
 
-        	int i = new PostServiceImpl().addMenu(post.getCname());
-        	
-        	
-        	resp.getWriter().print(gson.toJson(i));        	
-            
+        try {
+        	int i = new PostServiceImpl().addPost(post);
+        	if(i == 1) {
+        		resp.getWriter().print(gson.toJson("success"));        	
+        	}else {
+        		resp.getWriter().print(gson.toJson("fail"));
+        	}
         }catch(Exception e) {
         	resp.getWriter().print(gson.toJson("error"));  
         }
