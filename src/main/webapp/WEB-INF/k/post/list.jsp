@@ -55,7 +55,6 @@
             	</ul>
         	</div>
         </div>
-        
         <d class="small text-secondary allign-center mb-3"><i class="small"> // 운영정책에 위반되는 게시글 게시 시 통보 없이 이용이 정지될 수 있습니다. // </i></d>
     </main>
 	<jsp:include page="../common/footer.jsp"/>

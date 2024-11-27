@@ -12,7 +12,6 @@
 		<div class="wrap mt-5">
 			<hr>
 			<main class="container mt-5 text-white">
-				
                 <label for="title" class="form-label mt-3"><i class="fa-solid fa-t"></i><b> 글 제목 </b></label>
                 <input type="text" class="form-control fw-bold big" id="title" placeholder="input title" name="title" value="${post.title}"  disabled>
                 
@@ -34,7 +33,6 @@
 	             		<a href="remove?pno=${post.pno}&${criteria.qs2}" class="btn btn-outline-light" onclick="return confirm('Delete this post?')"> DELETE POST </a>
              		<!-- </c:if> -->
              	</div>
-				
 			</main>
 			<jsp:include page="../common/footer.jsp"/>
 		</div>

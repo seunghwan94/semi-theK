@@ -10,17 +10,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
+import service.CategorySerivceImpl;
+import service.CategoryService;
 import service.ManageServiceImpl;
 import service.PostServiceImpl;
 import vo.Post;
 
 @WebServlet("/post/write")
 public class Write extends HttpServlet{
-
+	private CategoryService categoryService = new CategorySerivceImpl();
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String cno = req.getParameter("cno");
 //		String userId = req.getSession();
+		req.setAttribute("categories", categoryService.listSub());
 		req.getRequestDispatcher("/WEB-INF/k/post/write.jsp").forward(req, resp);
 //		req.setAttribute("criteria", criteria);
 	}
@@ -43,7 +47,8 @@ public class Write extends HttpServlet{
         	int i = new PostServiceImpl().addPost(post);
         	if(i == 1) {
         		resp.getWriter().print(gson.toJson("success"));        	
-        	}else {
+        	}
+        	else {
         		resp.getWriter().print(gson.toJson("fail"));
         	}
         }catch(Exception e) {

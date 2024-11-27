@@ -26,7 +26,6 @@ public class ManageMenu extends HttpServlet {
 		req.setAttribute("menu", "manage");
 		req.setAttribute("tab", "m");
 		req.setAttribute("menuCategory", categories);
-		
 		req.getRequestDispatcher("/WEB-INF/k/manage/manageMenu.jsp").forward(req, resp);
 	}
 
@@ -36,21 +35,14 @@ public class ManageMenu extends HttpServlet {
 		Gson gson = new Gson();
 		Category category = gson.fromJson(req.getReader(), Category.class);
         resp.setContentType("application/json; charset=utf-8");
-        
 
         try {
-
         	int i = new ManageServiceImpl().addMenu(category.getCname());
-        	
-        	
         	resp.getWriter().print(gson.toJson(i));        	
-            
         }catch(Exception e) {
         	resp.getWriter().print(gson.toJson("error"));  
         }
-        
 	}
-
 
 	@SuppressWarnings("unchecked")
 	@Override

@@ -15,5 +15,4 @@ public class Intro extends HttpServlet{
 		req.getRequestDispatcher("/WEB-INF/k/user/intro.jsp").forward(req, resp);
 		System.out.println("인트로 시작");
 	}
-	
 }

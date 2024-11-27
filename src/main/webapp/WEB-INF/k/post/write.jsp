@@ -1,14 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="ko" data-bs-theme="dark">
 	<head>
-		<jsp:include page="../common/head.jsp"	/>
+		<jsp:include page="../common/head.jsp"/>
 	</head>
 	<body class="d-flex flex-column min-vh-100 gothic-a1-regular ">
 		<div class="wrap">
 			<jsp:include page="../common/header.jsp"/>
 			<main class="mb-5 container">
 				<form method="post">
+					<div class="mt-3 mb-3 container">
+						<label for="browser" class="form-label text-center">게시할 게시판 선택</label>
+						<input class="form-control form-control-sm" list="browsers" name="자유게시판" id="browser">
+						<datalist id="browsers">
+						<c:forEach >
+							<option value="">
+						</c:forEach>
+							<option value="Edge">
+							<option value="Firefox">
+							<option value="Chrome">
+							<option value="Opera">
+							<option value="Safari">
+						</datalist>
+					</div>
 					<div class="input-group container m-2">
 						<span class="input-group-text">제목</span>
 						<input type="text" class="form-control" placeholder="input title here" name="title" id="post-title">

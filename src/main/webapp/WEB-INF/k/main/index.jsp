@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" data-bs-theme="dark">
 <head>
     <jsp:include page="../common/head.jsp" />
     <link rel='stylesheet' href='css/indexbxslider.css'>
@@ -10,9 +10,7 @@
 </head>
 <body class="bg-dark d-flex flex-column min-vh-100 gothic-a1-regular">
     <jsp:include page="../common/header.jsp" />
-    <hr>
     <main class="container my-5 mx-auto p-2 justify-content-center">
-    <hr>
         <div id="slide-container">
             <ul class="bxslider1">
                 <c:forEach var="u" begin="1" end="5">
@@ -20,7 +18,6 @@
                 </c:forEach>
             </ul>
         </div>
-
         <div class="container-fluid mt-4 p-2 mx-auto text-center">
             <c:forEach items="${subC}" var="s" varStatus="status">
                 <c:if test="${status.index % 2 == 0}">

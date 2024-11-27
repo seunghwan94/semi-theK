@@ -14,10 +14,8 @@ import vo.User;
 
 @WebServlet("/test1")
 public class Practice extends HttpServlet {
-
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.getRequestDispatcher("/WEB-INF/k/post/write.jsp").forward(req, resp);
 	}
-
 }
