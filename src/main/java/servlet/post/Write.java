@@ -25,8 +25,6 @@ public class Write extends HttpServlet{
 		String content = req.getParameter("content"); 
 		String writer  = req.getParameter("writer");
 		
-		
-		
 	}
 	
 	
