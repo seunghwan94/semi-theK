@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<header class="container-fluid bg-light border-light">
-<nav class="navbar navbar-expand-sm fixed-top justify-content-start border-bottom border-light border-3" style="background-color: #000;">
+<header class="container-fluid bg-light border-light p-0">
+<nav class="navbar navbar-expand-sm justify-content-start border-bottom border-light border-3" style="background-color: #000;">
 <div class="container-fluid">
 <a href="${cp}/index" class="navbar-brand"><video src="${cp}/files/common/k_intro.mp4" alt="mp4" width="125" muted autoplay playsinline loop></video></a>
 <ul class="navbar-nav me-auto list-group d-flex justify-content-around">
-
 <c:forEach items="${mainC}" var="m" >
 	<c:choose> 
 		<c:when test="${m.cno == 4}">
@@ -35,7 +34,6 @@
 		</c:otherwise>
 	</c:choose>
 </c:forEach>
-
 </ul>
 <form class="d-flex position-relative">
 <input class="form-control" type="search" placeholder="..." id="search-input">

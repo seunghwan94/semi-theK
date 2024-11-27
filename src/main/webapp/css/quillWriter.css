@@ -1,0 +1,5 @@
+@charset "UTF-8";
+.ql-editor {
+overflow-y: scroll;
+min-height: 350px;
+}

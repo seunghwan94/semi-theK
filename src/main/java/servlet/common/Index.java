@@ -19,11 +19,8 @@ public class Index extends HttpServlet {
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
 		req.setAttribute("subC", categoryService.listSub());
 		req.setAttribute("posts", postService.lastPost());
-		
 		req.getRequestDispatcher("/WEB-INF/k/main/index.jsp").forward(req, resp);
 	}
-	
 }

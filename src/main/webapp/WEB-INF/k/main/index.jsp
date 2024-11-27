@@ -59,6 +59,7 @@
                 <c:if test="${status.index % 2 == 0}">
                     <div class="col-sm-2"></div>
                 </c:if>
+                
                 <c:if test="${status.index % 2 == 1}">
                     </div>
                 </c:if>

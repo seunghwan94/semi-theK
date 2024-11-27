@@ -8,25 +8,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/post/write")
+@WebServlet("/list/post/write")
 public class Write extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getParameter("pno");
+		String cno = req.getParameter("cno");
+//		String userId = req.getSession();
 		req.getRequestDispatcher("/WEB-INF/k/post/write.jsp").forward(req, resp);
 //		req.setAttribute("criteria", criteria);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
 		String title = req.getParameter("title"); 
-		String content = req.getParameter("content"); 
+		System.out.println(title);
+		String content = req.getParameter("content");
+		System.out.println(content);
 		String writer  = req.getParameter("writer");
-		
+		System.out.println(writer);
 	}
-	
-	
-	
 }

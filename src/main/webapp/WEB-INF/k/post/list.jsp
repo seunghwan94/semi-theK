@@ -12,24 +12,8 @@
 		<hr>
 		<div class="mt-5 text-white">
 			<hr>
-			<h2 class="mt-5 my-4 fw-bold">POSTS</h2>
+
 			<hr>
-			<!--
-			<c:choose>
-				<c:when test="${Param.cno} == 6">
-					<h1 class="fw-bold"> 모임 </h1>
-				</c:when>
-				<c:when test="${Param.cno} == 8">
-					<h1 class="fw-bold"> 기타메뉴 </h1>
-				</c:when>
-				<c:when test="${Param.cno} == 11">
-					<h1 class="fw-bold"> 정보 </h1>
-				</c:when>
-				<c:otherwise>
-					<h1 class="fw-bold"> 자유 </h1>
-				</c:otherwise>
-			</c:choose>
-			-->
 		</div>
         <table class="table table-hover text-center table-dark text-white">
             <thead class="border-bottom border-light">
@@ -51,16 +35,14 @@
            			    <td><fmt:formatDate value="${p.createDate}" pattern="yyyy/MM/dd" /></td>
    	                    <td>${p.viewCnt}</td>
                   		<td>?</td>
+	                <tr>
             	</c:forEach>
-                <tr>
                 </tbody>
         </table>
         
-
-        
         <div class="row text-light mt-4 mb-5">
 	        <div class="col-sm-2">
-	        	<button class="btn btn-outline-light bg-secondary"> <i class="fa-regular fa-pen-to-square"></i> 글 작성하기 </button>
+	        	<button class="btn btn-outline-light bg-secondary write-button"><i class="fa-regular fa-pen-to-square"></i> 글 작성하기 </button>
 	       	</div>
         	<div class="col-sm-8"></div>
         	<div class="col-sm-2">
@@ -74,9 +56,16 @@
         	</div>
         </div>
         
-        <d class="small text-secondary allign-center mb-3"><i class="small"> // 운영정책에 위반되는 게시글 게시 시 통보 없이 이용이 정지될 수 있습니다.</i></d>
+        <d class="small text-secondary allign-center mb-3"><i class="small"> // 운영정책에 위반되는 게시글 게시 시 통보 없이 이용이 정지될 수 있습니다. // </i></d>
     </main>
 	<jsp:include page="../common/footer.jsp"/>
 </body>
 <script src="${cp}js/profilecard.js"></script>
+<script>
+	$(".write-button").click(function(){
+		console.log(${cno});
+		const url = "list/post/write?cno=" + ${cno};
+		location.href= url;
+	})
+</script>
 </html>

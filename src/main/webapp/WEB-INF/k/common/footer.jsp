@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<footer class="footermain position-fixed bottom-0 bg-light text-dark p-0 fs-small" style="width: 100%; font-size: 11px;">
+<footer class="footermain bottom-0 bg-light text-dark p-0 fs-small mt-5" style="width: 100%; font-size: 11px;">
 	<div class="container">
 		<div class="row">
 		<!-- 로고 섹션 -->

@@ -23,6 +23,7 @@ public class PostList extends HttpServlet{
 //		System.out.println(cno);
 		
 		req.setAttribute("posts", service.listPost(Integer.parseInt(cno)));
+		req.setAttribute("cno", cno);
 //		System.out.println(Integer.parseInt(cno));
 		req.getRequestDispatcher("WEB-INF/k/post/list.jsp").forward(req, resp);
 	}

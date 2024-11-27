@@ -20,5 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
 <link rel='stylesheet'href='${cp}css/manage.css'>
+<!-- quillEditor -->
+<link rel='stylesheet'href='${cp}css/quillWriter.css'>
 <link href="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css" rel="stylesheet"/>
 <title>the-K</title>
