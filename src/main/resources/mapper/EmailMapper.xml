@@ -3,9 +3,12 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.EmailMapper">
-  <!-- <select id="selectOne" resultType="vo.User">
-    select * from tbl_user where id = #{id} 
-  </select> -->
+ <select id="selectFindByEmail" resultType="vo.UserEmail">
+  SELECT  *
+	FROM tbl_user_email tue 
+	WHERE email = #{email} 
+	  and att = #{att}
+  </select>
   
   <insert id="insert">
   INSERT  INTO tbl_user_email (email,att)

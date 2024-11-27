@@ -33,11 +33,15 @@ public class Signin extends HttpServlet {
 		String pw = req.getParameter("pwd");
 		String saveid = req.getParameter("remember-id");
 		System.out.println("123");
-
+		System.out.println(id);
+		System.out.println(pw);
+		
+		System.out.println("111111111");
+		
 		if (service.login(id, pw)) {
 			HttpSession session = req.getSession();
 			session.setAttribute("user", service.findBy(id));
-
+			System.out.println("22222222222");
 			if (saveid != null) {
 				Cookie cookie = new Cookie("remember-id", id);
 				cookie.setMaxAge(60 * 60 * 3);
@@ -53,6 +57,7 @@ public class Signin extends HttpServlet {
 					}
 				}
 			}
+			System.out.println("333333333");
 			String redirectURL = req.getContextPath() + "/index";
 			String url = req.getParameter("url");
 			if (url != null && !url.equals("")) {

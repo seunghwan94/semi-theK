@@ -9,4 +9,5 @@ import vo.UserEmail;
 public interface EmailMapper {
 	int insert(UserEmail userEmail);
 
+	UserEmail selectFindByEmail(UserEmail userEmail);
 }

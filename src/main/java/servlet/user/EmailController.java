@@ -15,6 +15,7 @@ import com.google.gson.Gson;
 import jakarta.mail.Session;
 import service.UserEmailServiceImpl;
 import utils.Mailsender;
+import vo.Category;
 import vo.UserEmail;
 
 @WebServlet("/useremail")
@@ -35,8 +36,11 @@ public class EmailController extends HttpServlet {
 	    System.out.println(rndText);
 	    Mailsender.send(session, "The-k 인증번호", "<h1>인증번호</h1>" + rndText, receiver);
 	    UserEmail userEmail = new UserEmail().builder().email(receiver).att(Integer.parseInt(rndText)).build();
-//	    int i = new UserEmailServiceImpl().addAtt(userEmail);
-
+	    System.out.println(userEmail);
+	    
+	    System.out.println("wwwwwwwwwwww");
+	    int i = new UserEmailServiceImpl().addAtt(userEmail);
+	    
 	    // 되돌려줘야해
 	    Map<String, String> ret = new HashMap<>();
 	    ret.put("text", rndText);
@@ -49,9 +53,24 @@ public class EmailController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String uri = req.getRequestURI();
-		uri= uri.replace(req.getContextPath() + "/useremail","");
-		System.out.println("uri");
+		Gson gson = new Gson();
+		String email = req.getParameter("email");
+		String att = req.getParameter("att");
+		System.out.println(email);
+		System.out.println(att);
+		
+		UserEmail userEmail = new UserEmail().builder().email(email).att(Integer.parseInt(att)).build();
+		 UserEmail ct = new UserEmailServiceImpl().ct(userEmail);//
+		 resp.setContentType("application/json; charset=utf-8");
+		 if(ct==null) {
+			 resp.getWriter().print(gson.toJson("fail"));          	
+			 System.out.println("인증 실패");
+		 }else {
+			 resp.getWriter().print(gson.toJson("success"));        	
+			 System.out.println("인증 성공");
+		 }
+		 
+     	    	
 	}
 
 	

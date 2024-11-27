@@ -70,24 +70,49 @@ $(function () {
 			.done(function(data){})
 		
 		});	
-	});				
-	
-	$(function () {
-		$("#button-sign-email-check").click(function () {
+	});	
+    
+  //이메일 확인
+ 	$(function (){
+		$("#button-sign-email-check").click(function () { //emc가 인증번호 입력한거
 			const emc = $("#emailCheck").val();
 			console.log(emc);
-			const url = "${cp}useremail"
-			const data = JSON.stringify({emc});
-			console.log(url);
-			console.log(data);
-			$.get({url,data})	
+		 	const url = "${cp}useremail"
+		 	const email = $("#signUpEmail2").val();
+			const data = {"email":email ,"att":emc};
+			$.ajax ({
+				url : "${cp}useremail",
+				type : "get",
+				contentType: "application/json; charse=utf-8",
+				data : data,
+				success : function (data){
+					if(data == "success"){
+						alert("인증완료");
+					}else{
+					alert("인증번호가 다릅니다.");
+					}
+					
+				},
+                error: function () {
+                    alert("서버에서 오류가 발생했습니다.");
+                }
+			})
+			
+			/* $.get({url,data})	
 			.done(function (data) {
 			alert("이메일 인증 완료");
 				
-			})
+			}) */
 		})
-	})
-			
+	}) 
+    
+	/* const att = "${usermail.att}"
+	function () {
+		EmailService.att().
+		
+	} */
+	
+
 
     
 </script>
