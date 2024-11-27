@@ -56,8 +56,7 @@ $(function () {
             }  
         });
     });
-    
-    
+        
     //인증번호 이메일 전송
     $(function () {
 		$("#button-sign-email").click(function (){
@@ -99,19 +98,9 @@ $(function () {
                 }
 			})
 			
-			/* $.get({url,data})	
-			.done(function (data) {
-			alert("이메일 인증 완료");
-				
-			}) */
 		})
 	}) 
     
-	/* const att = "${usermail.att}"
-	function () {
-		EmailService.att().
-		
-	} */
 	
 
 

@@ -35,8 +35,4 @@
 	</div>
 
 
-<script>
-
-</script>		
-		
 			

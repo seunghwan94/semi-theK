@@ -48,7 +48,9 @@
 				<div class="modal-header d-flex justify-content-center">
                     <img class="w-25" src="${cp}files/common/dark_logo.png">
                 </div>
-                <jsp:include page="modifyid.jsp" />													
+                <jsp:include page="modifyid.jsp" />	
+                <jsp:include page="modifypw.jsp" />	
+                												
 			</div>
 		</div>
 	</div>

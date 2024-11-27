@@ -49,8 +49,7 @@ $(function (){
 						$("#button-modify-check").hide();
 					}else{
 					alert("인증번호가 다릅니다.");
-					}
-					
+					}					
 				},
                 error: function () {
                     alert("서버에서 오류가 발생했습니다.");
