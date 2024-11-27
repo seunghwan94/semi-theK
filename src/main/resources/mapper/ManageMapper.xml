@@ -23,26 +23,6 @@
   </select>
   
   
-    <select id="selectAllUser" resultType="vo.User">
-	select @rownum := @rownum + 1 AS no,
-		   u.* 
-	from tbl_user u,
-		 (SELECT @rownum :=#{offset}) AS r
-	where 1
-	<if test="type != null">
-	    <trim prefix="and (" suffix=")" prefixOverrides="or">
-	    	<foreach collection="typeArr" item="t">
-	    		<if test='T == "i"'>
-		    		or id like concat('%', #{keyword},'%')
-	    		</if>
-	    	</foreach>
-	    </trim> 
-    </if>
-    order by create_date desc
-    limit #{amount} offset #{offset}
-  </select>
-  
-  
   
   <select id="getCount" resultType="int">
     select count(*) as cnt from tbl_user
