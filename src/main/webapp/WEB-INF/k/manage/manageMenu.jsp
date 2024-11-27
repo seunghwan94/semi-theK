@@ -20,6 +20,9 @@
             	<h3>관리</h3>
                 <!-- navtab -->
                 <jsp:include page="manageTab.jsp"></jsp:include>
+                
+                
+                
                 <!-- 관리 -->
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade p-4 show active" role="tabpanel" aria-labelledby="nav-home-detail-tab">

@@ -22,7 +22,7 @@ public interface ManageMapper {
 	int deleteTaboo(String string);
 	int updateTaboo(Taboo taboo);
 
-	List<UserDetail> selectAllUserDetail();
+	UserDetail selectAllUserDetail(String id);
 
 	List<Post> selectAllAnnPost();
 

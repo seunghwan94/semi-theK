@@ -24,7 +24,6 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th scope="col">No</th>
                                     <th scope="col">Id</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">NickName</th>
@@ -36,7 +35,6 @@
                             <tbody>
                             	<c:forEach var="user" items="${users}">
 	                                <tr class="move" data-user-id="${user.id}">
-	                                    <th>${user.no}</th>
 	                                    <td>${user.id}</td>
 	                                    <%-- <td>${user.name}</td> --%>
 	                                    <td>상조장</td>

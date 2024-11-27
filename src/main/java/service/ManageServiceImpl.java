@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import dto.Criteria;
+import dto.ManageUserDto;
 import mapper.ManageMapper;
 import utils.MybatisInit;
 import vo.Category;
@@ -16,19 +17,26 @@ import vo.UserDetail;
 public class ManageServiceImpl implements ManageService{
 
 	@Override
-	public List<User> listUser(Criteria cri) {
+	public List<ManageUserDto> listUser(Criteria cri) {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			ManageMapper mapper = session.getMapper(ManageMapper.class);
-			return mapper.selectAllUser(cri);
+			List<User> users = mapper.selectAllUser(cri);
+			users.stream().map(user-> new ManageUserDto(user, mapper.selectAllUserDetail(user.getId())));
 		}
+		return null;
 	}
+	
 	@Override
-	public List<UserDetail> listUserDetail() {
+	public UserDetail findByUserDetail(String id) {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			ManageMapper mapper = session.getMapper(ManageMapper.class);
-			return mapper.selectAllUserDetail();
+			return mapper.selectAllUserDetail(id);
 		}
 	}
+	
+	
+	
+	
 	
 //	paging
 	@Override
