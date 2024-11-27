@@ -1,45 +1,44 @@
-<!--<!DOCTYPE html>
-<html lang="ko" data-bs-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
-  <title>Document</title>
-  <link href="footer.css/footer.css" rel="stylesheet" type="text/css">
-  <style>
-   
-  </style>
-</head>
-<body>
-    <footer>
-    <div class="breadcrumb">
-        <img src="https://media.discordapp.net/attachments/1306176259117813763/1308984943233208351/--1.png?ex=6743e33a&is=674291ba&hm=f7039d286bc36255fa83f37d6156766059cb72a2c4ebc4fad79548c6916a863f&=&format=webp&quality=lossless&width=624&height=904" alt="ë¡ê³ " class="img mt-5 pt-">
-  <div class="ar-label mt-5"> 
-      <a href="https://docs.github.com/ko" aria-label="ì¬ì´í¸ë§µ">github</a> /
-      <a href="#" aria-label="ê°ì¸ì ë³´ì²ë¦¬ë°©ì¹¨">ë°í ìë£</a> /
-      <a href="#" aria-label="ì´ë©ì¼ìì§ê±°ë¶">ppt ìë£</a>
-  </div>   
-    <div class="icon">
-      <span><i class="fa-brands fa-google-play fa-3x m-3 pt-4"></i></span>
-      <span><i class="fa-brands fa-line fa-3x m-3 pt-4"></i></span>
-      <span><i class="fa-brands fa-google fa-3x m-3 pt-4"></i></span>
-    </div>
-  </div>
-<div class="f1_copy mb-4 pb-3">
-  <div id="f1">ìì¸ êµ¬ë¡êµ¬ ëì§í¸ë¡ 306 ëë¥­í¬ì¤í¸íì 2ì°¨ 203í¸</div>
-  <div id="f1">ëíë²í¸: 02-8362-9674</div>
-  <div id="f1">Copyrightâ gogle Corp 2010, 2022 All Rights Reserved</div>
-</div>    
-</footer>
-</body>
-</html>-->
-
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<footer class="container bg-dark text-center text-light border-top border-light border-5 p-2 mt-auto">
-<address class="small"><i>푸터푸터푸터</i> ${cp} </address>
-<d class="small"><i>copyrights All rights reserved &copy;</i></d>
-</footer>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+      <footer class="footermain position-fixed bottom-0 bg-light text-dark p-0 fs-small" style="width: 100%; font-size: 11px;">
+      <div class="container">
+        <div class="row">
+          <!-- 로고 섹션 -->
+          <div class="col-md-3 d-flex align-items-center justify-content-center">
+            <img src="https://media.discordapp.net/attachments/1306176259117813763/1308984943233208351/--1.png?ex=67448bfa&is=67433a7a&hm=f935fde3899c57c3ae5dbb3f888223ebee50f0d8c3bfb9b234e1f894adb40a62&=&format=webp&quality=lossless&width=624&height=904" 
+                 alt="로고" class="img" style="width: 100px; height: 100px;">
+          </div>
+          <!-- 링크와 아이콘 섹션 -->
+          <div class="col-md-9">
+            <div class="row">
+              <!-- 링크 넣기 -->
+            <div class="row mb-5"></div>   
+              <div class="col-md-6">
+                <div class="ar-label fs-6">
+                  <a class="text-decoration-none text-dark" href="#" aria-label="프로모션 안내">프로모션 안내</a> /
+                  <a class="text-decoration-none text-dark" href="https://github.com/Sangwon1233/semi-theK" aria-label="github">github</a> /
+                  <a class="text-decoration-none text-dark" href="#" aria-label="발표 자료">발표 자료</a> /
+                  <a class="text-decoration-none text-dark" href="#" aria-label="ppt 자료">ppt 자료</a> /
+                  <a class="text-decoration-none text-dark" href="#" aria-label="about us">about us</a>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-around flex-end">
+              <!-- 아이콘 구글 라인 자리 -->
+              <div class="col-md-6"></div>
+              <div class="col-md-1"></div>
+              <div class="col-md-1"><i class="fa-brands fa-google-play fa-3x mx-5"></i></div>
+              <div class="col-md-1"><i class="fa-brands fa-line fa-3x mx-4"></i></div>
+              <div class="col-md-1"><i class="fa-brands fa-google fa-3x"></i></div>
+            </div>
+              <!-- 학원 푸터 정보 -->
+              <div class="col-md-12 mb-5">
+                <div class="col-md-6">서울 구로구 디지털로 306 대륭포스트타워 2차 203호</div>
+                <div class="col-md-6">대표번호: 02-8362-9674</div>
+                <div class="col-md-6">Copyright ⓒ 2024 - 3000 dcinside. All rights reserved.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
