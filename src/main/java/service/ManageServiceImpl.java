@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import dto.Criteria;
 import mapper.ManageMapper;
 import utils.MybatisInit;
 import vo.Category;
@@ -15,10 +16,10 @@ import vo.UserDetail;
 public class ManageServiceImpl implements ManageService{
 
 	@Override
-	public List<User> listUser() {
+	public List<User> listUser(Criteria cri) {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			ManageMapper mapper = session.getMapper(ManageMapper.class);
-			return mapper.selectAllUser();
+			return mapper.selectAllUser(cri);
 		}
 	}
 	@Override
@@ -29,6 +30,14 @@ public class ManageServiceImpl implements ManageService{
 		}
 	}
 	
+//	paging
+	@Override
+	public int count(Criteria cri) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			ManageMapper mapper = session.getMapper(ManageMapper.class);
+			return mapper.getCount(cri);
+		}
+	}
 	
 	
 	@Override
@@ -111,6 +120,7 @@ public class ManageServiceImpl implements ManageService{
 	public static void main(String[] args) {
 		Taboo t = Taboo.builder().keyWord("뭐").build(); 
 		int i = new ManageServiceImpl().removeTaboo(t);
+		System.out.println(i);
 	}
 
 
