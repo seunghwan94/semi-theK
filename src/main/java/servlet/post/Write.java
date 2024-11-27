@@ -1,6 +1,7 @@
 package servlet.post;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,8 +13,8 @@ import com.google.gson.Gson;
 
 import service.CategorySerivceImpl;
 import service.CategoryService;
-import service.ManageServiceImpl;
 import service.PostServiceImpl;
+import vo.Category;
 import vo.Post;
 
 @WebServlet("/post/write")
@@ -24,7 +25,8 @@ public class Write extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String cno = req.getParameter("cno");
 //		String userId = req.getSession();
-		req.setAttribute("categories", categoryService.listSub());
+		List<Category> subCategories = categoryService.listSub();
+	    req.setAttribute("categories", subCategories);
 		req.getRequestDispatcher("/WEB-INF/k/post/write.jsp").forward(req, resp);
 //		req.setAttribute("criteria", criteria);
 	}

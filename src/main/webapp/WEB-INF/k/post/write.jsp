@@ -12,17 +12,12 @@
 			<main class="mb-5 container">
 				<form method="post">
 					<div class="mt-3 mb-3 container">
-						<label for="browser" class="form-label text-center">게시할 게시판 선택</label>
-						<input class="form-control form-control-sm" list="browsers" name="자유게시판" id="browser">
-						<datalist id="browsers">
-						<c:forEach >
-							<option value="">
-						</c:forEach>
-							<option value="Edge">
-							<option value="Firefox">
-							<option value="Chrome">
-							<option value="Opera">
-							<option value="Safari">
+						<label for="browser" class="form-label w-1">게시할 게시판 선택</label>
+						<input class="form-control form-control-sm w-1" list="categories" name="자유게시판" id="categorydatalist">
+						<datalist id="categories">
+						    <c:forEach items="${categories}" var="cate">
+						        <option value="${cate.cname}">
+						    </c:forEach>
 						</datalist>
 					</div>
 					<div class="input-group container m-2">
@@ -32,7 +27,6 @@
 					<div>
 						<jsp:include page="../common/writer.jsp"/>
 					</div>
-					<hr class="bg-white">
 					<div class="p-3 container">
 						<div class="input-group container m-2">
 							<span class="input-group-text">태그</span>
@@ -59,7 +53,7 @@
 			console.log(myTitle);
 			console.log(myContent);
 			console.log(myId);
-			const data = {"title" : myTitle , "content" : myContent, "userId" : myId, "cno" : 5};
+			const data = {"title" : myTitle , "content" : myContent, "userId" : myId, "cno" : ${categories.cno}};
             $.ajax({
                 url: "${cp}post/write",
                 type: "post",
@@ -76,9 +70,6 @@
                     alert("서버에서 오류가 발생했습니다.");
                 }
             });
-		
 		})
-		
-		
 	</script>
 </html>

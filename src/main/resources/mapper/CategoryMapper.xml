@@ -17,7 +17,6 @@
 	<select id="selectMain" resultType="vo.Category">
 		select * from tbl_category tc WHERE sub_category = 'main' AND isuse = 'y'
 	</select>
-
 	<select id="selectSub" resultType="vo.Category">
 		select * from tbl_category tc WHERE sub_category = 'sub' AND isuse = 'y'
 	</select>
