@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dto.ManageUserDto;
 import service.ManageServiceImpl;
 import vo.User;
 
@@ -18,12 +19,13 @@ public class MangeUserDetail extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
 		String email = req.getParameter("id");
+		
+		ManageUserDto userInfo = new ManageServiceImpl().findByUser(email);
 		
 		req.setAttribute("menu", "manage");
 		req.setAttribute("tab", "u");
-		req.setAttribute("email", email);	
+		req.setAttribute("userInfo", userInfo);
 		req.getRequestDispatcher("/WEB-INF/k/manage/manageUserDetail.jsp").forward(req, resp);
 	}
 

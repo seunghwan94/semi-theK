@@ -10,7 +10,7 @@ import vo.UserDetail;
 public class ManageUserDto {
 	private String id;
 	private String name;
-	private char gender;
+	private String gender;
 	private String addr;
 	private String detailAddr;
 	private String selfIntro;
@@ -23,6 +23,13 @@ public class ManageUserDto {
 	
 	public ManageUserDto(User user, UserDetail detail) {
 		id = user.getId();
+		pw = user.getPw();
+		nickName = user.getNickName();
+		
+		if(detail == null) {
+			return;
+		}
+		
 		name = detail.getName();
 		gender = detail.getGender();
 		addr = detail.getAddr();
@@ -31,8 +38,5 @@ public class ManageUserDto {
 		grade = detail.getGrade();
 		mtno = detail.getMtno();
 		lastLogin = detail.getLastLogin();
-		
-		pw = user.getPw();
-		nickName = user.getNickName();
 	}
 }

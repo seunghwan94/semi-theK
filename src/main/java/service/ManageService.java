@@ -11,7 +11,7 @@ import vo.UserDetail;
 
 public interface ManageService {
 	List<ManageUserDto> listUser(Criteria cri);
-	UserDetail findByUserDetail(String id);
+	ManageUserDto findByUser(String id);
 	
 	List<Category> listMenu();
 	int addMenu(String cname);

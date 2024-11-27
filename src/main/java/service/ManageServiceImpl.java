@@ -1,6 +1,7 @@
 package service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -21,16 +22,16 @@ public class ManageServiceImpl implements ManageService{
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			ManageMapper mapper = session.getMapper(ManageMapper.class);
 			List<User> users = mapper.selectAllUser(cri);
-			users.stream().map(user-> new ManageUserDto(user, mapper.selectAllUserDetail(user.getId())));
+			return users.stream().map(user-> new ManageUserDto(user, mapper.selectAllUserDetail(user.getId()))).collect(Collectors.toList());
 		}
-		return null;
 	}
 	
 	@Override
-	public UserDetail findByUserDetail(String id) {
+	public ManageUserDto findByUser(String id) {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			ManageMapper mapper = session.getMapper(ManageMapper.class);
-			return mapper.selectAllUserDetail(id);
+			User user = mapper.selectByUser(id);
+			return new ManageUserDto(user,mapper.selectAllUserDetail(user.getId()));
 		}
 	}
 	
@@ -126,9 +127,23 @@ public class ManageServiceImpl implements ManageService{
 	}
 
 	public static void main(String[] args) {
-		Taboo t = Taboo.builder().keyWord("뭐").build(); 
-		int i = new ManageServiceImpl().removeTaboo(t);
+//		Taboo t = Taboo.builder().keyWord("뭐").build(); 
+		ManageUserDto i = new ManageServiceImpl().findByUser("1@aaaaa");
 		System.out.println(i);
+//		Criteria criteria = Criteria.builder().page(1).amount(10).category(1).build();
+//		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+//			ManageMapper mapper = session.getMapper(ManageMapper.class);
+//			List<User> users = mapper.selectAllUser(criteria);
+//			users.forEach(System.out::println);
+//			List<?> list = users.stream().map(user-> new ManageUserDto(user, mapper.selectAllUserDetail(user.getId()))).collect(Collectors.toList());
+//			list.forEach(System.out::println);
+//		}
+//		System.out.println(criteria); 
+//		System.out.println(criteria.getOffset()); 
+		
+		
+//		System.out.println(Criteria.builder().page(1).amount(10).category(1).build());
+//		new ManageServiceImpl().listUser(Criteria.builder().build()).forEach(System.out::println);
 	}
 
 

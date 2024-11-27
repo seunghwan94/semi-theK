@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class UserDetail {
 	private String id;
 	private String name;
-	private char gender;
+	private String gender;
 	private String addr;
 	private String detailAddr;
 	private String selfIntro;

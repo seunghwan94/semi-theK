@@ -5,13 +5,13 @@ import java.sql.Date;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-//@NoArgsConstructor
+@NoArgsConstructor
 @AllArgsConstructor
 public class User {
-	private int no;
 	private String id;
 	private String pw;
 	private String nickName;

@@ -28,7 +28,7 @@ public class MangeUser extends HttpServlet {
 		Criteria cri = new Criteria(req);
 		
 		req.setAttribute("menu", "manage");
-		req.setAttribute("tab", "u");
+		req.setAttribute("tab", "u");;
 		
 		req.setAttribute("users", service.listUser(cri));
 		

@@ -36,12 +36,11 @@
                             	<c:forEach var="user" items="${users}">
 	                                <tr class="move" data-user-id="${user.id}">
 	                                    <td>${user.id}</td>
-	                                    <%-- <td>${user.name}</td> --%>
-	                                    <td>상조장</td>
+	                                    <td>${user.name}</td>
 	                                    <td>${user.nickName}</td>
-	                                    <td>M</td>
-	                                    <td>마스터</td>
-	                                    <td>${user.createDate}</td>
+	                                    <td>${user.gender}</td>
+	                                    <td>${user.grade}</td>
+	                                    <td>${user.lastLogin}</td>
 	                                </tr>
                                 </c:forEach>
                             </tbody>

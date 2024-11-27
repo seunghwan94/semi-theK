@@ -11,6 +11,9 @@ import vo.UserDetail;
 
 public interface ManageMapper {
 	List<User> selectAllUser(Criteria cri);
+	UserDetail selectAllUserDetail(String id);
+	User selectByUser(String id);
+	
 	
 	List<Category> selectAllMenu();
 	int insert(Category category);
@@ -22,9 +25,7 @@ public interface ManageMapper {
 	int deleteTaboo(String string);
 	int updateTaboo(Taboo taboo);
 
-	UserDetail selectAllUserDetail(String id);
 
 	List<Post> selectAllAnnPost();
-
 	int getCount(Criteria cri);
 }
