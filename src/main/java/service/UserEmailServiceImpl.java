@@ -34,6 +34,7 @@ public class UserEmailServiceImpl implements UserEmailService   {
 		 UserEmail i = new UserEmailServiceImpl().ct(userEmail);//
 		    System.out.println(i);
 	}
+
 	
 
 }

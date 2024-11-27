@@ -11,9 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+
+import service.UserEmailServiceImpl;
 import service.UserService;
 import service.UserServiceImpl;
 import vo.User;
+import vo.UserEmail;
 
 @WebServlet("/signin")
 public class Signin extends HttpServlet {
@@ -46,7 +50,6 @@ public class Signin extends HttpServlet {
 				Cookie cookie = new Cookie("remember-id", id);
 				cookie.setMaxAge(60 * 60 * 3);
 				resp.addCookie(cookie);
-
 			} else {
 				Cookie[] cookies = req.getCookies();
 				for (Cookie c : cookies) {
@@ -69,5 +72,22 @@ public class Signin extends HttpServlet {
 		}
 
 	}
-
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Gson gson = new Gson();
+		String email = req.getParameter("email");
+		String pw = req.getParameter("pw");
+//		System.out.println(email);
+//		System.out.println(att);
+		
+//		User user = new User().builder().id(id).pw(pw).build();
+		 User uesrid= new UserServiceImpl().login();
+		 resp.setContentType("application/json; charset=utf-8");
+		 if(uesrid==null) {
+			 resp.getWriter().print(gson.toJson("fail"));          	
+			 System.out.println("아이디가 존재하지 않습니다");
+		 }else {
+			 return;
+		 }
+	}
 }

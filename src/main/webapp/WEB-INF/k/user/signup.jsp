@@ -88,6 +88,7 @@ $(function () {
 				success : function (data){
 					if(data == "success"){
 						alert("인증완료");
+						$("#button-sign-email-check").hide();
 					}else{
 					alert("인증번호가 다릅니다.");
 					}
