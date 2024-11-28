@@ -42,7 +42,7 @@
                         <c:forEach items="${posts}" var="p">
                             <c:if test="${s.cno == p.cno}">
                                 <li>
-                                    <div class="row p-2 border-bottom mx-auto text-light">
+                                    <div class="row p-2 border-bottom border-light mx-auto text-light">
                                         <div class="col-sm-1 small">${p.pno}</div>
                                         <div class="col-sm-6 text-truncate">
                                             <a href="${cp}list/view?pno=${p.pno}" class="text-decoration-none text-light">${p.title}</a>
