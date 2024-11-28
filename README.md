@@ -14,6 +14,7 @@
 - [chartJS] : https://www.chartjs.org/
 - [금지어 사전] : https://velog.io/@persestitan/Java-BadWordFiltering-%EC%9A%95-%EB%B9%84%EC%86%8D%EC%96%B4-%ED%95%84%ED%84%B0-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC?ref=codenary
 - [smartEditor] : https://github.com/naver/smarteditor2/releases
+- [Quill/Slab] : https://github.com/slab/quill
 
 
 ## Tech Stack  <small>(기술 스택)</small>  
@@ -58,4 +59,4 @@
 > * 24.11.25 => *html 구조 구현(footer, post) + sevlet, mapper, service + 4 WIP*
 > * 24.11.26 => *html 구조 구현(user, post, manage, footer) + sevlet, mapper, service + 5 WIP // INCLUDE JSP (Quill API) + 1 WIP*
 > * 24.11.27 => *html 구조 구현(user, post, manage) + sevlet, mapper, service + 6 WIP // INCLUDE JSP (Quill API) + 2 WIP*
-> * 
+> * 24.11.28 => *html 구조 구현(user, post, manage) + sevlet, mapper, service + 7 WIP // INCLUDE JSP (Quill API) + 3 WIP*
