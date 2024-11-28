@@ -9,7 +9,6 @@ import lombok.*;
 //@NoArgsConstructor
 @Builder
 public class Category {
-	
 	private int cno;
 	private String cname;
 	private String mainCategory;
@@ -20,5 +19,4 @@ public class Category {
 	private Date createDate; // 등록일
 	private Date updateDate; // 수정일
 	private String icon; // 아이콘
-	private String pathName; // 경로명
 }

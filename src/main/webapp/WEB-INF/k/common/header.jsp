@@ -23,14 +23,14 @@
 				<ul class="dropdown-menu bg-secondary text-center">
 					<c:forEach items="${subC}" var="s"> 
 						<c:if test="${s.parentCno == m.cno}">
-							<li><a class="dropdown-item" href="${cp}/${s.pathName}"></a>${s.icon} ${s.cname}</li>
+							<li><a class="dropdown-item" href="${cp}/${s.cno}"></a>${s.icon} ${s.cname}</li>
 						</c:if>
 					</c:forEach>
 				</ul>
 			</li>
 		</c:when>
 		<c:otherwise>
-			<li class= "nav-item mx-5"><a class="nav-link float-start text-light m-2" href="${cp}/${m.pathName}">${m.icon} ${m.cname}</a></li>	
+			<li class= "nav-item mx-5"><a class="nav-link float-start text-light m-2" href="${cp}/${m.cno}">${m.icon} ${m.cname}</a></li>	
 		</c:otherwise>
 	</c:choose>
 </c:forEach>

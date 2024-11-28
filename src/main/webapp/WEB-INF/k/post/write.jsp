@@ -11,19 +11,15 @@
 			<jsp:include page="../common/header.jsp"/>
 			<main class="mb-5 container">
 				<form method="post">
-					<div class="mt-3 mb-3 container">
-						<label for="browser" class="form-label w-1">게시할 게시판 선택</label>
-						<input class="form-control form-control-sm w-1" list="categories" name="자유게시판" id="categorydatalist">
-						<datalist id="categories">
-						    <c:forEach items="${categories}" var="cate">
-						        <option value="${cate.cname}">
-						    </c:forEach>
-						</datalist>
-					</div>
 					<div class="input-group container m-2">
 						<span class="input-group-text">제목</span>
 						<input type="text" class="form-control" placeholder="input title here" name="title" id="post-title">
 					</div>
+					<select class="form-select text-white">
+					    <c:forEach items="${categories}" var="cate">
+					        <option value="${cate.cname}" class="text-white post-cate">
+					    </c:forEach>
+					</select>
 					<div>
 						<jsp:include page="../common/writer.jsp"/>
 					</div>
@@ -49,11 +45,33 @@
 			// const url = "list/post/write?cno=" + ${cno};
 			const myTitle = $("#post-title").val();
 			const myContent = $("#editor .ql-editor").html();
-			const myId = $("#post-writer").val();
+			const myId = $("#post-writer").val(); 
+			const myCate = 
+				switch($(".post-cate").val()){
+				case "자유" :
+					myCate = 5;
+					break;
+				case "모임" :
+					myCate = 6;
+					break;
+				case "기타메뉴" :
+					myCate = 8;
+					break;
+				case "정보" :
+					myCate = 11;
+					break;
+				case "지역" :
+					myCate = 12;
+					break;
+				default :
+					console.log("no matches for cate");
+					console.alert("SYS :: ERR");
+			}
 			console.log(myTitle);
 			console.log(myContent);
 			console.log(myId);
-			const data = {"title" : myTitle , "content" : myContent, "userId" : myId, "cno" : ${categories.cno}};
+			console.log(myCate);
+			const data = {"title" : myTitle , "content" : myContent, "userId" : myId, "cno" : myCate};
             $.ajax({
                 url: "${cp}post/write",
                 type: "post",

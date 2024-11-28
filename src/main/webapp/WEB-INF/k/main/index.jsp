@@ -7,6 +7,7 @@
     <jsp:include page="../common/head.jsp" />
     <link rel='stylesheet' href='css/indexbxslider.css'>
     <link rel='stylesheet' href='css/style.css'>
+    
 </head>
 <body class="bg-dark d-flex flex-column min-vh-100 gothic-a1-regular">
     <jsp:include page="../common/header.jsp" />
