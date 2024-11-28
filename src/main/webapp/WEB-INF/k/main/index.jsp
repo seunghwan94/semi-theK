@@ -9,6 +9,16 @@
     <link rel='stylesheet' href='css/style.css'>
     
 </head>
+<style>
+ 
+    /* 레이어 팝업 영역 */
+    .layer-popup {width: 420px; position: absolute; top:150px; left:calc(50% - 210px)}
+    .layer-popup img {display: block;}
+    .layer-popup p {background-color: rgb(129, 129, 129); color: #eee; margin: 0; padding: 8px; font-size: 13px;} 
+    .layer-popup p input {vertical-align: middle;}
+    .layer-popup p a {color: #eee; text-decoration: none; float: right;}
+    
+</style>
 <body class="bg-dark d-flex flex-column min-vh-100 gothic-a1-regular">
     <jsp:include page="../common/header.jsp" />
     <main class="container my-5 mx-auto p-2 justify-content-center">
