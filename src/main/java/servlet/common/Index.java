@@ -13,7 +13,6 @@ import service.PostServiceImpl;
 
 @WebServlet("/index")
 public class Index extends HttpServlet {
-	
 	private PostService postService = new PostServiceImpl();
 	private CategoryService categoryService = new CategorySerivceImpl();
 	
