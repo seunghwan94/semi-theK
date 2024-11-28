@@ -15,6 +15,7 @@ import vo.UserDetail;
 
 
 public class UserDto {
+	
 	public int insert(User user) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -107,6 +108,31 @@ public class UserDto {
 		}
 		
 		return user;
+	}
+	public int update(User user) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			String sql = "update tbl_user set pw = ? where id = ?";
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			int idx = 1;
+			
+			pstmt.setString(idx++, user.getPw());
+			pstmt.setString(idx++, user.getId());
+			return pstmt.executeUpdate();
+				
+			}catch (SQLException | ClassNotFoundException e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					pstmt.close();
+					conn.close();
+				} catch (SQLException ignore) {
+				}
+			}
+				return 0;
 	}
 	
 }

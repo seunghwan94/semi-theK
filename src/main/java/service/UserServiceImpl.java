@@ -11,6 +11,8 @@ import vo.UserDetail;
 
 public class UserServiceImpl implements UserService {
 
+	
+
 	@Override
 	public int register(User user) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
@@ -53,9 +55,12 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean modify(User user) {
-		// TODO Auto-generated method stub
-		return false;
+	public int modify(User user) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			UserMapper mapper=session.getMapper(UserMapper.class);
+				return mapper.update(user);
+					
+		}
 	}
 
 

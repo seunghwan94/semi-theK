@@ -14,10 +14,10 @@
 		</div>
 			<input type="password" class="form-control my-3" id="pwd1" placeholder="비밀번호" name="pwd"> 
 			<input type="password" class="form-control my-3" id="pwd2" placeholder="비밀번호 확인" name="pwd">
-		<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
-		<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
+			<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
+			<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
 			<input type="text" class="form-control my-3" id="nickname" placeholder="닉네임" name="nickname">
-	</div>
+		</div>
 		<div class="modal-footer">
 			<button type="submit" class="btn btn-dark">가입하기</button>
 			<button type="button" class="btn btn-dark" data-bs-dismiss="modal">취소하기</button>

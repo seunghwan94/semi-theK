@@ -10,5 +10,8 @@ public interface UserMapper {
 	User selectOne(String user);
 	
 	int insertDetail(UserDetail userDetail);
+	
+	int update(User pw);
+
 
 }

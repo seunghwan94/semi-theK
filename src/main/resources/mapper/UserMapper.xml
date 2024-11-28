@@ -16,4 +16,9 @@
   INSERT  INTO tbl_user_detail (id)
   values (#{id})
   </insert>
+  
+  <update id="update">
+	update tbl_user set pw = #{pw} where id = #{id}
+	</update>
+	
 </mapper>

@@ -25,6 +25,7 @@ public interface UserService {
 	boolean remove(String id);
 	
 	//회원 정보 수정
-	boolean modify(User user);
+	int modify(User user);
+	
 	
 }

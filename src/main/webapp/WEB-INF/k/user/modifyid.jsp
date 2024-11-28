@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<form method="post" action=intro>
+<form method="post" action=modifyid>
     <div class="modal-body">
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="signUpEmail" placeholder="이메일" aria-label="이메일" aria-describedby="button-addon2">
@@ -17,7 +17,7 @@
     </div>
 
     <div class="modal-footer">
-        <button type="button" class="btn btn-dark">확인</button>
+        <button type="submit" id="modifyclick" class="btn btn-dark">확인</button>
         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">취소</button>
   </div>
 </form>
@@ -70,17 +70,17 @@ $(function(){
         	if(pwd1 == pwd2){
         		
          	
-          $("#alert-success1").show();
-          $("#alert-danger1").hide();
-          $("#submit").removeAttr("disabled");
-         }else{
-          	$("#alert-success1").hide();
-             $("#alert-danger1").show();
-             $("#submit").attr("disabled", "disabled");
-       		 } 
+	          $("#alert-success1").show();
+	          $("#alert-danger1").hide();
+	          $("#submit").removeAttr("disabled");
+	         }else{
+	          	$("#alert-success1").hide();
+	             $("#alert-danger1").show();
+	             $("#submit").attr("disabled", "disabled");     
+	         } 
         }  
     });
-	
+   
 })
 
 </script>
