@@ -28,16 +28,12 @@ public interface ManageService {
 
 	List<Post> listAnn(Criteria cri);
 	int addPostAnn(Post post);
+	Post findByPostAnn(String pno);
+	int removePostAnn(int pno);
+	int modifyPostAnn(Post post);
+	
 	
 	int count(Criteria cri);
-
-	
-
-	
-
-	
-
-	
 
 	
 }

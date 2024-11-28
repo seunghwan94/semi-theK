@@ -21,21 +21,21 @@
                 <div class="tab-content">
                     <div class="tab-pane fade p-4 show active">
                         <h3>공지사항 관리</h3>
-                        <table class="table table-hover">
+                        <table class="table table-hover text-center">
                             <thead>
                                 <tr>
-                                    <th scope="col">No</th>
-                                    <th scope="col">제목</th>
-                                    <th scope="col">작성자</th>
-                                    <th scope="col">viewCnt</th>
-                                    <th scope="col">create</th>
+                                    <th style="width: 5%">No</th>
+                                    <th >제목</th>
+                                    <th style="width: 15%">작성자</th>
+                                    <th style="width: 5%">viewCnt</th>
+                                    <th style="width: 15%">create</th>
                                 </tr>
                             </thead>
                             <tbody>
                             	<c:forEach var="post" items="${annPost}" varStatus="status">
-	                                <tr class="move" data-user-pno="${post.pno}">
+	                                <tr class="move" data-pno="${post.pno}">
 	                                    <th>${status.count}</th>
-	                                    <td>${post.title}</td>
+	                                    <td class="text-start">${post.title}</td>
 	                                    <td>${post.userId}</td>
 	                                    <td>${post.viewCnt}</td>
 	                                    <td>${post.createDate}</td>
@@ -44,7 +44,7 @@
                             </tbody>
                         </table>
                         <div class="d-flex justify-content-end mt-4 me-2">
-                            <a href="${cp}manage/ann/write" type="button" class="btn btn-secondary btn-add" >등록</a>
+                            <a href="${cp}manage/ann/write" type="button" class="btn btn-secondary btn-add" >글쓰기</a>
                         </div>
                         <jsp:include page="../common/paging.jsp"></jsp:include>
                     </div>
@@ -52,5 +52,11 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		$(".move").click(function (){
+			const pno = $(this).data("pno");
+			location.href = ${cp} + "manage/ann/view?pno=" + pno; 	
+		})
+	</script>
 </body>
 </html>

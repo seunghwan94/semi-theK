@@ -15,50 +15,39 @@ import dto.ManageUserDto;
 import dto.PageDto;
 import service.ManageService;
 import service.ManageServiceImpl;
+import utils.Commons;
 import vo.Category;
 import vo.Post;
 import vo.User;
 import vo.UserDetail;
 
 @SuppressWarnings("serial")
-@WebServlet("/manage/ann/write")
-public class ManageAnnWrite extends HttpServlet {
+@WebServlet("/manage/ann/view")
+public class ManageAnnView extends HttpServlet {
 	private ManageService service = new ManageServiceImpl();
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
 		String pno = req.getParameter("pno");
-		if(pno != null) {
-			Post post = service.findByPostAnn(pno);
-			req.setAttribute("post", post);
-		}
-		
+		Post post = service.findByPostAnn(pno);
 		req.setAttribute("menu", "manage");
 		req.setAttribute("tab", "a");
-		req.getRequestDispatcher("/WEB-INF/k/manage/manageAnnWrite.jsp").forward(req, resp);
+		req.setAttribute("post", post);
+		
+		req.getRequestDispatcher("/WEB-INF/k/manage/manageAnnView.jsp").forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Gson gson = new Gson();
-		Post post = gson.fromJson(req.getReader(), Post.class);
-		int i=0;
+		String pno = req.getParameter("pno");
+		System.out.println(pno);
+		int i = service.removePostAnn(Integer.parseInt(pno));
 		
-        try {
-        	if(post.getPno()==0) {
-        		i = service.addPostAnn(post);
-        	}else {
-        		i = service.modifyPostAnn(post);
-        	}
-        	if(i == 1) {
-        		resp.getWriter().write("success");
-        	}else {
-        		resp.getWriter().write("fail");
-        	}
-        }catch(Exception e) {
-        	resp.getWriter().write("error");
-        }
-        
+		if(i==1) {
+			Commons.printMsg("삭제 되었습니다.", "/K/manage/ann", resp);
+		}else {
+			Commons.printMsg("서비스 오류.", "ann/view?pno="+pno, resp);
+		}
 	}
 	
 	

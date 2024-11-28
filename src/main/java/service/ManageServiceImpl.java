@@ -129,6 +129,15 @@ public class ManageServiceImpl implements ManageService{
 	}
 	
 	@Override
+	public Post findByPostAnn(String pno) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			ManageMapper mapper = session.getMapper(ManageMapper.class);
+			return mapper.selectAnnPost(pno);
+		}
+	}
+	
+	
+	@Override
 	public List<Post> listAnn(Criteria cri) {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			ManageMapper mapper = session.getMapper(ManageMapper.class);
@@ -144,6 +153,22 @@ public class ManageServiceImpl implements ManageService{
 		}
 	}
 	
+	@Override
+	public int removePostAnn(int pno) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			ManageMapper mapper = session.getMapper(ManageMapper.class);
+			return mapper.deleteAnnPost(pno);
+		}
+	}	
+	
+	@Override
+	public int modifyPostAnn(Post post) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			ManageMapper mapper = session.getMapper(ManageMapper.class);
+			return mapper.updateAnnPost(post);
+		}
+	}
+
 	public static void main(String[] args) {
 		
 //		Taboo t = Taboo.builder().keyWord("뭐").build(); 

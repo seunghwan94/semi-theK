@@ -142,15 +142,19 @@
     limit #{amount} offset #{offset}
   </select>
   
+  <select id="selectAnnPost" resultType="vo.Post">
+	select * from tbl_post where pno = #{pno}
+  </select>
   
   <update id="updateAnnPost">
 		update tbl_post set 
 	  	
-	  	isuse = #{isUse},
+	  	title = #{title},
+	  	user_id = #{userId},
+	  	content = #{content},
 	  	update_date = now()
 	  	
-	  	where cno = #{cno}
-	  	and pno = #{pno}
+	  	where pno = #{pno}
   </update>
   
     <insert id="insertAnnPost" >
@@ -158,7 +162,7 @@
 		values(#{title}, #{userId}, #{content}, #{cno})
   	</insert>
   
-	<update id="deletee">
+	<update id="deleteAnnPost">
 		delete from tbl_post where pno = #{pno}
 	</update>
 	

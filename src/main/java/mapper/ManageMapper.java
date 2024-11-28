@@ -29,7 +29,10 @@ public interface ManageMapper {
 
 
 	List<Post> selectAllAnnPost(Criteria cri);
+	Post selectAnnPost(String pno);
 	int insertAnnPost(Post post);
+	int deleteAnnPost(int pno);
+	int updateAnnPost(Post post);
 	
 	
 	int getCount(Criteria cri);
