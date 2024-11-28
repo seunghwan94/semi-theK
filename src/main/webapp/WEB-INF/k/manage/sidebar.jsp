@@ -16,7 +16,7 @@
         <a class="nav-link w-100 m-3 ${menu == 'manage'? 'active' : '' }" href="${cp}manage/user">
             <i class="fa-solid fa-chart-simple pe-2"></i><span>관리</span>
         </a>
-        <a class="nav-link w-100 m-3 ${menu == 'qna'? 'active' : '' }" href="manage/qna">
+        <a class="nav-link w-100 m-3 ${menu == 'qna'? 'active' : '' }" href="${cp}manage/qna">
             <i class="fa-regular fa-comment-dots pe-2"></i><span>Q & A</span>
         </a>
         <a class="nav-link w-100 m-3 ${menu == 'setting'? 'active' : '' }" href="${cp}manage/setting">
