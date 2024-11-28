@@ -9,9 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import dto.ManageUserDto;
 import dto.PageDto;
 import service.ManageServiceImpl;
+import vo.Category;
+import vo.Post;
 import vo.User;
 import vo.UserDetail;
 
@@ -28,42 +32,20 @@ public class ManageAnnWrite extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		String id = req.getParameter("id");
-		String pw = req.getParameter("pw");		
-		String btn = req.getParameter("pwReset");
-		System.out.println(btn);
-		String ck = "";
-		if (btn.equals("Y")) {
-			pw = "12345";
-			ck = "BY";
-		}
-		
-		String name = req.getParameter("name");
-		String nickName = req.getParameter("nickName");
-		
-		String gender = req.getParameter("gender");
-		String grade = req.getParameter("grade");
-		String addr = req.getParameter("addr");
-		String detailAddr = req.getParameter("detailAddr");
-		
-		
-		User user = User.builder().id(id).pw(pw).nickName(nickName).build();
-		UserDetail userDetail = UserDetail.builder().id(id).name(name).gender(gender).addr(addr).detailAddr(detailAddr).grade(grade).build();
-		
-		ManageUserDto dto = new ManageUserDto(user,userDetail);
-		int i = new ManageServiceImpl().userModify(dto);
-		
-		if(ck!="BY" && i == 1) ck = "Y";
-		if(ck!="BY" && i == 0) ck = "N";
-		
-		req.getSession().setAttribute("ck", ck);    // 세션에 상태 저장
-	    req.getSession().setMaxInactiveInterval(3); // 3초
-	    
-    	resp.sendRedirect(req.getContextPath() + "/manage/userDetail?id=" + id);
-		
-		System.out.println(dto);
-		
+		Gson gson = new Gson();
+		Post post = gson.fromJson(req.getReader(), Post.class);
+
+        try {
+        	int i = new ManageServiceImpl().addPostAnn(post);
+        	if(i == 1) {
+        		resp.getWriter().write("success");
+        	}else {
+        		resp.getWriter().write("fail");
+        	}
+        }catch(Exception e) {
+        	resp.getWriter().write("error");
+        }
+        
 	}
 	
 	

@@ -43,6 +43,7 @@
                                 </c:forEach>
                             </tbody>
                         </table>
+                        <jsp:include page="../common/paging.jsp"></jsp:include>
                     </div>
 				</div>	
 			</div>

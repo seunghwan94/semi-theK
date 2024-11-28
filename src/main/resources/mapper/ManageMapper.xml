@@ -128,7 +128,20 @@
   
   
   <select id="selectAllAnnPost" resultType="vo.Post">
-	select * from tbl_post where cno = 1
+	select * 
+	from tbl_post 
+	where cno = 1
+	<if test="type != null">
+	    <trim prefix="and (" suffix=")" prefixOverrides="or">
+	    	<foreach collection="typeArr" item="t">
+	    		<if test='T == "i"'>
+		    		or id like concat('%', #{keyword},'%')
+	    		</if>
+	    	</foreach>
+	    </trim> 
+    </if>
+    order by create_date desc
+    limit #{amount} offset #{offset}
   </select>
   
   

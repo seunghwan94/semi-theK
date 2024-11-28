@@ -9,20 +9,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dto.Criteria;
+import dto.PageDto;
+import service.ManageService;
 import service.ManageServiceImpl;
-import vo.Category;
 import vo.Post;
 
+@SuppressWarnings("serial")
 @WebServlet("/manage/ann")
 public class ManageAnn extends HttpServlet{
-
+	private ManageService service = new ManageServiceImpl();
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		List<Post> annPost =  new ManageServiceImpl().listAnn();
+		Criteria cri = new Criteria(req);
+		
 		req.setAttribute("menu", "manage");
 		req.setAttribute("tab", "a");
-		req.setAttribute("annPost", annPost);
+		
+		req.setAttribute("annPost", service.listAnn(cri));
+		req.setAttribute("currentPage", "ann");
+		req.setAttribute("pageDto", new PageDto(cri, service.count(cri)));
 		
 		req.getRequestDispatcher("/WEB-INF/k/manage/manageAnn.jsp").forward(req, resp);
 	}

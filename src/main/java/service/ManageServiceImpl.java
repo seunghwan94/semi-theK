@@ -127,17 +127,28 @@ public class ManageServiceImpl implements ManageService{
 			return mapper.deleteTaboo(t.getKeyWord());
 		}
 	}
-
-	public List<Post> listAnn() {
+	
+	@Override
+	public List<Post> listAnn(Criteria cri) {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			ManageMapper mapper = session.getMapper(ManageMapper.class);
-			return mapper.selectAllAnnPost();
+			return mapper.selectAllAnnPost(cri);
 		}
 	}
-
+	
+	@Override
+	public int addPostAnn(Post post) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			ManageMapper mapper = session.getMapper(ManageMapper.class);
+			return mapper.insertAnnPost(post);
+		}
+	}
+	
 	public static void main(String[] args) {
+		
 //		Taboo t = Taboo.builder().keyWord("뭐").build(); 
-		ManageUserDto i = new ManageServiceImpl().findByUser("1@aaaaa");
+		Post post = Post.builder().userId("1@a").content("test").title("test-title").build();
+		int i = new ManageServiceImpl().addPostAnn(post);
 		System.out.println(i);
 //		Criteria criteria = Criteria.builder().page(1).amount(10).category(1).build();
 //		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
@@ -154,6 +165,8 @@ public class ManageServiceImpl implements ManageService{
 //		System.out.println(Criteria.builder().page(1).amount(10).category(1).build());
 //		new ManageServiceImpl().listUser(Criteria.builder().build()).forEach(System.out::println);
 	}
+
+
 
 
 

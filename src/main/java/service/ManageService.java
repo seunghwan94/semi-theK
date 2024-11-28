@@ -5,6 +5,7 @@ import java.util.List;
 import dto.Criteria;
 import dto.ManageUserDto;
 import vo.Category;
+import vo.Post;
 import vo.Taboo;
 import vo.User;
 import vo.UserDetail;
@@ -25,8 +26,13 @@ public interface ManageService {
 	int removeTaboo(Taboo t);
 	int modifyTaboo(Taboo taboo);
 
-
+	List<Post> listAnn(Criteria cri);
+	int addPostAnn(Post post);
+	
 	int count(Criteria cri);
+
+	
+
 	
 
 	

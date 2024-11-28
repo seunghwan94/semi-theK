@@ -28,8 +28,12 @@ public interface ManageMapper {
 	int updateTaboo(Taboo taboo);
 
 
-	List<Post> selectAllAnnPost();
+	List<Post> selectAllAnnPost(Criteria cri);
+	int insertAnnPost(Post post);
+	
+	
 	int getCount(Criteria cri);
+	
 	
 	
 }
