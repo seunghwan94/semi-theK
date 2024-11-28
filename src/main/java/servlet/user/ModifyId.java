@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.eclipse.angus.mail.imap.protocol.ID;
+
 import service.UserService;
 import service.UserServiceImpl;
 import vo.User;
@@ -22,12 +24,14 @@ public class ModifyId extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
+		String id = req.getParameter("modifyemail");
 		String pw = req.getParameter("pwd");
 		System.out.println("비밀번호 변경 들어왔나?");
 		System.out.println(pw);
+		System.out.println(id);
 		
 		User user = User.builder()
-			.pw(pw).build();
+			.id(id).pw(pw).build();
 		System.out.println(user);
 		String redirectURL = req.getContextPath() + "/intro";
 		String url = req.getParameter("url");

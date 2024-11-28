@@ -9,45 +9,48 @@
 </head>
 
 <body class="gothic-a1-regular">
-    <nav class="navbar navbar-light bg-light">
-        <form class="container-fluid justify-content-start">
-          <button class="btn btn-outline-success me-2" type="button">마이페이지</button>
-          <button class="btn btn-sm btn-outline-secondary" type="button">등급 변경 신청</button>
-        </form>
-      </nav>
+   
+     <!--  <form class="container-fluid justify-content-start"> -->
+       <div class= "row">
+        <div class= "col-6 card p-0">
+          <button class="btn btn-outline-success me-2 w-100" type="button" style="margin:0px">마이페이지</button>
+        </div>
+        <div class="col-6 card p-0 ">
+          <button class="btn btn-sm btn-outline-secondary me-2 w-100 h-100" style="margin:0px ;"type="button">등급 변경 신청</button>
+         </div>
+        </div>
+<!--       </form> -->
+<!-- 
     <form class="container-fluid col-sm-12 col-md-10 col-lg-10">
-        <div class="d-flex rounded float-start">
-            <img class="" src="${cp}files/common/user.png">
-            <div>
-                <button class="btn btn-secondary my-3" type="button" id="button-addon2">프로필 사진 변경</button>
-            </div>
-        </div>
-        <div class="wrap">
-            <div>
-                <div class= "input-group">
-                    <input type="text" class="form-control my-3" placeholder="닉네임" aria-label="이메일 인증" aria-describedby="button-addon2" name="att">
-                    <button class="btn btn-secondary my-3" type="button" id="button-addon2">닉네임 변경</button>
-            	</div>
-            </div>	
-            <div>
-                <input type="password" class="form-control my-3" id="pwd" placeholder="이메일" name="pwd">
-            </div>
-            <div>   
-                <div class="input-group">
-                    <input type="text" class="form-control my-3" id="nickname" placeholder="등급" name="nickname">
-                    <input type="text" class="form-control my-3" placeholder="성별" aria-label="이메일 인증" aria-describedby="button-addon2" name="att">
-                    <button class="btn btn-secondary my-3" type="button" id="button-addon2">성별 변경</button>
-            	</div>
-	            <div>
-	                <input type="text" class="form-control my-3" id="nickname" placeholder="소개" name="nickname">
-	            </div>
-	            <div>   
-	                <input type="text" class="form-control my-3" id="nickname" placeholder="팔로잉" name="nickname">
-	                <input type="text" class="form-control my-3" id="nickname" placeholder="팔로워" name="nickname">
-	            </div>  
-	         </div> 
-        </div>
-    </form>  
+        </form>   -->
+        
+        <div class="d-flex justify-content-center">
+	        <div class="d-flex rounded float-start flex-column ">
+	            <img class="w-25" src="${cp}files/common/user.png">
+	          	<div>
+	          		<button class="btn btn-secondary my-3" type="button" id="button-addon2">프로필 사진 변경</button>
+	          	</div>
+	       	</div>
+	       	<div>
+		      	<div class="input-group flex-nowrap">
+					  <span class="input-group-text" id="addon-wrapping">@</span>
+					  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+				</div>
+				<div class="input-group flex-nowrap">
+					  <span class="input-group-text" id="addon-wrapping">@</span>
+					  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+				</div>
+				<div class="input-group flex-nowrap">
+					  <span class="input-group-text" id="addon-wrapping">@</span>
+					  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+				</div>
+				<div class="input-group flex-nowrap">
+					  <span class="input-group-text" id="addon-wrapping">@</span>
+					  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+				</div>
+			</div>
+				
+		</div>
     
     
         <div class="container-fluid col-sm-12 col-md-10 col-lg-10 mt-5">
