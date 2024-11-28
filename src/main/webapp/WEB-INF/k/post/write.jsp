@@ -15,7 +15,7 @@
 						<span class="input-group-text">제목</span>
 						<input type="text" class="form-control" placeholder="input title here" name="title" id="post-title">
 					</div>
-					<select class="form-select form-select-sm text-white bg-secondary" name="cat">
+					<select class="form-select form-select-sm text-white bg-secondary my-3 border-dark" name="cat">
 					    <c:forEach items="${categories}" var="cate">
 					        <option value="${cate.cno}" class="post-cate" ${urlCno == cate.cno ? "selected" : "" }>${cate.cname}</option>
 					    </c:forEach>
@@ -26,7 +26,7 @@
 					<div class="p-3 container">
 						<div class="input-group container m-2">
 							<span class="input-group-text">태그</span>
-							<input type="text" class="form-control" placeholder="예시 = #소통해요" name="tag" id="post-tag">
+							<input type="text" class="form-control" placeholder="예시 #소통해요" name="tag" id="post-tag">
 						</div>
 						<div class="input-group container m-2">
 							<span class="input-group-text">작성자</span>

@@ -5,27 +5,40 @@
 <html lang="ko" data-bs-theme="dark">
 <head>
     <jsp:include page="../common/head.jsp" />
-    <link rel='stylesheet' href='css/indexbxslider.css'>
-    <link rel='stylesheet' href='css/style.css'>
-    
 </head>
+
 <style>
- 
     /* 레이어 팝업 영역 */
     .layer-popup {width: 420px; position: absolute; top:150px; left:calc(50% - 210px)}
     .layer-popup img {display: block;}
     .layer-popup p {background-color: rgb(129, 129, 129); color: #eee; margin: 0; padding: 8px; font-size: 13px;} 
     .layer-popup p input {vertical-align: middle;}
     .layer-popup p a {color: #eee; text-decoration: none; float: right;}
-    
 </style>
+
 <body class="bg-dark d-flex flex-column min-vh-100 gothic-a1-regular">
-    <jsp:include page="../common/header.jsp" />
+    <jsp:include page="../common/header.jsp"/>
     <main class="container my-5 mx-auto p-2 justify-content-center">
+    	<div class ="row container mt-3">
+			<div class="col-sm-10 small"></div>
+			<div class="col-sm-2 small text-white">
+				<div class="id-shower">
+					<c:if test="${not empty user}">
+						<div class="container p-4 text-center bg-white border">
+							<p> welcome home, <strong><a href="mypage.html" class="b-2 text-decoration-none"> ${user.nickName} </a></strong>!</p> 
+							<div class="small btn-group btn-group-sm bg-color-primary"> 
+								<a href="signout" class="btn btn-outline-dark small fw-small"><i> log - out </i></a> 
+								<a href="mypage.html" class="btn btn-outline-dark small fw-small"> <i> my - page </i></a>
+							</div>
+						</div>
+					</c:if>
+				</div>
+			</div>
+    	</div>
         <div id="slide-container">
             <ul class="bxslider1">
-                <c:forEach var="u" begin="1" end="5">
-                    <li><img src="https://placehold.co/1300x250?text=Slider+${u}" alt="Slide ${u}" /></li>
+                <c:forEach var="ps" begin="1" end="5">
+                    <li><img src="https://placehold.co/1300x250?text=Slider+${ps}" alt="Slide ${ps}"/></li>
                 </c:forEach>
             </ul>
         </div>
@@ -36,7 +49,7 @@
                 </c:if>
                 <div class="col-sm-5 p-3">
                     <hr class="text-light">
-                    <b><a href="${cp}list?cno=${s.cno}" class="p-2 mt-4 mb-0 big text-light bg-secondary text-decoration-none">${s.icon} ${s.cname}</a></b>
+                    <b><a href="${cp}list?cno=${s.cno}" class="p-2 mt-4 mb-0 big text-light bg-secondary text-decoration-none">${s.icon} ${s.cname} <i class="fa-solid fa-k small"> - 시판</i></a></b>
                     <hr class="text-light">
                     <ul class="p-0 small">
                         <c:forEach items="${posts}" var="p">
@@ -71,13 +84,12 @@
                 <c:if test="${status.index % 2 == 1}">
                     </div>
                 </c:if>
-
                 <c:if test="${status.index == 1 }">
                     <div class="row justify-content-center mt-4 mb-4">
                         <ul class="col-sm-12 bxslider2">
                             <c:forEach var="bx" begin="1" end="8">
                                 <li class="text-start">
-                                    <a href="#"><img src="https://placehold.co/170x200?text=gallery+${bx}" alt="Gallery ${bx}" /></a>
+                                    <a href="#"><img src="https://placehold.co/170x200?text=gallery+${bx}" alt="Gallery${bx}"/></a>
                                 </li>
                             </c:forEach>
                         </ul>
@@ -86,7 +98,7 @@
             </c:forEach>
         </div>
     </main>
-    <jsp:include page="../common/footer.jsp" />
+    <jsp:include page="../common/footer.jsp"/>
     <script src="${cp}js/bxsliderindex.js"></script>
     <script src="${cp}js/searchbar.js"></script>
 </body>

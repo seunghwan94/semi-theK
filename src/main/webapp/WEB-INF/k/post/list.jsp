@@ -40,18 +40,18 @@
         <div class="row text-light mt-4 mb-5">
         	<div class="col-sm-10"></div>
 	        <div class="col-sm-2">
-	        	<button class="btn btn-outline-light bg-secondary write-button"><i class="fa-regular fa-pen-to-square"></i> 글 작성하기 </button>
+	        	<button class="btn btn-outline-light bg-secondary write-button" type="button"><i class="fa-regular fa-pen-to-square"></i> 글 작성하기 </button>
 	       	</div>
-				<jsp:include page="../common/paging.jsp"></jsp:include>
         </div>
-        <d class="small text-secondary allign-center mb-3"><i class="small"> // 운영정책에 위반되는 게시글 게시 시 통보 없이 이용이 정지될 수 있습니다. // </i></d>
+				<jsp:include page="../common/paging.jsp"/>
+        <d class="small text-secondary allign-center mb-3"><i class="small">// 운영정책에 위반되는 게시글 게시 시 통보 없이 이용이 정지될 수 있습니다. //</i></d>
     </main>
 	<jsp:include page="../common/footer.jsp"/>
 	<script src="${cp}js/profilecard.js"></script>
 	<script>
 		$(".write-button").click(function(){
 			console.log(${cno});
-			const url = "post/write?cno=" + ${cno};
+			const url = "post/write?cno="+${cno};
 			location.href= url;
 		})
 	</script>
