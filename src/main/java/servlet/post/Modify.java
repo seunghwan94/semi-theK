@@ -37,6 +37,7 @@ public class Modify extends HttpServlet{
 			Commons.printMsg("SYSTEM :: ERR / POST CAN BE ONLY REMOVED BY WRITER OF IT\'S OWN", redirectURL, resp);
 			return;
 		}
+		
 		req.setAttribute("criteria", criteria);
 		req.setAttribute("post", service.findBy(pno));
 		req.getRequestDispatcher("/WEB-INF/jsp/post/modify.jsp").forward(req, resp);

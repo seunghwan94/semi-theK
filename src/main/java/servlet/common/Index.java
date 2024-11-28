@@ -10,16 +10,21 @@ import service.CategorySerivceImpl;
 import service.CategoryService;
 import service.PostService;
 import service.PostServiceImpl;
+import service.UserService;
+import service.UserServiceImpl;
 
 @WebServlet("/index")
 public class Index extends HttpServlet {
 	private PostService postService = new PostServiceImpl();
 	private CategoryService categoryService = new CategorySerivceImpl();
+	private UserService userService = new UserServiceImpl();
+	
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("subC", categoryService.listSub());
 		req.setAttribute("posts", postService.lastPost());
+//		req.getSession().
 		req.getRequestDispatcher("/WEB-INF/k/main/index.jsp").forward(req, resp);
 	}
 }

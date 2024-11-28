@@ -26,9 +26,8 @@ public class PostList extends HttpServlet{
 		
 		req.setAttribute("pageDto", new PageDto(cri, service.count(cri)));
 		req.setAttribute("posts", service.listPost(cri));
-//		req.setAttribute("posts", service.listPost(cri, Integer.parseInt(cno)));
 		req.setAttribute("currentPage", "list");
-//		req.setAttribute("cno", cno);
+		req.setAttribute("cno", cno);
 		req.getRequestDispatcher("WEB-INF/k/post/list.jsp").forward(req, resp);
 	}
 }
