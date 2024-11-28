@@ -12,6 +12,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- bxslider -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.17/jquery.bxslider.min.js" integrity="sha512-LaBO0tZh1+6Ebk+EnHt/WsGM0UnmkCXfQ1rfhGmpa5MXUdslNuSSELBRcteHKz4k4ny+Op10Ax2fPoTNq+VcUg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel='stylesheet' href='css/indexbxslider.css'>
 <!-- favicon start-->
 <link rel="shortcut icon" href="${cp}files/common/favicon.ico" type="image/x-icon">
 <link rel="icon" href="${cp}files/common/favicon.ico/favicon.ico" type="image/x-icon">
@@ -23,4 +24,6 @@
 <!-- quillEditor -->
 <link rel='stylesheet'href='${cp}css/quillWriter.css'>
 <link href="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css" rel="stylesheet"/>
+<!-- css style -->
+<link rel='stylesheet' href='css/style.css'>
 <title>the-K</title>
