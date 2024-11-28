@@ -19,7 +19,7 @@ import vo.UserDetail;
 
 @SuppressWarnings("serial")
 @WebServlet("/manage/user")
-public class MangeUser extends HttpServlet {
+public class ManageUser extends HttpServlet {
 	private ManageService service = new ManageServiceImpl();
 	
 	@Override

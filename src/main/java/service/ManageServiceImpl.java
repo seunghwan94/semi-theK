@@ -36,6 +36,15 @@ public class ManageServiceImpl implements ManageService{
 	}
 	
 	
+	@Override
+	public int userModify(ManageUserDto mdto) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			ManageMapper mapper = session.getMapper(ManageMapper.class);
+			int i = mapper.updateByUserDetail(mdto);
+			int j = mapper.updateByUser(mdto);
+			return (i != 1 || j !=1) ? 0 : 1;
+		}
+	}
 	
 	
 	

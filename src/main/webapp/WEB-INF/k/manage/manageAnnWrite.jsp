@@ -21,20 +21,22 @@
                 <!-- 관리 -->
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade p-4 show active" role="tabpanel" aria-labelledby="nav-home-detail-tab">
-                        <h3>상세 정보</h3>
-                        <form method="post">
-                        <input type="hidden" name="pwReset" id="pwReset" value="N">
+                        <h3>공지사항 작성</h3>
+                        <form>
 	                        <div class="card">
 	                            <div class="card-header">
 	                                <div class="input-group flex-nowrap">
-	                                    <span class="input-group-text" id="addon-wrapping">Email</span>
-	                                    <input type="text" class="form-control" value="${userInfo.id}" name="id" disabled>
+	                                    <span class="input-group-text" id="addon-wrapping">제목</span>
+	                                    <input type="text" class="form-control" value="" name="title">
 	                                </div>
 	                            </div>
 	                            <div class="card-body">
 	                                <div class="input-group mb-3">
 	                                    <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
 	                                    <input type="text" class="form-control" value="${userInfo.name}" name="name">
+	                                    <jsp:include page="../common/writer.jsp"></jsp:include>
+	                                    
+	                                    
 	                                </div>
 	                                <div class="input-group mb-3">
 	                                    <span class="input-group-text" id="inputGroup-sizing-default">NickName</span>

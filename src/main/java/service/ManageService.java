@@ -12,6 +12,8 @@ import vo.UserDetail;
 public interface ManageService {
 	List<ManageUserDto> listUser(Criteria cri);
 	ManageUserDto findByUser(String id);
+	int userModify(ManageUserDto mdto);
+	
 	
 	List<Category> listMenu();
 	int addMenu(String cname);
@@ -25,6 +27,7 @@ public interface ManageService {
 
 
 	int count(Criteria cri);
+	
 
 	
 

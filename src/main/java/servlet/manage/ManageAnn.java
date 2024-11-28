@@ -20,7 +20,6 @@ public class ManageAnn extends HttpServlet{
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		List<Post> annPost =  new ManageServiceImpl().listAnn();
-		System.out.println(annPost.toString());
 		req.setAttribute("menu", "manage");
 		req.setAttribute("tab", "a");
 		req.setAttribute("annPost", annPost);

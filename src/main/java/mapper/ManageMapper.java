@@ -3,6 +3,7 @@ package mapper;
 import java.util.List;
 
 import dto.Criteria;
+import dto.ManageUserDto;
 import vo.Category;
 import vo.Post;
 import vo.Taboo;
@@ -13,7 +14,8 @@ public interface ManageMapper {
 	List<User> selectAllUser(Criteria cri);
 	UserDetail selectAllUserDetail(String id);
 	User selectByUser(String id);
-	
+	int updateByUserDetail(ManageUserDto mdto);
+	int updateByUser(ManageUserDto mdto);
 	
 	List<Category> selectAllMenu();
 	int insert(Category category);
@@ -28,4 +30,6 @@ public interface ManageMapper {
 
 	List<Post> selectAllAnnPost();
 	int getCount(Criteria cri);
+	
+	
 }

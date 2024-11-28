@@ -20,7 +20,7 @@
                 <!-- 관리 -->
                 <div class="tab-content">
                     <div class="tab-pane fade p-4 show active">
-                        <h3>유저 관리</h3>
+                        <h3>공지사항 관리</h3>
                         <table class="table table-hover">
                             <thead>
                                 <tr>

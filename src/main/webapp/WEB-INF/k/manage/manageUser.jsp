@@ -34,7 +34,7 @@
                             </thead>
                             <tbody>
                             	<c:forEach var="user" items="${users}">
-	                                <tr class="move" data-user-id="${user.id}">
+	                                <tr class="move" style="cursor: pointer" data-user-id="${user.id}">
 	                                    <td>${user.id}</td>
 	                                    <td>${user.name}</td>
 	                                    <td>${user.nickName}</td>

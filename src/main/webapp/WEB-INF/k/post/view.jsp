@@ -19,6 +19,7 @@
                 <input type="text" class="form-control text-secondary small" id="writer" placeholder="writer" name="writer" value="${post.userId}" disabled>
                 
                 <label for="content" class="form-label mt-3"><i class="fa-solid fa-pen-to-square"></i><b> Content </b></label>
+                <!-- 게시글 보는 곳 -->
                 <div type="text" class="ql-editor form-control"  id="title" placeholder="input content" name="content" disabled>${post.content}</div>
                 
                 <label for="regdate" class="form-label mt-3"><i class="fa-regular fa-calendar-check"></i><b> Date written </b></label>
