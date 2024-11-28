@@ -1,8 +1,10 @@
 package dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class PageDto {
 	private Criteria cri;
 	private int total = 123;

@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import dto.Criteria;
+import mapper.ManageMapper;
 import mapper.PostMapper;
 import utils.MybatisInit;
 import vo.Post;
@@ -11,13 +13,26 @@ import vo.Post;
 public class PostServiceImpl implements PostService {
 
 	@Override
-	public List<Post> listPost(int cno) {
+	public List<Post> listPost(Criteria cri) {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			PostMapper mapper = session.getMapper(PostMapper.class);
-			return mapper.selectList(cno);
+			System.out.println("크리테리아" + cri);
+//			System.out.println("씨엔오" + cno);
+			return mapper.selectList(cri);
+//			return mapper.selectList(cri);
 		}
 	}
 
+//	paging
+	@Override
+	public int count(Criteria cri) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			PostMapper mapper = session.getMapper(PostMapper.class);
+			System.out.println("카운트 크리" + cri);
+			return mapper.getCount(cri);
+		}
+	}
+	
 	@Override
 	public List<Post> lastPost() {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){

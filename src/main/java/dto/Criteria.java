@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 public class Criteria {
 	private int page= 1;	 // 페이지 번째s
 	private int amount = 10; // 한페이지에 보여질 갯수
-	private int category = 2;// post 카테고리
+	private int cno = 2;// post 카테고리
 	private String type;	 // 검색 타입
 	private String keyword;	 // 검색어
 	
@@ -46,7 +46,6 @@ public class Criteria {
 					e.printStackTrace();
 				}
 			}
-			
 		}
 	}
 	

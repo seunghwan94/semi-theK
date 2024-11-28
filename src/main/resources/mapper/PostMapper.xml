@@ -11,8 +11,14 @@
 	<result column="update_date" property="updateDate"/>
 	<result column="cno" property="cno"/>
 </resultMap>
-	<select id="selectList" resultType="vo.Post">
-		select tp.* from tbl_post tp where cno = #{cno} order by create_date DESC
+	<select id="selectList" resultMap="post">
+		select tp.* from tbl_post tp where cno = #{cno}
+	    order by create_date desc
+	    limit #{amount} offset #{offset}
+	</select>
+	
+	<select id="getCount" resultType="int">
+ 		select count(*) as cnt from tbl_post where cno = #{cno}
 	</select>
 
 	<select id="lastList" resultType="vo.Post">
@@ -53,6 +59,7 @@
 		insert into tbl_post(title, user_id, content, cno) 
 		values(#{title}, #{userId}, #{content}, #{cno})
 	</insert>
+	
 	
 </mapper>
   

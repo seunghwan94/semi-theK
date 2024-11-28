@@ -53,8 +53,6 @@
     limit #{amount} offset #{offset}
   </select>
   
-  
-  
   <select id="getCount" resultType="int">
     select count(*) as cnt from tbl_user
   </select>

@@ -10,7 +10,7 @@
 		</c:if>
 			
 		<c:forEach begin="${pageDto.startPage}" end="${pageDto.endPage}" var="page">
-			<li class="page-item ${page == pageDto.cri.page ? 'active' : ''}"><a class="page-link" href="${currentPage}?page=${page}&amount=${pageDto.cri.amount}&category=${pageDto.cri.category}" >${page}</a></li>
+			<li class="page-item ${page == pageDto.cri.page ? 'active' : ''}"><a class="page-link" href="${currentPage}?page=${page}&amount=${pageDto.cri.amount}&cno=${pageDto.cri.cno}" >${page}</a></li>
 		</c:forEach>
 			
 		<c:if test="${pageDto.next}">

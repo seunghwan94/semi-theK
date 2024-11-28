@@ -2,12 +2,15 @@ package mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import dto.Criteria;
 import vo.Post;
 
 public interface PostMapper {
-	List<Post> selectList(int cno);
+//	List<Post> selectList(Criteria cri);
+	List<Post> selectList(Criteria cri);
 	
 	Post selectOne(int pno);
 	
@@ -22,7 +25,7 @@ public interface PostMapper {
 	
 	int insert(Post post);
 	
-//	int getCount(C);
+	int getCount(Criteria cri);
 	
 	int update(Post post);
 	
