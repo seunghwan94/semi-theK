@@ -31,7 +31,7 @@ public class Modify extends HttpServlet{
 			return;
 		}
 		
-		int pno = Integer.parseInt(pnoStr);
+		Integer pno = Integer.valueOf(pnoStr);
 		User u = (User)userObj;
 		if(!u.getId().equals(service.findBy(pno).getUserId())) {
 			Commons.printMsg("SYSTEM :: ERR / POST CAN BE ONLY REMOVED BY WRITER OF IT\'S OWN", redirectURL, resp);

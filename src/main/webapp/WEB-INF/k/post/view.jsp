@@ -30,8 +30,8 @@
 				<hr>
              	<div class="text-center mt-5 mb-5">
            		<!-- <c:if test="${post.userId} == "> -->
-						<a href="modify?pno=${post.pno}&${criteria.qs2}" class="btn btn-outline-light"> 수정하기 </a>
-						<a href="remove?pno=${post.pno}&${criteria.qs2}" class="btn btn-outline-light" onclick="return confirm('Delete this post?')"> 삭제하기 </a>
+						<a href="${cp}modify?pno=${post.pno}&${criteria.qs2}" class="btn btn-outline-light"> 수정하기 </a>
+						<a href="${cp}remove?pno=${post.pno}&${criteria.qs2}" class="btn btn-outline-light" onclick="return confirm('Delete this post?')"> 삭제하기 </a>
            		<!-- </c:if> -->
              	</div>
 			</main>

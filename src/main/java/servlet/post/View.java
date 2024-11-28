@@ -8,17 +8,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dto.Criteria;
 import service.PostService;
 import service.PostServiceImpl;
+import service.UserService;
+import service.UserServiceImpl;
 import utils.Commons;
 
 @WebServlet("/list/view")
 public class View extends HttpServlet{
 
 	private PostService postService = new PostServiceImpl();
+//	private UserService userService = new UserServiceImpl();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Criteria criteria = new Criteria(req);
 		String pnoString = req.getParameter("pno");
 		if(pnoString == null) {
 			Commons.printMsg("SYSTEM :: ERR / INVALID APPROACH", "list", resp);
@@ -27,6 +32,7 @@ public class View extends HttpServlet{
 		int idx = req.getQueryString().indexOf('=');
 		String pno = req.getQueryString().substring(idx+1);
 		req.setAttribute("post", postService.view(Integer.parseInt(pno)));
+		req.setAttribute("criteria", criteria);
 		req.getRequestDispatcher("/WEB-INF/k/post/view.jsp").forward(req,resp);
 	}
 
