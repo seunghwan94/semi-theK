@@ -59,4 +59,4 @@
 > * 24.11.25 => *html 구조 구현(footer, post) + sevlet, mapper, service + 4 WIP*
 > * 24.11.26 => *html 구조 구현(user, post, manage, footer) + sevlet, mapper, service + 5 WIP // INCLUDE JSP (Quill API) + 1 WIP*
 > * 24.11.27 => *html 구조 구현(user, post, manage) + sevlet, mapper, service + 6 WIP // INCLUDE JSP (Quill API) + 2 WIP*
-> * 24.11.28 => *html 구조 구현(user, post, manage) + sevlet, mapper, service + 7 WIP // INCLUDE JSP (Quill API) + 3 WIP*
+> * 24.11.28 => *html 구조 구현(user, post, manage) + sevlet, mapper, service + 7 WIP // INCLUDE JSP (Quill API) + 3 WIP // pagenation 구현(post) + header 경로 수정*
