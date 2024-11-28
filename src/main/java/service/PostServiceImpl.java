@@ -17,9 +17,7 @@ public class PostServiceImpl implements PostService {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			PostMapper mapper = session.getMapper(PostMapper.class);
 			System.out.println("크리테리아" + cri);
-//			System.out.println("씨엔오" + cno);
 			return mapper.selectList(cri);
-//			return mapper.selectList(cri);
 		}
 	}
 
@@ -83,11 +81,10 @@ public class PostServiceImpl implements PostService {
 		}
 	}
 
-	public static void main(String[] args) {
-		Post post = Post.builder().title("test").userId("231@na1").content("<strong>333</strong>").cno(5).build();
-		int i = new PostServiceImpl().addPost(post);
-		System.out.println(i);
-	}
-	
+//	public static void main(String[] args) {
+//		Post post = Post.builder().title("test").userId("231@na1").content("<strong>333</strong>").cno(5).build();
+//		int i = new PostServiceImpl().addPost(post);
+//		System.out.println(i);
+//	}
 	
 }

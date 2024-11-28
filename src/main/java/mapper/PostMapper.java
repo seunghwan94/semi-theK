@@ -9,7 +9,6 @@ import dto.Criteria;
 import vo.Post;
 
 public interface PostMapper {
-//	List<Post> selectList(Criteria cri);
 	List<Post> selectList(Criteria cri);
 	
 	Post selectOne(int pno);
