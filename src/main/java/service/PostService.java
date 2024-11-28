@@ -10,4 +10,5 @@ public interface PostService {
 	int addPost(Post post);
 	int update(Post post);
 	Post findBy(int pno);
+	int remove(int pno);
 }

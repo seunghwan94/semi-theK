@@ -44,6 +44,14 @@ public class PostServiceImpl implements PostService {
 	}
 	
 	@Override
+	public int remove(int pno) {
+		try (SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			PostMapper mapper = session.getMapper(PostMapper.class);
+			return mapper.delete(pno); 
+		}
+	}
+
+	@Override
 	public int update(Post post) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			PostMapper mapper = session.getMapper(PostMapper.class);

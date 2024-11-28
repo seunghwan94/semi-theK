@@ -49,12 +49,12 @@ public class Criteria {
 			
 		}
 	}
+	
 	// page 포함
 	public String getQs2() {
-		
 		return "page="+page+"&"+getQs();
-		
 	}
+	
 	// page 비포함
 	public String getQs() {
 		Field[] fields = getClass().getDeclaredFields();

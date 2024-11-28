@@ -28,5 +28,5 @@ public interface PostMapper {
 	
 	int increaseViewCount(int pno);
 	
-	int delete(Long pno);
+	int delete(int pno);
 }
