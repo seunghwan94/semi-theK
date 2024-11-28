@@ -27,6 +27,7 @@ public class Write extends HttpServlet{
 //		String userId = req.getSession();
 		List<Category> subCategories = categoryService.listSub();
 	    req.setAttribute("categories", subCategories);
+	    req.setAttribute("urlCno", cno);
 		req.getRequestDispatcher("/WEB-INF/k/post/write.jsp").forward(req, resp);
 //		req.setAttribute("criteria", criteria);
 	}
@@ -45,13 +46,16 @@ public class Write extends HttpServlet{
 //        resp.setContentType("application/json; charset=utf-8");
         System.out.println(post);
 
-        try {
+        try { System.out.println("try start:::::::::::::");
         	int i = new PostServiceImpl().addPost(post);
+        	System.out.println(i);
         	if(i == 1) {
-        		resp.getWriter().print(gson.toJson("success"));        	
+        		System.out.println("suc");
+        		resp.getWriter().write("success");        	
         	}
         	else {
-        		resp.getWriter().print(gson.toJson("fail"));
+        		System.out.println("fail");
+        		resp.getWriter().write("fail");
         	}
         }catch(Exception e) {
         	resp.getWriter().print(gson.toJson("error"));  

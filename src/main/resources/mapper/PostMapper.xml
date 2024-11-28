@@ -27,8 +27,12 @@
 		update tbl_post set view_cnt = view_cnt + 1 where pno = #{pno}
 	</update>
 	
-	<update id="delete">
+	<delete id="delete">
 		delete from tbl_post where pno = #{pno}
+	</delete>
+	
+	<update id="update">
+		update tbl_post set title = #{title}, content = #{content}, updatedate = now() where pno = #{pno}
 	</update>
 	
 	<select id="lastList2" resultMap="post">
@@ -39,6 +43,10 @@
 			(SELECT * from tbl_post where cno = 11 order by pno desc limit 5)
 			union all
 			(SELECT * from tbl_post where cno = 8 order by pno desc limit 5)
+			union all
+			(SELECT * from tbl_post where cno = 12 order by pno desc limit 5)
+			union all
+			(SELECT * from tbl_post where cno = 13 order by pno desc limit 5)
   	</select>
 	
 	<insert id="insert" >
