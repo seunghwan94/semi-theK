@@ -6,14 +6,14 @@
           <input type="text" class="form-control" id="signUpEmail" placeholder="이메일" aria-label="이메일" aria-describedby="button-addon2">
           <button class="btn btn-secondary" type="button" id="button-modify-email">이메일 발송</button>
         </div>
-          <div class="input-group mb-3">
-	          <input type="text" class="form-control" id="userid" placeholder="이메일 인증" aria-label="이메일 인증" aria-describedby="button-addon2">
-	          <button class="btn btn-secondary" type="button" id="button-modify-check">확인</button>
-	       </div>
-         <input type="password" class="form-control my-3" id="pwd3" placeholder="비밀번호" name="pwd"> 
-		<input type="password" class="form-control my-3" id="pwd4" placeholder="비밀번호 확인" name="pwd">
-		<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
-		<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="userid" placeholder="이메일 인증" aria-label="이메일 인증" aria-describedby="button-addon2">
+          <button class="btn btn-secondary" type="button" id="button-modify-check">확인</button>
+	    </div>
+	        <input type="password" class="form-control my-3" id="pwd3" placeholder="비밀번호" name="pwd"> 
+			<input type="password" class="form-control my-3" id="pwd4" placeholder="비밀번호 확인" name="pwd">
+			<div class="alert alert-success" id="alert-success1">비밀번호가 일치합니다.</div>
+			<div class="alert alert-danger" id="alert-danger1">비밀번호가 일치하지 않습니다.</div>
     </div>
 
     <div class="modal-footer">
@@ -23,6 +23,7 @@
 </form>
 
 <script>
+//이메일 전송
 $(function(){
 	$("#button-modify-email").click(function(){
 		const emailcheck =$("#signUpEmail").val();
@@ -34,8 +35,7 @@ $(function(){
 			.done(function(data){})		
 		
 	})
-})
-$(function (){
+	//이메일 인증확인
 	$("#button-modify-check").click(function () { //emc가 인증번호 입력한거
 		const emc = $("#userid").val();
 		console.log(emc);
@@ -60,26 +60,27 @@ $(function (){
                }
 		})
 	})
-})		
-/* $(function(){
-       $("#alert-success").hide();
-       $("#alert-danger").hide();
-       $("input").keyup(function(){      	
-           var pwd1=$("#pwd1").val();
-           var pwd2=$("#pwd2").val();
-           if(pwd1 != "" || pwd2 != ""){
-           	if(pwd1 == pwd2){
-           		
-            	
-             $("#alert-success").show();
-             $("#alert-danger").hide();
-             $("#submit").removeAttr("disabled");
-            }else{
-             	$("#alert-success").hide();
-                $("#alert-danger").show();
-                $("#submit").attr("disabled", "disabled");
-          		 } 
-           }  
-       });
-}); */
+	//비밀번호 일치 여부
+	$("#alert-success1").hide();
+    $("#alert-danger1").hide();
+    $("input").keyup(function(){      	
+        var pwd1=$("#pwd3").val();
+        var pwd2=$("#pwd4").val();
+        if(pwd1 != "" || pwd2 != ""){
+        	if(pwd1 == pwd2){
+        		
+         	
+          $("#alert-success1").show();
+          $("#alert-danger1").hide();
+          $("#submit").removeAttr("disabled");
+         }else{
+          	$("#alert-success1").hide();
+             $("#alert-danger1").show();
+             $("#submit").attr("disabled", "disabled");
+       		 } 
+        }  
+    });
+	
+})
+
 </script>

@@ -33,11 +33,9 @@ $(function () {
 		$(".ucs-view").addClass("d-none");
 		$(".signup-view").removeClass("d-none");
 		
-	})
-})
-    $(function(){
-        $("#alert-success").hide();
-        $("#alert-danger").hide();
+		//비밀번호 일치 여부
+		$("#alert-success").addClass("d-none");
+        $("#alert-danger").addClass("d-none");
         $("input").keyup(function(){      	
             var pwd1=$("#pwd1").val();
             var pwd2=$("#pwd2").val();
@@ -45,21 +43,18 @@ $(function () {
             	if(pwd1 == pwd2){
             		
 	            	
-	             $("#alert-success").show();
-	             $("#alert-danger").hide();
+	             $("#alert-success").removeClass("d-none");
+	             $("#alert-danger").addClass("d-none");
 	             $("#submit").removeAttr("disabled");
 	            }else{
-	             	$("#alert-success").hide();
-	                $("#alert-danger").show();
+	             	$("#alert-success").addClass("d-none");
+	                $("#alert-danger").removeClass("d-none");
 	                $("#submit").attr("disabled", "disabled");
            		 } 
             }  
-        });
-    });
-        
-    //인증번호 이메일 전송
-    $(function () {
-		$("#button-sign-email").click(function (){
+        })
+        //인증번호 이메일 전송
+        $("#button-sign-email").click(function (){
 			const emailcheck = $("#signUpEmail2").val();
 			console.log(emailcheck);
 			alert("이메일 전송");
@@ -69,11 +64,8 @@ $(function () {
 			.done(function(data){})
 		
 		});	
-	});	
-    
-  //이메일 확인
- 	$(function (){
-		$("#button-sign-email-check").click(function () { //emc가 인증번호 입력한거
+        //이메일 확인
+        $("#button-sign-email-check").click(function () { //emc가 인증번호 입력한거
 			const emc = $("#emailCheck").val();
 			console.log(emc);
 		 	const url = "${cp}useremail"
@@ -99,7 +91,13 @@ $(function () {
 			})
 			
 		})
-	}) 
+        
+		
+	})
+})
+  
+        
+
     
 	
 
