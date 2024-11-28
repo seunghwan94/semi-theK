@@ -36,8 +36,10 @@ public class ManageAnnWrite extends HttpServlet {
 		Post post = gson.fromJson(req.getReader(), Post.class);
 
         try {
+        	System.out.println("eeeee");
         	int i = new ManageServiceImpl().addPostAnn(post);
         	if(i == 1) {
+        		System.out.println(i);
         		resp.getWriter().write("success");
         	}else {
         		resp.getWriter().write("fail");

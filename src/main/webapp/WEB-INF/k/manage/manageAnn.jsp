@@ -43,6 +43,9 @@
                                 </c:forEach>
                             </tbody>
                         </table>
+                        <div class="d-flex justify-content-end mt-4 me-2">
+                            <a href="${cp}manage/ann/write" type="button" class="btn btn-secondary btn-add" >등록</a>
+                        </div>
                         <jsp:include page="../common/paging.jsp"></jsp:include>
                     </div>
 				</div>	
