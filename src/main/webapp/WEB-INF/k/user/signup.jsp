@@ -12,8 +12,8 @@
 			<input type="text" class="form-control" id="emailCheck" placeholder="이메일 인증" aria-label="이메일 인증" aria-describedby="button-addon2" name="att">
 			<button class="btn btn-secondary" type="button" id="button-sign-email-check">확인</button>
 		</div>
-			<input type="password" class="form-control my-3" id="pwd1" placeholder="비밀번호" name="pwd1"> 
-			<input type="password" class="form-control my-3" id="pwd2" placeholder="비밀번호 확인" name="pwd2">
+			<input type="password" class="form-control my-3" id="pwd1" placeholder="비밀번호" name="pwd"> 
+			<input type="password" class="form-control my-3" id="pwd2" placeholder="비밀번호 확인" name="pwd">
 		<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
 		<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
 			<input type="text" class="form-control my-3" id="nickname" placeholder="닉네임" name="nickname">

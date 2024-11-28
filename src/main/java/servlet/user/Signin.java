@@ -72,22 +72,22 @@ public class Signin extends HttpServlet {
 		}
 
 	}
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Gson gson = new Gson();
-		String email = req.getParameter("email");
-		String pw = req.getParameter("pw");
-//		System.out.println(email);
-//		System.out.println(att);
-		
-//		User user = new User().builder().id(id).pw(pw).build();
-		 User uesrid= new UserServiceImpl().login();
-		 resp.setContentType("application/json; charset=utf-8");
-		 if(uesrid==null) {
-			 resp.getWriter().print(gson.toJson("fail"));          	
-			 System.out.println("아이디가 존재하지 않습니다");
-		 }else {
-			 return;
-		 }
-	}
+//	@Override
+//	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//		Gson gson = new Gson();
+//		String email = req.getParameter("email");
+//		String pw = req.getParameter("pw");
+////		System.out.println(email);
+////		System.out.println(att);
+//		
+////		User user = new User().builder().id(id).pw(pw).build();
+//		 User uesrid= new UserServiceImpl().login();
+//		 resp.setContentType("application/json; charset=utf-8");
+//		 if(uesrid==null) {
+//			 resp.getWriter().print(gson.toJson("fail"));          	
+//			 System.out.println("아이디가 존재하지 않습니다");
+//		 }else {
+//			 return;
+//		 }
+//	}
 }

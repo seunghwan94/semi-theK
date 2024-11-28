@@ -31,7 +31,7 @@ public class Signup extends HttpServlet{
 		req.setCharacterEncoding("utf-8");//한글 깨짐 방지
 		String id = req.getParameter("useremail");
 		String pw = req.getParameter("pwd");
-		String att = req.getParameter("att");
+//		String att = req.getParameter("att");
 		String nickname = req.getParameter("nickname");
 		System.out.println("222222");
 		System.out.println(id);
