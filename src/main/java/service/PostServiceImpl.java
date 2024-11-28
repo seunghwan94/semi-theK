@@ -43,9 +43,28 @@ public class PostServiceImpl implements PostService {
 		}
 	}
 	
+	@Override
+	public int update(Post post) {
+		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			PostMapper mapper = session.getMapper(PostMapper.class);
+			return mapper.update(post);
+		}
+	}
+
+	@Override
+	public Post findBy(int pno) {
+		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			PostMapper mapper = session.getMapper(PostMapper.class);
+			Post post = mapper.selectOne(pno);
+			return post;
+		}
+	}
+
 	public static void main(String[] args) {
 		Post post = Post.builder().title("test").userId("231@na1").content("<strong>333</strong>").cno(5).build();
 		int i = new PostServiceImpl().addPost(post);
 		System.out.println(i);
 	}
+	
+	
 }

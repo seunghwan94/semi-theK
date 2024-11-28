@@ -8,4 +8,6 @@ public interface PostService {
 	List<Post> lastPost();
 	Post view(int pno);
 	int addPost(Post post);
+	int update(Post post);
+	Post findBy(int pno);
 }
