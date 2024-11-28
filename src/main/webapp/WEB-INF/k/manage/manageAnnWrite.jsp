@@ -31,10 +31,11 @@
 	                                </div>
 	                            </div>
 	                            <div class="card-body">
+	                            <jsp:include page="../common/writer.jsp"></jsp:include>
 	                                <div class="input-group mb-3">
 	                                    <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
 	                                    <input type="text" class="form-control" value="${userInfo.name}" name="name">
-	                                    <jsp:include page="../common/writer.jsp"></jsp:include>
+	                                    
 	                                    
 	                                    
 	                                </div>

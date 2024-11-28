@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<div class="m-5">
-	<hr>
-</div>
-<div class="pathway row bg-secondary m-5 text-light">
+<div class="pathway bg-secondary text-light">
 	<div id="editor" class="text-light h-3">
 		<p>이곳에 게시글 작성</p>
 		<br>
