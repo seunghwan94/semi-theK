@@ -6,7 +6,7 @@
 <head>
 	<jsp:include page="../common/head.jsp"	/>
 </head>
-<body class="bg-dark">
+<body>
 	<jsp:include page="../common/header.jsp"/>
 	<main class="container mt-5">
 		<hr>
