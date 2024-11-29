@@ -41,18 +41,18 @@
                            </c:forEach>
                        </tbody>
                    </table>
-                   <div class="d-flex justify-content-end mt-4 me-2">
-                       <a href="${cp}manage/ann/write" type="button" class="btn btn-secondary btn-add" >글쓰기</a>
-                   </div>
                    <jsp:include page="../common/paging.jsp"></jsp:include>
                </div>
            	</div>
            	
            	
-           	<jsp:include page="../common/reply.jsp"></jsp:include>
-           	
-           	
        	</div>
-   	</div>            	
+   	</div>  
+	<script>
+		$(".move").click(function (){
+			const pno = $(this).data("pno");
+			location.href = ${cp} + "manage/qna/view?pno=" + pno; 	
+		})
+	</script>          	
 </body>
 </html>

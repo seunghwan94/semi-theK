@@ -19,8 +19,5 @@
         <a class="nav-link w-100 m-3 ${menu == 'qna'? 'active' : '' }" href="${cp}manage/qna">
             <i class="fa-regular fa-comment-dots pe-2"></i><span>Q & A</span>
         </a>
-        <a class="nav-link w-100 m-3 ${menu == 'setting'? 'active' : '' }" href="${cp}manage/setting">
-            <i class="fa-solid fa-gear pe-2"></i><span>설정</span>
-        </a>
     </div>
 </div>
