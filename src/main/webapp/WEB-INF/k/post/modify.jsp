@@ -34,12 +34,43 @@
 				<hr>
              	<div class="text-center mt-5 mb-5">
 				<!-- <c:if test="${post.userId}=="> -->
-	             		<a href="modify?pno=${post.pno}&${criteria.qs2}" class="btn btn-outline-light"> 수정하기 </a>
+	             		<button type="button" class="btn btn-outline-light post-mod"> 수정글 게시 </button>
 	             		<a href="remove?pno=${post.pno}&${criteria.qs2}" class="btn btn-outline-light" onclick="return confirm('Delete this post?')"> 삭제하기 </a>
 				<!-- </c:if> -->
              	</div>
 			</main>
 			<jsp:include page="../common/footer.jsp"/>
 		</div>
+		<script>
+			alert("~!!!~~~~")
+			$(".post-mod").click(function(){
+			alert("~!!!~~~~")
+				const pno = ${post.pno};
+				const title = $("#title").val();
+				const content = $("#editor .ql-editor").html();
+				
+				const data = {pno, title, content, userId:'\${post.userId}'};
+				console.log(data);
+				$.ajax({
+	                url: "${cp}list/modify",
+	                type: "post",
+	                contentType: "application/json; charse=utf-8",
+	                data: JSON.stringify(data),
+	                success: function (res){
+	                	console.log(res);
+	                    if (res.status=="success") {
+	                        alert("적용 되었습니다. 변경된 글을 확인해 보세요.");
+	                        const url = "${cp}list/view?pno="+pno;
+	                		window.location.href= url;
+	                    } else {
+	                        alert("적용 실패하였습니다");
+	                    }
+	                },
+	                error: function () {
+	                    alert("서버에서 오류가 발생했습니다.");
+	                }
+	            });
+			});
+		</script>
 	</body>
 </html>

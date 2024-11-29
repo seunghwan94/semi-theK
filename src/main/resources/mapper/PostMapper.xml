@@ -38,7 +38,7 @@
 	</delete>
 	
 	<update id="update">
-		update tbl_post set title = #{title}, content = #{content}, updatedate = now() where pno = #{pno}
+		update tbl_post set title = #{title}, content = #{content}, update_date = now() where pno = #{pno}
 	</update>
 	
 	<select id="lastList2" resultMap="post">

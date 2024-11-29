@@ -24,17 +24,17 @@
 			<div class="col-sm-2 small text-white">
 				<div class="id-shower my-3">
 					<div class="offcanvas offcanvas-start p-1" id="demo">
-                        <div class="offcanvas-header border-bottom border-light border-3" style="background-color:#000;">
+                        <div class="offcanvas-header border-bottom border-light border-3 d-flex justify-content-end" style="background-color:#000;">
                             <video src="${cp}/files/common/k_intro.mp4" class="offcanvas-title" alt="mp4" width="125" muted autoplay playsinline loop></video>
 					        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
 					    </div>
 					    <div class="offcanvas-body video-container overflow-hidden position-relative m-0">
                             <div class="justify-content-center z-3 position-absolute" >
-                                <a class="text-decoration-none text-light fw-big" href="#"><i class="fa-solid fa-image-portrait"></i> 마이페이지</a>
+                                <a class="text-decoration-none text-light fw-big" href="${cp}mypage"><i class="fa-solid fa-image-portrait"></i> 마이페이지</a>
                                 <hr class="bg-light">
-                                <a class="text-decoration-none text-light fw-big" href="#"><i class="fa-solid fa-right-from-bracket"></i> 로그아웃</a>
+                                <a class="text-decoration-none text-light fw-big" href="${cp}intro"><i class="fa-solid fa-right-from-bracket"></i> 로그아웃</a>
                                 <hr class="bg-light">
-                                <a class="text-decoration-none text-light fw-big" href="#"><i class="fa-solid fa-right-from-bracket"></i> About US</a>
+                                <a class="text-decoration-none text-light fw-big" href="${cp}aboutus"><i class="fa-solid fa-right-from-bracket"></i> About US</a>
                                 <hr class="bg-light">
                                 <a class="text-decoration-none text-light fw-big" href="#"><i class="fa-solid fa-right-from-bracket"></i> 사이트맵</a>
                                 <hr class="bg-light">
