@@ -22,7 +22,6 @@ public class View extends HttpServlet{
 //		String cnoString = req.getParameter("cno");
 //		Object userObj = req.getSession().getAttribute("userId");
 //		String redirectURL = "list?" + criteria.getQs2();
-		
 //		if(cnoString == null || userObj == null) {
 //			Commons.printMsg("SYSTEM :: ERR / INVALID APPROACH", redirectURL, resp);
 //			return;
