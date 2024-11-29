@@ -1,7 +1,6 @@
-package servlet.manage;
+package servlet.manage.mng;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +12,6 @@ import dto.Criteria;
 import dto.PageDto;
 import service.ManageService;
 import service.ManageServiceImpl;
-import vo.Post;
 
 @SuppressWarnings("serial")
 @WebServlet("/manage/ann")

@@ -23,7 +23,7 @@
                     <div class="tab-pane fade p-4 show active" role="tabpanel" aria-labelledby="nav-home-detail-tab">
                         <h3>상세 정보</h3>
                         <form method="post">
-                        <input type="hidden" name="pwReset" id="pwReset" value="N">
+                        <input type="hidden" name="pwReset" id="pwReset" value="false">
 	                        <div class="card">
 	                            <div class="card-header">
 	                                <div class="input-group flex-nowrap">
@@ -44,7 +44,7 @@
 	                                    <label for="exampleInputPassword1" class="form-label">Password</label>
 	                                    <div class="d-flex">
 	                                        <input type="password" class="form-control w-50" id="exampleInputPassword1" value="${userInfo.pw}" name="pw" placeholder="Password" readonly>
-	                                        <button class="btn btn-secondary ms-4 btn-reset"  onclick="$('#pwReset').val('Y');">비밀번호 초기화</button>
+	                                        <button class="btn btn-secondary ms-4 btn-reset"  onclick="$('#pwReset').val('true');">비밀번호 초기화</button>
 	                                    </div>
 	                                    <div class="d-flex justify-content-start">
 	                                        <div class="w-50">
@@ -100,9 +100,9 @@
         </div>
     </div>
     <script type="text/javascript">
-    	if("${ck}"=="BY") {alert("비밀번호 '12345'로 변경되었습니다.");}
-    	if("${ck}"=="Y") {alert("변경 하셨습니다.");}
-    	if("${ck}"=="N") {alert("변경에 실패하셨습니다.");}
+    	if("${ck}"=="BY") {alert("비밀번호 '12345' 로 변경되었습니다.");}
+    	if("${ck}"=="true") {alert("변경 하셨습니다.");}
+    	if("${ck}"=="false") {alert("변경에 실패하셨습니다.");}
     </script>
 </body>
 </html>

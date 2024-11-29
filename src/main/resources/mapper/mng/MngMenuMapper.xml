@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.manage.MngMenuMapper">
+
+
+<select id="select" resultType="vo.Category">
+	select * from tbl_category where main_category = 'menu' and sub_category = 'sub'
+</select>
+
+<insert id="insert" >
+	INSERT  INTO tbl_category (cname, main_category, sub_category, sort, isuse) values (#{cname},'menu','sub',0,'n')
+	<selectKey order="AFTER" keyProperty="cno" resultType="int">
+		select max(cno) from tbl_category
+ 	</selectKey>
+</insert>
+
+<update id="update">
+  	update tbl_category set 
+  	sort = #{sort},
+  	isuse = #{isUse},
+  	parent_cno = #{parentCno}
+  	where cno = #{cno}
+</update>
+
+<delete id="delete">
+  	delete from tbl_category where cno = #{cno} 
+</delete>
+
+
+</mapper>

@@ -3,24 +3,24 @@ package service;
 import java.util.List;
 
 import dto.Criteria;
-import dto.ManageUserDto;
+import dto.MngUserDto;
 import vo.Category;
 import vo.Post;
 import vo.Taboo;
-import vo.User;
-import vo.UserDetail;
 
 public interface ManageService {
-	List<ManageUserDto> listUser(Criteria cri);
-	ManageUserDto findByUser(String id);
-	int userModify(ManageUserDto mdto);
+	// user
+	List<MngUserDto> userList(Criteria cri);
+	MngUserDto findByUser(String id);
+	boolean modifyUser(MngUserDto mdto);
 	
-	
-	List<Category> listMenu();
+	// menu
+	List<Category> menuList();
 	int addMenu(String cname);
-	int modifyMenu(Category categroy);
-	int deleteMenu(int cno);
+	boolean modifyMenu(Category categroy);
+	boolean removeMenu(int cno);
 	
+	//
 	List<Taboo> listTaboo();
 	int addTaboo(String keyWord);
 	int removeTaboo(Taboo t);
@@ -34,6 +34,7 @@ public interface ManageService {
 	
 	
 	int count(Criteria cri);
+	Object listQnA(Criteria cri);
 
 	
 }

@@ -7,7 +7,7 @@ import vo.User;
 import vo.UserDetail;
 
 @Data
-public class ManageUserDto {
+public class MngUserDto {
 	private String id;
 	private String name;
 	private String gender;
@@ -21,7 +21,7 @@ public class ManageUserDto {
 	private String pw;
 	private String nickName;
 	
-	public ManageUserDto(User user, UserDetail detail) {
+	public MngUserDto(User user, UserDetail detail) {
 		id = user.getId();
 		pw = user.getPw();
 		nickName = user.getNickName();

@@ -146,6 +146,12 @@
 	select * from tbl_post where pno = #{pno}
   </select>
   
+  
+    <select id="selectAllQnAPost" resultType="vo.Post">
+	select * from tbl_post where cno = #{cno}
+  </select>
+  
+  
   <update id="updateAnnPost">
 		update tbl_post set 
 	  	
@@ -162,9 +168,9 @@
 		values(#{title}, #{userId}, #{content}, #{cno})
   	</insert>
   
-	<update id="deleteAnnPost">
+	<delete id="deleteAnnPost">
 		delete from tbl_post where pno = #{pno}
-	</update>
+	</delete>
 	
 	
 </mapper>

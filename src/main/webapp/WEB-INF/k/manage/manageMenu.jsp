@@ -141,55 +141,19 @@
    </div>
 	<script>
 	
-		/* 드레그앤 드랍 */
+		
         $( function() {
+        	/* 드레그앤 드랍 */
             $( "#sortable1, #sortable2, #sortable3" ).sortable({
                 connectWith: ".connectedSortable"
             }).disableSelection();
+
+            /* + 클릭 */        
+	        $("#btn-meun-input").click(function(){
+	            $("#menu-input").removeClass("d-none");
+	        });
         });
 		
-        /* 적용 버튼 클릭시 */
-        $("#btn-mune-modify").click(function () {
-        	const arr = [];
-			
-        	$("ul li").each(function(){
-        		if($(this).filter("[data-cno]").parent().is("[data-parent]")){
-        			let parentCno = $(this).parent().data("parent");
-        			let isUse = parentCno == 0 ? "n" : "y";
-        			let obj ={
-        					sort : $(this).index(),
-        					cno : $(this).data("cno"),
-        					cname : $(this).text(),
-        					isUse,
-        					parentCno
-        			};
-        			arr.push(obj);
-        		}
-        	});
-        	
-        	console.log(arr);
-            
-            $.ajax({
-                url: "${cp}/manage/menu",
-                type: "PUT",
-                contentType: "application/json; charse=utf-8",
-                data: JSON.stringify(arr),
-                
-                success: function (res) {
-                    if (res=='success') {
-                        alert("적용 되었습니다.");
-                    } else {
-                        alert("적용 실패하였습니다");
-                    }
-                },
-                error: function () {
-                    alert("서버에서 오류가 발생했습니다.");
-                }
-            });
-            
-            
-        });
-        
         
         /* + 버튼 클릭시 데이터 추가 */
         $(document).on('change','.input-group',function(){   
@@ -200,12 +164,12 @@
                 contentType: "application/json",
                 data: JSON.stringify({ cname: addMenu }),
                 success: function (res) {
-                    if (typeof res == 'number') {
-                    	
-                        $("#sortable1").append(`<li class="list-group-item ui-state-default d-flex align-items-center justify-content-between" data-cno="\${res}">
-                        							\${addMenu}
-					                        		<button type="button" class="btn btn-outline-danger p-0 px-1"><i class="fa-solid fa-minus"></i></button>
-		                        				</li>`);
+                    if (res.status == 'success') {
+                        $("#sortable1").append(`
+                        		<li class="list-group-item ui-state-default d-flex align-items-center justify-content-between" data-cno="\${res.cno}">
+                    				\${addMenu}
+					                <button type="button" class="btn btn-outline-danger p-0 px-1"><i class="fa-solid fa-minus"></i></button>
+		                        </li>`);
                         
                         $(".input-group > input").val(""); 
                         $("#menu-input").addClass("d-none");
@@ -222,12 +186,43 @@
         	
         })
         
-       
-        /* 메뉴 추가 시 */        
-        $("#btn-meun-input").click(function(){
-            $("#menu-input").removeClass("d-none");
+        /* 적용 */
+        $("#btn-mune-modify").click(function () {
+        	const arr = [];
+        	$("ul li").each(function(){
+        		if($(this).filter("[data-cno]").parent().is("[data-parent]")){
+        			let parentCno = $(this).parent().data("parent");
+        			let isUse = parentCno == 0 ? "n" : "y";
+        			let obj ={
+        					sort : $(this).index(),
+        					cno : $(this).data("cno"),
+        					cname : $(this).text(),
+        					isUse,
+        					parentCno
+        			};
+        			arr.push(obj);
+        		}
+        	});
+            
+            $.ajax({
+                url: "${cp}/manage/menu",
+                type: "PUT",
+                contentType: "application/json; charse=utf-8",
+                data: JSON.stringify(arr),
+                success: function (res) {
+                    if (res.status=='success') {
+                        alert("적용 되었습니다.");
+                    } else {
+                        alert("적용 실패하였습니다");
+                    }
+                },
+                error: function () {
+                    alert("서버에서 오류가 발생했습니다.");
+                }
+            });
         });
-
+        
+		/* 삭제 */
         $(document).on('click', '.btn-outline-danger', function() {
         	
         	if(confirm("삭제하시겠습니까?")){
@@ -238,8 +233,12 @@
 	                contentType: "application/json",
 	                data: JSON.stringify({ cno : li.data("cno") }),
 	                success: function (res) {
-                        li.remove();
-                        alert("삭제 되었습니다.");
+	                	if (res.status == 'success') {
+	                        li.remove();
+	                        alert("삭제 되었습니다.");
+	                	}else{
+	                		alert("삭제 실패하셨습니다.");
+	                	}
 	                },
 	                error: function () {
 	                    alert("서버 오류가 발생했습니다.");

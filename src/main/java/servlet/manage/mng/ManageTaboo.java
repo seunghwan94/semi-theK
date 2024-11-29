@@ -1,8 +1,6 @@
-package servlet.manage;
+package servlet.manage.mng;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 import service.ManageServiceImpl;
-import vo.Category;
 import vo.Taboo;
 
 @SuppressWarnings("serial")
@@ -56,11 +53,13 @@ public class ManageTaboo extends HttpServlet {
 	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		Gson gson = new Gson();
+		@SuppressWarnings("unchecked")
 		List<Object> list = gson.fromJson(req.getReader(), List.class);
 	    boolean chk = true;
 	    
 	    for(Object s : list) {
-	    	Map<String, String> map = (Map<String, String>) s;
+	    	@SuppressWarnings("unchecked")
+			Map<String, String> map = (Map<String, String>) s;
 	    	Taboo t = Taboo.builder().keyWord(map.get("keyWord")).build();
 	    	int i = new ManageServiceImpl().removeTaboo(t);
 			if (i != 1) {
@@ -81,11 +80,13 @@ public class ManageTaboo extends HttpServlet {
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Gson gson = new Gson();
+		@SuppressWarnings("unchecked")
 		List<Object> list = gson.fromJson(req.getReader(), List.class);
 		boolean chk = true;
 
 		for (Object s : list) {
-		    Map<String, Object> map = (Map<String, Object>) s; // `Object`로 선언하여 유연하게 처리
+		    @SuppressWarnings("unchecked")
+			Map<String, Object> map = (Map<String, Object>) s; // `Object`로 선언하여 유연하게 처리
 		    System.out.println(map.toString());
 
 		    Taboo t = Taboo.builder().keyWord((String) map.get("keyWord")).isUse(((Number) map.get("isUse")).intValue()).build();

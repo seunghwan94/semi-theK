@@ -6,8 +6,11 @@ import java.util.stream.Collectors;
 import org.apache.ibatis.session.SqlSession;
 
 import dto.Criteria;
-import dto.ManageUserDto;
+import dto.MngUserDto;
 import mapper.ManageMapper;
+import mapper.manage.MngMenuMapper;
+import mapper.manage.MngUserMapper;
+import servlet.manage.mng.MngMenu;
 import utils.MybatisInit;
 import vo.Category;
 import vo.Post;
@@ -17,35 +20,68 @@ import vo.UserDetail;
 
 public class ManageServiceImpl implements ManageService{
 
+	// User	
 	@Override
-	public List<ManageUserDto> listUser(Criteria cri) {
+	public List<MngUserDto> userList(Criteria cri) {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
-			ManageMapper mapper = session.getMapper(ManageMapper.class);
-			List<User> users = mapper.selectAllUser(cri);
-			return users.stream().map(user-> new ManageUserDto(user, mapper.selectAllUserDetail(user.getId()))).collect(Collectors.toList());
+			MngUserMapper mapper = session.getMapper(MngUserMapper.class);
+			List<User> users = mapper.selectAll(cri);
+			return users.stream().map(user-> new MngUserDto(user, mapper.selectByUserDetail(user.getId()))).collect(Collectors.toList());
 		}
 	}
 	
 	@Override
-	public ManageUserDto findByUser(String id) {
+	public MngUserDto findByUser(String id) {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
-			ManageMapper mapper = session.getMapper(ManageMapper.class);
+			MngUserMapper mapper = session.getMapper(MngUserMapper.class);
 			User user = mapper.selectByUser(id);
-			return new ManageUserDto(user,mapper.selectAllUserDetail(user.getId()));
+			return new MngUserDto(user,mapper.selectByUserDetail(user.getId()));
 		}
 	}
-	
 	
 	@Override
-	public int userModify(ManageUserDto mdto) {
+	public boolean modifyUser(MngUserDto mdto) {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
-			ManageMapper mapper = session.getMapper(ManageMapper.class);
-			int i = mapper.updateByUserDetail(mdto);
-			int j = mapper.updateByUser(mdto);
-			return (i != 1 || j !=1) ? 0 : 1;
+			MngUserMapper mapper = session.getMapper(MngUserMapper.class);
+			return (mapper.updateByUser(mdto) == 1 && mapper.updateByUserDetail(mdto) ==1) ? true : false;
 		}
 	}
 	
+	
+	// Menu
+	@Override
+	public List<Category> menuList() {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			MngMenuMapper mapper = session.getMapper(MngMenuMapper.class);
+			return mapper.select();
+		}
+	}
+	
+	@Override
+	public int addMenu(String cname) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			MngMenuMapper mapper = session.getMapper(MngMenuMapper.class);
+			Category c = Category.builder().cname(cname).build();
+			mapper.insert(c);
+			return c.getCno();
+		}
+	}
+	
+	@Override
+	public boolean modifyMenu(Category categroy) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			MngMenuMapper mapper = session.getMapper(MngMenuMapper.class);
+			return mapper.update(categroy) == 1 ? true : false;
+		}
+	}
+	
+	@Override
+	public boolean removeMenu(int cno) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			ManageMapper mapper = session.getMapper(ManageMapper.class);
+			return mapper.delete(cno) == 1 ? true : false;
+		}
+	}
 	
 	
 //	paging
@@ -66,23 +102,9 @@ public class ManageServiceImpl implements ManageService{
 		}
 	}
 
-	@Override
-	public List<Category> listMenu() {
-		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
-			ManageMapper mapper = session.getMapper(ManageMapper.class);
-			return mapper.selectAllMenu();
-		}
-	}
 
-	@Override
-	public int addMenu(String cname) {
-		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
-			ManageMapper mapper = session.getMapper(ManageMapper.class);
-			Category c = Category.builder().cname(cname).build();
-			mapper.insert(c);
-			return c.getCno();
-		}
-	}
+	
+	
 
 
 	
@@ -95,21 +117,9 @@ public class ManageServiceImpl implements ManageService{
 	}
 
 
-	@Override
-	public int modifyMenu(Category categroy) {
-		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
-			ManageMapper mapper = session.getMapper(ManageMapper.class);
-			return mapper.update(categroy);
-		}
-	}
+
 	
-	@Override
-	public int deleteMenu(int cno) {
-		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
-			ManageMapper mapper = session.getMapper(ManageMapper.class);
-			return mapper.delete(cno);
-		}
-	}
+
 
 	
 	@Override	
@@ -169,11 +179,22 @@ public class ManageServiceImpl implements ManageService{
 		}
 	}
 
+	@Override
+	public List<Post> listQnA(Criteria cri) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			ManageMapper mapper = session.getMapper(ManageMapper.class);
+			return mapper.selectAllQnAPost(cri);
+		}
+	}
+
 	public static void main(String[] args) {
 		
 //		Taboo t = Taboo.builder().keyWord("뭐").build(); 
-		Post post = Post.builder().userId("1@a").content("test").title("test-title").build();
-		int i = new ManageServiceImpl().addPostAnn(post);
+		Criteria cri = new Criteria();
+		cri.setCno(84);
+		System.out.println(cri);
+		List<Post> i = new ManageServiceImpl().listQnA(cri);
+		
 		System.out.println(i);
 //		Criteria criteria = Criteria.builder().page(1).amount(10).category(1).build();
 //		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){

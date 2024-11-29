@@ -1,4 +1,4 @@
-package servlet.manage;
+package servlet.manage.statistics;
 
 import java.io.IOException;
 

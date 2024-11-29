@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.manage.MngUserMapper">
+
+<resultMap type="vo.User" id="user">
+	<id column="id" property="id"/>
+	<result column="pw" property="pw"/>
+	<result column="nick_name" property="nickName"/>
+	<result column="create_date" property="createDate"/>
+</resultMap>
+
+<resultMap type="vo.UserDetail" id="userDetail">
+	<id column="id" property="id"/>
+	<result column="name" property="name"/>
+	<result column="gender" property="gender"/>
+	<result column="addr" property="addr"/>
+	<result column="detail_addr" property="detailAddr"/>
+	<result column="self_intro" property="selfIntro"/>
+	<result column="grade" property="grade"/>
+	<result column="mtno" property="mtno"/>
+	<result column="last_login" property="lastLogin"/>
+	<result column="create_date" property="createDate"/>
+	<result column="update_date" property="updateDate"/>
+</resultMap>
+
+<select id="selectAll"  resultMap="user">
+	select * 
+	from tbl_user 
+	where 1
+	<if test="type != null">
+	    <trim prefix="and (" suffix=")" prefixOverrides="or">
+	    	<foreach collection="typeArr" item="t">
+	    		<if test='T == "i"'>
+		    		or id like concat('%', #{keyword},'%')
+	    		</if>
+	    	</foreach>
+	    </trim> 
+    </if>
+    order by create_date desc
+    limit #{amount} offset #{offset}
+</select>
+  
+  
+<select id="selectByUserDetail" resultMap="userDetail">
+	select * from tbl_user_detail where id = #{id}
+</select>
+  
+<select id="getCount" resultType="int">
+    select count(*) as cnt from tbl_user
+</select>
+  
+  
+<select id="selectByUser" resultMap="user">
+	select * from tbl_user where id = #{id}
+</select>
+  
+<update id="updateByUserDetail">
+  	update tbl_user_detail SET
+  	name = #{name},
+  	gender = #{gender},
+  	addr = #{addr},
+  	detail_addr = #{detailAddr},
+  	grade = #{grade},
+  	update_date = now()
+  	where id = #{id}
+</update>
+  
+<update id="updateByUser">
+   	update tbl_user SET
+    pw = #{pw},
+    nick_name = #{nickName}
+    where id = #{id}
+</update>
+  
+
+
+	
+	
+</mapper>
