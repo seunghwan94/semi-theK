@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-	<div class= "mt-10">
+	<div class= "">
 		<div class="form-check form-check-inline">
 		  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
 		  <label class="form-check-label" for="inlineRadio1">관리자 등급 신청</label>

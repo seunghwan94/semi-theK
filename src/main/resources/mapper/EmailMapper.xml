@@ -9,7 +9,13 @@
 	WHERE email = #{email} 
 	  and att = #{att}
   </select>
-  
+ 
+  <select id="selectFindBy" resultType="vo.User">
+  SELECT  *
+	FROM tbl_user tue 
+	WHERE id = #{email} 
+  </select>
+   
   <insert id="insert">
   INSERT  INTO tbl_user_email (email,att)
   values (#{email},#{att})

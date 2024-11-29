@@ -1,12 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<div class="signup-view d-none">
+	
 <form method="post" action="signup">
 	<div class="modal-body">
 	
 		<div class="input-group mb-3">
 			<input type="email" class="form-control my-3" id="signUpEmail2" placeholder="사용 할 이메일" name="useremail">
 			<button class="btn btn-secondary my-3" type="button" id="button-sign-email">이메일 발송</button>
+			<div class="alert alert-success" id="alert-success-id">가능한 이메일입니다.</div>
+			<div class="alert alert-danger" id="alert-danger-id">중복된 아이디입니다.</div>
+		
 		</div>
 		<div class="input-group mb-3">
 			<input type="text" class="form-control" id="emailCheck" placeholder="이메일 인증" aria-label="이메일 인증" aria-describedby="button-addon2" name="att">
@@ -24,11 +27,34 @@
 		</div>
 
 </form>
-</div>
 <script src="${cp}js/emailcheck.js"></script>
 <script type="text/javascript">
 
+
+
 $(function () {
+	//아이디 중복 여부
+/* 	 $("#signUpEmail2").keyup(function(){
+		 const idval = $(this).val();
+		 console.log(idval);
+		 $("#alert-danger-id").hide();
+		 $("#alert-success-id").hide();
+		 $.ajax ({
+				url : "${cp}useremail",
+				type : "get",
+				contentType: "application/json; charse=utf-8",
+				data : data,
+				success : function (data){
+					if(data == "success"){
+						$("#alert-danger-id").show();
+					}else{
+						$("#alert-success-id").show();
+					}
+				}	
+		})
+	}) */
+	 
+	
 	$("#consentok").click(function() {
 		$(".ucs-view").addClass("d-none");
 		$(".signup-view").removeClass("d-none");
@@ -57,11 +83,18 @@ $(function () {
         $("#button-sign-email").click(function (){
 			const emailcheck = $("#signUpEmail2").val();
 			console.log(emailcheck);
-			alert("이메일 전송");
 			const url = "${cp}useremail";
 			const data = JSON.stringify({emailcheck});
 			$.post({ url, data })
-			.done(function(data){})
+			.done(function(data){
+				if(data.status=='success'){
+					
+					alert("이메일 발송");
+					console.log(data);
+				}else{
+					alert("이메일 발송 실패 (중복된 아이디 입니다.)");
+				}
+			})
 		
 		});	
         //이메일 확인

@@ -17,12 +17,6 @@ public class MyPage extends HttpServlet {
 			req.getRequestDispatcher("/WEB-INF/k/mypage/pagemain.jsp").forward(req, resp);
 		
 		}
-	//
-	//	@Override
-	//	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	//		// TODO Auto-generated method stub
-	//		super.doPost(req, resp);
-	//	}
-	//	
+
 
 }

@@ -14,49 +14,50 @@
 			          		<button class="btn btn-secondary " type="button" id="button-addon2">프로필 사진 변경</button>
 			          	</div>
 			       	</div>
-			       	<div class = "w-100">
-					      	<div class="input-group flex-nowrap mb-1">
-								  <span class="input-group-text" id="addon-wrapping">닉네임</span>
-								  <input type="text" class="form-control text-center " placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
-								  <button class="btn btn-secondary " type="button" id="">닉네임 변경</button>
-							</div>
-							<div class="input-group flex-nowrap mb-1">
-								  <span class="input-group-text" id="addon-wrapping">이메일</span>
-								  <input type="text" class="form-control text-center" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
-							</div>
-							<div class="input-group flex-nowrap mb-1">
-								  <span class="input-group-text "  id="addon-wrapping">등급</span>
-								  <input type="text" class="form-control text-center" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
-								  <span class="input-group-text " id="addon-wrapping">성별</span>
-								  <input type="text" class="form-control text-center" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
-								  <button class="btn btn-secondary " type="button" id="">성별 변경</button>
-							</div>
-							<div class="input-group flex-nowrap mb-1" >
-								  <span class="input-group-text " id="addon-wrapping">소개</span>
-								  <input type="text" class="form-control text-center" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
-							</div>
-							<div class="input-group flex-nowrap mb-1">
-								  <span class="input-group-text " id="addon-wrapping">팔로잉</span>
-								  <input type="text" class="form-control text-center" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
-								  <span class="input-group-text " id="addon-wrapping">팔로워</span>
-								  <input type="text" class="form-control text-center" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
-							</div>
-							<div class="input-group flex-nowrap mb-1">
-								<span class="input-group-text " id="addon-wrapping">이름</span>
-								  <input type="text" class="form-control text-center" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
-								  <span class="input-group-text " id="addon-wrapping">지역</span>
-								  <input type="text" class="form-control text-center" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">				
-							</div> 
-							<div class="input-group flex-nowrap mb-3">
-								  <span class="input-group-text " id="addon-wrapping">등급</span>
-								  <input type="text" class="form-control text-center"  placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
-							</div>
-							  <div class="d-flex justify-content-between">
-					            <button class="btn btn-secondary" type="button" id="button-addon2">Language</button> 
-					            <button class="btn btn-danger" type="button" id="button-addon2">회원 탈퇴</button>
-					          </div> 
-					</div>				
-				</div>		
+				       	<div class = "w-100">
+						      	<div class="input-group flex-nowrap mb-1">
+									  <span class="input-group-text" id="addon-wrapping">닉네임</span>
+									  <input type="text" class="form-control text-center " placeholder="${user.nickName}" aria-label="Username" aria-describedby="addon-wrapping">
+									  <button class="btn btn-secondary " type="button" id="">닉네임 변경</button>
+								</div>
+								<div class="input-group flex-nowrap mb-1">
+									  <span class="input-group-text" id="addon-wrapping">이메일</span>
+									  <input type="text" class="form-control text-center" placeholder="${user.id}" aria-label="Username" aria-describedby="addon-wrapping">
+								</div>
+								<div class="input-group flex-nowrap mb-1">
+									  <span class="input-group-text "  id="addon-wrapping">등급</span>
+									  <input type="text" class="form-control text-center" placeholder="${userdetail.grade}" aria-label="Username" aria-describedby="addon-wrapping">
+									  <span class="input-group-text " id="addon-wrapping">성별</span>
+									  <input type="text" class="form-control text-center" placeholder="${userdetail.gender}" aria-label="Username" aria-describedby="addon-wrapping">
+									  <button class="btn btn-secondary " type="button" id="">성별 변경</button>
+								</div>
+								<div class="input-group flex-nowrap mb-1" >
+									  <span class="input-group-text " id="addon-wrapping">소개</span>
+									  <input type="text" class="form-control text-center" placeholder="${userdetail.selfIntro}" aria-label="Username" aria-describedby="addon-wrapping">
+								</div>
+								<div class="input-group flex-nowrap mb-1">
+									  <span class="input-group-text " id="addon-wrapping">팔로잉</span>
+									  <input type="text" class="form-control text-center" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+									  <span class="input-group-text " id="addon-wrapping">팔로워</span>
+									  <input type="text" class="form-control text-center" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+								</div>
+								<div class="input-group flex-nowrap mb-1">
+									<span class="input-group-text " id="addon-wrapping">이름</span>
+									  <input type="text" class="form-control text-center" placeholder="${userdetail.name}" aria-label="Username" aria-describedby="addon-wrapping">
+									  <span class="input-group-text " id="addon-wrapping">지역</span>
+									  <input type="text" class="form-control text-center" placeholder="${userdetail.addr}" aria-label="Username" aria-describedby="addon-wrapping">				
+								</div> 
+								<div class="input-group flex-nowrap mb-3">
+									  <span class="input-group-text " id="addon-wrapping">프로모션 등급</span>
+									  <input type="text" class="form-control text-center"  placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+								</div>
+								  <div class="d-flex justify-content-between">
+						            <button class="btn btn-secondary" type="button" id="button-addon2">Language</button> 
+						            <button class="btn btn-secondary" type="button" id="button-addon2">저장</button> 
+						            <button class="btn btn-danger" type="button" id="button-addon2">회원 탈퇴</button>
+						          </div> 
+						</div>				
+					</div>		
 	     		</div>
    </div>       
    </div>       

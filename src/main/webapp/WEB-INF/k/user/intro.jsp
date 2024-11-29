@@ -61,8 +61,12 @@
 				<div class="modal-header d-flex justify-content-center">
                     <img class="w-25" src="${cp}files/common/dark_logo.png">
                 </div>
-					<jsp:include page="userconsent.jsp" />						           
-					<jsp:include page="signup.jsp" />			              
+                <div class="ucs-view">
+					<jsp:include page="userconsent.jsp" />	
+				</div>		
+				<div class="signup-view d-none">				           
+					<jsp:include page="signup.jsp" />
+				</div>			              
 			</div>
 		</div>
 	</div>			
