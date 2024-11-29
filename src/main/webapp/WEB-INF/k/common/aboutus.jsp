@@ -7,8 +7,9 @@
 	<body class="bg-dark d-flex flex-column min-vh-100 gothic-a1-regular ">
 		<div class="wrap">
 			<jsp:include page="../common/header.jsp"/>
-			<main class="mt-5 mb-5">
+			<main class="mt-2 mb-5">
 				<div data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
+
 					<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed">
 					  <div class="container-fluid"> 
 						<ul class="navbar-nav">
@@ -25,23 +26,23 @@
 					  </div>
 					</nav>
 					
-					<div id="section1" class="container-fluid bg-secondary text-white" style="padding:100px 20px;">
-					  <h1>Section 1</h1>
-					  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-					  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-					</div>
-					
-					<div id="section2" class="container-fluid bg-secondary" style="padding:100px 20px;">
-					  <h1>Section 2</h1>
-					  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-					  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-					</div>
-					
-					<div id="section3" class="container-fluid bg-secondary text-white" style="padding:100px 20px;">
-					  <h1>Section 3</h1>
-					  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-					  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-					</div>
+						<div id="section1" class="container-fluid bg-secondary text-white" style="padding:100px 20px;">
+						<h1>Section 1</h1>
+						<p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+						<p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+						</div>
+						
+						<div id="section2" class="container-fluid bg-secondary" style="padding:100px 20px;">
+						<h1>Section 2</h1>
+						<p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+						<p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+						</div>
+						
+						<div id="section3" class="container-fluid bg-secondary text-white" style="padding:100px 20px;">
+						<h1>Section 3</h1>
+						<p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+						<p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+						</div>
 					
 					</div>
 			
