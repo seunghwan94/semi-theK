@@ -5,6 +5,7 @@
 <html lang="ko" data-bs-theme="dark">
 <head>
     <jsp:include page="../common/head.jsp" />
+    <jsp:include page="../common/bxslider.jsp" />
 </head>
 
 <style>
