@@ -20,11 +20,11 @@ public interface ManageService {
 	boolean modifyMenu(Category categroy);
 	boolean removeMenu(int cno);
 	
-	//
-	List<Taboo> listTaboo();
-	int addTaboo(String keyWord);
-	int removeTaboo(Taboo t);
-	int modifyTaboo(Taboo taboo);
+	// Taboo
+	List<Taboo> tabooList();
+	boolean addTaboo(String keyWord);
+	boolean removeTaboo(Taboo t);
+	boolean modifyTaboo(Taboo taboo);
 
 	List<Post> listAnn(Criteria cri);
 	int addPostAnn(Post post);

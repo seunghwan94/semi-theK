@@ -12,101 +12,89 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
+import service.ManageService;
 import service.ManageServiceImpl;
+import service.common.ServiceCommon;
 import vo.Taboo;
 
 @SuppressWarnings("serial")
 @WebServlet("/manage/taboo")
-public class ManageTaboo extends HttpServlet {
+public class MngTaboo extends HttpServlet {
+	private ManageService service = new ManageServiceImpl();
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<Taboo> tabooArr =  new ManageServiceImpl().listTaboo();
+		List<Taboo> tabooArr =  service.tabooList();
+		
 		req.setAttribute("menu", "manage");
 		req.setAttribute("tab", "t");
 		req.setAttribute("tabooArr", tabooArr);
+		
 		req.getRequestDispatcher("/WEB-INF/k/manage/manageTaboo.jsp").forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Gson gson = new Gson();
-		Taboo taboo = gson.fromJson(req.getReader(), Taboo.class);
-        
+		Taboo taboo = ServiceCommon.getJson(req, Taboo.class);
         try {
-        	int i = new ManageServiceImpl().addTaboo(taboo.getKeyWord());
-        	
-        	resp.setContentType("application/json; charset=utf-8");
-        	System.out.println(i);
-        	if (i==1) {
-    			resp.getWriter().print(gson.toJson("success"));        	
-    		}else {
-    			resp.getWriter().print(gson.toJson("fail"));        	
-    		}     	
+        	if (service.addTaboo(taboo.getKeyWord())) {
+        		ServiceCommon.sendJson(resp, "success");
+        		return;
+    		}
+        	ServiceCommon.sendJson(resp, "fail");     	
             
         }catch(Exception e) {
-        	resp.getWriter().print(gson.toJson("error"));  
+        	ServiceCommon.sendJson(resp, "error");
         }
 		
 	}
 
 	@Override
 	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		Gson gson = new Gson();
 		@SuppressWarnings("unchecked")
-		List<Object> list = gson.fromJson(req.getReader(), List.class);
-	    boolean chk = true;
+		List<Object> list = ServiceCommon.getJson(req, List.class);
 	    
+		boolean removeCk = true;
 	    for(Object s : list) {
 	    	@SuppressWarnings("unchecked")
 			Map<String, String> map = (Map<String, String>) s;
 	    	Taboo t = Taboo.builder().keyWord(map.get("keyWord")).build();
-	    	int i = new ManageServiceImpl().removeTaboo(t);
-			if (i != 1) {
-				chk = false;
+			if (!service.removeTaboo(t)) {
+				removeCk = false;
 				break;
 			}
 		}
 	    
-		resp.setContentType("application/json; charset=utf-8");
-		if (chk) {
-			resp.getWriter().print(gson.toJson("success"));        	
+		if (removeCk) {
+			ServiceCommon.sendJson(resp, "success");
 		}else {
-			resp.getWriter().print(gson.toJson("fail"));        	
+			ServiceCommon.sendJson(resp, "fail"); 	
 		}
 		
 	}
 
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Gson gson = new Gson();
+		
 		@SuppressWarnings("unchecked")
-		List<Object> list = gson.fromJson(req.getReader(), List.class);
-		boolean chk = true;
-
-		for (Object s : list) {
+		List<Object> list = ServiceCommon.getJson(req, List.class);
+		
+		boolean modiCk = true;
+		for (Object obj : list) {
 		    @SuppressWarnings("unchecked")
-			Map<String, Object> map = (Map<String, Object>) s; // `Object`로 선언하여 유연하게 처리
-		    System.out.println(map.toString());
-
+			Map<String, Object> map = (Map<String, Object>) obj;
 		    Taboo t = Taboo.builder().keyWord((String) map.get("keyWord")).isUse(((Number) map.get("isUse")).intValue()).build();
-		    System.out.println(t);
 
-		    int i = new ManageServiceImpl().modifyTaboo(t);
-		    
-		    System.out.println(i);
-		    
-		    if (i != 1) {
-		        chk = false;
+		    if (!service.modifyTaboo(t)) {
+		        modiCk = false;
 		        break;
 		    }
 		}
-
-		resp.setContentType("application/json; charset=utf-8");
-		if (chk) {
-		    resp.getWriter().print(gson.toJson("success"));
+		
+		if (modiCk) {
+			ServiceCommon.sendJson(resp, "success");
 		} else {
-		    resp.getWriter().print(gson.toJson("fail"));
+			ServiceCommon.sendJson(resp, "fail");
 		}
 	}
 	

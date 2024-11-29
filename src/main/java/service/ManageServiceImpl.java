@@ -9,6 +9,7 @@ import dto.Criteria;
 import dto.MngUserDto;
 import mapper.ManageMapper;
 import mapper.manage.MngMenuMapper;
+import mapper.manage.MngTabooMapper;
 import mapper.manage.MngUserMapper;
 import servlet.manage.mng.MngMenu;
 import utils.MybatisInit;
@@ -78,10 +79,48 @@ public class ManageServiceImpl implements ManageService{
 	@Override
 	public boolean removeMenu(int cno) {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
-			ManageMapper mapper = session.getMapper(ManageMapper.class);
+			MngMenuMapper mapper = session.getMapper(MngMenuMapper.class);
 			return mapper.delete(cno) == 1 ? true : false;
 		}
 	}
+	
+	
+	// Taboo
+	@Override
+	public List<Taboo> tabooList() {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			MngTabooMapper mapper = session.getMapper(MngTabooMapper.class);
+			return mapper.select();
+		}
+	}
+
+	@Override
+	public boolean addTaboo(String keyWord) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			MngTabooMapper mapper = session.getMapper(MngTabooMapper.class);
+			return mapper.insert(keyWord) == 1 ? true : false;
+		}
+	}
+	@Override	
+	public boolean modifyTaboo(Taboo taboo) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			MngTabooMapper mapper = session.getMapper(MngTabooMapper.class);
+			return mapper.update(taboo);
+		}
+	}
+
+	@Override
+	public boolean removeTaboo(Taboo t) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			MngTabooMapper mapper = session.getMapper(MngTabooMapper.class);
+			return mapper.delete(t.getKeyWord());
+		}
+	}
+	
+	
+	
+	
+	
 	
 	
 //	paging
@@ -94,49 +133,7 @@ public class ManageServiceImpl implements ManageService{
 	}
 	
 	
-	@Override
-	public List<Taboo> listTaboo() {
-		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
-			ManageMapper mapper = session.getMapper(ManageMapper.class);
-			return mapper.selectAllTaboo();
-		}
-	}
 
-
-	
-	
-
-
-	
-	@Override
-	public int addTaboo(String keyWord) {
-		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
-			ManageMapper mapper = session.getMapper(ManageMapper.class);
-			return mapper.insertTaboo(keyWord);
-		}
-	}
-
-
-
-	
-
-
-	
-	@Override	
-	public int modifyTaboo(Taboo taboo) {
-		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
-			ManageMapper mapper = session.getMapper(ManageMapper.class);
-			return mapper.updateTaboo(taboo);
-		}
-	}
-
-	@Override
-	public int removeTaboo(Taboo t) {
-		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
-			ManageMapper mapper = session.getMapper(ManageMapper.class);
-			return mapper.deleteTaboo(t.getKeyWord());
-		}
-	}
 	
 	@Override
 	public Post findByPostAnn(String pno) {

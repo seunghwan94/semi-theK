@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.manage.MngTabooMapper">
+
+<select id="select" resultType="vo.Taboo">
+	select * from tbl_taboo
+</select>
+<insert id="insert" >
+  	INSERT  INTO tbl_taboo (key_word, user_id, isuse) values (#{keyWord},'test@naver.com', 1)
+ </insert>
+ <update id="update">
+	update tbl_taboo set 
+  	isuse = #{isUse},
+  	update_date = now()
+  	where key_word = #{keyWord}
+ </update>
+ <delete id="delete">
+ 	delete from tbl_taboo where key_word = #{keyWord} 
+ </delete>
+
+	
+</mapper>

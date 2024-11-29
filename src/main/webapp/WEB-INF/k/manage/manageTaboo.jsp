@@ -78,19 +78,21 @@
 	</div>        
 
 	<script>
+		// 전체 체크 X
          $(document).on('change', '#check-all', function () {
             const isChecked = $(this).is(':checked');
             $('th > div > input').prop('checked', isChecked);
         });
-        
+		
+      	// 전체 체크 O 
         $(document).on('change', 'tbody input[type="checkbox"]', function () {
             const allChecked = $('tbody input[type="checkbox"]').length === $('tbody input[type="checkbox"]:checked').length;
             $('#check-all').prop('checked', allChecked);
         });
-
+		
+      	// 사용 여부
         $("#btn-input-add").click(function(){
             $(".input-group").toggle();
-            
         });
         
         /* 추가 */
@@ -102,7 +104,7 @@
                 contentType: "application/json; charse=utf-8",
                 data: JSON.stringify({keyWord:taboo}),
                 success: function (res) {
-                    if (res=='success') {
+                    if (res.status=='success') {
                     	$(".input-group > input").val("");
                         $(".input-group").hide();
                         const str = `<tr>
@@ -124,9 +126,9 @@
                         
                         $("tbody").append(str);
                         
-                        alert("적용 되었습니다.");
+                        alert("추가 되었습니다.");
                     } else {
-                        alert("적용 실패하였습니다");
+                        alert("추가 실패하였습니다(동일이름 존재)");
                     }
                 },
                 error: function () {
@@ -136,7 +138,7 @@
             
         });
 
-        /* 여기 수정할 차례  */
+        /* 적용 */
 		$("#btn-modify").click(function(){
 			let arr=[];
 			let $target = []; 
@@ -155,13 +157,10 @@
                 contentType: "application/json; charse=utf-8",
                 data: JSON.stringify(arr),
                 success: function (res) {
-                    if (res=='success') {
-                    	
-                    	
-                    	
-                        alert("적용 되었습니다.");
+                    if (res.status=='success') {
+                        alert("저장 되었습니다.");
                     } else {
-                        alert("적용 실패하였습니다");
+                        alert("저장 실패하였습니다");
                     }
                 },
                 error: function () {
@@ -169,9 +168,9 @@
                 }
             });
 			
-			
 		});
 
+        /* 삭제 */
 		$("#btn-remove").click(function(){
 			let arr=[];
 			let $target = []; 
@@ -187,21 +186,20 @@
                 contentType: "application/json; charse=utf-8",
                 data: JSON.stringify(arr),
                 success: function (res) {
-                    if (res=='success') {
+                    if (res.status=='success') {
                     	$target.forEach(function(data){
                     		data.remove();
                     	})
-                        alert("적용 되었습니다.");
+                        alert("삭제 되었습니다.");
                         
                     } else {
-                        alert("적용 실패하였습니다");
+                        alert("삭제 실패하였습니다");
                     }
                 },
                 error: function () {
                     alert("서버에서 오류가 발생했습니다.");
                 }
             });
-			
 			
 		});
 		
