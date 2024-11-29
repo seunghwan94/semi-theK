@@ -34,6 +34,7 @@
 					<a href="${cp}list?pno=${post.pno}&${criteria.qs2}" class="btn btn-outline-light btn-ret" > 게시판으로 돌아가기 </a>
 					<a href="${cp}remove?pno=${post.pno}&${criteria.qs2}" class="btn btn-outline-light btn-del" onclick="return confirm('Delete this post?')" disabled> 삭제하기 </a>
              	</div>
+            	<jsp:include page="../common/reply.jsp"/> 	
 			</main>
 			<jsp:include page="../common/footer.jsp"/>
 		</div>
@@ -41,7 +42,6 @@
 			let islogin = '<%=session.getAttribute("userId")%>';
 			if(islogin != null){
 				$(".btn-mod, .btn-del").removeAttr("disabled");
-
 			}
 		</script>
 	</body>
