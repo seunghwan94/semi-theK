@@ -14,7 +14,7 @@ import service.PostServiceImpl;
 import utils.Commons;
 import vo.User;
 
-@WebServlet("")
+@WebServlet("/list/remove")
 public class Remove extends HttpServlet{
 	
 	private PostService postService = new PostServiceImpl();

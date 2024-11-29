@@ -19,14 +19,14 @@ public class View extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Criteria criteria = new Criteria(req);
-		String pnoString = req.getParameter("pno");
-		Object userObj = req.getSession().getAttribute("userId");
-		String redirectURL = "list?" + criteria.getQs2();
+//		String cnoString = req.getParameter("cno");
+//		Object userObj = req.getSession().getAttribute("userId");
+//		String redirectURL = "list?" + criteria.getQs2();
 		
-		if(pnoString == null || userObj == null) {
-			Commons.printMsg("SYSTEM :: ERR / INVALID APPROACH", redirectURL, resp);
-			return;
-		}
+//		if(cnoString == null || userObj == null) {
+//			Commons.printMsg("SYSTEM :: ERR / INVALID APPROACH", redirectURL, resp);
+//			return;
+//		}
 		
 		int idx = req.getQueryString().indexOf('=');
 		String pno = req.getQueryString().substring(idx+1);

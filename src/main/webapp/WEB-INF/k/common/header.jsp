@@ -3,8 +3,11 @@
 <header class="container-fluid bg-light border-light p-0">
 <nav class="navbar navbar-expand-sm justify-content-start border-bottom border-light border-3" style="background-color: #000;">
 <div class="container-fluid">
-<a href="${cp}/intro" class="navbar-brand"><video src="${cp}/files/common/k_intro.mp4" alt="mp4" width="125" muted autoplay playsinline loop onclick="alertIntro()" id="Kmp4"></video></a>
+<a href="#" class="navbar-brand" onclick="alertIntro()" id="Kmp4"><video src="${cp}/files/common/k_intro.mp4" alt="mp4" width="125" muted autoplay playsinline loop></video></a>
 <ul class="navbar-nav me-auto list-group d-flex justify-content-around">
+	<li class= "nav-item mx-5">
+		<a class="nav-link float-start text-light m-2" href="${cp}"><i class="fa-solid fa-house"></i> HOME</a>
+	</li>	
 <c:forEach items="${mainC}" var="m" >
 	<c:choose> 
 		<c:when test="${m.cno == 4}">
@@ -61,13 +64,10 @@
 	</div>
 -->
 	<script>
-		windows.onload = function(){
-			let vid = document.getElementById("Kmp4");
-			vid.onclick = alertIntro;
-			function alertIntro(){
-				alert("로그아웃합니다. 인트로 화면으로 이동합니다.")
-				// window.location.href = "${cp}/intro";
-			}
-		}
+		document.querySelector('#Kmp4').addEventListener('click', function(e){
+			e.preventDefault();
+			alert("인트로 화면으로 이동합니다.")
+			window.location.href = "${cp}/intro";
+		});
 	</script>
 </header>
