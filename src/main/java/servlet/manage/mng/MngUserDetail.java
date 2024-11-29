@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dto.MngUserDto;
-import service.ManageService;
-import service.ManageServiceImpl;
+import service.manage.MngUserService;
+import service.manage.MngUserServiceImpl;
 import vo.User;
 import vo.UserDetail;
 
 @SuppressWarnings("serial")
 @WebServlet("/manage/userDetail")
 public class MngUserDetail extends HttpServlet {
-	private ManageService service = new ManageServiceImpl();
+	private MngUserService service = new MngUserServiceImpl();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String id = req.getParameter("id");

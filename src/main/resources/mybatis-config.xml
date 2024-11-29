@@ -20,7 +20,7 @@
   		<mapper resource="mapper/mng/MngUserMapper.xml"/>
   		<mapper resource="mapper/mng/MngMenuMapper.xml"/>
   		<mapper resource="mapper/mng/MngTabooMapper.xml"/>
-  		<mapper resource="mapper/ManageMapper.xml"/>
+  		<mapper resource="mapper/mng/MngNtcMapper.xml"/>
   		<mapper resource="mapper/PostMapper.xml"/>
   		<mapper resource="mapper/CategoryMapper.xml"/>
   		<mapper resource="mapper/EmailMapper.xml"/>

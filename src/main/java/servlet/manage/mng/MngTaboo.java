@@ -10,25 +10,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-
-import service.ManageService;
-import service.ManageServiceImpl;
+import dto.Criteria;
+import dto.PageDto;
 import service.common.ServiceCommon;
+import service.manage.MngTabooService;
+import service.manage.MngTabooServiceImpl;
 import vo.Taboo;
 
 @SuppressWarnings("serial")
 @WebServlet("/manage/taboo")
 public class MngTaboo extends HttpServlet {
-	private ManageService service = new ManageServiceImpl();
+	private MngTabooService service = new MngTabooServiceImpl();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<Taboo> tabooArr =  service.tabooList();
+		Criteria cri = new Criteria(req);
+		List<Taboo> tabooArr =  service.tabooList(cri);
 		
 		req.setAttribute("menu", "manage");
 		req.setAttribute("tab", "t");
 		req.setAttribute("tabooArr", tabooArr);
+
+		req.setAttribute("currentPage", "taboo");
+		req.setAttribute("pageDto", new PageDto(cri, service.count(cri)));
 		
 		req.getRequestDispatcher("/WEB-INF/k/manage/manageTaboo.jsp").forward(req, resp);
 	}

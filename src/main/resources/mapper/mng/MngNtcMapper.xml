@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.manage.MngNtcMapper">
+
+<select id="select" resultType="vo.Post">
+	select * 
+	from tbl_post 
+	where cno = #{cno}
+	<if test="type != null">
+	    <trim prefix="and (" suffix=")" prefixOverrides="or">
+	    	<foreach collection="typeArr" item="t">
+	    		<if test='T == "i"'>
+		    		or id like concat('%', #{keyword},'%')
+	    		</if>
+	    	</foreach>
+	    </trim> 
+    </if>
+    order by create_date desc
+    limit #{amount} offset #{offset}
+</select>
+  
+<select id="selectByOne" resultType="vo.Post">
+	select * from tbl_post where pno = #{pno}
+</select>
+   
+<insert id="insert" >
+	insert into tbl_post(title, user_id, content, cno) 
+	values(#{title}, #{userId}, #{content}, #{cno})
+</insert>
+  
+<update id="update">
+	update  tbl_post set 
+		 	title = #{title},
+		 	user_id = #{userId},
+		 	content = #{content},
+		 	update_date = now()
+ 	where pno = #{pno}
+</update>
+
+ 
+<delete id="delete">
+	delete from tbl_post where pno = #{pno}
+</delete>
+	
+<select id="getCount" resultType="int">
+    select count(*) as cnt from tbl_post where cno = #{cno}
+</select>
+
+	
+	
+</mapper>

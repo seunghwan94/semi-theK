@@ -11,15 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.internal.LinkedTreeMap;
 
-import service.ManageService;
-import service.ManageServiceImpl;
 import service.common.ServiceCommon;
+import service.manage.MngMenuService;
+import service.manage.MngMenuServiceImpl;
 import vo.Category;
 
 @SuppressWarnings("serial")
 @WebServlet("/manage/menu")
 public class MngMenu extends HttpServlet {
-	private ManageService service = new ManageServiceImpl();
+	private MngMenuService service = new MngMenuServiceImpl();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

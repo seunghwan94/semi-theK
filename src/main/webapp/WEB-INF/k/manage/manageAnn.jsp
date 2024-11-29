@@ -44,7 +44,7 @@
                             </tbody>
                         </table>
                         <div class="d-flex justify-content-end mt-4 me-2">
-                            <a href="${cp}manage/ann/write" type="button" class="btn btn-secondary btn-add" >글쓰기</a>
+                            <a href="${cp}manage/ntc/write" type="button" class="btn btn-secondary btn-add" >글쓰기</a>
                         </div>
                         <jsp:include page="../common/paging.jsp"></jsp:include>
                     </div>
@@ -55,7 +55,7 @@
 	<script>
 		$(".move").click(function (){
 			const pno = $(this).data("pno");
-			location.href = ${cp} + "manage/ann/view?pno=" + pno; 	
+			location.href = ${cp} + "manage/ntc/view?pno=" + pno; 	
 		})
 	</script>
 </body>

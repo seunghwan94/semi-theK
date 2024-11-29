@@ -8,24 +8,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-import service.ManageService;
-import service.ManageServiceImpl;
+import service.manage.MngNtcService;
+import service.manage.MngNtcServiceImpl;
 import utils.Commons;
-import vo.Post;
 
 @SuppressWarnings("serial")
-@WebServlet("/manage/ann/view")
-public class ManageAnnView extends HttpServlet {
-	private ManageService service = new ManageServiceImpl();
+@WebServlet("/manage/ntc/view")
+public class MngNtcView extends HttpServlet {
+	private MngNtcService service = new MngNtcServiceImpl();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String pno = req.getParameter("pno");
-		Post post = service.findByPostAnn(pno);
 		req.setAttribute("menu", "manage");
-		req.setAttribute("tab", "a");
-		req.setAttribute("post", post);
+		req.setAttribute("tab", "n");
+		req.setAttribute("post", service.findByNtc(pno));
 		
 		req.getRequestDispatcher("/WEB-INF/k/manage/manageAnnView.jsp").forward(req, resp);
 	}
@@ -33,11 +30,9 @@ public class ManageAnnView extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String pno = req.getParameter("pno");
-		System.out.println(pno);
-		int i = service.removePostAnn(Integer.parseInt(pno));
 		
-		if(i==1) {
-			Commons.printMsg("삭제 되었습니다.", "/K/manage/ann", resp);
+		if(service.removeNtc(Integer.parseInt(pno))) {
+			Commons.printMsg("삭제 되었습니다.", "k/manage/ntc", resp);
 		}else {
 			Commons.printMsg("서비스 오류.", "ann/view?pno="+pno, resp);
 		}

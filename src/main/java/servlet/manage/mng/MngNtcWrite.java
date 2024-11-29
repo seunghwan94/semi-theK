@@ -8,22 +8,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-
-import service.ManageService;
-import service.ManageServiceImpl;
+import service.common.ServiceCommon;
+import service.manage.MngNtcService;
+import service.manage.MngNtcServiceImpl;
 import vo.Post;
 
 @SuppressWarnings("serial")
-@WebServlet("/manage/ann/write")
-public class ManageAnnWrite extends HttpServlet {
-	private ManageService service = new ManageServiceImpl();
+@WebServlet("/manage/ntc/write")
+public class MngNtcWrite extends HttpServlet {
+	private MngNtcService service = new MngNtcServiceImpl();
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		String pno = req.getParameter("pno");
 		if(pno != null) {
-			Post post = service.findByPostAnn(pno);
+			Post post = service.findByNtc(pno);
 			req.setAttribute("post", post);
 		}
 		
@@ -34,23 +34,24 @@ public class ManageAnnWrite extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Gson gson = new Gson();
-		Post post = gson.fromJson(req.getReader(), Post.class);
-		int i=0;
+		Post post = ServiceCommon.getJson(req, Post.class);
 		
+		boolean ck;
         try {
         	if(post.getPno()==0) {
-        		i = service.addPostAnn(post);
+        		ck = service.addNtc(post);
         	}else {
-        		i = service.modifyPostAnn(post);
+        		ck = service.modifyNtc(post);
         	}
-        	if(i == 1) {
-        		resp.getWriter().write("success");
-        	}else {
-        		resp.getWriter().write("fail");
+        
+        	if(ck) {
+        		ServiceCommon.sendJson(resp, "success");
+        		return;
         	}
+    		ServiceCommon.sendJson(resp, "fail");
+
         }catch(Exception e) {
-        	resp.getWriter().write("error");
+        	ServiceCommon.sendJson(resp, "error");
         }
         
 	}

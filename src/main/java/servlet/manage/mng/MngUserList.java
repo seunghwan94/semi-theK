@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import dto.Criteria;
 import dto.PageDto;
-import service.ManageService;
-import service.ManageServiceImpl;
+import service.manage.MngUserService;
+import service.manage.MngUserServiceImpl;
 
 @SuppressWarnings("serial")
 @WebServlet("/manage/user")
 public class MngUserList extends HttpServlet {
-	private ManageService service = new ManageServiceImpl();
+	private MngUserService service = new MngUserServiceImpl();
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

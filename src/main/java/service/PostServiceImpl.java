@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import dto.Criteria;
-import mapper.ManageMapper;
 import mapper.PostMapper;
 import utils.MybatisInit;
 import vo.Post;

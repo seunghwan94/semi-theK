@@ -6,7 +6,20 @@
 
 <select id="select" resultType="vo.Taboo">
 	select * from tbl_taboo
+	where 1	
+	<if test="type != null">
+	    <trim prefix="and (" suffix=")" prefixOverrides="or">
+	    	<foreach collection="typeArr" item="t">
+	    		<if test='T == "i"'>
+		    		or key_word like concat('%', #{keyword},'%')
+	    		</if>
+	    	</foreach>
+	    </trim> 
+    </if>
+    order by create_date desc
+    limit #{amount} offset #{offset}
 </select>
+
 <insert id="insert" >
   	INSERT  INTO tbl_taboo (key_word, user_id, isuse) values (#{keyWord},'test@naver.com', 1)
  </insert>
@@ -20,5 +33,8 @@
  	delete from tbl_taboo where key_word = #{keyWord} 
  </delete>
 
+<select id="getCount" resultType="int">
+    select count(*) as cnt from tbl_taboo
+</select>
 	
 </mapper>

@@ -22,7 +22,7 @@
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade p-4 show active" role="tabpanel" aria-labelledby="nav-home-detail-tab">
                         <h3>공지사항 작성</h3>
-                        <form name="frm" action="${cp}manage/ann">
+                        <form name="frm" action="${cp}manage/ntc">
                         	<input type="hidden" name="pno" id="pno" value="${post.pno}"> 
 	                        <div class="card">
 	                            <div class="card-header">
@@ -67,12 +67,13 @@
     		const data = pno=="" ? {title,content,userId,cno} : {pno,title,content,userId,cno};
     		
     		$.ajax({
-                url: "${cp}/manage/ann/write",
+                url: "${cp}/manage/ntc/write",
                 type: "post",
                 contentType: "application/json; charse=utf-8",
                 data: JSON.stringify(data),
                 success: function (res) {
-                    if (res=="success") {
+                	
+                    if (res.status=="success") {
                         alert("적용 되었습니다.");
                         document.frm.submit();
                     } else {

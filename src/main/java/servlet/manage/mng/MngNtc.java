@@ -10,23 +10,22 @@ import javax.servlet.http.HttpServletResponse;
 
 import dto.Criteria;
 import dto.PageDto;
-import service.ManageService;
-import service.ManageServiceImpl;
+import service.manage.MngNtcService;
+import service.manage.MngNtcServiceImpl;
 
 @SuppressWarnings("serial")
-@WebServlet("/manage/ann")
-public class ManageAnn extends HttpServlet{
-	private ManageService service = new ManageServiceImpl();
+@WebServlet("/manage/ntc")
+public class MngNtc extends HttpServlet{
+	private MngNtcService service = new MngNtcServiceImpl();
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
 		Criteria cri = new Criteria(req);
 		
 		req.setAttribute("menu", "manage");
-		req.setAttribute("tab", "a");
+		req.setAttribute("tab", "n");
 		
-		req.setAttribute("annPost", service.listAnn(cri));
-		req.setAttribute("currentPage", "ann");
+		req.setAttribute("annPost", service.ntcList(cri));
+		req.setAttribute("currentPage", "ntc");
 		req.setAttribute("pageDto", new PageDto(cri, service.count(cri)));
 		
 		req.getRequestDispatcher("/WEB-INF/k/manage/manageAnn.jsp").forward(req, resp);
