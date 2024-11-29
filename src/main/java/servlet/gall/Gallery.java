@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import service.CategorySerivceImpl;
 import service.CategoryService;
 
-@WebServlet("")
+@WebServlet("/kallery")
 public class Gallery extends HttpServlet{
 	private CategoryService categoryService = new CategorySerivceImpl();
 	
