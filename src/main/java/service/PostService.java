@@ -18,6 +18,6 @@ public interface PostService {
 	
 	
 	boolean likes(Post post);
-	Postlike findByLikes(Post post);
-	List<PostDto> postAndLike(Criteria cri);
+	List<PostDto> postAndLike(Criteria cri, String userId);
+	Postlike findByLikes(Post post, String userId);
 }

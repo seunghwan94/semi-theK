@@ -95,31 +95,31 @@ public class PostServiceImpl implements PostService {
 	}
 
 	@Override
-	public Postlike findByLikes(Post post) {
+	public Postlike findByLikes(Post post, String userId) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			PostMapper mapper = session.getMapper(PostMapper.class);
+			post.setUserId(userId);
 			System.out.println(post);
 			return mapper.selectLikeOne(post);
 		}
 	}
 	
 	@Override
-	public List<PostDto> postAndLike(Criteria cri) {
+	public List<PostDto> postAndLike(Criteria cri,String userId) {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			PostMapper mapper = session.getMapper(PostMapper.class);
 			List<Post> posts = mapper.selectList(cri);
-			return posts.stream().map(post-> new PostDto(post, findByLikes(post))).collect(Collectors.toList());
+			return posts.stream().map(post-> new PostDto(post, findByLikes(post,userId))).collect(Collectors.toList());
 		}
 	}
 	
 	public static void main(String[] args) {
-		Post post = Post.builder().title("test").userId("231@na1").content("<strong>333</strong>").cno(2).pno(106).build();
+		Post post = Post.builder().title("test").userId("1@1").content("<strong>333</strong>").cno(2).pno(106).build();
 		System.out.println(post);
 		
 		Criteria cri = new Criteria();
 		
-		
-		List<PostDto> i = new PostServiceImpl().postAndLike(cri);
+		List<PostDto> i = new PostServiceImpl().postAndLike(cri,"231@na1");
 		System.out.println(i);
 		
 	}

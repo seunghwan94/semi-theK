@@ -49,9 +49,10 @@
 										${post.viewCnt}
 									</div>
 									<div class="px-1 ms-1 ">
-										<i class="fa-solid fa-heart d-none"></i>
-										<i class="fa-regular fa-heart "></i>
-										
+									
+										<i class="fa-solid fa-heart   ${post.myPush? '': 'd-none'} "></i>
+										<i class="fa-regular fa-heart ${!post.myPush? '': 'd-none'}"></i>
+										${post.likeCnt}
 									</div>
 								</div>
 							</div>
@@ -82,7 +83,8 @@
 		      		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		      	</div>
 		      	<div>
-		      	<p class="title-preview m-0 " id="exampleModalLabel" style="width: 95%"></p>
+		      		<p class="title-preview m-0 " id="exampleModalLabel" style="width: 95%"></p>
+		      	</div>
 		      </div>
 		      <div class="card-body p-0 d-flex justify-content-center align-items-center">
 				<img id="preview" name="imgData" class=" w-100 h-100" src="">

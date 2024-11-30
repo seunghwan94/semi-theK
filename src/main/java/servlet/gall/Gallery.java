@@ -25,10 +25,11 @@ public class Gallery extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Criteria cri = new Criteria(req);
+		String userId = "231@na1";
 		cri.setCno(2);
 		cri.setAmount(8);
 		
-		List<PostDto> postDtos = service.postAndLike(cri);
+		List<PostDto> postDtos = service.postAndLike(cri,userId);
 		System.out.println(postDtos);
 		
 		req.setAttribute("posts", postDtos);
