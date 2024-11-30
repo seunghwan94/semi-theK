@@ -34,7 +34,7 @@
                 <input type="text" class="form-control text-secondary small" id="updatedate" placeholder="updatedate" name="updatedate" value="${post.updateDate}" disabled>
 				<hr>
              	<div class="text-center mt-5 mb-5">
-				<c:if test="${not empty post.userId}==">
+				<c:if test="${not empty post.userId}">
 	           		<button type="button" class="btn btn-outline-light post-mod"> 수정글 게시 </button>
 	           		<a href="remove?pno=${post.pno}&${criteria.qs2}" class="btn btn-outline-light" onclick="return confirm('Delete this post?')"> 삭제하기 </a>
 				</c:if>

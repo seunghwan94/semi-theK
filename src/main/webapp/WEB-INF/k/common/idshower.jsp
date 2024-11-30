@@ -24,7 +24,7 @@
 					</video>
 			    </div>
 			</div>
-		<button class="btn btn-outline-light mt-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo"> hello! ${user.userId} </button>
+		<button class="btn btn-outline-light mt-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo"> hello! ${user.id} </button>
 		</div>
 	</div>
 	<div class="col-sm-10 small"></div>

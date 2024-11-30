@@ -32,9 +32,15 @@ public class Index extends HttpServlet {
 		Object userObj = req.getSession().getAttribute("user");
 		System.out.println((User)userObj);
 		if((User)userObj == null) {
-			Commons.printMsg("SYS :: No Session Info ; Log in first", "/WEB-INF/k/main/intro.jsp", resp);
+//			Commons.printMsg("SYS :: No Session Info ; Log in first", "/WEB-INF/k/main/intro.jsp", resp);
+			resp.sendRedirect(req.getContextPath() + "/WEB-INF/k/main/intro.jsp");
+	        return;
 			//resp.sendRedirect("/WEB-INF/k/main/intro.jsp");
 		}
+		
+		User user = (User) userObj;
+	    System.out.println("SYS :: User Info: " + user);
+		
 		System.out.println((User)userObj);
 		req.getRequestDispatcher("/WEB-INF/k/main/index.jsp").forward(req, resp);
 	}

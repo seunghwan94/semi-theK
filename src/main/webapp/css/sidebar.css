@@ -1,8 +1,46 @@
 @charset "UTF-8";
+
 .video-container video {
     min-width: 100%;
     min-height: 100%;
     top: 50%;
     left: 130%;
     transform: translateX(-50%) translateY(-50%);
+}
+
+@keyframes slide1 {
+    from {
+        transform: translateX(-100%);
+        visibility: hidden;
+    }
+    to {
+        transform: translateX(0);
+        visibility: visible;
+    }
+}
+
+@keyframes slide2 {
+    from {
+        transform: translateX(0);
+        visibility: visible;
+    }
+    to {
+        transform: translateX(-100%);
+        visibility: hidden;
+    }
+}
+
+.offcanvas-start {
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+}
+
+.offcanvas.show {
+    animation-name: slide1;
+    visibility: visible;
+}
+
+.offcanvas:not(.show) {
+    animation-name: slide2;
 }
