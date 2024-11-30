@@ -31,21 +31,19 @@
                 <input type="text" class="form-control text-secondary small" id="updatedate" placeholder="updatedate" name="updatedate" value="${post.updateDate}" readonly>
 				<hr>
              	<div class="text-center mt-5 mb-5">
-					<a href="${cp}list/modify?pno=${post.pno}" class="btn btn-outline-light btn-mod" disabled> 수정하기 </a>
+					<a href="${cp}list/modify?pno=${post.pno}" class="btn btn-outline-light btn-mod d-none" > 수정하기 </a>
 					<a href="${cp}list?cno=${post.cno}" class="btn btn-outline-light btn-ret" > 게시판으로 돌아가기 </a>
-					<a href="${cp}list/remove?pno=${post.pno}" class="btn btn-outline-light btn-del" onclick="return confirm('Delete this post?')" disabled> 삭제하기 </a>
+					<a href="${cp}list/remove?pno=${post.pno}" class="btn btn-outline-light btn-del d-none" onclick="return confirm('Delete this post?')"> 삭제하기 </a>
              	</div>
             	<jsp:include page="../common/reply.jsp"/> 	
 			</main>
 		</div>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			console.log(${user});
-			console.log(${user.id});
-			console.log(${post.userId});
-			if (${user} && ${user.id} === ${post.userId}) {
-				
-		        $(".btn-mod, .btn-del").removeAttr("disabled");
+			if ("${user.id}" == "${post.userId}") {
+				console.log("${user.id}");
+				console.log("${post.userId}");
+		        $(".btn-mod, .btn-del").removeClass("d-none");
 		    } // 아니 이놈들도 말 안들어요
 		    
 		    const cookieValue = Cookies.get('userId');

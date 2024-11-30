@@ -28,7 +28,7 @@ public class View extends HttpServlet{
 		String cnoString = req.getParameter("pno");
 		Object userObj = req.getSession().getAttribute("user");
 		String redirectURL = criteria.getQs2();
-		
+		userObj = (User)userObj;
 		System.out.println(userObj + ":::::");
 //		System.out.println(userObj + ":::::");
 		if (((User)userObj) == null || cnoString == null) {
@@ -43,6 +43,7 @@ public class View extends HttpServlet{
 		System.out.println(pno);
 		System.out.println(postService.view(Integer.parseInt(pno)));
 		req.setAttribute("post", postService.view(Integer.parseInt(pno)));
+		req.setAttribute("criteria", criteria);
 		req.setAttribute("criteria", criteria);
 		req.getRequestDispatcher("/WEB-INF/k/post/view.jsp").forward(req,resp);
 	}
