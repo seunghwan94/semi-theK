@@ -30,7 +30,8 @@
 		<form method="post" name="frm" class="m-5">
 	       	<input type="hidden" name="pno" id="pno" value="${post.pno}">
 	       	<input type="hidden" name="snedImg" id="sendImg" value=""> 
-	       	<input type="hidden" name="writer" id="writer" value="${post.writer}"> 
+	       	<%-- <input type="hidden" name="writer" id="writer" value="${post.writer}">  --%>
+	       	<input type="hidden" name="writer" id="writer" value="1@a"> 
 	        <div class="card">
 	            <div class="card-header">
 	                <div class="input-group flex-nowrap my-2">
@@ -77,7 +78,7 @@
 	            
 	        </div>
 	        <div class="d-flex justify-content-end mt-4 me-2">
-	            <button class="btn btn-secondary btn-add" >등록</button>
+	            <button type="button" class="btn btn-secondary btn-add" >등록</button>
 	        </div>
 		</form>
 		
@@ -86,7 +87,7 @@
 	<jsp:include page="../common/footer.jsp"/>
 	<script>
 	 
-	/* 이미지 미리보기 */
+	
 	 $(document).ready(function() {
 		$("#title").on("input", function(){
 			$(".title-preview").text($(this).val());
@@ -105,6 +106,7 @@
 			$(".like-Y").removeClass("d-none");
 		})
 		
+		/* 이미지 미리보기 */
 	    $('#addImg').on('change', function(event) {
 	        const file = event.target.files[0];
 	        
@@ -120,6 +122,40 @@
 		        reader.readAsDataURL(file);
 		    };
 		});
+		
+		
+		$(".btn-add").click(function(){
+			const title = $("#title").val();
+			const sendImg = $("#sendImg").val();
+			const tmp = $("#content").val();
+			const userId = $("#writer").val();
+			
+			const data = {
+					title, userId,
+					cno : 2,
+					content : sendImg + "&%$^&" + tmp
+			}
+			
+			console.log(data);
+			
+			$.ajax({
+	            url: "${cp}/kallery/write",
+	            type: "post",
+	            contentType: "application/json; charse=utf-8",
+	            data: JSON.stringify(data),
+	            success: function (res) {
+	                if(res.status=='success'){
+	                	alert("등록 하셨습니다.");
+	                	location.href = ${cp}+"/kallery";
+	                }else{
+	                	alert("등록에 실패하셨습니다.");
+	                }
+	            },
+	            error: function () {
+	                alert("서버에서 오류가 발생했습니다.");
+	            }
+	        });                
+		})
 	});
 	</script>
 	</body>

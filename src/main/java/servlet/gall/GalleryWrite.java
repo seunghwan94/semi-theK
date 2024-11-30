@@ -10,11 +10,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.CategorySerivceImpl;
 import service.CategoryService;
+import service.PostService;
+import service.PostServiceImpl;
+import service.common.ServiceCommon;
+import service.manage.MngNtcService;
+import service.manage.MngNtcServiceImpl;
+import utils.Commons;
 import vo.Post;
 
 @WebServlet("/kallery/write")
 public class GalleryWrite extends HttpServlet{
 	private CategoryService categoryService = new CategorySerivceImpl();
+	private PostService service = new PostServiceImpl();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -24,17 +31,16 @@ public class GalleryWrite extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String title = req.getParameter("title");
-		String img = req.getParameter("sendImg");
-		String tmp = req.getParameter("content");
-		String userId = req.getParameter("writer");
+		Post post = ServiceCommon.getJson(req, Post.class);
 		
-		String content = img + "&%$^&" + tmp;
+		int i = service.addPost(post);
+		System.out.println(i);
+		if(i==1) {
+			ServiceCommon.sendJson(resp, "success");
+		}else {
+			ServiceCommon.sendJson(resp, "fail");
+		}
 		
-		
-		Post post = Post.builder().title(title).content(content).userId(userId).build();
-		
-		System.out.println(post);
 		
 		
 	}
