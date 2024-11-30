@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dto.Criteria;
-import dto.PageDto;
 import dto.PostDto;
 import service.PostService;
 import service.PostServiceImpl;
@@ -30,7 +29,6 @@ public class Gallery extends HttpServlet{
 		cri.setAmount(8);
 		
 		List<PostDto> postDtos = service.postAndLike(cri,userId);
-		System.out.println(postDtos);
 		
 		req.setAttribute("posts", postDtos);
 		req.setAttribute("currentPage", "kallery");

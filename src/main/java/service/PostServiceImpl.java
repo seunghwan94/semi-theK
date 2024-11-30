@@ -98,9 +98,11 @@ public class PostServiceImpl implements PostService {
 	public Postlike findByLikes(Post post, String userId) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			PostMapper mapper = session.getMapper(PostMapper.class);
+			String tmp = post.getUserId(); 
 			post.setUserId(userId);
-			System.out.println(post);
-			return mapper.selectLikeOne(post);
+			Postlike Postlike = mapper.selectLikeOne(post);
+			post.setUserId(tmp);
+			return Postlike;
 		}
 	}
 	

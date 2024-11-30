@@ -49,7 +49,6 @@
 										${post.viewCnt}
 									</div>
 									<div class="px-1 ms-1 ">
-									
 										<i class="fa-solid fa-heart   ${post.myPush? '': 'd-none'} "></i>
 										<i class="fa-regular fa-heart ${!post.myPush? '': 'd-none'}"></i>
 										${post.likeCnt}
@@ -134,7 +133,15 @@
 		}
 
 	});
-	
+	$(document).ready(function() {
+		const cookieValue = Cookies.get('userId');
+	    if (cookieValue) {
+	        console.log('remember-id 쿠키 값:', cookieValue);
+	    } else {
+	        console.log('remember-id 쿠키가 존재하지 않습니다.');
+	    }
+	});
+	    
 	$(".card-hover").click("click", function(){
 		
 		const pno = $(this).data("pno");

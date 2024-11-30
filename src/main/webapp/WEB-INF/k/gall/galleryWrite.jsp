@@ -17,10 +17,8 @@
 		.img-size-target {
 			width:397px;
 			height:260px;
-			
 		}
 		img{
-			
 			object-fit: contain;
 		}
 
@@ -30,6 +28,7 @@
 		
 		<main class="mt-5 mb-5">
 			<hr class="mb-5">
+			${post}
 			<form method="post" name="frm" class="m-5">
 		       	<input type="hidden" name="pno" id="pno" value="${post.pno}">
 		       	<input type="hidden" name="snedImg" id="sendImg" value="${fnc:split(post.content,'&%$^&')[0]}">
@@ -59,7 +58,7 @@
 								</div>
 								<div class="card-footer">
 									<div class="d-flex justify-content-between">
-										<b>${post.userId}</b>
+										<b class="write-view">${post.userId}</b>
 										<div class="d-flex">
 											<div class="px-1"><i class="fa-regular fa-eye me-1"></i>${post.viewCnt == 0 ? 0 : post.viewCnt}</div>
 											<div class="px-1 ms-1">
@@ -112,6 +111,19 @@
 		 
 		
 		 $(document).ready(function() {
+			 console.log($("#writer").val());
+			if($("#writer").val()==""){
+				const cookieValue = Cookies.get('userId');
+			    if (cookieValue) {
+			    	$("#writer").val(cookieValue);
+			    	$(".write-view").text(cookieValue);
+			    } else {
+			        console.log('remember-id 쿠키가 존재하지 않습니다.');
+			    }	
+			}
+			
+			 
+			 
 			$("#title").on("input", function(){
 				$(".title-preview").text($(this).val());
 				
@@ -182,6 +194,7 @@
 				const sendImg = $("#sendImg").val();
 				const tmp = $("#content").val();
 				const userId = $("#writer").val();
+				const pno = $("#pno").val();
 				
 				if(sendImg==""){
 					alert("이미지를 넣어주세요.");
@@ -190,7 +203,7 @@
 				
 				const data = {
 						title, userId,
-						pno : ${post.pno},
+						pno,
 						cno : 2,
 						content : sendImg + "&%$^&" + tmp
 				}

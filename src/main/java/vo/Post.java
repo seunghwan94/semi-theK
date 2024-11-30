@@ -5,7 +5,7 @@ import lombok.*;
 
 @Data
 @Builder
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
 public class Post {
 	private  int pno; // 게시글 번호
