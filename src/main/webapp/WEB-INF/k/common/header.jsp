@@ -32,6 +32,16 @@
 				</ul>
 			</li>
 		</c:when>
+		<c:when test="${m.cno  == 2}">
+			<li class= "nav-item mx-5">
+				<a class="nav-link float-start text-light m-2" href="${cp}kallery?cno=${m.cno}">${m.icon} ${m.cname} </a>
+			</li>	
+		</c:when>
+		<c:when test="${m.cno  == 1}">
+			<li class= "nav-item mx-5">
+				<a class="nav-link float-start text-light m-2" href="${cp}notice?cno=${m.cno}">${m.icon} ${m.cname} </a>
+			</li>	
+		</c:when>
 		<c:otherwise>
 			<li class= "nav-item mx-5">
 				<a class="nav-link float-start text-light m-2" href="${cp}promotion?cno=${m.cno}">${m.icon} ${m.cname} </a>

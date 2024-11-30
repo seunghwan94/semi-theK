@@ -21,4 +21,3 @@ public class Gallery extends HttpServlet{
 		req.getRequestDispatcher("/WEB-INF/k/gall/gallery.jsp").forward(req, resp);
 	}
 }
-	
