@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
+import at.favre.lib.crypto.bcrypt.BCrypt.Result;
 import mapper.UserMapper;
 import utils.MybatisInit;
 import vo.User;
@@ -46,7 +48,9 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean login(String id, String pw) {
 		User u =findBy(id);
-		return u != null && u.getPw().equals(pw);
+		System.out.println(pw);
+		Result result = BCrypt.verifyer().verify(pw.toCharArray(),u.getPw());  //첫번쟤는 클라이언트에서 오는 pw 두번째가 vo에서  꺼낼 값
+		return result.verified;
 	}
 
 	@Override
