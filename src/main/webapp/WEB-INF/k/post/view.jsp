@@ -4,13 +4,13 @@
 	<head>
 		<jsp:include page="../common/head.jsp"	/>
 	</head>
-	<body class="bg-dark d-flex flex-column min-vh-100 gothic-a1-regular">
+	<body class="bg-dark gothic-a1-regular">
 		<jsp:include page="../common/header.jsp"/>
+		<jsp:include page="../common/idshower.jsp"/>
 		<div class="pathway row bg-light">
 		
 		</div>
 		<div class="wrap mt-5">
-			<hr>
 			<main class="container mt-5 text-white">
                 <label for="title" class="form-label mt-3"><i class="fa-solid fa-t"></i><b> 글 제목 </b></label>
                 <input type="text" class="form-control fw-bold big" id="title" placeholder="input title" name="title" value="${post.title}"  disabled>
@@ -39,7 +39,7 @@
 			<jsp:include page="../common/footer.jsp"/>
 		</div>
 		<script type="text/javascript">
-			let islogin = '<%=session.getAttribute("userId")%>';
+			const islogin = '<%=session.getAttribute("userId")%>';
 			if(islogin != null){
 				$(".btn-mod, .btn-del").removeAttr("disabled");
 			}

@@ -6,12 +6,10 @@
 <head>
 	<jsp:include page="../common/head.jsp"	/>
 </head>
-<body>
+<body class="bg-dark gothic-a1-regular">
 	<jsp:include page="../common/header.jsp"/>
+	<jsp:include page="../common/idshower.jsp"/>
 	<main class="container mt-5">
-		<hr>
-		<div class="mt-5 text-white">
-		</div>
         <table class="table table-hover text-center table-dark text-white">
             <thead class="border-bottom border-light">
                 <tr>
@@ -50,9 +48,13 @@
 	<script src="${cp}js/profilecard.js"></script>
 	<script>
 		$(".write-button").click(function(){
-			console.log(${cno});
+			if(${user.id == null}){
+				alert("SYS :: No Session ; Log in first")
+				const noSessionUrl = "intro"
+				location.href = noSessionUrl;
+			}
 			const url = "post/write?cno="+${cno};
-			location.href= url;
+			location.href = url;
 		})
 	</script>
 </body>

@@ -21,7 +21,7 @@ public class PostList extends HttpServlet{
 		int idx = req.getQueryString().indexOf('=');
 		String cno = req.getQueryString().substring(idx+1);
 		System.out.println(cno);
-		
+		Object userObj = req.getSession().getAttribute("user");
 		Criteria cri = new Criteria(req);
 		
 		req.setAttribute("pageDto", new PageDto(cri, service.count(cri)));

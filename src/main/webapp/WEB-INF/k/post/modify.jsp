@@ -4,10 +4,11 @@
 	<head>
 		<jsp:include page="../common/head.jsp"	/>
 	</head>
-	<body class="bg-dark d-flex flex-column min-vh-100 gothic-a1-regular ">
+	<body class="bg-dark gothic-a1-regular ">
+		<jsp:include page="../common/header.jsp"/>
+		<jsp:include page="../common/idshower.jsp"/>
 		<div class="wrap">
 			<main class="mt-5 mb-5">
-				<jsp:include page="../common/header.jsp"/>
 				<hr class="mb-5">
 				
                 <label for="title" class="form-label mt-3"><i class="fa-solid fa-t"></i><b> 글 제목 </b></label>
