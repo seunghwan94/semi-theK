@@ -63,7 +63,7 @@
 	<insert id="updateLike">
 		insert into tbl_post_like (pno, user_id) values (#{pno},#{userId})
 	</insert>
-	<select id="selectLikeOne">
+	<select id="selectLikeOne" >
 		SELECT 
 		    COUNT(*) AS cnt, 
 		    COALESCE(SUM(CASE WHEN user_id = #{userId} THEN 1 ELSE 0 END), 0) AS myPush
@@ -72,5 +72,9 @@
 		WHERE 
 		    pno = #{pno};
 	</select>
+	<delete id="deleteLike">
+		delete from tbl_post_like where pno = #{pno} and user_id = #{userId}
+	</delete>
+	
 </mapper>
   

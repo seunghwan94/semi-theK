@@ -35,7 +35,9 @@ public interface PostMapper {
 
 	int updateLike(Post post);
 
-	Postlike selectLikeOne(Post post);
+	Postlike selectLikeOne(@Param("pno") int pno, @Param("userId") String userId);
 
 	boolean findByLikes(Post post);
+
+	int deleteLike(Post post);
 }

@@ -93,15 +93,20 @@ public class PostServiceImpl implements PostService {
 			return mapper.updateLike(post)==1 ? true : false;
 		}
 	}
-
+	
+	@Override
+	public boolean removelikes(Post post) {
+		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			PostMapper mapper = session.getMapper(PostMapper.class);
+			return mapper.deleteLike(post)==1 ? true : false;
+		}
+	}
+	
 	@Override
 	public Postlike findByLikes(Post post, String userId) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			PostMapper mapper = session.getMapper(PostMapper.class);
-			String tmp = post.getUserId(); 
-			post.setUserId(userId);
-			Postlike Postlike = mapper.selectLikeOne(post);
-			post.setUserId(tmp);
+			Postlike Postlike = mapper.selectLikeOne(post.getPno(),userId);
 			return Postlike;
 		}
 	}

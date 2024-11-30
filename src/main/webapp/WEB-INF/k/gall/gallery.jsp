@@ -48,10 +48,10 @@
 										<i class="fa-regular fa-eye me-1"></i>
 										${post.viewCnt}
 									</div>
-									<div class="px-1 ms-1 ">
+									<div class="px-1  ms-1 d-flex align-items-center my-push" data-myPush="${post.myPush}">
 										<i class="fa-solid fa-heart   ${post.myPush? '': 'd-none'} "></i>
 										<i class="fa-regular fa-heart ${!post.myPush? '': 'd-none'}"></i>
-										${post.likeCnt}
+										<p class="p-0 m-0 ms-1 like-cnt">${post.likeCnt}</p>
 									</div>
 								</div>
 							</div>
@@ -96,9 +96,10 @@
 							<i class="fa-regular fa-eye me-1"></i>
 							<p class="p-0 m-0 view-cnt">0</p>
 						</div>
-						<div class="px-1 ms-1 like-YN" data-pno="">
+						<div class="px-1 ms-1 d-flex align-items-center like-YN" data-pno="">
 							<i class="fa-solid fa-heart like-Y d-none pe-auto"></i>
 							<i class="fa-regular fa-heart like-N"></i>
+							<p class="p-0 m-0 ms-1 like-cnt">0</p>
 						</div>
 					</div>
 				</div>
@@ -121,30 +122,52 @@
 	$(".like-YN").on("click",function(){
 		const $likeY = $(this).find("i").eq(0);
 		const $likeN = $(this).find("i").eq(1);
-		
+		const $cnt = $(this).find(".like-cnt");
+		let cnt = Number($cnt.text().trim());
 		const pno = $(this).data("pno");
-		
-		
+	    const userId = Cookies.get('userId');
+	    
+	    console.log(cnt);
+	    let type="";
 		if ($likeY.hasClass("d-none")){
 			$likeY.removeClass("d-none");
 			$likeN.addClass("d-none");
+			type = "post";
+			cnt += 1;
 		}else{
 			$likeY.addClass("d-none");
 			$likeN.removeClass("d-none");
-			
+			type = "delete";
+			cnt -= 1;
 		}
 		
+		$cnt.text(cnt);
 		
-		 $.ajax({
-	            url: "${cp}/kallery",
-	            type: "put",
-	            contentType: "application/json; charse=utf-8",
-	            data: JSON.stringify({pno,}),
-	            success: function (res) {
-	                
-	            }
-	        });   
-		 
+		$(".card-hover[data-pno="+pno+"]").each(function () {
+		    const $otherLikeY = $(this).find(".my-push i").eq(0);
+		    const $otherLikeN = $(this).find(".my-push i").eq(1);
+		    const $otherCnt = $(this).find(".my-push .like-cnt");
+			
+	        if (type === "post") {
+	            $otherLikeY.removeClass("d-none");
+	            $otherLikeN.addClass("d-none");
+	        } else {
+	            $otherLikeY.addClass("d-none");
+	            $otherLikeN.removeClass("d-none");
+	        }
+
+	        $otherCnt.text(cnt);
+	    });
+		
+		$.ajax({
+            url: "${cp}/kallery",
+            type,
+            contentType: "application/json; charse=utf-8",
+            data: JSON.stringify({pno,userId}),
+            success: function (res) {
+                
+            }
+        });    
 
 	});
 	$(document).ready(function() {
@@ -159,13 +182,16 @@
 	$(".card-hover").click("click", function(){
 		
 		const pno = $(this).data("pno");
-		const title = $(this).find(".card-header").text().trim();
+		const title = $(this).find(".card-header").text();
 	    const bodyImage = $(this).find("img").attr("src");
-	    const bodyText = $(this).find(".content-preview").text().trim();
-	    const userId = $(this).find("b").text().trim();
-	    const viewCnt = $(this).find(".fa-eye").parent().text().trim();
+	    const bodyText = $(this).find(".content-preview").text();
+	    const userId = $(this).find("b").text();
+	    const viewCnt = $(this).find(".fa-eye").parent().text();
 	    const viewCntPuls = Number(viewCnt) + 1;
+	    const myPush = $(this).find(".my-push").data('mypush');
+	    const likesCnt = $(this).find(".my-push").text();
 	    
+	    ${post.myPush};
 	    $.ajax({
             url: "${cp}/kallery",
             type: "put",
@@ -178,12 +204,26 @@
 		
 	    $(this).find(".fa-eye").parent().html('<i class="fa-regular fa-eye me-1"></i>' + viewCntPuls);
 	    
+	    
 	    $(".title-preview").text(title);
 	    $("#preview").attr("src", bodyImage).removeClass("d-none");
 	    $(".card-footer .content-preview").text(bodyText);
 	    $(".card-footer .user-id").text(userId);
 	    $(".card-footer .view-cnt").text(viewCntPuls);
-	    $(".card-footer .like-YN").data(pno);
+	    $(".card-footer .like-YN").data("pno",pno);
+	    
+	    $(".card-footer .like-cnt").text(likesCnt);
+	    
+	    console.log(myPush);
+	    if(myPush){	    	
+	    	console.log("ss");
+		    $(".card-footer .like-Y").removeClass("d-none");
+		    $(".card-footer .like-N").addClass("d-none");
+	    }else{
+	    	console.log("ee");
+	    	$(".card-footer .like-N").removeClass("d-none");
+	    	$(".card-footer .like-Y").addClass("d-none");
+	    }
 	    
 	});
 	
