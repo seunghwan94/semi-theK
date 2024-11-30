@@ -3,6 +3,7 @@ package servlet.user;
 import java.io.IOException;
 import java.net.URLDecoder;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import service.UserService;
 import service.UserServiceImpl;
 import vo.User;
@@ -34,6 +36,7 @@ public class Signup extends HttpServlet{
 		String id = req.getParameter("useremail");
 		String pw = req.getParameter("pwd");
 //		String att = req.getParameter("att");
+		String passWord = BCrypt.withDefaults().hashToString(8, pw.toCharArray());
 		String nickname = req.getParameter("nickname");
 		System.out.println("222222");
 		System.out.println(id);
@@ -41,7 +44,7 @@ public class Signup extends HttpServlet{
 		User user = User.builder()
 			
 				.id(id)
-				.pw(pw)
+				.pw(passWord)
 				.nickName(nickname)
 				.build();
 		
@@ -54,7 +57,7 @@ public class Signup extends HttpServlet{
 		if (url != null && !url.equals("")) {
 			redirectURL = URLDecoder.decode(url, "utf-8");
 		}
-		if(!id.equals("") && !pw.equals("") && !nickname.equals("")) {
+		if(!id.equals("") && !passWord.equals("") && !nickname.equals("")) {
 			service.register(user);
 			service.register(userDetail);
 			

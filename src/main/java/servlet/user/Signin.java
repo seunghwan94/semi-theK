@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import service.UserEmailServiceImpl;
 import service.UserService;
 import service.UserServiceImpl;
@@ -35,10 +36,11 @@ public class Signin extends HttpServlet {
 		req.setCharacterEncoding("utf-8");
 		String id = req.getParameter("useremail");
 		String pw = req.getParameter("pwd");
+		BCrypt.Result result = BCrypt.verifyer().verify("pw".toCharArray(),pw);
 		String saveid = req.getParameter("remember-id");
 		System.out.println("123");
 		System.out.println(id);
-		System.out.println(pw);
+		System.out.println(result.verified);
 		
 		System.out.println("111111111");
 		
