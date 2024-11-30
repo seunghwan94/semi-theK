@@ -64,7 +64,13 @@
 		insert into tbl_post_like (pno, user_id) values (#{pno},#{userId})
 	</insert>
 	<select id="selectLikeOne">
-		select count(*) cnt from tbl_post_like where pno = #{pno} and  user_id=#{userId}
+		SELECT 
+		    COUNT(*) AS cnt, 
+		    COALESCE(SUM(CASE WHEN user_id = #{userId} THEN 1 ELSE 0 END), 0) AS myPush
+		FROM 
+		    tbl_post_like
+		WHERE 
+		    pno = #{pno};
 	</select>
 </mapper>
   

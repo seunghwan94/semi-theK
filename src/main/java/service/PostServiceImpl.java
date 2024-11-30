@@ -12,6 +12,7 @@ import mapper.PostMapper;
 import mapper.manage.MngUserMapper;
 import utils.MybatisInit;
 import vo.Post;
+import vo.Postlike;
 import vo.User;
 
 public class PostServiceImpl implements PostService {
@@ -94,10 +95,11 @@ public class PostServiceImpl implements PostService {
 	}
 
 	@Override
-	public boolean findByLikes(Post post) {
+	public Postlike findByLikes(Post post) {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			PostMapper mapper = session.getMapper(PostMapper.class);
-			return mapper.selectLikeOne(post)!=0 ? true : false;
+			System.out.println(post);
+			return mapper.selectLikeOne(post);
 		}
 	}
 	
@@ -111,7 +113,7 @@ public class PostServiceImpl implements PostService {
 	}
 	
 	public static void main(String[] args) {
-		Post post = Post.builder().title("test").userId("231@na1").content("<strong>333</strong>").cno(5).pno(106).build();
+		Post post = Post.builder().title("test").userId("231@na1").content("<strong>333</strong>").cno(2).pno(106).build();
 		System.out.println(post);
 		
 		Criteria cri = new Criteria();

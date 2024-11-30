@@ -5,6 +5,7 @@ import java.util.Date;
 
 import lombok.Data;
 import vo.Post;
+import vo.Postlike;
 
 @Data
 public class PostDto {
@@ -17,9 +18,10 @@ public class PostDto {
 	private  Date updateDate; // 게시글 업데이트 날짜
 	private  int cno; // 게시글 카테고리 번호(외래키)
 	
-	private boolean likes;
+	private int likeCnt;
+	private boolean myPush;
 	
-	public PostDto(Post post, boolean likes) {
+	public PostDto(Post post, Postlike postlike) {
 		pno = post.getPno();
 		title = post.getTitle();
 		userId = post.getUserId();
@@ -28,6 +30,7 @@ public class PostDto {
 		createDate = post.getCreateDate();
 		updateDate = post.getUpdateDate();
 		cno = post.getCno();
-		this.likes = likes;
+		this.likeCnt = postlike.getCnt();
+		this.myPush = postlike.getMyPush()==0 ? false : true;
 	}
 }

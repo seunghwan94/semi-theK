@@ -51,7 +51,7 @@
 									<div class="px-1 ms-1 ">
 										<i class="fa-solid fa-heart d-none"></i>
 										<i class="fa-regular fa-heart "></i>
-										0
+										
 									</div>
 								</div>
 							</div>

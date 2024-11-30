@@ -4,6 +4,7 @@ import java.util.List;
 import dto.Criteria;
 import dto.PostDto;
 import vo.Post;
+import vo.Postlike;
 
 public interface PostService {
 	List<Post> listPost(Criteria cri);
@@ -17,6 +18,6 @@ public interface PostService {
 	
 	
 	boolean likes(Post post);
-	boolean findByLikes(Post post);
+	Postlike findByLikes(Post post);
 	List<PostDto> postAndLike(Criteria cri);
 }

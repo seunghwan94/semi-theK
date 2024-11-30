@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Select;
 
 import dto.Criteria;
 import vo.Post;
+import vo.Postlike;
 
 public interface PostMapper {
 	List<Post> selectList(Criteria cri);
@@ -34,7 +35,7 @@ public interface PostMapper {
 
 	int updateLike(Post post);
 
-	int selectLikeOne(Post post);
+	Postlike selectLikeOne(Post post);
 
 	boolean findByLikes(Post post);
 }
