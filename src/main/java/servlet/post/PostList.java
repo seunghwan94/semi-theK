@@ -11,6 +11,7 @@ import dto.Criteria;
 import dto.PageDto;
 import service.PostService;
 import service.PostServiceImpl;
+import vo.User;
 
 @WebServlet("/list")
 public class PostList extends HttpServlet{
@@ -23,6 +24,11 @@ public class PostList extends HttpServlet{
 		System.out.println(cno);
 		Object userObj = req.getSession().getAttribute("user");
 		Criteria cri = new Criteria(req);
+		
+		if((User)userObj == null) {
+			req.getRequestDispatcher("/WEB-INF/k/user/intro.jsp").forward(req, resp);
+	        return;
+		}
 		
 		req.setAttribute("pageDto", new PageDto(cri, service.count(cri)));
 		req.setAttribute("posts", service.listPost(cri));

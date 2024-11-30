@@ -32,4 +32,5 @@
 <!-- css style -->
 <link rel='stylesheet' href='${cp}css/style.css'>
 <link rel='stylesheet' href='${cp}css/sidebar.css'>
+
 <title>the-K</title>

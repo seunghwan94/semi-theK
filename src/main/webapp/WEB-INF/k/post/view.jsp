@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko" data-bs-theme="dark">
 	<head>
 		<jsp:include page="../common/head.jsp"	/>
 	</head>
-	<body class="bg-dark gothic-a1-regular">
+	<body class="gothic-a1-regular">
 		<jsp:include page="../common/header.jsp"/>
 		<jsp:include page="../common/idshower.jsp"/>
 		<div class="pathway row bg-light">
@@ -20,7 +21,6 @@
                 
                 <label for="content" class="form-label mt-3"><i class="fa-solid fa-pen-to-square"></i><b> 글 내용 </b></label>
                 
-                <!-- 게시글 보는 곳 -->
                 <div type="text" class="ql-editor form-control"  id="title" placeholder="input content" name="content" disabled>${post.content}</div>
 
                 <label for="regdate" class="form-label mt-3"><i class="fa-regular fa-calendar-check"></i><b> 작성일 </b></label>
@@ -31,18 +31,17 @@
 				<hr>
              	<div class="text-center mt-5 mb-5">
 					<a href="${cp}list/modify?pno=${post.pno}" class="btn btn-outline-light btn-mod" disabled> 수정하기 </a>
-					<a href="${cp}list?pno=${post.pno}" class="btn btn-outline-light btn-ret" > 게시판으로 돌아가기 </a>
+					<a href="${cp}list?cno=${post.cno}" class="btn btn-outline-light btn-ret" > 게시판으로 돌아가기 </a>
 					<a href="${cp}list/remove?pno=${post.pno}" class="btn btn-outline-light btn-del" onclick="return confirm('Delete this post?')" disabled> 삭제하기 </a>
              	</div>
             	<jsp:include page="../common/reply.jsp"/> 	
 			</main>
 			<jsp:include page="../common/footer.jsp"/>
 		</div>
-		<script type="text/javascript">
-			const islogin = '<%=session.getAttribute("userId")%>';
-			if(islogin != null){
-				$(".btn-mod, .btn-del").removeAttr("disabled");
-			}
-		</script>
+	<script type="text/javascript">
+	    if (userId && userId === postWriter) {
+	        $(".btn-mod, .btn-del").removeAttr("disabled");
+	    }
+	</script>
 	</body>
 </html>

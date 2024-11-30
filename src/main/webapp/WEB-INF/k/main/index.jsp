@@ -6,7 +6,6 @@
 <head>
     <jsp:include page="../common/head.jsp" />
     <jsp:include page="../common/bxslider.jsp" />
-    <link rel='stylesheet' href='css/sidebar.css'>
 </head>
 <style>
     /* 레이어 팝업 영역 */
@@ -16,7 +15,7 @@
     .layer-popup p input {vertical-align: middle;}
     .layer-popup p a {color: #eee; text-decoration: none; float: right;}
 </style>
-<body class="bg-dark gothic-a1-regular">
+<body class="gothic-a1-regular">
     <jsp:include page="../common/header.jsp"/>
     <c:if test="${not empty user}">
 		<jsp:include page="../common/idshower.jsp"/>

@@ -23,10 +23,10 @@
 		</c:when>
 		<c:when test="${m.cno !=4 and m.cno == 7 }">
 			<li class="nav-item dropdown mx-4 small"><a class="nav-link dropdown-toggle text-white float-start mt-2" href="#" role="button" data-bs-toggle="dropdown">${m.icon} ${m.cname} </a>
-				<ul class="dropdown-menu bg-secondary text-center">
+				<ul class="dropdown-menu bg-secondary">
 					<c:forEach items="${subC}" var="s"> 
 						<c:if test="${s.parentCno == m.cno}">
-							<li class="small"><a class="dropdown-item" href="${cp}list?cno=${s.cno}"></a>${s.icon} ${s.cname} <i class="fa-solid fa-k small"></i> -시판</li>
+							<li class="small"><a class="dropdown-item" href="${cp}list?cno=${s.cno}">${s.icon} ${s.cname} <i class="fa-solid fa-k small"></i> -시판</a></li>
 						</c:if>
 					</c:forEach>
 				</ul>
@@ -59,6 +59,8 @@
 	document.querySelector('#Kmp4').addEventListener('click', function(e){
 		e.preventDefault();
 		alert("인트로 화면으로 이동합니다.")
+		// session.invalidate();
+		// alert("로그아웃 성공!")
 		window.location.href = "${cp}/intro";
 	});
 </script>

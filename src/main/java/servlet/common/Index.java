@@ -25,22 +25,24 @@ public class Index extends HttpServlet {
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		System.out.println("---------인덱스 시작");
 		req.setAttribute("subC", categoryService.listSub());
 		req.setAttribute("posts", postService.lastPost());
 		System.out.println("오브젝트 잘 들어오나?");
 		Object userObj = req.getSession().getAttribute("user");
 		System.out.println((User)userObj);
-		if((User)userObj == null) {
+//		if((User)userObj == null) {
+//			req.getRequestDispatcher("/WEB-INF/k/user/intro.jsp").forward(req, resp);
+//	        return;
+//		}
+		
 //			Commons.printMsg("SYS :: No Session Info ; Log in first", "/WEB-INF/k/main/intro.jsp", resp);
-			resp.sendRedirect(req.getContextPath() + "/WEB-INF/k/main/intro.jsp");
-	        return;
-			//resp.sendRedirect("/WEB-INF/k/main/intro.jsp");
-		}
+//			resp.sendRedirect("/WEB-INF/k/user/intro.jsp");
+//			resp.sendRedirect("/WEB-INF/k/main/intro.jsp");
 		
 		User user = (User) userObj;
-	    System.out.println("SYS :: User Info: " + user);
-		
+	    System.out.println("SYS :: User Info : " + user);
 		System.out.println((User)userObj);
 		req.getRequestDispatcher("/WEB-INF/k/main/index.jsp").forward(req, resp);
 	}
