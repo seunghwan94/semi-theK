@@ -8,7 +8,9 @@
 </head>
 <body class="bg-dark gothic-a1-regular">
 	<jsp:include page="../common/header.jsp"/>
-	<jsp:include page="../common/idshower.jsp"/>
+	<c:if test="${not empty user}">
+		<jsp:include page="../common/idshower.jsp"/>
+    </c:if>
 	<main class="container mt-5">
         <table class="table table-hover text-center table-dark text-white">
             <thead class="border-bottom border-light">
@@ -23,6 +25,11 @@
             </thead>
             <tbody >
             	<c:forEach items="${posts}" var="p">
+            		<c:if test="${empty posts}">
+	            		<tr>
+	            			<td class="small text-light"> Ooops! there's no contents to show!!</td>
+		                <tr>
+            		</c:if>
             		<tr>
             			<td>${p.pno}</td>
                    		<td class="text-start text-truncate"><a href="${cp}list/view?pno=${p.pno}" class="text-white text-decoration-none">${p.title}</a></td>
@@ -41,8 +48,8 @@
 	        	<button class="btn btn-outline-light bg-secondary write-button" type="button"><i class="fa-regular fa-pen-to-square"></i> 글 작성하기 </button>
 	       	</div>
         </div>
-				<jsp:include page="../common/paging.jsp"/>
-        <d class="small text-secondary allign-center mb-3"><i class="small">// 운영정책에 위반되는 게시글 게시 시 통보 없이 이용이 정지될 수 있습니다. //</i></d>
+		<jsp:include page="../common/paging.jsp"/>
+        <d class="small text-secondary allign-center mb-3"><i class="small"> 운영정책에 위반되는 게시글 게시 시 통보 없이 이용이 정지될 수 있습니다. </i></d>
     </main>
 	<jsp:include page="../common/footer.jsp"/>
 	<script src="${cp}js/profilecard.js"></script>

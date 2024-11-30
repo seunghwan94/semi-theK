@@ -16,7 +16,6 @@ import vo.User;
 
 @WebServlet("/list/remove")
 public class Remove extends HttpServlet{
-	
 	private PostService postService = new PostServiceImpl();
 
 	@Override
@@ -24,7 +23,7 @@ public class Remove extends HttpServlet{
 		String pnoStr = req.getParameter("pno");
 		Object memberObj = req.getSession().getAttribute("user");
 		Criteria criteria = new Criteria(req);
-		String redirectURL = "list?" + criteria.getQs2();
+		String redirectURL = criteria.getQs2();
 		if(pnoStr == null || memberObj == null) {
 			Commons.printMsg("SYSTEM :: ERR / INVALID APPROACH", redirectURL, resp);
 			return;

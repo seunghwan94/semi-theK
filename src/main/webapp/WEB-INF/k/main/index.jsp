@@ -18,7 +18,9 @@
 </style>
 <body class="bg-dark gothic-a1-regular">
     <jsp:include page="../common/header.jsp"/>
-	<jsp:include page="../common/idshower.jsp" />
+    <c:if test="${not empty user}">
+		<jsp:include page="../common/idshower.jsp"/>
+    </c:if>
     <main class="container my-2 mx-auto p-2 justify-content-center">
         <div id="slide-container">
             <ul class="bxslider1">
@@ -58,6 +60,7 @@
 										</div>
                                     </div>
                                 </li>
+                                
                             </c:if>
                         </c:forEach>
                     </ul>
@@ -68,7 +71,7 @@
                 <c:if test="${status.index % 2 == 1}">
                     </div>
                 </c:if>
-                <c:if test="${status.index == 1 }">
+                <c:if test="${status.index == 1}">
                     <div class="row justify-content-center mt-4 mb-4">
                         <ul class="col-sm-12 bxslider2">
                             <c:forEach var="bx" begin="1" end="8">

@@ -32,7 +32,7 @@
              	<div class="text-center mt-5 mb-5">
 					<a href="${cp}list/modify?pno=${post.pno}" class="btn btn-outline-light btn-mod" disabled> 수정하기 </a>
 					<a href="${cp}list?pno=${post.pno}" class="btn btn-outline-light btn-ret" > 게시판으로 돌아가기 </a>
-					<a href="${cp}remove?pno=${post.pno}" class="btn btn-outline-light btn-del" onclick="return confirm('Delete this post?')" disabled> 삭제하기 </a>
+					<a href="${cp}list/remove?pno=${post.pno}" class="btn btn-outline-light btn-del" onclick="return confirm('Delete this post?')" disabled> 삭제하기 </a>
              	</div>
             	<jsp:include page="../common/reply.jsp"/> 	
 			</main>

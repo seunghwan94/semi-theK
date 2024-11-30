@@ -10,13 +10,13 @@
 			    </div>
 			    <div class="offcanvas-body video-container overflow-hidden position-relative m-0">
 					<div class="justify-content-center z-3 position-absolute" >
-					    <a class="text-decoration-none text-light fw-big" href="${cp}mypage"><i class="fa-solid fa-image-portrait"></i> 마이페이지</a>
+					    <a class="text-decoration-none text-light fw-big" href="${cp}mypage"><i class="fa-solid fa-image-portrait"></i> My - page </a>
 					    <hr class="bg-light">
-					    <a class="text-decoration-none text-light fw-big" href="${cp}intro"><i class="fa-solid fa-right-from-bracket"></i> 로그아웃</a>
+					    <a class="text-decoration-none text-light fw-big" href="${cp}intro"><i class="fa-solid fa-right-from-bracket"></i> Log - Out</a>
 					    <hr class="bg-light">
 					    <a class="text-decoration-none text-light fw-big" href="${cp}aboutus"><i class="fa-solid fa-users-gear"></i> About US</a>
 					    <hr class="bg-light">
-					    <a class="text-decoration-none text-light fw-big" href="#"><i class="fa-solid fa-sitemap"></i> 사이트맵</a>
+					    <a class="text-decoration-none text-light fw-big" href="#"><i class="fa-solid fa-sitemap"></i> SiteMap </a>
 					    <hr class="bg-light">
 					</div>
                     <video class="position-relative z-n1" autoplay muted loop>
@@ -24,7 +24,7 @@
 					</video>
 			    </div>
 			</div>
-		<button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo"> hello! ${user.nickName} </button>
+		<button class="btn btn-outline-light mt-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo"> hello! ${user.userId} </button>
 		</div>
 	</div>
 	<div class="col-sm-10 small"></div>

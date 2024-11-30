@@ -26,7 +26,6 @@ public class View extends HttpServlet{
 //			Commons.printMsg("SYSTEM :: ERR / INVALID APPROACH", redirectURL, resp);
 //			return;
 //		}
-		
 		int idx = req.getQueryString().indexOf('=');
 		String pno = req.getQueryString().substring(idx+1);
 		
