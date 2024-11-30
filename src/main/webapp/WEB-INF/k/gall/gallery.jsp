@@ -96,10 +96,9 @@
 							<i class="fa-regular fa-eye me-1"></i>
 							<p class="p-0 m-0 view-cnt">0</p>
 						</div>
-						<div class="px-1 ms-1 like-YN">
+						<div class="px-1 ms-1 like-YN" data-pno="">
 							<i class="fa-solid fa-heart like-Y d-none pe-auto"></i>
 							<i class="fa-regular fa-heart like-N"></i>
-							0
 						</div>
 					</div>
 				</div>
@@ -123,6 +122,9 @@
 		const $likeY = $(this).find("i").eq(0);
 		const $likeN = $(this).find("i").eq(1);
 		
+		const pno = $(this).data("pno");
+		
+		
 		if ($likeY.hasClass("d-none")){
 			$likeY.removeClass("d-none");
 			$likeN.addClass("d-none");
@@ -131,6 +133,18 @@
 			$likeN.removeClass("d-none");
 			
 		}
+		
+		
+		 $.ajax({
+	            url: "${cp}/kallery",
+	            type: "put",
+	            contentType: "application/json; charse=utf-8",
+	            data: JSON.stringify({pno,}),
+	            success: function (res) {
+	                
+	            }
+	        });   
+		 
 
 	});
 	$(document).ready(function() {
@@ -169,6 +183,7 @@
 	    $(".card-footer .content-preview").text(bodyText);
 	    $(".card-footer .user-id").text(userId);
 	    $(".card-footer .view-cnt").text(viewCntPuls);
+	    $(".card-footer .like-YN").data(pno);
 	    
 	});
 	

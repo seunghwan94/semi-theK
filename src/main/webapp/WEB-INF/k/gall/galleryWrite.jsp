@@ -28,7 +28,6 @@
 		
 		<main class="mt-5 mb-5">
 			<hr class="mb-5">
-			${post}
 			<form method="post" name="frm" class="m-5">
 		       	<input type="hidden" name="pno" id="pno" value="${post.pno}">
 		       	<input type="hidden" name="snedImg" id="sendImg" value="${fnc:split(post.content,'&%$^&')[0]}">
@@ -111,17 +110,14 @@
 		 
 		
 		 $(document).ready(function() {
-			 console.log($("#writer").val());
+			 
 			if($("#writer").val()==""){
 				const cookieValue = Cookies.get('userId');
 			    if (cookieValue) {
 			    	$("#writer").val(cookieValue);
 			    	$(".write-view").text(cookieValue);
-			    } else {
-			        console.log('remember-id 쿠키가 존재하지 않습니다.');
-			    }	
+			    }
 			}
-			
 			 
 			 
 			$("#title").on("input", function(){
@@ -155,6 +151,7 @@
 				const sendImg = $("#sendImg").val();
 				const tmp = $("#content").val();
 				const userId = $("#writer").val();
+
 				
 				if(sendImg==""){
 					alert("이미지를 넣어주세요.");
