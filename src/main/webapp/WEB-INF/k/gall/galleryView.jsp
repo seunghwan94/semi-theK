@@ -30,59 +30,48 @@
 		
 		<main class="mt-5 mb-5">
 			<hr class="mb-5">
-			<form method="post" name="frm" class="m-5">
-		       	<input type="hidden" name="pno" id="pno" value="${post.pno}">
-		       	<input type="hidden" name="snedImg" id="sendImg" value="${fnc:split(post.content,'&%$^&')[0]}">
-		       	<input type="hidden" name="writer" id="writer" value="${post.userId}">
-		       	<input type="hidden" name="createDate" id="date" value="${post.createDate==''? today : post.createDate}"> 
-		       	
+			
 		       	
 		        <div class="card">
-		            <div class="card-header">
-		                <div class="input-group flex-nowrap my-2">
-		                    <span class="input-group-text" id="addon-wrapping">제 목</span>
-		                    <input type="text" class="form-control"  id="title" value="${post.title}" name="title">
-		                </div>
-		            </div>
+		            
 		            <div class="card-body p-0">
-					    <input class="form-control" type="file" id="addImg" accept="image/*">
-		  				<div class=" d-flex justify-content-center">
-			  				<div class="card m-5 card-target">
-								<div class="card-header">
-									<p class="title-preview m-0">${post.title==''? '제목을 입력해주세요.': post.title} </p>
-								</div>
-								<div class="card-body p-0 img-size-target d-flex justify-content-center align-items-center">
-									
-									<img id="preview" name="imgData" class="${fnc:split(post.content,'&%$^&')[0]==''? 'd-none': '' } w-100 h-100" src="${fnc:split(post.content,'&%$^&')[0]}">
-									<p class="${fnc:split(post.content,'&%$^&')[0]==''? '': 'd-none' }">이미지 파일을 첨부해주세요.</p>
-									
-								</div>
-								<div class="card-footer">
-									<div class="d-flex justify-content-between">
-										<b>${post.userId}</b>
-										<div class="d-flex">
-											<div class="px-1"><i class="fa-regular fa-eye me-1"></i>${post.viewCnt == 0 ? 0 : post.viewCnt}</div>
-											<div class="px-1 ms-1">
-												<i class="fa-solid fa-heart like-Y d-none pe-auto"></i>
-												<i class="fa-regular fa-heart like-N"></i>
-												0
-											</div>
+
+		  				<div class="card m-5 card-target">
+							<div class="card-header">
+								<p class="title-preview m-0">${post.title==''? '제목을 입력해주세요.': post.title} </p>
+							</div>
+							<div class="card-body p-0 img-size-target d-flex justify-content-center align-items-center">
+								
+								<img id="preview" name="imgData" class="${fnc:split(post.content,'&%$^&')[0]==''? 'd-none': '' } w-100 h-100" src="${fnc:split(post.content,'&%$^&')[0]}">
+								<p class="${fnc:split(post.content,'&%$^&')[0]==''? '': 'd-none' }">이미지 파일을 첨부해주세요.</p>
+								
+							</div>
+							<div class="card-footer">
+								<div class="d-flex justify-content-between">
+									<b>${post.userId}</b>
+									<div class="d-flex">
+										<div class="px-1"><i class="fa-regular fa-eye me-1"></i>${post.viewCnt == 0 ? 0 : post.viewCnt}</div>
+										<div class="px-1 ms-1">
+											<i class="fa-solid fa-heart like-Y d-none pe-auto"></i>
+											<i class="fa-regular fa-heart like-N"></i>
+											0
 										</div>
 									</div>
-									<c:if test="${post.content==''}">
-					                    <p class="content-preview m-0"></p>
-				                    </c:if>
-				                    <c:if test="${post.content!=''}">
-					                    <p class="content-preview m-0">${fnc:split(post.content,'&%$^&')[1]}</p>
-				                    </c:if>
-		                    
-									
-									<p class="text-samll text-secondary m-0 text-end" >
-										<c:out value="${post.createDate==''? today : post.createDate}" />
-									</p>
 								</div>
+								<c:if test="${post.content==''}">
+				                    <p class="content-preview m-0"></p>
+			                    </c:if>
+			                    <c:if test="${post.content!=''}">
+				                    <p class="content-preview m-0">${fnc:split(post.content,'&%$^&')[1]}</p>
+			                    </c:if>
+	                    
+								
+								<p class="text-samll text-secondary m-0 text-end" >
+									<c:out value="${post.createDate==''? today : post.createDate}" />
+								</p>
 							</div>
-		  				</div>
+						</div>
+		  				
 		            </div>
 		            
 		            
@@ -98,6 +87,7 @@
 		                    </c:if>
 		                </div>
 		            </div>
+		            
 		        </div>
 		        <div class="d-flex justify-content-end mt-4 me-2">
 		        	<button type="button" class="btn btn-outline-secondary me-2" onclick="window.location.href='${cp}kallery'">목록</button>

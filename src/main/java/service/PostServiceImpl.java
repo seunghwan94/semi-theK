@@ -1,13 +1,18 @@
 package service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.apache.ibatis.session.SqlSession;
 
 import dto.Criteria;
+import dto.MngUserDto;
+import dto.PostDto;
 import mapper.PostMapper;
+import mapper.manage.MngUserMapper;
 import utils.MybatisInit;
 import vo.Post;
+import vo.User;
 
 public class PostServiceImpl implements PostService {
 
@@ -80,10 +85,41 @@ public class PostServiceImpl implements PostService {
 		}
 	}
 
-//	public static void main(String[] args) {
-//		Post post = Post.builder().title("test").userId("231@na1").content("<strong>333</strong>").cno(5).build();
-//		int i = new PostServiceImpl().addPost(post);
-//		System.out.println(i);
-//	}
+	@Override
+	public boolean likes(Post post) {
+		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			PostMapper mapper = session.getMapper(PostMapper.class);
+			return mapper.updateLike(post)==1 ? true : false;
+		}
+	}
+
+	@Override
+	public boolean findByLikes(Post post) {
+		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			PostMapper mapper = session.getMapper(PostMapper.class);
+			return mapper.selectLikeOne(post)!=0 ? true : false;
+		}
+	}
+	
+	@Override
+	public List<PostDto> postAndLike(Criteria cri) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			PostMapper mapper = session.getMapper(PostMapper.class);
+			List<Post> posts = mapper.selectList(cri);
+			return posts.stream().map(post-> new PostDto(post, findByLikes(post))).collect(Collectors.toList());
+		}
+	}
+	
+	public static void main(String[] args) {
+		Post post = Post.builder().title("test").userId("231@na1").content("<strong>333</strong>").cno(5).pno(106).build();
+		System.out.println(post);
+		
+		Criteria cri = new Criteria();
+		
+		
+		List<PostDto> i = new PostServiceImpl().postAndLike(cri);
+		System.out.println(i);
+		
+	}
 	
 }

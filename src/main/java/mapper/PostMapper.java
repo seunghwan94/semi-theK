@@ -31,4 +31,10 @@ public interface PostMapper {
 	int increaseViewCount(int pno);
 	
 	int delete(int pno);
+
+	int updateLike(Post post);
+
+	int selectLikeOne(Post post);
+
+	boolean findByLikes(Post post);
 }

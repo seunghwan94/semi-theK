@@ -59,7 +59,12 @@
 		insert into tbl_post(title, user_id, content, cno) 
 		values(#{title}, #{userId}, #{content}, #{cno})
 	</insert>
-	
-	
+		
+	<insert id="updateLike">
+		insert into tbl_post_like (pno, user_id) values (#{pno},#{userId})
+	</insert>
+	<select id="selectLikeOne">
+		select count(*) cnt from tbl_post_like where pno = #{pno} and  user_id=#{userId}
+	</select>
 </mapper>
   

@@ -14,26 +14,23 @@ import service.common.ServiceCommon;
 import vo.Post;
 
 @SuppressWarnings("serial")
-@WebServlet("/kallery/write")
-public class GalleryWrite extends HttpServlet{
+@WebServlet("/kallery/modify")
+public class GalleryModify extends HttpServlet{
 	private PostService service = new PostServiceImpl();
+
 	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String pno = req.getParameter("pno");
-		if (pno != null) {
-			Post post = service.findBy(Integer.parseInt(pno));
-			req.setAttribute("post", post);
-		}
-		req.getRequestDispatcher("/WEB-INF/k/gall/galleryWrite.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/k/gall/galleryView.jsp").forward(req, resp);
 	}
+
+
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Post post = ServiceCommon.getJson(req, Post.class);
-		
-		int i = service.addPost(post);
-		System.out.println(i);
+		int i = service.update(post);
 		if(i==1) {
 			ServiceCommon.sendJson(resp, "success");
 		}else {
