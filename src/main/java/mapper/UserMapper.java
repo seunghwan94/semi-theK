@@ -13,5 +13,7 @@ public interface UserMapper {
 	
 	int update(User pw);
 
+	User findByNickName(User nickName);
+
 
 }

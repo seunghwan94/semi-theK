@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import service.UserService;
 import service.UserServiceImpl;
 import vo.User;
@@ -52,14 +54,35 @@ public class Signup extends HttpServlet{
 		if (url != null && !url.equals("")) {
 			redirectURL = URLDecoder.decode(url, "utf-8");
 		}
-		service.register(user);
-		service.register(userDetail);
-		resp.sendRedirect(redirectURL);
-		System.out.println(user);
-		System.out.println(userDetail);
+		if(!id.equals("") && !pw.equals("") && !nickname.equals("")) {
+			service.register(user);
+			service.register(userDetail);
+			
+	
+		}else{			
 		
+			
+		}
+		resp.sendRedirect(redirectURL);
 	}
 	
-	
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Gson gson = new Gson();
+		String nickname = req.getParameter("nickName");
+		System.out.println(nickname);
+		
+		User usernick = new User().builder().nickName(nickname).build();
+		User nick= service.findByNick(usernick);
+		resp.setContentType("application/json; charset=utf-8");
+		
+		if(nick == null) {
+			resp.getWriter().print(gson.toJson("success"));
+			System.out.println("없는 닉네임");
+		}else {
+			resp.getWriter().print(gson.toJson("fail"));
+			System.out.println("있는 닉네임");
+		}
+		
+	}	
 	
 }

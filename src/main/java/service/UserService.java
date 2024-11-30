@@ -14,6 +14,8 @@ public interface UserService {
 	
 	//조회
 	User findBy(String id);
+
+	User findByNick(User nickName);
 	
 	//로그인
 	boolean login(String id, String pw);

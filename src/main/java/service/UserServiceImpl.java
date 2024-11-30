@@ -35,6 +35,13 @@ public class UserServiceImpl implements UserService {
 	
 		}
 	}
+	public User findByNick(User nickName) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			UserMapper mapper=session.getMapper(UserMapper.class);
+				return mapper.findByNickName(nickName);
+	
+		}
+	}
 	
 	@Override
 	public boolean login(String id, String pw) {
