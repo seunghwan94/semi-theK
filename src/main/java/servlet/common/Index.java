@@ -32,10 +32,10 @@ public class Index extends HttpServlet {
 		System.out.println("오브젝트 잘 들어오나?");
 		Object userObj = req.getSession().getAttribute("user");
 		System.out.println((User)userObj);
-//		if((User)userObj == null) {
-//			req.getRequestDispatcher("/WEB-INF/k/user/intro.jsp").forward(req, resp);
-//	        return;
-//		}
+		if((User)userObj == null) {
+			req.getRequestDispatcher("/WEB-INF/k/user/intro.jsp").forward(req, resp);
+	        return;
+		}
 		
 //			Commons.printMsg("SYS :: No Session Info ; Log in first", "/WEB-INF/k/main/intro.jsp", resp);
 //			resp.sendRedirect("/WEB-INF/k/user/intro.jsp");

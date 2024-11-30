@@ -7,27 +7,28 @@
 	</head>
 	<body class="gothic-a1-regular">
 		<jsp:include page="../common/header.jsp"/>
-		<jsp:include page="../common/idshower.jsp"/>
+		<c:if test="${not empty user}">
+			<jsp:include page="../common/idshower.jsp"/>
+		</c:if>
 		<div class="pathway row bg-light">
-		
 		</div>
 		<div class="wrap mt-5">
 			<main class="container mt-5 text-white">
                 <label for="title" class="form-label mt-3"><i class="fa-solid fa-t"></i><b> 글 제목 </b></label>
-                <input type="text" class="form-control fw-bold big" id="title" placeholder="input title" name="title" value="${post.title}"  disabled>
+                <input type="text" class="form-control fw-bold big" id="title" placeholder="input title" name="title" value="${post.title}"  readonly>
                 
                 <label for="writer" class="form-label mt-3"><i class="fa-solid fa-user-pen"></i><b> 작성자 </b></label>
-                <input type="text" class="form-control text-secondary small" id="writer" placeholder="writer" name="writer" value="${post.userId}" disabled>
+                <input type="text" class="form-control text-secondary small" id="writer" placeholder="writer" name="writer" value="${post.userId}" readonly>
                 
                 <label for="content" class="form-label mt-3"><i class="fa-solid fa-pen-to-square"></i><b> 글 내용 </b></label>
                 
-                <div type="text" class="ql-editor form-control"  id="title" placeholder="input content" name="content" disabled>${post.content}</div>
+                <div type="text" class="ql-editor form-control"  id="content"  name="content" >${post.content}</div>
 
                 <label for="regdate" class="form-label mt-3"><i class="fa-regular fa-calendar-check"></i><b> 작성일 </b></label>
-                <input type="text" class="form-control text-secondary small" id="regdate" placeholder="regdate" name="regdate" value="${post.createDate}" disabled>
+                <input type="text" class="form-control text-secondary small" id="regdate" placeholder="regdate" name="regdate" value="${post.createDate}" readonly>
                 
                 <label for="updatedate" class="form-label mt-3"><i class="fa-solid fa-file-signature"></i><b> 최근 수정일 </b></label>
-                <input type="text" class="form-control text-secondary small" id="updatedate" placeholder="updatedate" name="updatedate" value="${post.updateDate}" disabled>
+                <input type="text" class="form-control text-secondary small" id="updatedate" placeholder="updatedate" name="updatedate" value="${post.updateDate}" readonly>
 				<hr>
              	<div class="text-center mt-5 mb-5">
 					<a href="${cp}list/modify?pno=${post.pno}" class="btn btn-outline-light btn-mod" disabled> 수정하기 </a>
@@ -36,12 +37,24 @@
              	</div>
             	<jsp:include page="../common/reply.jsp"/> 	
 			</main>
-			<jsp:include page="../common/footer.jsp"/>
 		</div>
 	<script type="text/javascript">
-	    if (userId && userId === postWriter) {
-	        $(".btn-mod, .btn-del").removeAttr("disabled");
-	    }
+		$(document).ready(function() {
+			console.log(${user});
+			console.log(${user.id});
+			console.log(${post.userId});
+			if (${user} && ${user.id} === ${post.userId}) {
+				
+		        $(".btn-mod, .btn-del").removeAttr("disabled");
+		    } // 아니 이놈들도 말 안들어요
+		    
+		    const cookieValue = Cookies.get('userId');
+	        if (cookieValue) {
+	            console.log('쿠키 값:', cookieValue);
+	        } else {
+	            console.log('쿠키가 존재하지 않습니다.');
+	        }
+		})
 	</script>
 	</body>
 </html>

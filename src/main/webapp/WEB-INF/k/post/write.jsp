@@ -6,12 +6,15 @@
 	<head>
 		<jsp:include page="../common/head.jsp"/>
 	</head>
-	<body class="d-flex flex-column min-vh-100 gothic-a1-regular ">
+	<body class="gothic-a1-regular ">
+		<jsp:include page="../common/header.jsp"/>
+		<c:if test="${not empty user}">
+			<jsp:include page="../common/idshower.jsp"/>
+		</c:if>
 		<div class="wrap">
-			<jsp:include page="../common/header.jsp"/>
 			<main class="mb-5 container">
 				<form method="post">
-					<div class="input-group container m-5">
+					<div class="input-group container mx-3">
 						<span class="input-group-text">제목</span>
 						<input type="text" class="form-control" placeholder="input title here" name="title" id="post-title">
 					</div>
