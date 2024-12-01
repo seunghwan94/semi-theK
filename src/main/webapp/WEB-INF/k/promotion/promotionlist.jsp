@@ -17,14 +17,14 @@
 						<c:forEach var="v" begin="1" end="4">
 							<div class="col-sm-3">
 								<div class="card bg-secondary mx-auto px-1">
-									<img class="card-img-top" src="img_avatar1.png" alt="Card image">
+									<img class="card-img-top mt-1" src="https://placehold.co/200x200?text=promote" alt="Card image">
 									<div class="card-body mx-auto text-center">
 										<h4 class="card-title small">별빛 야경과 함께하는 창경궁 투어</h4>
-										<div class="border border-warning mx-auto p-auto border-3 small">
+										<div class="border border-warning mx-auto px-auto border-3 small">
 											<p class="card-text small">프로모터 : 홍길동</p>
 										</div>
 										<hr>
-										<div class="mb-1 small">
+										<div class="mb-1 small mt-1">
 											<nav aria-label="breadcrumb" class="d-flex justify-content-evenly small">
 												<ol class="breadcrumb">
 													<li class="breadcrumb-item" aria-current="page">조회수 : </li>
@@ -67,6 +67,7 @@
 					<div class="col-sm-2"></div>
 					<div class="col-sm-4"><a href="${cp}/promotionlist"></a></div>
 				</div>
+				<jsp:include page="../common/paging.jsp"/>
 			</main>
 		</div>
 		<jsp:include page="../common/footer.jsp"/>

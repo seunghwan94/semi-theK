@@ -14,14 +14,15 @@
 		<div class="wrap">
 			<main class="mb-5 container">
 				<form method="post">
-					<div class="input-group container mx-3">
+					<div class="input-group">
 						<span class="input-group-text">제목</span>
 						<input type="text" class="form-control" placeholder="input title here" name="title" id="post-title">
 					</div>
-					<select class="form-select form-select-sm text-white bg-secondary my-3 border-dark" name="cat">
+					<select class="form-select form-select-sm text-white bg-secondary my-3 border-light" name="cat" id="cate-select">
 					    <c:forEach items="${categories}" var="cate">
-					        <option value="${cate.cno}" class="post-cate" ${urlCno == cate.cno ? "selected" : "" }>${cate.cname}</option>
+					        <option value="${cate.cno}" class="post-cate border-light" ${urlCno == cate.cno ? "selected" : "" }>${cate.cname}</option>
 					    </c:forEach>
+					    	<option value="3" class="post-cate">프로모션</option>
 					</select>
 					<div>
 						<jsp:include page="../common/writer.jsp"/>
@@ -36,6 +37,11 @@
 							<input type="text" class="form-control" value="${user.id}" name="writer" id="post-writer" disabled>
 						</div>
 					</div>
+					<div id="img-taker" class="d-none">
+						<jsp:include page="../common/writer_img.jsp"/>
+						<script src="${cp}js/quill.js"></script>
+						<script src="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.js"></script>
+					</div>
 					<button type="button" class="btn btn-outline-secondary mt-2 post-button">작성하기</button>
 				</form>
 			</main>
@@ -43,13 +49,17 @@
 		</div>
 	</body>
 	<script>
+		if($("select[name=cat]").val() == 3){
+			$("#img-taker").removeClass("d-none");
+		}
+	
 		$(".post-button").click(function(){
 			// console.log(${cno});
 			// const url = "list/post/write?cno=" + ${cno};
 			const myTitle = $("#post-title").val();
 			const myContent = $("#editor .ql-editor").html();
 			const myId = $("#post-writer").val(); 
-			const myCate = $("select[name=cat]").val();
+			const myCate = $("select[name=cat]").val(); 
 	
 			console.log(myTitle);
 			console.log(myContent);

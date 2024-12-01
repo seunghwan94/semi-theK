@@ -120,6 +120,16 @@ public class PostServiceImpl implements PostService {
 		}
 	}
 	
+	
+	@Override
+	public String thumbNail(int pno) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			PostMapper mapper = session.getMapper(PostMapper.class);
+			String imgString = mapper.getImg(pno);
+			return imgString;
+		}
+	}
+
 	public static void main(String[] args) {
 		Post post = Post.builder().title("test").userId("1@1").content("<strong>333</strong>").cno(2).pno(106).build();
 		System.out.println(post);

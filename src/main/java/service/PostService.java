@@ -21,4 +21,6 @@ public interface PostService {
 	List<PostDto> postAndLike(Criteria cri, String userId);
 	Postlike findByLikes(Post post, String userId);
 	boolean removelikes(Post post);
+	
+	String thumbNail(int pno);
 }

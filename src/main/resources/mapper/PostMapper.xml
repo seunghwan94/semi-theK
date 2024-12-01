@@ -72,6 +72,7 @@
 		WHERE 
 		    pno = #{pno};
 	</select>
+	
 	<delete id="deleteLike">
 		delete from tbl_post_like where pno = #{pno}
 		<if test="userId != null">
@@ -79,5 +80,10 @@
 		</if>
 	</delete>
 	
+	<select id="getImg">
+		SELECT tp.content 
+		from tbl_post tp
+		WHERE cno = 3 
+	</select>
+	
 </mapper>
-  

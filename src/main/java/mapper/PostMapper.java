@@ -40,4 +40,6 @@ public interface PostMapper {
 	boolean findByLikes(Post post);
 
 	int deleteLike(Post post);
+	
+	String getImg(int pno); 
 }
