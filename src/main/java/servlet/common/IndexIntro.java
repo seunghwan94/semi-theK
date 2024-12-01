@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import vo.User;
 
 @SuppressWarnings("serial")
-@WebServlet("/IndexIntro")
+@WebServlet("/indexIntro")
 public class IndexIntro extends HttpServlet {
 	
 	@Override
