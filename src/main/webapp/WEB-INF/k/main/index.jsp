@@ -17,12 +17,13 @@
 </style>
 <body class="gothic-a1-regular">
     <jsp:include page="../common/header.jsp"/>
-    <c:if test="${not empty user}">
-		<jsp:include page="../common/idshower.jsp"/>
-    </c:if>
     <!--<div class="z-0" style="position:fixed; height:100vh; width:100%; background-color:#00000044; top:0; left:0;"></div> -->
-   	<img src="${cp}files/common/k_landscape.png" class="img-fluid position-absolute z-n1" alt="landscape">
-    <main class="container my-2 mx-auto p-2 justify-content-center z-3">
+   	<img src="${cp}files/common/k_landscape.png" class="img-fluid position-absolute z-n1 position-fixed fixed-bottom" alt="landscape">
+   	
+    <main class="container my-2 mx-auto p-3 justify-content-center z-3" style="background-color:black; border-radius: 30px;">
+	    <c:if test="${not empty user}">
+			<jsp:include page="../common/idshower.jsp"/>
+	    </c:if>
         <div id="slide-container z-3">
             <ul class="bxslider1">
                 <c:forEach var="ps" begin="1" end="5">
@@ -95,7 +96,6 @@
         </div>
         </div>
     </main>
-    <img src="${cp}files/common/k_landscape.png" class="img-fluid position-absolute z-n1 op-75" alt="landscape">
     <jsp:include page="../common/footer.jsp"/>
     <script src="${cp}js/bxsliderindex.js"></script>
     <script src="${cp}js/searchbar.js"></script>

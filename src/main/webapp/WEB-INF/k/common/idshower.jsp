@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <div class ="row container mt-0">
-	<div class="col-sm-2 small text-white">
+	<div class="col-sm-2 small text-white p-0">
 		<div class="id-shower my-1">
 			<div class="offcanvas offcanvas-start p-1" id="demo">
             	<div class="offcanvas-header border-bottom border-secondary border-3 d-flex justify-content-end" style="background-color:#000;">
