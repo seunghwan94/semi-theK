@@ -6,7 +6,7 @@
 	<head>
 		<jsp:include page="../common/head.jsp"/>
 	</head>
-	<body class="gothic-a1-regular ">
+	<body class="gothic-a1-regular">
 		<jsp:include page="../common/header.jsp"/>
 		<c:if test="${not empty user}">
 			<jsp:include page="../common/idshower.jsp"/>
@@ -33,7 +33,7 @@
 						</div>
 						<div class="input-group container m-2">
 							<span class="input-group-text">작성자</span>
-							<input type="text" class="form-control" value="${userId}" name="writer" id="post-writer">
+							<input type="text" class="form-control" value="${user.id}" name="writer" id="post-writer" disabled>
 						</div>
 					</div>
 					<button type="button" class="btn btn-outline-secondary mt-2 post-button">작성하기</button>

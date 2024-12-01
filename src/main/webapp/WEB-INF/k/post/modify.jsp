@@ -7,11 +7,11 @@
 	</head>
 	<body class="gothic-a1-regular ">
 		<jsp:include page="../common/header.jsp"/>
-		<jsp:include page="../common/idshower.jsp"/>
+		<c:if test="${not empty user}">
+			<jsp:include page="../common/idshower.jsp"/>
+    	</c:if>
 		<div class="wrap">
-			<main class="mt-5 mb-5">
-				<hr class="mb-5">
-				
+			<main class="container mt-5">
                 <label for="title" class="form-label mt-3"><i class="fa-solid fa-t"></i><b> 글 제목 </b></label>
                 <input type="text" class="form-control fw-bold big" id="title" placeholder="input title" name="title" value="${post.title}" >
                 

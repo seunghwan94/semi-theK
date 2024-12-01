@@ -72,7 +72,6 @@
                 </c:if>
                 <c:if test="${status.index == 1}">
                     <div class="row justify-content-center mt-4 mb-4">
-                        <img src="${cp}files/common/k_landscape.png" class="img-fluid position-absolute z-n1 op-75" alt="landscape">
                         <ul class="col-sm-12 bxslider2 z-3">
                             <c:forEach var="bx" begin="1" end="8">
                                 <li class="text-start position-relative">

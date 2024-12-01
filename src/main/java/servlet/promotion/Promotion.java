@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 public class Promotion extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/WEB-INF/k/promotion/promotion.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/k/promotion/promotionlist.jsp").forward(req, resp);
 	}
-	
 }

@@ -50,9 +50,11 @@
 	</c:choose>
 </c:forEach>
 </ul>
+<!-- 
 	<form class="d-flex position-relative">
 		<input 	class="form-control" type="search" placeholder="검색하기" id="search-input">
 	</form>
+-->
 </div>
 </nav>
 <script>
