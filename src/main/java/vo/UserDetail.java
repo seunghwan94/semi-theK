@@ -20,6 +20,7 @@ public class UserDetail {
 	private String selfIntro;
 	private String grade;
 	private int mtno;
+	private String img;
 	private Date lastLogin;
 	private Date createDate;
 	private Date updateDate;

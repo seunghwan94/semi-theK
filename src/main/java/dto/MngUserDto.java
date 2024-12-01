@@ -15,8 +15,10 @@ public class MngUserDto {
 	private String detailAddr;
 	private String selfIntro;
 	private String grade;
+	private String img;
 	private int mtno;
 	private Date lastLogin;
+	
 	
 	private String pw;
 	private String nickName;
@@ -37,6 +39,7 @@ public class MngUserDto {
 		selfIntro = detail.getSelfIntro();
 		grade = detail.getGrade();
 		mtno = detail.getMtno();
+		img = detail.getImg();
 		lastLogin = detail.getLastLogin();
 	}
 }
