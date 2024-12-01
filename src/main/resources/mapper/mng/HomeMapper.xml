@@ -50,5 +50,11 @@
 	FROM tbl_post_like
 </select>
 
+<select id="selectByPostCnoCnt" resultType="vo.Statistics">
+	select tc.cname as target, count(tp.pno) as cnt
+	from tbl_post tp, tbl_category tc 
+	where tp.cno = tc.cno 
+	group by tc.cname limit 10
+</select>
 
 </mapper>

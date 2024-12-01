@@ -1,4 +1,4 @@
-package servlet.manage.home;
+package servlet.manage.statistics;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,18 +14,17 @@ import service.manage.HomeServiceImpl;
 import vo.Statistics;
 
 @SuppressWarnings("serial")
-@WebServlet({"/manage","/manage/home"})
-public class Home extends HttpServlet {
+@WebServlet("/manage/statistics")
+public class MngStatistics extends HttpServlet{
 	private HomeService service = new HomeServiceImpl();
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setAttribute("menu", "home");
 		
-		List<Statistics> userTotal = service.userTotal();
+		List<Statistics> userTotal = service.userTotal();				// 가입 회원
 		List<Statistics> postTotal = service.postTotal();				// 게시글
 		List<Statistics> likeTotal = service.likeTotal(); 				// 좋아요
-		List<Statistics> userCreateTotal = service.userCreateTotal();	// 가입 회원
-		List<Statistics> genderTotal = service.genderTotal();
+		List<Statistics> userCreateTotal = service.userCreateTotal();	// 가입 날짜별 회원
+		List<Statistics> genderTotal = service.genderTotal();			// 성별
 
 		
 		req.setAttribute("userTotal", userTotal);
@@ -34,7 +33,16 @@ public class Home extends HttpServlet {
 		req.setAttribute("postTotal", postTotal);
 		req.setAttribute("likeTotal", likeTotal);
 		
-		req.getRequestDispatcher("/WEB-INF/k/manage/home.jsp").forward(req, resp);
+		List<Statistics> nameTotal = service.nameTotal();				// 이름 등록한 사람
+		List<Statistics> gradeTotal = service.gradeTotal();				// 등급별 유져
+		List<Statistics> postCnoTotal = service.postCnoTotal();				// 등급별 유져
+		
+		req.setAttribute("nameTotal", nameTotal);
+		req.setAttribute("gradeTotal", gradeTotal);
+		req.setAttribute("postCnoTotal", postCnoTotal);
+		
+		req.setAttribute("menu", "statistics");
+		req.getRequestDispatcher("/WEB-INF/k/manage/statistics.jsp").forward(req, resp);
 	}
 	
 }

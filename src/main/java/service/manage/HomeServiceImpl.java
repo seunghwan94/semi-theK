@@ -67,6 +67,14 @@ public class HomeServiceImpl implements HomeService{
 		}
 	}
 	
+	@Override
+	public List<Statistics> postCnoTotal() {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			HomeMapper mapper = session.getMapper(HomeMapper.class);
+			return mapper.selectByPostCnoCnt();
+		}
+	}
+	
 	public static void main(String[] args) {
 		List<Statistics> list = new HomeServiceImpl().nameTotal();
 		System.out.println(list);

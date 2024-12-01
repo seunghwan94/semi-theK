@@ -19,4 +19,6 @@ public interface HomeMapper {
 	List<Statistics> selectByPostCnt();
 
 	List<Statistics> selectByPostLikeCnt();
+
+	List<Statistics> selectByPostCnoCnt();
 }

@@ -13,5 +13,6 @@ public interface HomeService {
 	List<Statistics> nameTotal();
 	List<Statistics> postTotal();
 	List<Statistics> likeTotal();
+	List<Statistics> postCnoTotal();
 	
 }
