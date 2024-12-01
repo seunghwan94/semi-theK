@@ -99,7 +99,7 @@
 		        </div>
 		        <div class="d-flex justify-content-end mt-4 me-2">
 		        	<button type="button" class="btn btn-outline-secondary me-2" onclick="window.location.href='${cp}kallery'">목록</button>
-		            <button type="button" class="btn btn-secondary ${post==null ? 'btn-add':'btn-modi'} " > ${post==null ? '등록':'수정'}</button>
+		            <button type="button" class="btn btn-secondary ${post.pno==0 ? 'btn-add':'btn-modi'} " > ${post.pno==0 ? '등록':'수정'}</button>
 		        </div>
 			</form>
 			

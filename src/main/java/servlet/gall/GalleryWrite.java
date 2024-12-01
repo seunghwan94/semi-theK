@@ -12,6 +12,7 @@ import service.PostService;
 import service.PostServiceImpl;
 import service.common.ServiceCommon;
 import vo.Post;
+import vo.User;
 
 @SuppressWarnings("serial")
 @WebServlet("/kallery/write")
@@ -21,10 +22,16 @@ public class GalleryWrite extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String pno = req.getParameter("pno");
+		User user = (vo.User)req.getSession().getAttribute("user");
+		
+		Post post;
 		if (pno != null) {
-			Post post = service.findBy(Integer.parseInt(pno));
-			req.setAttribute("post", post);
+			post = service.findBy(Integer.parseInt(pno));
+		}else {
+			post = Post.builder().userId(user.getId()).build();
 		}
+		req.setAttribute("post", post);
+		
 		req.getRequestDispatcher("/WEB-INF/k/gall/galleryWrite.jsp").forward(req, resp);
 	}
 
