@@ -5,7 +5,7 @@
 		<div class="row">
 		<!-- 로고 섹션 -->
 			 <div class="col-md-3 d-flex align-items-center justify-content-center">
-			   <img src="https://media.discordapp.net/attachments/1306176259117813763/1308984943233208351/--1.png?ex=67448bfa&is=67433a7a&hm=f935fde3899c57c3ae5dbb3f888223ebee50f0d8c3bfb9b234e1f894adb40a62&=&format=webp&quality=lossless&width=624&height=904" 
+			   <img src="${cp}file/common/light_logo.png" 
 			        alt="로고" class="img" style="width: 100px; height: 100px;">
 			 </div>
 		 <!-- 링크와 아이콘 섹션 -->

@@ -29,6 +29,13 @@
                 </c:forEach>
             </ul>
         </div>
+         <div class="layer-popup">
+	        <img src="2578206_241014101146.jpg" alt="굿즈소개"> 
+	        <p class="clearfix">
+	            <span>오늘은 그만 보기 <input type="checkbox"></span>
+	            <a href="#">닫기</a>
+	        </p>
+	    </div>
         <div class="container-fluid mt-4 p-2 mx-auto text-center">
             <c:forEach items="${subC}" var="s" varStatus="status">
                 <c:if test="${status.index % 2 == 0}">
@@ -42,6 +49,7 @@
                         <c:forEach items="${posts}" var="p">
                             <c:if test="${s.cno == p.cno}">
                                 <li class="bg-dark">
+                                  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
                                     <div class="row p-2 border-bottom border-light mx-auto text-light">
                                         <div class="col-sm-1 small">${p.pno}</div>
                                         <div class="col-sm-6 text-truncate">
@@ -58,7 +66,24 @@
 										<div class="col-sm-2 small small small">
 										    <fmt:formatDate value="${p.createDate}" pattern="yyyy/MM/dd" />
 										</div>
-                                    </div>
+									 <script>
+							        // 하룻동안 보지 않기가 체크가 안되어 있을시 할일
+							        if(!$.cookie("layer")) {
+							            $(".layer-popup").show();
+							        }
+							        
+							        // 레이어 팝업 내의 닫기 버튼 클릭시 이벤트
+							        $(".layer-popup a").click(function() {
+							            event.preventDefault();
+							            const checked = $(this).prev().find("input:checkbox").prop("checked");
+							            console.log(checked);
+							            if(checked) {
+							                $.cookie('layer', 'yes', {expires: 1});
+							            }
+							            $(".layer-popup").hide();
+							        });
+							        </script>    
+					             </div>
                                 </li>
                             </c:if>
                         </c:forEach>
