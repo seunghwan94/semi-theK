@@ -31,8 +31,10 @@
 						 data: JSON.stringify(data),
 						success : function (data){
 							console.log(data);
-							if(data.status == "success"){
+							if(data.status == "success2"){
 								location.href="index";
+							}else if(data.status == "success"){
+								location.href="indexIntro";
 							}else{						
 								alert("없는 회원입니다.");								
 							}
