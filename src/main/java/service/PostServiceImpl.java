@@ -21,7 +21,7 @@ public class PostServiceImpl implements PostService {
 	public List<Post> listPost(Criteria cri) {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			PostMapper mapper = session.getMapper(PostMapper.class);
-			System.out.println("크리테리아" + cri);
+//			System.out.println("크리테리아" + cri);
 			return mapper.selectList(cri);
 		}
 	}
@@ -31,7 +31,7 @@ public class PostServiceImpl implements PostService {
 	public int count(Criteria cri) {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			PostMapper mapper = session.getMapper(PostMapper.class);
-			System.out.println("카운트 크리" + cri);
+//			System.out.println("카운트 크리" + cri);
 			return mapper.getCount(cri);
 		}
 	}
