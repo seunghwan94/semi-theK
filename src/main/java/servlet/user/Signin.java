@@ -14,10 +14,13 @@ import javax.servlet.http.HttpSession;
 import com.google.gson.Gson;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
+import dto.MngUserDto;
 import service.UserEmailServiceImpl;
 import service.UserService;
 import service.UserServiceImpl;
 import service.common.ServiceCommon;
+import service.manage.MngUserService;
+import service.manage.MngUserServiceImpl;
 import vo.Taboo;
 import vo.User;
 import vo.UserEmail;
@@ -26,7 +29,7 @@ import vo.UserLog;
 @WebServlet("/signin")
 public class Signin extends HttpServlet {
 	private UserService service = new UserServiceImpl();
-
+	private MngUserService mngService = new MngUserServiceImpl();
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -40,9 +43,10 @@ public class Signin extends HttpServlet {
 		
 		if (service.login(user.getId(),user.getPw())) {
 			HttpSession session = req.getSession();
-			session.setAttribute("userRealId", (service.findBy(user.getId())).getId());
 			
+			session.setAttribute("userRealId", (service.findBy(user.getId())).getId());
 			session.setAttribute("user", service.findBy(user.getId()));
+			
 			if (saveid != null) {
 				Cookie cookie = new Cookie("remember-id", user.getId());
 				cookie.setMaxAge(60 * 60 * 3);
@@ -67,7 +71,16 @@ public class Signin extends HttpServlet {
 				redirectURL = URLDecoder.decode(url, "utf-8");
 			}
 			service.register(userLog);
-			ServiceCommon.sendJson(resp, "success");
+			
+			
+			
+			MngUserDto userInfo = mngService.findByUser(user.getId());
+			if(!"관리자".equals(userInfo.getGrade()) ) {
+				ServiceCommon.sendJson(resp, "success2");	
+			}else {
+				ServiceCommon.sendJson(resp, "success");
+			}
+			
 			/* resp.sendRedirect(redirectURL); */
 		} else {
 			ServiceCommon.sendJson(resp, "fail");
