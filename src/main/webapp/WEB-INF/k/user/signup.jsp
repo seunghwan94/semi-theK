@@ -130,7 +130,6 @@ $(function () {
 					contentType: "application/json; charse=utf-8",
 					data : data,
 					success : function (data){
-						console.log(data);
 						if(data == "success"){
 							alert("사용 가능한 닉네임");
 							ntoken=true;

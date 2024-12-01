@@ -20,8 +20,7 @@
 			$(function() {
 				$("#signin-button").click(function() {
 					const signinpw = $("#signin-pwd").val();
-					const signinid = $("#signinemail").val();
-				 	
+					const signinid = $("#signinemail").val();				 	
 					const data = {"id":signinid,"pw":signinpw};
 				 	
 					$.ajax ({

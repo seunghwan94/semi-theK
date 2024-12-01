@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import dto.MngUserDto;
 import service.UserService;
 import service.UserServiceImpl;
+import service.common.ServiceCommon;
 import service.manage.MngUserService;
 import service.manage.MngUserServiceImpl;
 import vo.User;
@@ -35,8 +36,11 @@ public class MyPage extends HttpServlet {
 		}
 		@Override
 		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-			req.setCharacterEncoding("utf-8");
+			
+			resp.setContentType("application/json; charset=utf-8");
+			User user1 = ServiceCommon.getJson(req, User.class);
+			UserDetail user2 = ServiceCommon.getJson(req, UserDetail.class);
+			
 			String myNickName = req.getParameter("myNickName");
 			String myEmail = req.getParameter("myEmail");
 			String myGender = req.getParameter("myGender");
@@ -45,6 +49,7 @@ public class MyPage extends HttpServlet {
 			String myAddr = req.getParameter("myAddr");
 			String myDetailAddr = req.getParameter("myDetailAddr");
 			String myGrade = req.getParameter("myGrade");
+			String myImg = req.getParameter("myImg");
 			
 			
 			UserDetail userDetail = UserDetail.builder()
@@ -55,6 +60,7 @@ public class MyPage extends HttpServlet {
 				.detailAddr(myDetailAddr)
 				.selfIntro(myIntro)
 				.grade(myGrade)
+				.img(myImg)
 				.build();
 			
 			User user = User.builder()
