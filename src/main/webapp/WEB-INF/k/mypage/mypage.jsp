@@ -17,39 +17,41 @@
 				       	<div class = "w-100">
 						      	<div class="input-group flex-nowrap mb-1">
 									  <span class="input-group-text" id="addon-wrapping">닉네임</span>
-									  <input type="text" class="form-control text-center " placeholder="${userDto.nickName}" aria-label="nickName" aria-describedby="addon-wrapping">
-									  <button class="btn btn-secondary " type="button" id="">닉네임 변경</button>
-								</div>
-								<div class="input-group flex-nowrap mb-1">
-									  <span class="input-group-text" id="addon-wrapping">이메일</span>
-									  <input type="text" class="form-control text-center" value="${user.id}" aria-label="userEmail" aria-describedby="addon-wrapping">
-								</div>
-								<div class="input-group flex-nowrap mb-1">
-									 <!--  <span class="input-group-text "  id="addon-wrapping">등급</span>
-									  <input type="text" class="form-control text-center" placeholder="" aria-label="Username" aria-describedby="addon-wrapping"> -->
-									  <span class="input-group-text " id="addon-wrapping">성별</span>
-									  <input type="text" class="form-control text-center" placeholder="${userdetail.gender}" aria-label="gender" aria-describedby="addon-wrapping">
-									  <button class="btn btn-secondary " type="button" id="">성별 변경</button>
+									  <input type="text" class="form-control text-center" id="myNickName" value="${userInfo.nickName}" aria-label="nickName" aria-describedby="addon-wrapping">
 								</div>
 								<div class="input-group flex-nowrap mb-1" >
-									  <span class="input-group-text " id="addon-wrapping">소개</span>
-									  <input type="text" class="form-control text-center" placeholder="${userdetail.selfIntro}" aria-label="selfIntro" aria-describedby="addon-wrapping">
+									  <span class="input-group-text" id="addon-wrapping" >이메일</span>
+									  <input type="text" class="form-control text-center" id="myEmail" value="${userInfo.id}" aria-label="userEmail" aria-describedby="addon-wrapping" disabled>
+								</div>
+								<div class="input-group flex-nowrap mb-1">
+									  <span class="input-group-text " id="addon-wrapping"> 성별 </span>
+								  <select class="form-select text-center" name="gender" id="myGender">
+                                    <option value="N" ${userInfo.grade == 'N' ? 'selected':''} >Select</option>
+                                    <option value="M" ${userInfo.grade == 'M' ? 'selected':''} >Man</option>
+                                    <option value="W" ${userInfo.grade == 'W' ? 'selected':''} >Woman</option>
+                                 </select>
+								</div>
+								<div class="input-group flex-nowrap mb-1" >
+									  <span class="input-group-text " id="addon-wrapping"> 소개 </span>
+									  <input type="text" class="form-control text-center" id="myIntro" value="${userInfo.selfIntro}" aria-label="selfIntro" aria-describedby="addon-wrapping">
 								</div>
 								<div class="input-group flex-nowrap mb-1">
 									  <span class="input-group-text " id="addon-wrapping">팔로잉</span>
-									  <input type="text" class="form-control text-center" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+									  <input type="text" class="form-control text-center" value="Username" aria-label="Username" aria-describedby="addon-wrapping" disabled>
 									  <span class="input-group-text " id="addon-wrapping">팔로워</span>
-									  <input type="text" class="form-control text-center" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+									  <input type="text" class="form-control text-center" value="Username" aria-label="Username" aria-describedby="addon-wrapping" disabled>
 								</div>
 								<div class="input-group flex-nowrap mb-1">
 									<span class="input-group-text " id="addon-wrapping">이름</span>
-									  <input type="text" class="form-control text-center" placeholder="${userdetail.name}" aria-label="UserName" aria-describedby="addon-wrapping">
+									  <input type="text" class="form-control text-center" id="myName" value="${userInfo.name}" aria-label="UserName" aria-describedby="addon-wrapping">
 									  <span class="input-group-text " id="addon-wrapping">지역</span>
-									  <input type="text" class="form-control text-center" placeholder="${userdetail.addr}" aria-label="userAddr" aria-describedby="addon-wrapping">				
+									  <input type="text" class="form-control text-center" id="myAddr" value="${userInfo.addr}" aria-label="userAddr" aria-describedby="addon-wrapping">
+									  <span class="input-group-text " id="addon-wrapping">상세 지역</span>
+									  <input type="text" class="form-control text-center" id="myDetailAddr" value="${userInfo.detailAddr}" aria-label="userAddr" aria-describedby="addon-wrapping">					
 								</div> 
 								<div class="input-group flex-nowrap mb-3">
 									  <span class="input-group-text " id="addon-wrapping">프로모션 등급</span>
-								<select class="form-select text-center" name="grade" disabled>
+								<select class="form-select text-center" id="myGrade" name="grade" disabled>
                                     <option value="일반등급" ${userInfo.grade == '일반등급' ? 'selected':''} >일반등급</option>
                                     <option value="사업자" ${userInfo.grade == '사업자' ? 'selected':''} >사업자</option>
                                     <option value="관리자" ${userInfo.grade == '관리자' ? 'selected':''} >관리자</option>
@@ -57,11 +59,19 @@
                                 </select>
 								</div>
 								  <div class="d-flex justify-content-between">
-						            <button class="btn btn-secondary" type="button" id="button-addon2">Language</button> 
 						            <button class="btn btn-danger" type="button" id="button-addon2">회원 탈퇴</button>
+						            <button class="btn btn-secondary" type="button" id="my-resister-button">저장</button> 
 						          </div> 
 						</div>				
 					</div>		
 	     		</div>
    </div>       
-   </div>       
+   </div>  
+   <script>
+   $(function() {
+	   $("#my-button").click(function() {
+		
+	})
+	
+})
+   </script>     

@@ -86,7 +86,7 @@ $(function(){
 	         } 
         }  
     })
-    	 $("#modify-button").click(function join() {
+    	$("#modify-button").click(function join() {
     		if(!form.signUpEmail.value){
 				alert("아이디를 입력해주세요");
 				form.signUpEmail.focus();

@@ -57,9 +57,6 @@ public class Signin extends HttpServlet {
 					}
 				}
 			}
-
-			System.out.println(user.getId());
-			
 			UserLog userLog = UserLog.builder()
 					.userId(user.getId())
 					.build();

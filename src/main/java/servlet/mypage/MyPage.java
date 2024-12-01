@@ -1,6 +1,7 @@
 package servlet.mypage;
 
 import java.io.IOException;
+import java.net.URLDecoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dto.MngUserDto;
+import service.UserService;
+import service.UserServiceImpl;
 import service.manage.MngUserService;
 import service.manage.MngUserServiceImpl;
 import vo.User;
@@ -17,6 +20,8 @@ import vo.UserDetail;
 @WebServlet("/mypage")
 public class MyPage extends HttpServlet {
 		private MngUserService service = new MngUserServiceImpl();
+		private UserService userService = new UserServiceImpl();
+		
 	
 		@Override
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -31,33 +36,38 @@ public class MyPage extends HttpServlet {
 		@Override
 		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-			// User
-			String id = req.getParameter("id");
-			String pw = req.getParameter("pw");	
-			String nickName = req.getParameter("nickName");
-			// UserDetail
-			String name = req.getParameter("name");
-			String gender = req.getParameter("gender");
-			String grade = req.getParameter("grade");
-			String addr = req.getParameter("addr");
-			String detailAddr = req.getParameter("detailAddr");
+			req.setCharacterEncoding("utf-8");
+			String myNickName = req.getParameter("myNickName");
+			String myEmail = req.getParameter("myEmail");
+			String myGender = req.getParameter("myGender");
+			String myIntro = req.getParameter("myIntro");
+			String myName = req.getParameter("myName");
+			String myAddr = req.getParameter("myAddr");
+			String myDetailAddr = req.getParameter("myDetailAddr");
+			String myGrade = req.getParameter("myGrade");
 			
-			boolean pwReset = Boolean.parseBoolean(req.getParameter("pwReset"));
-			if (pwReset) pw = "12345";
 			
-			User user = User.builder().id(id).pw(pw).nickName(nickName).build();
-			UserDetail userDetail = UserDetail.builder().id(id).name(name).gender(gender).addr(addr).detailAddr(detailAddr).grade(grade).build();
-			MngUserDto userDto = new MngUserDto(user,userDetail);
+			UserDetail userDetail = UserDetail.builder()
+				.id(myEmail)
+				.name(myName)
+				.gender(myGender)
+				.addr(myAddr)
+				.detailAddr(myDetailAddr)
+				.selfIntro(myIntro)
+				.grade(myGrade)
+				.build();
 			
-			boolean modifyCk = service.modifyUser(userDto);
+			User user = User.builder()
+					.id(myEmail)
+					.nickName(myNickName)
+					.build();
+			MngUserDto dtoUserDto= new MngUserDto(user, userDetail);
 
-			String ck = modifyCk + "";
-			if(pwReset && modifyCk) ck = "BY"; // 비밀번호 초기화
+		
+			userService.modifyMyPage(userDetail);
+			userService.modify(user);
+			req.getRequestDispatcher("/WEB-INF/k/mypage/pagemain.jsp").forward(req, resp);
 			
-			req.getSession().setAttribute("ck", ck);    // 세션에 상태 저장
-		    req.getSession().setMaxInactiveInterval(3); // 2초
-		    req.setAttribute("userDto", userDto);
-		    req.getRequestDispatcher("/WEB-INF/k/mypage/pagemain.jsp").forward(req, resp);
-	    }
+		}
 
 }

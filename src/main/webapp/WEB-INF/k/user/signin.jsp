@@ -32,7 +32,6 @@
 						success : function (data){
 							console.log(data);
 							if(data.status == "success"){
-								alert("로그인 완료");	
 								location.href="index";
 							}else{						
 								alert("없는 회원입니다.");								

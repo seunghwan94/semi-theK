@@ -34,6 +34,8 @@ public interface UserService {
 	//회원 정보 수정
 	int modify(User user);
 
+	int modifyMyPage(UserDetail userDetail);
+
 
 	
 	
