@@ -13,6 +13,5 @@ public class Intro extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.getRequestDispatcher("/WEB-INF/k/user/intro.jsp").forward(req, resp);
-		System.out.println("인트로 시작");
 	}
 }

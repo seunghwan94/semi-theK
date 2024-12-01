@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.eclipse.angus.mail.imap.protocol.ID;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import service.UserService;
 import service.UserServiceImpl;
 import vo.User;
@@ -26,13 +27,10 @@ public class ModifyId extends HttpServlet{
 		req.setCharacterEncoding("utf-8");
 		String id = req.getParameter("modifyemail");
 		String pw = req.getParameter("pwd");
-		System.out.println("비밀번호 변경 들어왔나?");
-		System.out.println(pw);
-		System.out.println(id);
+		String passWord = BCrypt.withDefaults().hashToString(8, pw.toCharArray());
 		
 		User user = User.builder()
-			.id(id).pw(pw).build();
-		System.out.println(user);
+			.id(id).pw(passWord).build();
 		String redirectURL = req.getContextPath() + "/intro";
 		String url = req.getParameter("url");
 		if (url != null && !url.equals("")) {
