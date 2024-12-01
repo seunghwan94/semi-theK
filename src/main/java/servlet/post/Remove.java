@@ -55,10 +55,13 @@ public class Remove extends HttpServlet {
 //        }
             
 //        String cnoString = req.getParameter("cno");	
-        System.out.println(cnoString);
+        System.out.println("testtest");
         if(cnoString != null) { // 가져온 카테고리 넘버가 널이 아닐때 시행하도록,,했는데 굳이굳이같긴해요
-        	resp.sendRedirect("?cno=" + cnoString); // 이때 이제 시행되는 거로 보면 되거등요
+        	System.out.println("xxxxx");
+        	resp.sendRedirect("/K/list/view?cno=" + cnoString); // 이때 이제 시행되는 거로 보면 되거등요
+        }else {
+        	System.out.println("zzzzzzz");
+        	resp.sendRedirect("/list/view?page=1&amount=10&cno="+cnoString); // 이때 시행 안되었을때
         }
-//        resp.sendRedirect("/list/page=1&amount=10&cno="+cnoString); // 이때 시행 안되었을때
     }
 }

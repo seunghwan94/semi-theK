@@ -34,6 +34,7 @@ public class Gallery extends HttpServlet{
 		}
 		List<PostDto> postDtos = service.postAndLike(cri,user.getId());
 		
+		req.setAttribute("userId", user.getId());
 		req.setAttribute("posts", postDtos);
 		req.setAttribute("currentPage", "kallery");
 		

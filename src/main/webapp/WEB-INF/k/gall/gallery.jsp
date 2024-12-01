@@ -106,6 +106,11 @@
 	            <p class="content-preview m-0"></p>
 				<p class="text-samll text-secondary m-0 text-end" ></p>
 			  </div>
+			  
+			  <div class="d-flex">
+			      <button class="btn btn-secondary">수정</button>
+			      <button class="btn btn-secondary">삭제</button>
+		      </div>
 			</div>
 	      </div>
 	      
@@ -125,7 +130,7 @@
 		const $cnt = $(this).find(".like-cnt");
 		let cnt = Number($cnt.text().trim());
 		const pno = $(this).data("pno");
-	    const userId = Cookies.get('userId');
+	    const userId = "${userId}";
 	    
 	    console.log(cnt);
 	    let type="";
@@ -170,14 +175,7 @@
         });    
 
 	});
-	$(document).ready(function() {
-		const cookieValue = Cookies.get('userId');
-	    if (cookieValue) {
-	        console.log('remember-id 쿠키 값:', cookieValue);
-	    } else {
-	        console.log('remember-id 쿠키가 존재하지 않습니다.');
-	    }
-	});
+
 	    
 	$(".card-hover").click("click", function(){
 		
@@ -191,7 +189,6 @@
 	    const myPush = $(this).find(".my-push").data('mypush');
 	    const likesCnt = $(this).find(".my-push").text();
 	    
-	    ${post.myPush};
 	    $.ajax({
             url: "${cp}/kallery",
             type: "put",
@@ -214,7 +211,6 @@
 	    
 	    $(".card-footer .like-cnt").text(likesCnt);
 	    
-	    console.log(myPush);
 	    if(myPush){	    	
 	    	console.log("ss");
 		    $(".card-footer .like-Y").removeClass("d-none");
