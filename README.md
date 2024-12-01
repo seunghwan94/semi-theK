@@ -60,3 +60,6 @@
 > * 24.11.26 => *html 구조 구현(user, post, manage, footer) + sevlet, mapper, service + 5 WIP // INCLUDE JSP (Quill API) + 1 WIP*
 > * 24.11.27 => *html 구조 구현(user, post, manage) + sevlet, mapper, service + 6 WIP // INCLUDE JSP (Quill API) + 2 WIP*
 > * 24.11.28 => *html 구조 구현(user, post, manage) + sevlet, mapper, service + 7 WIP // INCLUDE JSP (Quill API) + 3 WIP // pagenation 구현(post) + header 경로 수정*
+> * 24.11.29 => *html 구조 구현(user, post, manage) + sevlet, mapper, service + 8 WIP //gallery, about us, notice + 1 WIP // Sidebar 추가*
+> * 24.11.30 => *html 구조 구현(user, post, manage) + sevlet, mapper, service + 9 WIP // gallery, about us, notice + 1 WIP // Sieebar 구현 완료 // 비밀번호 암호화 + 복호화*
+> * 24.12.01 => *html 구조 구현(user, post, manage) + sevlet, mapper, service + 10 WIP //*
