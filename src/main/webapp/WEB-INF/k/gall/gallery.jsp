@@ -107,9 +107,9 @@
 				<p class="text-samll text-secondary m-0 text-end" ></p>
 			  </div>
 			  
-			  <div class="d-flex">
-			      <button class="btn btn-secondary">수정</button>
-			      <button class="btn btn-secondary">삭제</button>
+			  <div class="d-flex justify-content-end ">
+			      <button class="btn btn-secondary m-1 btn-modi">수정</button>
+			      <button class="btn btn-secondary m-1 btn-remove">삭제</button>
 		      </div>
 			</div>
 	      </div>
@@ -175,8 +175,17 @@
         });    
 
 	});
-
-	    
+	
+	$(".btn-modi").click(function(){
+		const pno = $(".card-footer .like-YN").data("pno");
+		window.location.href='kallery/write?pno='+pno;
+	});
+	
+	$(".btn-remove").click(function(){
+		const pno = $(".card-footer .like-YN").data("pno");
+		window.location.href='kallery/remove?pno='+pno;
+	});
+	
 	$(".card-hover").click("click", function(){
 		
 		const pno = $(this).data("pno");
@@ -208,15 +217,20 @@
 	    $(".card-footer .user-id").text(userId);
 	    $(".card-footer .view-cnt").text(viewCntPuls);
 	    $(".card-footer .like-YN").data("pno",pno);
-	    
 	    $(".card-footer .like-cnt").text(likesCnt);
 	    
+	    if(userId == "${userId}"){
+	    	$(".btn-modi").removeClass("d-none");
+	    	$(".btn-remove").removeClass("d-none");
+	    }else{
+	    	$(".btn-modi").addClass("d-none");
+	    	$(".btn-remove").addClass("d-none");
+	    }
+	    
 	    if(myPush){	    	
-	    	console.log("ss");
 		    $(".card-footer .like-Y").removeClass("d-none");
 		    $(".card-footer .like-N").addClass("d-none");
 	    }else{
-	    	console.log("ee");
 	    	$(".card-footer .like-N").removeClass("d-none");
 	    	$(".card-footer .like-Y").addClass("d-none");
 	    }

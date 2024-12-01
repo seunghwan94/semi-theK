@@ -75,7 +75,10 @@
 		    pno = #{pno};
 	</select>
 	<delete id="deleteLike">
-		delete from tbl_post_like where pno = #{pno} and user_id = #{userId}
+		delete from tbl_post_like where pno = #{pno}
+		<if test="userId != null">
+		 and user_id = #{userId}
+		</if>
 	</delete>
 	
 </mapper>
