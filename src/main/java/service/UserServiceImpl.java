@@ -47,10 +47,16 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public boolean login(String id, String pw) {
-		User u =findBy(id);
-		System.out.println(pw);
-		Result result = BCrypt.verifyer().verify(pw.toCharArray(),u.getPw());  //첫번쟤는 클라이언트에서 오는 pw 두번째가 vo에서  꺼낼 값
-		return result.verified;
+		User u =findBy(id);		
+			boolean ck;
+		try{
+			Result result = BCrypt.verifyer().verify(pw.toCharArray(),u.getPw());  //첫번쟤는 클라이언트에서 오는 pw 두번째가 vo에서  꺼낼 값
+			ck=result.verified;	
+		}catch(Exception e){
+			ck = false;
+		}
+		return ck;			
+
 	}
 
 	@Override

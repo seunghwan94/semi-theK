@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<form method="post" action=modifyid>
+<form method="post" action="modifyid" name="joinForm1">
     <div class="modal-body">
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="signUpEmail" name="modifyemail" placeholder="이메일" aria-label="이메일" aria-describedby="button-addon2">
@@ -18,7 +18,7 @@
     </div>
 
     <div class="modal-footer">
-        <button type="submit" id="modifyclick" class="btn btn-dark">확인</button>
+        <button type="submit" id="modify-button" class="btn btn-dark">확인</button>
         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">취소</button>
   </div>
 </form>
@@ -26,6 +26,11 @@
 <script>
 //이메일 전송
 $(function(){
+	
+	var form = document.joinForm1;
+	let reg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+	let hangleCheck = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/
+	
 	$("#button-modify-email").click(function(){
 		const emailcheck =$("#signUpEmail").val();
 		console.log(emailcheck);
@@ -80,7 +85,34 @@ $(function(){
 	             $("#submit").attr("disabled", "disabled");     
 	         } 
         }  
-    });
+    })
+    	 $("#modify-button").click(function join() {
+    		if(!form.signUpEmail.value){
+				alert("아이디를 입력해주세요");
+				form.signUpEmail.focus();
+				return false;
+			}
+    		if(!form.pwd3.value){
+				alert("비밀번호를 입력해주세요. (비밀번호는 8자리 이상이어야 하며, 대문자/소문자/숫자/특수문자 모두 포함해야 합니다.)");
+				form.pwd3.focus();
+				return false;
+			}
+			if(!reg.test(form.pwd3.value)){
+				alert("비밀번호는 8자리 이상이어야 하며, 대문자/소문자/숫자/특수문자 모두 포함해야 합니다.");
+				form.pwd3.focus();
+				return false;
+			}
+			if(form.pwd3.value.search(/\s/) != -1){
+				alert("비밀번호에 공백 없이 입력해주세요.");
+				form.pwd3.focus();
+				return false;
+			}
+			if(form.pwd3.value != form.pwd4.value){
+				alert("비밀번호가 다릅니다.");
+				form.pwd3.focus();
+				return false;
+			}
+		})
    
 })
 

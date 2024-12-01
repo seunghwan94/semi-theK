@@ -25,8 +25,8 @@
 									  <input type="text" class="form-control text-center" placeholder="${user.id}" aria-label="Username" aria-describedby="addon-wrapping">
 								</div>
 								<div class="input-group flex-nowrap mb-1">
-									  <span class="input-group-text "  id="addon-wrapping">등급</span>
-									  <input type="text" class="form-control text-center" placeholder="${userdetail.grade}" aria-label="Username" aria-describedby="addon-wrapping">
+									 <!--  <span class="input-group-text "  id="addon-wrapping">등급</span>
+									  <input type="text" class="form-control text-center" placeholder="" aria-label="Username" aria-describedby="addon-wrapping"> -->
 									  <span class="input-group-text " id="addon-wrapping">성별</span>
 									  <input type="text" class="form-control text-center" placeholder="${userdetail.gender}" aria-label="Username" aria-describedby="addon-wrapping">
 									  <button class="btn btn-secondary " type="button" id="">성별 변경</button>
@@ -49,7 +49,7 @@
 								</div> 
 								<div class="input-group flex-nowrap mb-3">
 									  <span class="input-group-text " id="addon-wrapping">프로모션 등급</span>
-									  <input type="text" class="form-control text-center"  placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+									  <input type="text" class="form-control text-center"  placeholder="${userdetail.grade}" aria-label="Username" aria-describedby="addon-wrapping">
 								</div>
 								  <div class="d-flex justify-content-between">
 						            <button class="btn btn-secondary" type="button" id="button-addon2">Language</button> 

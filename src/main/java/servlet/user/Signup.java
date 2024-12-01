@@ -22,12 +22,7 @@ import vo.UserDetail;
 public class Signup extends HttpServlet{
 	private UserService service = new UserServiceImpl();
 
-//	@Override
-//	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		req.getRequestDispatcher("/WEB-INF/k/user/intro.jsp").forward(req, resp);
-//		System.out.println("회원가입 버튼 눌렀을때");
-//	}
-//	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -38,8 +33,6 @@ public class Signup extends HttpServlet{
 //		String att = req.getParameter("att");
 		String passWord = BCrypt.withDefaults().hashToString(8, pw.toCharArray());
 		String nickname = req.getParameter("nickname");
-		System.out.println("222222");
-		System.out.println(id);
 	
 		User user = User.builder()
 			
@@ -51,7 +44,6 @@ public class Signup extends HttpServlet{
 		UserDetail userDetail = UserDetail.builder()
 		.id(id).build();
 				
-		System.out.println(user);
 		String redirectURL = req.getContextPath() + "/intro";
 		String url = req.getParameter("url");
 		if (url != null && !url.equals("")) {
@@ -80,10 +72,8 @@ public class Signup extends HttpServlet{
 		
 		if(nick == null) {
 			resp.getWriter().print(gson.toJson("success"));
-			System.out.println("없는 닉네임");
 		}else {
 			resp.getWriter().print(gson.toJson("fail"));
-			System.out.println("있는 닉네임");
 		}
 		
 	}	
