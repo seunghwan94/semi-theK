@@ -44,7 +44,7 @@
 				console.log("${user.id}");
 				console.log("${post.userId}");
 		        $(".btn-mod, .btn-del").removeClass("d-none");
-		    } // 아니 이놈들도 말 안들어요
+		    } 
 		    
 		    const cookieValue = Cookies.get('userId');
 	        if (cookieValue) {

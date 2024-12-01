@@ -43,7 +43,7 @@ public class View extends HttpServlet{
 		System.out.println(pno);
 		System.out.println(postService.view(Integer.parseInt(pno)));
 		req.setAttribute("post", postService.view(Integer.parseInt(pno)));
-		req.setAttribute("criteria", criteria);
+//		req.setAttribute("criteria", criteria);
 		req.setAttribute("criteria", criteria);
 		req.getRequestDispatcher("/WEB-INF/k/post/view.jsp").forward(req,resp);
 	}

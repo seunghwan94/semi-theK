@@ -6,7 +6,7 @@
 			<div class="offcanvas offcanvas-start p-1" id="demo">
             	<div class="offcanvas-header border-bottom border-secondary border-3 d-flex justify-content-end" style="background-color:#000;">
                     <video src="${cp}/files/common/k_intro.mp4" class="offcanvas-title" alt="mp4" width="125" muted autoplay playsinline loop></video>
-			        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+			        <button type="button" class="btn-close text-reset border" data-bs-dismiss="offcanvas"></button>
 			    </div>
 			    <div class="offcanvas-body video-container overflow-hidden position-relative m-0">
 					<div class="justify-content-center z-3 position-absolute" >

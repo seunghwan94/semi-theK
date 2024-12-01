@@ -12,7 +12,6 @@
 		</c:if>
 		<div class="wrap">
 			<main class="mt-5 mb-5">
-				<hr class="mb-5">
 				
 				
 				

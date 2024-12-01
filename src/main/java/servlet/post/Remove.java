@@ -23,7 +23,7 @@ public class Remove extends HttpServlet {
         String pnoStr = req.getParameter("pno");
         Object userObj = req.getSession().getAttribute("user");
         Criteria criteria = new Criteria(req); 
-        String redirectURL = criteria.getQs2(); 
+        String redirectURL = "list/view?pno="+pnoStr; 
 
         if (userObj == null || pnoStr == null) {
         	Commons.printMsg("SYSTEM :: ERR / INVALID APPROACH", redirectURL, resp);
@@ -46,7 +46,12 @@ public class Remove extends HttpServlet {
             e.printStackTrace();
             return;
         }
-        
-        resp.sendRedirect(redirectURL);
+//        String cnoString = req.getParameter("cno");
+        Integer cnoString = postService.findBy(pno).getCno();
+        System.out.println(cnoString);
+        if(cnoString != null) {
+        	resp.sendRedirect("/list/page=1&amount=10&cno="+cnoString);
+        }
+        resp.sendRedirect("/list/page=1&amount=10&cno="+cnoString);
     }
 }
