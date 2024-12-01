@@ -75,7 +75,7 @@ public class Signin extends HttpServlet {
 			
 			
 			MngUserDto userInfo = mngService.findByUser(user.getId());
-			if(userInfo.getGrade() == "관리자") {
+			if(!"관리자".equals(userInfo.getGrade()) ) {
 				ServiceCommon.sendJson(resp, "success2");	
 			}else {
 				ServiceCommon.sendJson(resp, "success");
