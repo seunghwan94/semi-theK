@@ -40,6 +40,8 @@ public class Signin extends HttpServlet {
 		
 		if (service.login(user.getId(),user.getPw())) {
 			HttpSession session = req.getSession();
+			session.setAttribute("userRealId", (service.findBy(user.getId())).getId());
+			
 			session.setAttribute("user", service.findBy(user.getId()));
 			if (saveid != null) {
 				Cookie cookie = new Cookie("remember-id", user.getId());

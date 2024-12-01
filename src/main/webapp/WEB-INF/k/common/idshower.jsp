@@ -10,7 +10,7 @@
 			    </div>
 			    <div class="offcanvas-body video-container overflow-hidden position-relative m-0">
 					<div class="justify-content-center z-3 position-absolute" >
-					    <a class="text-decoration-none text-light fw-big" href="${cp}mypage"><i class="fa-solid fa-image-portrait"></i> 마이페이지 </a>
+					    <a class="text-decoration-none text-light fw-big" href="${cp}mypage?id=${userRealId}"><i class="fa-solid fa-image-portrait"></i> 마이페이지 </a>
 					    <hr class="bg-light">
 					    <a class="text-decoration-none text-light fw-big" href="${cp}intro"><i class="fa-solid fa-right-from-bracket"></i> 로그아웃 </a>
 					    <hr class="bg-light">

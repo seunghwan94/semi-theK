@@ -17,23 +17,23 @@
 				       	<div class = "w-100">
 						      	<div class="input-group flex-nowrap mb-1">
 									  <span class="input-group-text" id="addon-wrapping">닉네임</span>
-									  <input type="text" class="form-control text-center " placeholder="${user.nickName}" aria-label="Username" aria-describedby="addon-wrapping">
+									  <input type="text" class="form-control text-center " placeholder="${userDto.nickName}" aria-label="nickName" aria-describedby="addon-wrapping">
 									  <button class="btn btn-secondary " type="button" id="">닉네임 변경</button>
 								</div>
 								<div class="input-group flex-nowrap mb-1">
 									  <span class="input-group-text" id="addon-wrapping">이메일</span>
-									  <input type="text" class="form-control text-center" placeholder="${user.id}" aria-label="Username" aria-describedby="addon-wrapping">
+									  <input type="text" class="form-control text-center" value="${user.id}" aria-label="userEmail" aria-describedby="addon-wrapping">
 								</div>
 								<div class="input-group flex-nowrap mb-1">
 									 <!--  <span class="input-group-text "  id="addon-wrapping">등급</span>
 									  <input type="text" class="form-control text-center" placeholder="" aria-label="Username" aria-describedby="addon-wrapping"> -->
 									  <span class="input-group-text " id="addon-wrapping">성별</span>
-									  <input type="text" class="form-control text-center" placeholder="${userdetail.gender}" aria-label="Username" aria-describedby="addon-wrapping">
+									  <input type="text" class="form-control text-center" placeholder="${userdetail.gender}" aria-label="gender" aria-describedby="addon-wrapping">
 									  <button class="btn btn-secondary " type="button" id="">성별 변경</button>
 								</div>
 								<div class="input-group flex-nowrap mb-1" >
 									  <span class="input-group-text " id="addon-wrapping">소개</span>
-									  <input type="text" class="form-control text-center" placeholder="${userdetail.selfIntro}" aria-label="Username" aria-describedby="addon-wrapping">
+									  <input type="text" class="form-control text-center" placeholder="${userdetail.selfIntro}" aria-label="selfIntro" aria-describedby="addon-wrapping">
 								</div>
 								<div class="input-group flex-nowrap mb-1">
 									  <span class="input-group-text " id="addon-wrapping">팔로잉</span>
@@ -43,17 +43,21 @@
 								</div>
 								<div class="input-group flex-nowrap mb-1">
 									<span class="input-group-text " id="addon-wrapping">이름</span>
-									  <input type="text" class="form-control text-center" placeholder="${userdetail.name}" aria-label="Username" aria-describedby="addon-wrapping">
+									  <input type="text" class="form-control text-center" placeholder="${userdetail.name}" aria-label="UserName" aria-describedby="addon-wrapping">
 									  <span class="input-group-text " id="addon-wrapping">지역</span>
-									  <input type="text" class="form-control text-center" placeholder="${userdetail.addr}" aria-label="Username" aria-describedby="addon-wrapping">				
+									  <input type="text" class="form-control text-center" placeholder="${userdetail.addr}" aria-label="userAddr" aria-describedby="addon-wrapping">				
 								</div> 
 								<div class="input-group flex-nowrap mb-3">
 									  <span class="input-group-text " id="addon-wrapping">프로모션 등급</span>
-									  <input type="text" class="form-control text-center"  placeholder="${userdetail.grade}" aria-label="Username" aria-describedby="addon-wrapping">
+								<select class="form-select text-center" name="grade" disabled>
+                                    <option value="일반등급" ${userInfo.grade == '일반등급' ? 'selected':''} >일반등급</option>
+                                    <option value="사업자" ${userInfo.grade == '사업자' ? 'selected':''} >사업자</option>
+                                    <option value="관리자" ${userInfo.grade == '관리자' ? 'selected':''} >관리자</option>
+                                    <option value="마스터" ${userInfo.grade == '마스터' ? 'selected':''} >마스터</option>
+                                </select>
 								</div>
 								  <div class="d-flex justify-content-between">
 						            <button class="btn btn-secondary" type="button" id="button-addon2">Language</button> 
-						            <button class="btn btn-secondary" type="button" id="button-addon2">저장</button> 
 						            <button class="btn btn-danger" type="button" id="button-addon2">회원 탈퇴</button>
 						          </div> 
 						</div>				
