@@ -13,9 +13,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserLog {
-	public int loguserNo;
+	public int logUserNo;//pk
 	public String userId;
-	public int category;
 	public String detail;
 	public Date createDate;
 }

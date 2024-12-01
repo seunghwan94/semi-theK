@@ -12,6 +12,8 @@ import java.sql.Statement;
 import utils.DBConn;
 import vo.User;
 import vo.UserDetail;
+import vo.UserDetailLog;
+import vo.UserLog;
 
 
 public class UserDto {
@@ -66,6 +68,36 @@ public class UserDto {
 			int idx= 1;
 			
 			pstmt.setString(idx++, userDetail.getId());
+			return pstmt.executeUpdate();
+		}catch (SQLException | ClassNotFoundException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+			}catch (SQLException ignore) {}
+		
+		}
+		return 0;
+	}
+	public int insert(UserLog userLog) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+	
+		try {
+			Class.forName("org.mariadb.jdbc.Driver");
+		
+			String sql = "INSERT INTO tbl_user_log (user_id) values (?)";
+			
+			
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			int idx= 1;
+			
+			pstmt.setString(idx++, userLog.getUserId());
 			return pstmt.executeUpdate();
 		}catch (SQLException | ClassNotFoundException e) {
 			// TODO: handle exception

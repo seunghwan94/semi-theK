@@ -10,6 +10,7 @@ import mapper.UserMapper;
 import utils.MybatisInit;
 import vo.User;
 import vo.UserDetail;
+import vo.UserLog;
 
 public class UserServiceImpl implements UserService {
 
@@ -26,6 +27,12 @@ public class UserServiceImpl implements UserService {
 		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			UserMapper mapper = session.getMapper(UserMapper.class);
 				return mapper.insertDetail(userDetail);
+		}
+	}
+	public int register(UserLog userLog) {
+		try(SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			UserMapper mapper = session.getMapper(UserMapper.class);
+				return mapper.insertUserLog(userLog);
 		}
 	}
 

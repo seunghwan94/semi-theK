@@ -5,6 +5,7 @@ import java.util.List;
 import at.favre.lib.crypto.bcrypt.BCrypt.Result;
 import vo.User;
 import vo.UserDetail;
+import vo.UserLog;
 
 public interface UserService {
 
@@ -12,6 +13,9 @@ public interface UserService {
 	int register(User user);
 	
 	int register(UserDetail userDetail);
+	
+	int register(UserLog userLog);
+	
 	
 	//조회
 	User findBy(String id);
@@ -29,6 +33,8 @@ public interface UserService {
 	
 	//회원 정보 수정
 	int modify(User user);
+
+
 	
 	
 }

@@ -3,6 +3,7 @@ package mapper;
 
 import vo.User;
 import vo.UserDetail;
+import vo.UserLog;
 
 public interface UserMapper {
 	int insert(User user);
@@ -14,6 +15,8 @@ public interface UserMapper {
 	int update(User pw);
 
 	User findByNickName(User nickName);
+
+	int insertUserLog(UserLog userLog);
 
 
 }

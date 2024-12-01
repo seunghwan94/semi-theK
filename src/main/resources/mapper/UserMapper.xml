@@ -23,6 +23,11 @@
   values (#{id})
   </insert>
   
+  <insert id="insertUserLog">
+  INSERT  INTO tbl_user_log (user_id)
+  values (#{userId})
+  </insert>
+  
   <update id="update">
 	update tbl_user set pw = #{pw} where id = #{id}
 	</update>
