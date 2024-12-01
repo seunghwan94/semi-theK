@@ -20,6 +20,7 @@
     <c:if test="${not empty user}">
 		<jsp:include page="../common/idshower.jsp"/>
     </c:if>
+    <img src="${cp}files/common/k_landscape.png" class="img-fluid position-absolute z-n1 op-75" alt="landscape">
     <main class="container my-2 mx-auto p-2 justify-content-center">
         <div id="slide-container">
             <ul class="bxslider1">
@@ -40,7 +41,7 @@
                     <ul class="p-0 small">
                         <c:forEach items="${posts}" var="p">
                             <c:if test="${s.cno == p.cno}">
-                                <li>
+                                <li class="bg-dark">
                                     <div class="row p-2 border-bottom border-light mx-auto text-light">
                                         <div class="col-sm-1 small">${p.pno}</div>
                                         <div class="col-sm-6 text-truncate">
@@ -71,9 +72,10 @@
                 </c:if>
                 <c:if test="${status.index == 1}">
                     <div class="row justify-content-center mt-4 mb-4">
-                        <ul class="col-sm-12 bxslider2">
+                        <img src="${cp}files/common/k_landscape.png" class="img-fluid position-absolute z-n1 op-75" alt="landscape">
+                        <ul class="col-sm-12 bxslider2 z-3">
                             <c:forEach var="bx" begin="1" end="8">
-                                <li class="text-start">
+                                <li class="text-start position-relative">
                                     <a href="#"><img src="https://placehold.co/170x200?text=gallery+${bx}" alt="Gallery${bx}"/></a>
                                 </li>
                             </c:forEach>
@@ -82,7 +84,9 @@
                 </c:if>
             </c:forEach>
         </div>
+        </div>
     </main>
+    <img src="${cp}files/common/k_landscape.png" class="img-fluid position-absolute z-n1 op-75" alt="landscape">
     <jsp:include page="../common/footer.jsp"/>
     <script src="${cp}js/bxsliderindex.js"></script>
     <script src="${cp}js/searchbar.js"></script>
