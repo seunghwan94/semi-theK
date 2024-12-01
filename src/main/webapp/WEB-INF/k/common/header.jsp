@@ -6,7 +6,7 @@
 <a href="#" class="navbar-brand" onclick="alertIntro()" id="Kmp4"><video src="${cp}/files/common/k_intro.mp4" alt="mp4" width="125" muted autoplay playsinline loop></video></a>
 <ul class="navbar-nav me-auto list-group d-flex justify-content-around">
 	<li class= "nav-item mx-4 small">
-		<a class="nav-link float-start text-light m-2" href="${cp}"><i class="fa-solid fa-house"></i> HOME</a>
+		<a class="nav-link float-start text-light m-2" href="${cp}"><i class="fa-solid fa-house"></i> 홈으로 </a>
 	</li>	
 <c:forEach items="${mainC}" var="m" >
 	<c:choose> 
@@ -21,7 +21,7 @@
 				</ul>
 			</li>
 		</c:when>
-		<c:when test="${m.cno !=4 and m.cno == 7 }">
+		<c:when test="${m.cno !=4 and m.cno == 7}">
 			<li class="nav-item dropdown mx-4 small"><a class="nav-link dropdown-toggle text-white float-start mt-2" href="#" role="button" data-bs-toggle="dropdown">${m.icon} ${m.cname} </a>
 				<ul class="dropdown-menu bg-secondary">
 					<c:forEach items="${subC}" var="s"> 

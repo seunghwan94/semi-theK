@@ -53,6 +53,8 @@
 			(SELECT * from tbl_post where cno = 12 order by pno desc limit 5)
 			union all
 			(SELECT * from tbl_post where cno = 13 order by pno desc limit 5)
+			union all
+			(SELECT * from tbl_post where cno = 84 order by pno desc limit 5)
   	</select>
 	
 	<insert id="insert" >
