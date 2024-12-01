@@ -17,6 +17,8 @@
 	</environments>
   	<mappers>
   		<mapper resource="mapper/UserMapper.xml"/>
+  		
+  		<mapper resource="mapper/mng/HomeMapper.xml"/>
   		<mapper resource="mapper/mng/MngUserMapper.xml"/>
   		<mapper resource="mapper/mng/MngMenuMapper.xml"/>
   		<mapper resource="mapper/mng/MngTabooMapper.xml"/>

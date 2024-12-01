@@ -14,7 +14,7 @@
 		<!-- main -->
         <div class="tab-content w-100">
             <div class="tab-pane fade p-5 show active">
-                <h3>관리</h3>
+                <h3><i class="fa-solid fa-chart-simple pe-2"></i>관리</h3>
                 <!-- navtab -->
 				<jsp:include page="manageTab.jsp"></jsp:include>
                 <!-- 관리 -->

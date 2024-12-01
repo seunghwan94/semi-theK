@@ -17,7 +17,7 @@
 		<!-- main -->
         <div class="tab-content w-100">
             <div class="tab-pane fade p-5 show active">
-            	<h3>QnA</h3>
+            	<h3><i class="fa-regular fa-comment-dots pe-2"></i>QnA</h3>
 				<div class="tab-pane fade p-4 show active">
                    <table class="table table-hover text-center">
                        <thead>

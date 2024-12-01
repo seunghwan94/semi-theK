@@ -15,13 +15,10 @@
 		<!-- main -->
         <div class="tab-content w-100">
             <div class="tab-pane fade p-5 show active">
-            	<h3>관리</h3>
-                <!-- navtab -->
-                <jsp:include page="manageTab.jsp"></jsp:include>
+            	<h3><i class="fa-regular fa-comment-dots pe-2"></i>QnA</h3>
                 <!-- 관리 -->
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade p-4 show active" role="tabpanel" aria-labelledby="nav-home-detail-tab">
-                        <h3>공지사항 작성</h3>
                         <form method="post">
                         	<input type="hidden" name="pno" value="${post.pno}">
 	                        <div class="card">

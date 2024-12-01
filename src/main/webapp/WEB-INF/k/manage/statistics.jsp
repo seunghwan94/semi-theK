@@ -15,7 +15,7 @@
 		<!-- main -->
         <div class="tab-content w-100" id="v-pills-tabContent">
             <div class="tab-pane fade p-5 show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                <h3>통계</h3>
+                <h3><i class="fa-solid fa-bullhorn pe-2"></i>통계</h3>
                 <div class="d-flex justify-content-between pt-0 fw-bold ">
                     <div class="col-auto col-xl-8 p-3">
                         <div class="card col-12 col-xl-11  border-dark mb-3 h-100">
