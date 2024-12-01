@@ -20,9 +20,10 @@
     <c:if test="${not empty user}">
 		<jsp:include page="../common/idshower.jsp"/>
     </c:if>
-    <img src="${cp}files/common/k_landscape.png" class="img-fluid position-absolute z-n1 op-75" alt="landscape">
-    <main class="container my-2 mx-auto p-2 justify-content-center">
-        <div id="slide-container">
+    <!--<div class="z-0" style="position:fixed; height:100vh; width:100%; background-color:#00000044; top:0; left:0;"></div> -->
+   	<img src="${cp}files/common/k_landscape.png" class="img-fluid position-absolute z-n1" alt="landscape">
+    <main class="container my-2 mx-auto p-2 justify-content-center z-3">
+        <div id="slide-container z-3">
             <ul class="bxslider1">
                 <c:forEach var="ps" begin="1" end="5">
                     <li><img src="https://placehold.co/1300x250?text=Slider+${ps}" alt="Slide ${ps}"/></li>
@@ -36,7 +37,7 @@
 	            <a href="#">닫기</a>
 	        </p>
 	    </div>
-        <div class="container-fluid mt-4 p-2 mx-auto text-center">
+        <div class="container-fluid mt-4 p-2 mx-auto text-center z-3">
             <c:forEach items="${subC}" var="s" varStatus="status">
                 <c:if test="${status.index % 2 == 0}">
                     <div class="row align-items-stretch">
@@ -66,23 +67,7 @@
 										<div class="col-sm-2 small small small">
 										    <fmt:formatDate value="${p.createDate}" pattern="yyyy/MM/dd" />
 										</div>
-									 <script>
-							        // 하룻동안 보지 않기가 체크가 안되어 있을시 할일
-							        if(!$.cookie("layer")) {
-							            $(".layer-popup").show();
-							        }
-							        
-							        // 레이어 팝업 내의 닫기 버튼 클릭시 이벤트
-							        $(".layer-popup a").click(function() {
-							            event.preventDefault();
-							            const checked = $(this).prev().find("input:checkbox").prop("checked");
-							            console.log(checked);
-							            if(checked) {
-							                $.cookie('layer', 'yes', {expires: 1});
-							            }
-							            $(".layer-popup").hide();
-							        });
-							        </script>    
+								     
 					             </div>
                                 </li>
                             </c:if>
@@ -97,7 +82,7 @@
                 </c:if>
                 <c:if test="${status.index == 1}">
                     <div class="row justify-content-center mt-4 mb-4">
-                        <ul class="col-sm-12 bxslider2 z-3">
+                        <ul class="col-sm-12 bxslider2">
                             <c:forEach var="bx" begin="1" end="8">
                                 <li class="text-start position-relative">
                                     <a href="#"><img src="https://placehold.co/170x200?text=gallery+${bx}" alt="Gallery${bx}"/></a>
@@ -114,5 +99,22 @@
     <jsp:include page="../common/footer.jsp"/>
     <script src="${cp}js/bxsliderindex.js"></script>
     <script src="${cp}js/searchbar.js"></script>
+    <script>
+	    // 하룻동안 보지 않기가 체크가 안되어 있을시 할일
+	    if(!$.cookie("layer")) {
+	        $(".layer-popup").show();
+	    }
+	    
+	    // 레이어 팝업 내의 닫기 버튼 클릭시 이벤트
+	    $(".layer-popup a").click(function() {
+	        event.preventDefault();
+	        const checked = $(this).prev().find("input:checkbox").prop("checked");
+	        console.log(checked);
+	        if(checked) {
+	            $.cookie('layer', 'yes', {expires: 1});
+	        }
+	        $(".layer-popup").hide();
+	    });
+    </script>
 </body>
 </html>

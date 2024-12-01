@@ -6,37 +6,35 @@
 	<head>
 		<jsp:include page="../common/head.jsp"	/>
 	</head>
-	<body class="gothic-a1-regular ">
+	<body class="gothic-a1-regular">
 		<jsp:include page="../common/header.jsp"/>
 		<div class="wrap">
 			<main class="container mt-5 mb-5">
-				<p class="small"><i class="small">the-K에서 보증하는 <b class="text-warning">프리미엄 프로모터들</b>의 게시글을 만나보세요.</i></p>
+				<p class="small"><i class="small">the-K에서 보증하는 <b class="text-warning">프리미엄 프로모터</b>의 게시글을 만나보세요.</i></p>
 				<hr>
 				<c:forEach begin="1" end="2">
 					<div class="my-4 row align-items-stretch d-flex justify-content-center">
 						<c:forEach var="v" begin="1" end="4">
 							<div class="col-sm-3">
-								<div class="card bg-secondary mx-auto">
+								<div class="card bg-secondary mx-auto px-1">
 									<img class="card-img-top" src="img_avatar1.png" alt="Card image">
 									<div class="card-body mx-auto text-center">
 										<h4 class="card-title small">별빛 야경과 함께하는 창경궁 투어</h4>
-										<div class="border border-warning mx-auto p-auto">
+										<div class="border border-warning mx-auto p-auto border-3 small">
 											<p class="card-text small">프로모터 : 홍길동</p>
 										</div>
 										<hr>
-										<div>
-											<nav aria-label="breadcrumb">
+										<div class="mb-1 small">
+											<nav aria-label="breadcrumb" class="d-flex justify-content-evenly small">
 												<ol class="breadcrumb">
-												  <li class="breadcrumb-item" aria-current="page">조회수 : </li>
-												  <li class="breadcrumb-item" aria-current="page">댓글 : </li>
+													<li class="breadcrumb-item" aria-current="page">조회수 : </li>
+													<li class="breadcrumb-item" aria-current="page">댓글 : </li>
 												</ol>
 											</nav>
 										</div>
-										
 										<hr>
-										
-										<div>
-											<nav aria-label="breadcrumb">
+										<div class="my-1 small">
+											<nav aria-label="breadcrumb" class="d-flex justify-content-evenly small">
 												<ol class="breadcrumb">
 													<li class="breadcrumb-item" aria-current="page">기간 : </li>
 													<li class="breadcrumb-item" aria-current="page">지역 : </li>
