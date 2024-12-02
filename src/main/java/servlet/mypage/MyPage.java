@@ -1,5 +1,6 @@
 package servlet.mypage;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.HashMap;
@@ -18,6 +19,7 @@ import dto.MngUserDto;
 import jakarta.mail.Session;
 import service.UserService;
 import service.UserServiceImpl;
+import service.common.ServiceCommon;
 import service.manage.MngUserService;
 import service.manage.MngUserServiceImpl;
 import vo.User;
@@ -42,45 +44,47 @@ public class MyPage extends HttpServlet {
 		@Override
 		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 			
-			User user =getJson(req, User.class);
-			UserDetail userDetail = getJson(req, UserDetail.class);
-
 			
-			System.out.println(userDetail);
-
+			User user = ServiceCommon.getJson(req, User.class);
 			System.out.println(user);	
 			
-			MngUserDto dtoUserDto= new MngUserDto(user, userDetail);
-			System.out.println(dtoUserDto);
-			boolean userList=service.modifyUser(dtoUserDto);
+			int userList=userService.modifyUser(user);
 			
-			if(userList) {
+			if(userList == 1) {
 				System.out.println("11111");
+				ServiceCommon.sendJson(resp, "success");
 			}
 			else {
 				System.out.println("00000");
+				ServiceCommon.sendJson(resp, "fail");
 			}
 //			req.getSession().setAttribute(myEmail, userList);	
-			resp.sendRedirect(req.getContextPath() + "/k/mypage?id=" + dtoUserDto.getId());
+//			resp.sendRedirect(req.getContextPath() + "/k/mypage?id=" + dtoUserDto.getId());
 			
 		}
 
-		
+		@Override
+		protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			
 
-		
-		public static void sendJson(HttpServletResponse resp, String status,Object... items) throws IOException {
-			Map<String, Object> responseMap = new HashMap<>();
-	        responseMap.put("status", status);
-	        
-	        for (Object item : items) {
-	            responseMap.put(item+"", item);
-	        }
-	        
-	        resp.setContentType("application/json; charset=utf-8");
-	        resp.getWriter().print(GSON.toJson(responseMap));
+			UserDetail userDetail = ServiceCommon.getJson(req, UserDetail.class);
+			System.out.println(userDetail);
+
+			
+
+			
+			int userList=userService.modifyMyPage(userDetail);
+			
+			if(userList == 1) {
+				System.out.println("11111");
+				ServiceCommon.sendJson(resp, "success");
+			}
+			else {
+				System.out.println("00000");
+				ServiceCommon.sendJson(resp, "fail");
+			}
+
+			
 		}
 		
-		public static <T> T getJson(HttpServletRequest req, Class<T> clazz) throws IOException {
-			return GSON.fromJson(req.getReader(), clazz);
-		}
 }

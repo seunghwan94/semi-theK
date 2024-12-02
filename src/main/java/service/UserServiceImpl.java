@@ -86,6 +86,14 @@ public class UserServiceImpl implements UserService {
 					
 		}
 	}
+	@Override
+	public int modifyUser(User user) {
+		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
+			UserMapper mapper=session.getMapper(UserMapper.class);
+				return mapper.updateUser(user);
+					
+		}
+	}
 	public int modifyMyPage(UserDetail userDetail) {
 		try(SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
 			UserMapper mapper=session.getMapper(UserMapper.class);

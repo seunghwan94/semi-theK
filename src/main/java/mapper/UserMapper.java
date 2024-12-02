@@ -18,7 +18,7 @@ public interface UserMapper {
 
 	int insertUserLog(UserLog userLog);
 
-	int update(UserDetail userDetail);
+	int updateUser(User user);
 
 	int updateDetail(UserDetail userDetail);
 

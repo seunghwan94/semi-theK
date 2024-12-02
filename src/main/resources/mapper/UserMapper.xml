@@ -32,16 +32,17 @@
 	update tbl_user set pw = #{pw} where id = #{id}
 	</update>
 	
-	 <update id="updateUserDetail">
+	 <update id="updateDetail">
 	  	update tbl_user_detail SET
 	  	name = #{name},
 	  	gender = #{gender},
 	  	addr = #{addr},
 	  	detail_addr = #{detailAddr},
-	  	grade = #{grade},
+	  	self_intro=#{selfIntro},
 	  	update_date = now()
 	  	where id = #{id}
 	</update>
+	
   	
   	<update id="updateUser">
 	   	update tbl_user SET

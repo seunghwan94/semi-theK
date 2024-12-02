@@ -87,7 +87,8 @@ $(function() {
 					,"selfIntro":myIntro	 	
 					,"name":myName 	
 					,"addr":myAddr	 	
-					,"detailAddr":myDetailAddr};	
+					,"detailAddr":myDetailAddr};
+		const ck="y";
 		console.log(data);
 		$.ajax ({
 			url : "${cp}mypage",
@@ -95,9 +96,26 @@ $(function() {
 			contentType: "application/json; charse=utf-8",
 			 data: JSON.stringify(data),
 			success : function (data){
-				if(data == "success"){
-					alert("저장되었습니다.");
-					/* location.href="mypage";	 */				
+				if(data.status == "success"){
+					console.log("저장되었습니다.");
+
+				}else{						
+					alert("중복된 닉네임입니다.");		
+					ck="n";
+				} 
+				
+			}
+		})
+		$.ajax ({
+			url : "${cp}mypage",
+			type : "put",
+			contentType: "application/json; charse=utf-8",
+			 data: JSON.stringify(data),
+			success : function (data){
+				if(data.status == "success"){
+					if(ck=="y"){
+						alert("저장되었습니다.");
+					}
 				}else{						
 					alert("중복된 닉네임입니다.");								
 				} 

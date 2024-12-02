@@ -36,6 +36,8 @@ public interface UserService {
 
 	int modifyMyPage(UserDetail userDetail);
 
+	int modifyUser(User user);
+
 
 	
 	
