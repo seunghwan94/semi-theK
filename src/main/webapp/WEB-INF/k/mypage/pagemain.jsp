@@ -21,9 +21,9 @@
 		<div class="tab-content" id="myTabContent">
 			<jsp:include page="mypage.jsp"/>
 	   </div>
-	  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+	 <%--  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 	  	<jsp:include page="gradechange.jsp"/>
-	  </div>
+	  </div> --%>
 
         
          
