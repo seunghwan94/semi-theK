@@ -9,10 +9,10 @@ var promoslider = $('.bxslider1').bxSlider({
 $(promoslider).bxSlider();
 
 var gallslider = $('.bxslider2').bxSlider({
-    minSlides: 5,
-    maxSlides: 10,
-    slideWidth: 150,
-    slideMargin: 50,
+    minSlides: 4,
+    maxSlides: 8,
+    slideWidth: 250,
+    slideMargin: 10,
     ticker: true,
     speed: 50000
 });

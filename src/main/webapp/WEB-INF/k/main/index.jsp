@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fnc" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="ko" data-bs-theme="dark">
@@ -8,6 +9,24 @@
     <jsp:include page="../common/bxslider.jsp" />
     <link rel='stylesheet' href='css/popup.css'> 
 </head>
+<style>
+	.img-size-target {
+		width:100%;
+		height:auto;
+	}
+	img{
+		
+		object-fit: contain;
+	}
+	.card-hover {
+	    transition: transform 0.3s ease, box-shadow 0.3s ease;
+	    height:392px;
+	}
+	
+	.card-hover:hover {
+	    transform: scale(1.1);
+	}
+</style>
 <body class="gothic-a1-regular">
     <jsp:include page="../common/header.jsp"/>
     <div class="vh-100 w-1000 position-absolute position-fixed fixed-top" style="background-color:#00000044; z-index:-100"></div> 
@@ -19,8 +38,8 @@
 	    </c:if>
         <div id="slide-container z-3">
             <ul class="bxslider1">
-                <c:forEach var="ps" begin="1" end="5">
-                    <li><img src="https://placehold.co/1300x250?text=Slider+${ps}" alt="Slide ${ps}"/></li>
+                <c:forEach var="ps" begin="1" end="3">
+                    <li><img src="${cp}files/common/bx${ps}.jpg" alt="Slide ${ps}"/></li>
                 </c:forEach>
             </ul>
         </div>
@@ -76,10 +95,35 @@
                 </c:if>
                 <c:if test="${status.index == 1}">
                     <div class="row justify-content-center mt-4 mb-4">
-                        <ul class="col-sm-12 bxslider2">
-                            <c:forEach var="bx" begin="1" end="8">
-                                <li class="text-start position-relative">
-                                    <a href="#"><img src="https://placehold.co/170x200?text=gallery+${bx}" alt="Gallery${bx}"/></a>
+                        <ul class="bxslider2">
+                            <c:forEach var="postG" items="${postDtos}">
+                                <li>
+                                    <a href="kallery?cno=2" class="text-decoration-none">
+                                    	<div class="card m-2 card-hover" style="width: 250px;" >
+											<div class="card-header text-truncate text-start">${postG.title}</div>
+											<div class="card-body p-1 img-size-target d-flex justify-content-center align-items-center">
+												<img class="w-100 h-100" src="${fnc:split(postG.content,'&%$^&')[0]}">
+											</div>
+											<div class="card-footer">
+												<div class="d-flex justify-content-between">
+													<b>${postG.userId}</b>
+													<div class="d-flex">
+														<div class="px-1">
+															<i class="fa-regular fa-eye me-1"></i>
+															${postG.viewCnt}
+														</div>
+														<div class="px-1  ms-1 d-flex align-items-center my-push" data-myPush="${postG.myPush}">
+															<i class="fa-solid fa-heart   ${postG.myPush? '': 'd-none'} "></i>
+															<i class="fa-regular fa-heart ${!postG.myPush? '': 'd-none'}"></i>
+															<p class="p-0 m-0 ms-1 like-cnt">${postG.likeCnt}</p>
+														</div>
+													</div>
+												</div>
+												<p class="content-preview m-0  text-truncate text-start">${fnc:split(postG.content,'&%$^&')[1]}</p>
+												<p class="text-samll text-secondary m-0 text-end" >2024-11-30</p>
+											</div>
+										</div>
+                                    </a>
                                 </li>
                             </c:forEach>
                         </ul>
@@ -87,7 +131,7 @@
                 </c:if>
             </c:forEach>
         </div>
-        </div>
+    </div>
     </main>
     <jsp:include page="../common/footer.jsp"/>
     <script src="${cp}js/bxsliderindex.js"></script>
