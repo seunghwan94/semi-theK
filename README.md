@@ -31,7 +31,6 @@
 - ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
 
-
 ### Design Pattern  <small>(디자인 패턴)</small>
 
 - ![MVC](https://img.shields.io/badge/MVC%20Pattern-0078D7?style=for-the-badge&logo=microsoft&logoColor=white)
@@ -55,7 +54,7 @@
 > * 24.11.19 => *html 구조 구현(intro, index, manager, header, footer) WIP*
 > * 24.11.20 => *html 구조 구현(intro, index, manager, header, footer) + 1 WIP*
 > * 24.11.21 => *html 구조 구현(intro, index, manager, header, footer) + 2 WIP // INCLUDE JSP 파일 작성(head, header)*
-> * 24.11.21 => *html 구조 구현(intro, manager, header, footer, post) + 3 WIP*
+> * 24.11.23 => *html 구조 구현(intro, manager, header, footer, post) + 3 WIP*
 > * 24.11.25 => *html 구조 구현(footer, post) + sevlet, mapper, service + 4 WIP*
 > * 24.11.26 => *html 구조 구현(user, post, manage, footer) + sevlet, mapper, service + 5 WIP // INCLUDE JSP (Quill API) + 1 WIP*
 > * 24.11.27 => *html 구조 구현(user, post, manage) + sevlet, mapper, service + 6 WIP // INCLUDE JSP (Quill API) + 2 WIP*
@@ -63,4 +62,5 @@
 > * 24.11.29 => *html 구조 구현(user, post, manage) + sevlet, mapper, service + 8 WIP //gallery, about us, notice + 1 WIP // Sidebar 추가*
 > * 24.11.30 => *html 구조 구현(user, post, manage) + sevlet, mapper, service + 9 WIP // gallery, about us, notice + 2 WIP // Sieebar 구현 완료 // 비밀번호 암호화 + 복호화*
 > * 24.12.01 => *html 구조 구현(user, post, manage) + sevlet, mapper, service + 10 WIP // promotion write, gallery, about us, notice + 3 WIP // 관리자, 일반 사용자 구분*
-> * 24.12.01 => *html 구조 구현(user, post, manage) + sevlet, mapper, service + 11 WIP //*
+> * 24.12.01 => *html 구조 구현(user, post, manage) + sevlet, mapper, service + 11 WIP // promotion write, gallery, about us, notice + 4 WIP*
+> * 24.12.02 => *html 구조 구현(user, post, manage) + sevlet, mapper, service + 12 WIP //*
