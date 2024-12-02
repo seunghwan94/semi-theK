@@ -17,8 +17,8 @@
 </style>
 <body class="gothic-a1-regular">
     <jsp:include page="../common/header.jsp"/>
-    <!--<div class="z-0" style="position:fixed; height:100vh; width:100%; background-color:#00000044; top:0; left:0;"></div> -->
-   	<img src="${cp}files/common/k_landscape.png" class="img-fluid position-absolute z-n1 position-fixed fixed-bottom" alt="landscape">
+    <div class="vh-100 w-1000 position-absolute position-fixed fixed-top" style="background-color:#00000044; z-index:-100"></div> 
+   	<img src="${cp}files/common/k_landscape.png" class="img-fluid position-absolute position-fixed fixed-bottom" style="z-index:-200" alt="landscape">
    	
     <main class="container my-2 mx-auto p-3 justify-content-center z-3" style="background-color:black; border-radius: 30px;">
 	    <c:if test="${not empty user}">

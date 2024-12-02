@@ -3,7 +3,7 @@
 <div class ="row container mt-0">
 	<div class="col-sm-2 small text-white p-0">
 		<div class="id-shower my-1">
-			<div class="offcanvas offcanvas-start p-1" id="demo">
+			<div class="offcanvas offcanvas-start p-1 d-none" id="demo">
             	<div class="offcanvas-header border-bottom border-secondary border-3 d-flex justify-content-end" style="background-color:#000;">
                     <video src="${cp}/files/common/k_intro.mp4" class="offcanvas-title" alt="mp4" width="125" muted autoplay playsinline loop></video>
 			        <button type="button" class="btn-close text-reset border" data-bs-dismiss="offcanvas"></button>
@@ -24,8 +24,15 @@
 					</video>
 			    </div>
 			</div>
-		<button class="btn btn-outline-light mt-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo"> hello! ${user.id} </button>
+		<button class="btn btn-outline-light mt-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo" id="sidebar-btn"> hello! ${user.id} </button>
 		</div>
 	</div>
 	<div class="col-sm-10 small"></div>
 </div>
+<script>
+	$(function(){
+		$("#sidebar-btn").click(function(){
+			$("#demo").removeClass("d-none")
+		});
+	});
+</script>
