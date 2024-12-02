@@ -3,6 +3,7 @@
 <html lang="ko" data-bs-theme="dark">
 	<head>
 		<jsp:include page="../common/head.jsp"	/>
+		 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 	</head>
 	<body class="bg-dark d-flex flex-column min-vh-100 gothic-a1-regular ">
 		<div class="wrap">
@@ -15,7 +16,7 @@
 			<body class="d-flex flex-column justify-content-center align-items-center vh-100">
 		    <div class="container text-left"> <!-- text-left로 변경하여 왼쪽 정렬 -->
 		        <!-- 검색 입력창 -->
-		        <div class="form-group mb-4 w-75 w-md-50 mx-auto">
+		        <div class="form-group mb-4 w-10 w-md-30 mx-auto">
 		            <input type="text" class="form-control form-control-lg" placeholder="Search About Us">
 		        </div>
 		        
@@ -26,7 +27,9 @@
 		            
 		            <div class="support mt-5">
 		                <!-- 지원 항목 -->
-		                <h2>Support US with,</h2>
+		                 <div class="form-group mb-4 w-10 w-md-40 mx-auto">
+		            		<input type="text" class="form-control form-control-lg" placeholder="Support US with,">
+		        		</div>
 		                
 		                <!-- PayPal -->
 		                <div class="d-flex align-items-center mb-3">

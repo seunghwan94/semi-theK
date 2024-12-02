@@ -6,15 +6,8 @@
 <head>
     <jsp:include page="../common/head.jsp" />
     <jsp:include page="../common/bxslider.jsp" />
+    <link rel='stylesheet' href='css/popup.css'> 
 </head>
-<style>
-    /* 레이어 팝업 영역 */
-    .layer-popup {width: 420px; position: absolute; top:150px; left:calc(50% - 210px)}
-    .layer-popup img {display: block;}
-    .layer-popup p {background-color: rgb(129, 129, 129); color: #eee; margin: 0; padding: 8px; font-size: 13px;} 
-    .layer-popup p input {vertical-align: middle;}
-    .layer-popup p a {color: #eee; text-decoration: none; float: right;}
-</style>
 <body class="gothic-a1-regular">
     <jsp:include page="../common/header.jsp"/>
     <div class="vh-100 w-1000 position-absolute position-fixed fixed-top" style="background-color:#00000044; z-index:-100"></div> 
@@ -32,7 +25,7 @@
             </ul>
         </div>
          <div class="layer-popup">
-	        <img src="2578206_241014101146.jpg" alt="굿즈소개"> 
+	        <img src="${cp}files/common/light_logo.png" alt="굿즈소개"> 
 	        <p class="clearfix">
 	            <span>오늘은 그만 보기 <input type="checkbox"></span>
 	            <a href="#">닫기</a>
