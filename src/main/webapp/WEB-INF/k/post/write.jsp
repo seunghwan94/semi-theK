@@ -24,8 +24,13 @@
 					    </c:forEach>
 					    	<option value="3" class="post-cate">프로모션</option>
 					</select>
-					<div>
+					<div class="my-target">
 						<jsp:include page="../common/writer.jsp"/>
+					</div>
+					<div class="my-target d-none">
+						<textarea class="form-control" rows="5" id="comment" name="text">일반</textarea>
+						<input type="file" id="files" name="files" accept="image/png, image/jpeg, image/gif">
+						<div id="preview"></div>
 					</div>
 					<div class="p-3 container">
 						<div class="input-group container m-2">
@@ -35,12 +40,9 @@
 						<div class="input-group container m-2">
 							<span class="input-group-text">작성자</span>
 							<input type="text" class="form-control" value="${user.id}" name="writer" id="post-writer" disabled>
+							<div id="preview">
+		            		</div>
 						</div>
-					</div>
-					<div id="img-taker" class="d-none">
-						<jsp:include page="../common/writer_img.jsp"/>
-						<script src="${cp}js/quill.js"></script>
-						<script src="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.js"></script>
 					</div>
 					<button type="button" class="btn btn-outline-secondary mt-2 post-button">작성하기</button>
 				</form>
@@ -49,43 +51,116 @@
 		</div>
 	</body>
 	<script>
-		if($("select[name=cat]").val() == 3){
-			$("#img-taker").removeClass("d-none");
-		}
-	
-		$(".post-button").click(function(){
-			// console.log(${cno});
-			// const url = "list/post/write?cno=" + ${cno};
-			const myTitle = $("#post-title").val();
-			const myContent = $("#editor .ql-editor").html();
-			const myId = $("#post-writer").val(); 
-			const myCate = $("select[name=cat]").val(); 
-	
-			console.log(myTitle);
-			console.log(myContent);
-			console.log(myId);
-			console.log(myCate);
-			
-			const data = {"title" : myTitle , "content" : myContent, "userId" : myId, "cno" : myCate};
-            $.ajax({
-                url: "${cp}post/write",
-                type: "post",
-                contentType: "application/json; charse=utf-8",
-                data: JSON.stringify(data),
-                success: function (res) {
-                	console.log(res);
-                    if (res == "success") {
-                        alert("적용 되었습니다. 작성된 게시판을 확인해 보세요!");
-                		const url = "${cp}list?cno="+myCate;
-                		window.location.href= url;
-                    } else {
-                        alert("적용 실패하였습니다");
-                    }
-                },
-                error: function () {
-                    alert("서버에서 오류가 발생했습니다.");
+		//if($("select[name=cat]").val() == "3"){
+		//	$("#editor .ql-editor").addClass("d-none");
+		//	$("#img-taker, #textwriter").removeClass("d-none");
+		//}
+		
+        $(function() {
+            let val = $("#cate-select").val();
+            $("#cate-select").change(function() {
+                if(val != $(this).val()) {
+                    $(".my-target").toggleClass('d-none');
                 }
-            });
-		})
+                val = $("#mySelect").val();
+            })
+            
+			const attachs = [];
+	
+            function previewFiles() {
+                const preview = document.querySelector("#preview");
+                const files = document.querySelector("input[type=file]").files;
+
+            function readAndPreview(file) {
+                if (/\.(jpe?g|png|gif)$/i.test(file.name)) {
+                const reader = new FileReader();
+
+                reader.addEventListener("load",() => {
+                    const image = new Image();
+                    image.height = 100;
+                    image.title = file.name;
+                    image.src = reader.result;
+                    attachs.push({base64:reader.result});
+                    preview.appendChild(image);
+                });
+
+                reader.readAsDataURL(file);
+                }
+            }
+
+                if (files) {
+                    Array.prototype.forEach.call(files, readAndPreview);
+                }
+                //let obj = {content, title, writer, attachs};
+                //console.log(obj);
+            }
+
+            const picker = document.querySelector("#files");
+            picker.addEventListener("change", previewFiles);
+            
+			$(".post-button").click(function(){
+				
+				const myCate = $("select[name=cat]").val();
+				
+				//console.log(myTitle);
+				//console.log(myContent);
+				//console.log(myId);
+				//console.log(myCate);
+				
+				if(myCate != 3){
+					const myTitle = $("#post-title").val();
+					const myContent = $("#editor .ql-editor").html();
+					const myId = $("#post-writer").val(); 
+					 
+					
+					const data = {"title" : myTitle , "content" : myContent, "userId" : myId, "cno" : myCate};
+		            $.ajax({
+		                url: "${cp}post/write",
+		                type: "post",
+		                contentType: "application/json; charse=utf-8",
+		                data: JSON.stringify(data),
+		                success: function (res) {
+		                	console.log(res);
+		                    if (res == "success") {
+		                        alert("적용 되었습니다. 작성된 게시판을 확인해 보세요!");
+		                		const url = "${cp}list?cno="+myCate;
+		                		window.location.href= url;
+		                    } else {
+		                        alert("적용 실패하였습니다");
+		                    }
+		                },
+		                error: function () {
+		                    alert("서버에서 오류가 발생했습니다.");
+		                }
+		            });
+				}else{
+					const myTitle = $("#post-title").val();
+					const myContent = $("#comment").val();
+					const myId = $("#post-writer").val(); 
+					
+					const data = {"title" : myTitle , "content" : myContent, "userId" : myId, "cno" : myCate, "imgdata" : attachs};
+		            $.ajax({
+		                url: "${cp}post/write",
+		                type: "post",
+		                contentType: "application/json; charse=utf-8",
+		                data: JSON.stringify(data),
+		                success: function (res) {
+		                	console.log(res);
+		                    if (res == "success") {
+		                        alert("적용 되었습니다. 작성된 게시판을 확인해 보세요!");
+		                		const url = "${cp}list?cno="+myCate;
+		                		window.location.href= url;
+		                    } else {
+		                        alert("적용 실패하였습니다");
+		                    }
+		                },
+		                error: function () {
+		                    alert("서버에서 오류가 발생했습니다.");
+		                }
+		            });
+				}
+			})
+        });
+            
 	</script>
 </html>

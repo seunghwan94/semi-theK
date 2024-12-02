@@ -10,6 +10,7 @@
 	<result column="create_date" property="createDate"/>
 	<result column="update_date" property="updateDate"/>
 	<result column="cno" property="cno"/>
+	<result column="imgdata" property="imgData"/>
 </resultMap>
 	<select id="selectList" resultMap="post">
 		select tp.* from tbl_post tp where cno = #{cno}
@@ -56,6 +57,10 @@
   	</select>
 	
 	<insert id="insert" >
+		<if test='#{cno} == 3'>
+			insert into tbl_post(title, user_id, content, cno, imgdata)
+			values(#{title}, #{userId}, #{content}, #{cno}, #{imgData})
+  		</if>
 		insert into tbl_post(title, user_id, content, cno) 
 		values(#{title}, #{userId}, #{content}, #{cno})
 	</insert>
@@ -81,7 +86,7 @@
 	</delete>
 	
 	<select id="getImg">
-		SELECT tp.content 
+		SELECT tp.imgdata 
 		from tbl_post tp
 		WHERE cno = 3 
 	</select>

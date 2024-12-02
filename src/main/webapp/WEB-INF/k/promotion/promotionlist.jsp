@@ -19,8 +19,8 @@
 								<div class="card bg-secondary mx-auto px-1">
 									<img class="card-img-top mt-1" src="https://placehold.co/200x200?text=promote" alt="Card image">
 									<div class="card-body mx-auto text-center">
-										<h4 class="card-title small">별빛 야경과 함께하는 창경궁 투어</h4>
-										<div class="border border-warning mx-auto px-auto border-3 small">
+										<h4 class="card-title small text-truncate border border-warning border-3 p-3">별빛 야경과 함께하는 창경궁 투어</h4>
+										<div class="border border-light mx-auto px-auto border-3 small bg-dark">
 											<p class="card-text small">프로모터 : 홍길동</p>
 										</div>
 										<hr>

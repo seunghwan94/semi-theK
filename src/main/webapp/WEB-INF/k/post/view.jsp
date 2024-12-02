@@ -30,6 +30,9 @@
                 <label for="updatedate" class="form-label mt-3"><i class="fa-solid fa-file-signature"></i><b> 최근 수정일 </b></label>
                 <input type="text" class="form-control text-secondary small" id="updatedate" placeholder="updatedate" name="updatedate" value="${post.updateDate}" readonly>
 				<hr>
+				<div>
+					
+				</div>
              	<div class="text-center mt-5 mb-5">
 					<a href="${cp}list/modify?pno=${post.pno}" class="btn btn-outline-light btn-mod d-none" > 수정하기 </a>
 					<a href="${cp}list?cno=${post.cno}" class="btn btn-outline-light btn-ret" > 게시판으로 돌아가기 </a>
