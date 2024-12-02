@@ -20,5 +20,7 @@ public interface UserMapper {
 
 	int update(UserDetail userDetail);
 
+	int updateDetail(UserDetail userDetail);
+
 
 }

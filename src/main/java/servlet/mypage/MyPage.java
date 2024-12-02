@@ -2,6 +2,7 @@ package servlet.mypage;
 
 import java.io.IOException;
 import java.net.URLDecoder;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,9 +39,7 @@ public class MyPage extends HttpServlet {
 		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 			
 			resp.setContentType("application/json; charset=utf-8");
-			User user1 = ServiceCommon.getJson(req, User.class);
-			UserDetail user2 = ServiceCommon.getJson(req, UserDetail.class);
-			
+	
 			String myNickName = req.getParameter("myNickName");
 			String myEmail = req.getParameter("myEmail");
 			String myGender = req.getParameter("myGender");
@@ -68,10 +67,14 @@ public class MyPage extends HttpServlet {
 					.nickName(myNickName)
 					.build();
 			MngUserDto dtoUserDto= new MngUserDto(user, userDetail);
+			boolean userList=service.modifyUser(dtoUserDto);
+			
 
 		
-			userService.modifyMyPage(userDetail);
-			userService.modify(user);
+			/*
+			 * userService.modifyMyPage(userDetail); userService.modify(user);
+			 */
+			req.getSession().setAttribute(myEmail, dtoUserDto);
 			req.getRequestDispatcher("/WEB-INF/k/mypage/pagemain.jsp").forward(req, resp);
 			
 		}
