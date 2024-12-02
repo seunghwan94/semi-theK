@@ -6,7 +6,7 @@
 		<!-- 로고 섹션 -->
 			 <div class="col-md-3 d-flex align-items-center justify-content-center">
 			   <img src="${cp}files/common/light_logo.png" 
-			        alt="로고" class="img" style="width: 100px; height: 100px;">
+			        alt="로고" class="img" style="width: 90px; height: 100px;">
 			 </div>
 		 <!-- 링크와 아이콘 섹션 -->
 		 <div class="col-md-9">
