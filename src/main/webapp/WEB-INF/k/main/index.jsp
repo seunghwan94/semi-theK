@@ -25,7 +25,7 @@
             </ul>
         </div>
          <div class="layer-popup">
-	        <img src="${cp}files/common/light_logo.png" alt="굿즈소개"> 
+	        <img src="${cp}files/common/popup.jpg" alt="굿즈소개"> 
 	        <p class="clearfix">
 	            <span>오늘은 그만 보기 <input type="checkbox"></span>
 	            <a href="#">닫기</a>

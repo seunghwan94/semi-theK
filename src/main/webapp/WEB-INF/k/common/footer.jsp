@@ -28,7 +28,7 @@
 		     <div class="col-md-6"></div>
 		     <div class="col-md-1"></div>
 		     <div class="col-md-1"><i class="fa-brands fa-google-play fa-3x mx-5"></i></div>
-		     <div class="col-md-1"><i class="fa-brands fa-line fa-3x mx-4"></i></div>
+		     <div class="col-md-1"><i class="fa-brands fa-github fa-3x mx-4"></i></div>
 		     <div class="col-md-1"><i class="fa-brands fa-google fa-3x"></i></div>
 		   </div>
 		     <!-- 학원 푸터 정보 -->
