@@ -79,10 +79,12 @@ $(function() {
 		const myName = $("#myName").val();
 		const myAddr = $("#myAddr").val();
 		const myDetailAddr = $("#myDetailAddr").val();
+		const id = "${userInfo.id}";
 		
-		const data = {"nick":myNickName
+		const data = {id
+					,"nickName":myNickName
 					,"gender":myGender
-					,"intro":myIntro	 	
+					,"selfIntro":myIntro	 	
 					,"name":myName 	
 					,"addr":myAddr	 	
 					,"detailAddr":myDetailAddr};	

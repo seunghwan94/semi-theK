@@ -12,7 +12,7 @@ var gallslider = $('.bxslider2').bxSlider({
     minSlides: 4,
     maxSlides: 8,
     slideWidth: 250,
-    slideMargin: 10,
+    slideMargin: 50,
     ticker: true,
     speed: 50000
 });
