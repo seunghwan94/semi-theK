@@ -39,8 +39,8 @@
 		</c:when>
 		<c:when test="${m.cno  == 1}">
 			<li class= "nav-item mx-4 small">
-				<a class="nav-link float-start text-light m-2" href="${cp}notice?cno=${m.cno}">${m.icon} ${m.cname} </a>
-			</li>	
+				<a class="nav-link float-start text-light m-2" href="${cp}list?cno=${m.cno}">${m.icon} ${m.cname} </a>
+			</li>
 		</c:when>
 		<c:otherwise>
 			<li class= "nav-item mx-4 small">

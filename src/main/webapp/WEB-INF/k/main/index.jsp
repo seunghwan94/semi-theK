@@ -26,12 +26,18 @@
 	.card-hover:hover {
 	    transform: scale(1.1);
 	}
+	.wrap-loading{
+		z-index:3000;
+		background-color: #000000;
+	}
 </style>
 <body class="gothic-a1-regular">
+<div class="d-flex justify-content-center align-items-center fixed-top w-100 vh-100 wrap-loading">
+  <video src="${cp}/files/common/k_intro.mp4" class="w-100 h-100" alt="mp4" muted autoplay playsinline loop></video>
+</div>
     <jsp:include page="../common/header.jsp"/>
     <div class="vh-100 w-1000 position-absolute position-fixed fixed-top" style="background-color:#00000044; z-index:-100"></div> 
    	<img src="${cp}files/common/k_landscape.png" class="img-fluid position-absolute position-fixed fixed-bottom" style="z-index:-200" alt="landscape">
-   	
     <main class="container my-2 mx-auto p-3 justify-content-center z-3" style="background-color:black; border-radius: 30px;">
 	    <c:if test="${not empty user}">
 			<jsp:include page="../common/idshower.jsp"/>
@@ -152,6 +158,10 @@
 	        }
 	        $(".layer-popup").hide();
 	    });
+	    setTimeout(() => {
+			$(".wrap-loading").addClass("d-none");
+		}, 1000);
+	    
     </script>
 </body>
 </html>
