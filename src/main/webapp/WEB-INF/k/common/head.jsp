@@ -18,7 +18,7 @@
 
 <!-- favicon start-->
 <link rel="shortcut icon" href="${cp}files/common/favicon.ico" type="image/x-icon">
-<link rel="icon" href="${cp}files/common/favicon.ico/favicon.ico" type="image/x-icon">
+<link rel="icon" href="${cp}files/common/favicon.ico" type="image/x-icon">
 <!-- font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
