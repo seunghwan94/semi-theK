@@ -33,6 +33,7 @@ public class PostList extends HttpServlet{
 		List<Category> subCategories = categoryService.listSub();
 		List<Category> mainCategories = categoryService.listMain();
 		Category promoCate = mainCategories.get(2);
+		Category noticeCate = mainCategories.get(0);
 		
 		String tmpStr = promoCate.getCname();
 		
@@ -41,6 +42,8 @@ public class PostList extends HttpServlet{
 				tmpStr = sc.getCname();
 				break;
 			}
+		}if(cno.equals(noticeCate.getCname())) {
+			tmpStr = noticeCate.getCname();
 		}
 		req.setAttribute("categoryName", tmpStr);
 		

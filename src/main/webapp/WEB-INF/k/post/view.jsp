@@ -15,24 +15,24 @@
 		<div class="wrap mt-5">
 			<main class="container mt-5 text-white">
                 <label for="title" class="form-label mt-3"><i class="fa-solid fa-t"></i><b> 글 제목 </b></label>
-                <input type="text" class="form-control fw-bold big text-center big" id="title" placeholder="input title" name="title" value="${post.title}"  readonly>
+                <input type="text" class="form-control fw-bold big text-center big" id="title" placeholder="${post.title}" name="title" value="${post.title}"  readonly>
                 
                 <label for="writer" class="form-label mt-3"><i class="fa-solid fa-user-pen"></i><b> 작성자 </b></label>
-                <input type="text" class="form-control text-secondary small" id="writer" placeholder="writer" name="writer" value="${post.userId}" readonly>
+                <input type="text" class="form-control text-secondary small" id="writer" placeholder="${post.userId}" name="writer" value="${post.userId}" readonly>
                 
                 <label for="content" class="form-label mt-3"><i class="fa-solid fa-pen-to-square"></i><b> 글 내용 </b></label>
                 
                 <div type="text" class="ql-editor form-control"  id="content"  name="content" >${post.content}</div>
                 <c:if test="${post.cno == 3}">
                 	<div id="imgdiv" style = "width:510px;" class="text-center d-flex justify-content-center">
-                		<img alt="이미지를 불러올 수 없습니다. 엑박!" src="${post.imgData}"  class="img-fluid mx-auto d-block" name="${post.title}/${post}">
+                		<img alt="이미지를 불러올 수 없습니다. 엑박!" src="\${post.imgData}"  class="img-fluid mx-auto d-block" name="${post.title}/${post}">
                		</div>
 				</c:if>
                 <label for="regdate" class="form-label mt-3"><i class="fa-regular fa-calendar-check"></i><b> 작성일 </b></label>
-                <input type="text" class="form-control text-secondary small" id="regdate" placeholder="regdate" name="regdate" value="${post.createDate}" readonly>
+                <input type="text" class="form-control text-secondary small" id="regdate" placeholder="${post.createDate}" name="regdate" value="${post.createDate}" readonly>
                 
                 <label for="updatedate" class="form-label mt-3"><i class="fa-solid fa-file-signature"></i><b> 최근 수정일 </b></label>
-                <input type="text" class="form-control text-secondary small" id="uㅂpdatedate" placeholder="updatedate" name="updatedate" value="${post.updateDate}" readonly>
+                <input type="text" class="form-control text-secondary small" id="updatedate" placeholder="${post.updateDate}" name="updatedate" value="${post.updateDate}" readonly>
 				<hr>
 				<div>
 					

@@ -29,7 +29,7 @@ public class View extends HttpServlet{
 		Object userObj = req.getSession().getAttribute("user");
 		String redirectURL = criteria.getQs2();
 		userObj = (User)userObj;
-		if (((User)userObj) == null || cnoString == null) {
+		if (userObj == null || cnoString == null) {
 	    	Commons.printMsg("SYSTEM :: ERR / INVALID APPROACH", redirectURL, resp);
 	        return;
 		}
@@ -37,7 +37,9 @@ public class View extends HttpServlet{
 		String pno = req.getParameter("pno");
 		Post pnoView = postService.view(Integer.parseInt(pno));
 		
+		req.setAttribute("user", userObj);
 		req.setAttribute("post", pnoView);
+		System.out.println(pnoView);
 		req.setAttribute("criteria", criteria);
 		req.getRequestDispatcher("/WEB-INF/k/post/view.jsp").forward(req,resp);
 	}
