@@ -1,72 +1,69 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<!DOCTYPE html>
-<html lang="ko" data-bs-theme="dark">
-	<head>
-		<jsp:include page="../common/head.jsp"/>
-	</head>
-	<body class="gothic-a1-regular">
-		<jsp:include page="../common/header.jsp"/>
-		<c:if test="${not empty user}">
-			<jsp:include page="../common/idshower.jsp"/>
-		</c:if>
-		<div class="wrap">
-			<main class="mb-5 container">
-				<form method="post">
-					<div class="input-group">
-						<span class="input-group-text">제목</span>
-						<input type="text" class="form-control" placeholder="input title here" name="title" id="post-title">
-					</div>
-					<select class="form-select form-select-sm text-white bg-secondary my-3 border-light" name="cat" id="cate-select">
-					    <c:forEach items="${categories}" var="cate">
-					        <option value="${cate.cno}" class="post-cate border-light" ${urlCno == cate.cno ? "selected" : "" }>${cate.cname}</option>
-					    </c:forEach>
-					    	<option value="3" class="post-cate">프로모션</option>
-					</select>
-					<div class="my-target">
-						<jsp:include page="../common/writer.jsp"/>
-					</div>
-					<div class="my-target d-none">
-						<textarea class="form-control" rows="5" id="comment" name="text">일반</textarea>
-						<input type="file" id="files" name="files" accept="image/png, image/jpeg, image/gif">
-						<div id="preview"></div>
-					</div>
-					<div class="p-3 container">
-						<div class="input-group container m-2">
-							<span class="input-group-text">태그</span>
-							<input type="text" class="form-control" placeholder="예시 #소통해요" name="tag" id="post-tag">
+	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+	<!DOCTYPE html>
+	<html lang="ko" data-bs-theme="dark">
+		<head>
+			<jsp:include page="../common/head.jsp"/>
+		</head>
+		<body class="gothic-a1-regular">
+			<jsp:include page="../common/header.jsp"/>
+			<c:if test="${not empty user}">
+				<jsp:include page="../common/idshower.jsp"/>
+			</c:if>
+			<div class="wrap">
+				<main class="mb-5 container">
+					<form method="post">
+						<div class="input-group">
+							<span class="input-group-text">제목</span>
+							<input type="text" class="form-control" placeholder="input title here" name="title" id="post-title">
 						</div>
-						<div class="input-group container m-2">
-							<span class="input-group-text">작성자</span>
-							<input type="text" class="form-control" value="${user.id}" name="writer" id="post-writer" disabled>
-							<div id="preview">
-		            		</div>
+						<select class="form-select form-select-sm text-white bg-secondary my-3 border-light" name="cat" id="cate-select">
+						    <c:forEach items="${categories}" var="cate">
+						        <option value="${cate.cno}" class="post-cate border-light" ${urlCno == cate.cno ? "selected" : "" }>${cate.cname}</option>
+						    </c:forEach>
+						    	<option value="3" class="post-cate">프로모션</option>
+						</select>
+						<div class="my-target">
+							<jsp:include page="../common/writer.jsp"/>
 						</div>
-					</div>
-					<button type="button" class="btn btn-outline-secondary mt-2 post-button">작성하기</button>
-				</form>
-			</main>
-			<jsp:include page="../common/footer.jsp"/>
-		</div>
-	</body>
+						<div class="my-target d-none">
+							<textarea class="form-control" rows="5" id="comment" name="text">일반</textarea>
+							<input type="file" id="files" name="files" accept="image/png, image/jpeg, image/gif">
+							<div id="preview"></div>
+						</div>
+						<div class="p-3 container">
+							<div class="input-group container m-2">
+								<span class="input-group-text">태그</span>
+								<input type="text" class="form-control" placeholder="예시 #소통해요" name="tag" id="post-tag">
+							</div>
+							<div class="input-group container m-2">
+								<span class="input-group-text">작성자</span>
+								<input type="text" class="form-control" value="${user.id}" name="writer" id="post-writer" disabled>
+								<div id="preview">
+			            		</div>
+							</div>
+						</div>
+						<button type="button" class="btn btn-outline-secondary mt-2 post-button">작성하기</button>
+					</form>
+				</main>
+				<jsp:include page="../common/footer.jsp"/>
+			</div>
+		</body>
 	<script>
-		//if($("select[name=cat]").val() == "3"){
-		//	$("#editor .ql-editor").addClass("d-none");
-		//	$("#img-taker, #textwriter").removeClass("d-none");
-		//}
-		
-        $(function() {
-            let val = $("#cate-select").val();
-            $("#cate-select").change(function() {
-                if(val != $(this).val()) {
-                    $(".my-target").toggleClass('d-none');
-                }
-                val = $("#mySelect").val();
-            })
-            
-			const attachs = [];
+	    $(function() {
+	        let val = $("#cate-select").val();
 	
+	        $("#cate-select").change(function() {
+	            const newVal = $(this).val();
+	            if (val !== newVal) {
+	                $(".my-target").toggleClass('d-none');
+	            }
+	            val = newVal;
+	        });
+	
+			const attachs = [];
+			
             function previewFiles() {
                 const preview = document.querySelector("#preview");
                 const files = document.querySelector("input[type=file]").files;
@@ -137,8 +134,8 @@
 					const myTitle = $("#post-title").val();
 					const myContent = $("#comment").val();
 					const myId = $("#post-writer").val(); 
-					
-					const data = {"title" : myTitle , "content" : myContent, "userId" : myId, "cno" : myCate, "imgdata" : attachs};
+					const data = {"title" : myTitle , "content" : myContent, "userId" : myId, "cno" : myCate, "imgData" : attachs[0]["base64"]};
+					console.log(data);
 		            $.ajax({
 		                url: "${cp}post/write",
 		                type: "post",
@@ -161,6 +158,6 @@
 				}
 			})
         });
-            
 	</script>
-</html>
+	
+	</html>

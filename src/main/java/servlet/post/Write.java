@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 import service.CategorySerivceImpl;
 import service.CategoryService;
 import service.PostServiceImpl;
+import service.common.ServiceCommon;
 import vo.Category;
 import vo.Post;
 
@@ -35,8 +36,8 @@ public class Write extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Gson gson = new Gson();
-		Post post = gson.fromJson(req.getReader(), Post.class);
-        System.out.println(post);
+		Post post = ServiceCommon.getJson(req, Post.class);
+		System.out.println(post);
 
         try {
         	int i = new PostServiceImpl().addPost(post);

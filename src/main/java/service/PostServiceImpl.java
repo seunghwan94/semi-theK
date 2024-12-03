@@ -55,11 +55,16 @@ public class PostServiceImpl implements PostService {
 	
 	@Override
 	public int addPost(Post post) {
-		try (SqlSession session =  MybatisInit.getInstance().sqlSessionFactory().openSession(true)){
-			PostMapper mapper = session.getMapper(PostMapper.class);
-			return mapper.insert(post); 
-		}
+	    try (SqlSession session = MybatisInit.getInstance().sqlSessionFactory().openSession(true)) {
+	        PostMapper mapper = session.getMapper(PostMapper.class);
+//	        if (post.getCno() == 3 && post.getImgData() != null) {
+//	            post.setImgData(String.join(",", post.getAttachs().stream().map(Post::getImgData).collect(Collectors.toList())));
+//	        	
+//	        }
+	        return mapper.insert(post);
+	    }
 	}
+
 	
 	@Override
 	public int remove(int pno) {

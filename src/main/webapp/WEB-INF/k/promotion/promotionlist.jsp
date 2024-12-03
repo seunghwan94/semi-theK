@@ -21,7 +21,7 @@
 									<div class="card-body mx-auto text-center">
 										<h4 class="card-title small text-truncate border border-warning border-3 p-3">별빛 야경과 함께하는 창경궁 투어</h4>
 										<div class="border border-light mx-auto px-auto border-3 small bg-dark">
-											<p class="card-text small">프로모터 : 홍길동</p>
+											<p class="card-text small">{}</p>
 										</div>
 										<hr>
 										<div class="mb-1 small mt-1">

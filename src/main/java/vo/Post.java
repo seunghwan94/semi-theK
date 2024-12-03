@@ -7,10 +7,11 @@ import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-//@NoArgsConstructor
+@NoArgsConstructor
 @AllArgsConstructor
 public class Post {
 	private  int pno; // 게시글 번호
@@ -21,13 +22,12 @@ public class Post {
 	private  Date createDate; // 게시글 등록일
 	private  Date updateDate; // 게시글 업데이트 날짜
 	private  int cno; // 게시글 카테고리 번호(외래키)
-	private String imgData;
+	private String imgData; // 이미지 데이터
 	
 	@Builder.Default
 	private List<Post> attachs = new ArrayList<>();
 
-	public Post(int pno, String title, String userId, String content, int viewCnt, Date createDate, Date updateDate,
-			int cno, String imgData) {
+	public Post(int pno, String title, String userId, String content, int viewCnt, Date createDate, Date updateDate, int cno, String imgData) {
 		super();
 		this.pno = pno;
 		this.title = title;
