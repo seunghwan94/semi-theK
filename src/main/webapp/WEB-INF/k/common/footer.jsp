@@ -27,18 +27,17 @@
 		     <!-- 아이콘 구글 라인 자리 -->
 		     <div class="col-md-6"></div>
 		     <div class="col-md-1"></div>
-		     <div class="col-md-1"><i class="fa-brands fa-google-play fa-3x mx-5"></i></div>
-		     <div class="col-md-1"><i class="fa-brands fa-github fa-3x mx-4"></i></div>
-		     <div class="col-md-1"><i class="fa-brands fa-google fa-3x"></i></div>
+		     <div class="col-md-1"><i class="fa-brands fa-java fa-3x mx-5"></i></div>
+		     <div class="col-md-1"><a class="fa-brands fa-github fa-3x mx-4 text-decoration-none text-dark" href="https://github.com/Sangwon1233/semi-theK"></a></div>
+		     <div class="col-md-1"><i class="fa-brands fa-js fa-3x"></i></div>
 		   </div>
 		     <!-- 학원 푸터 정보 -->
 		      <div class="col-md-12 mb-5">
 		        <div class="col-md-6">서울 구로구 디지털로 306 대륭포스트타워 2차 203호</div>
 		        <div class="col-md-6">대표번호: 02-8362-9674</div>
-		        <div class="col-md-6">Copyright ⓒ 2024 - 3000 dcinside. All rights reserved.</div>
+		        <div class="col-md-6">Copyright ⓒ 2024 - 2024 dcinside. All rights reserved.</div>
 		      </div>
 		    </div>
 		  </div>
 		</div>
-	</div>
 </footer>
