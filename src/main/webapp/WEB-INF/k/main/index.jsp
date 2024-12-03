@@ -112,7 +112,9 @@
 											</div>
 											<div class="card-footer">
 												<div class="d-flex justify-content-between">
-													<b>${postG.userId}</b>
+													<div class="col-6 text-truncate">
+													<b >${postG.userId}</b>
+													</div>
 													<div class="d-flex">
 														<div class="px-1">
 															<i class="fa-regular fa-eye me-1"></i>
