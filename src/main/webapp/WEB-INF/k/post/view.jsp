@@ -15,7 +15,7 @@
 		<div class="wrap mt-5">
 			<main class="container mt-5 text-white">
                 <label for="title" class="form-label mt-3"><i class="fa-solid fa-t"></i><b> 글 제목 </b></label>
-                <input type="text" class="form-control fw-bold big" id="title" placeholder="input title" name="title" value="${post.title}"  readonly>
+                <input type="text" class="form-control fw-bold big text-center big" id="title" placeholder="input title" name="title" value="${post.title}"  readonly>
                 
                 <label for="writer" class="form-label mt-3"><i class="fa-solid fa-user-pen"></i><b> 작성자 </b></label>
                 <input type="text" class="form-control text-secondary small" id="writer" placeholder="writer" name="writer" value="${post.userId}" readonly>
@@ -24,7 +24,7 @@
                 
                 <div type="text" class="ql-editor form-control"  id="content"  name="content" >${post.content}</div>
                 <c:if test="${post.cno == 3}">
-                	<div id="imgdiv" style = "width:510px;" class="text-center">
+                	<div id="imgdiv" style = "width:510px;" class="text-center d-flex justify-content-center">
                 		<img alt="이미지를 불러올 수 없습니다. 엑박!" src="${post.imgData}"  class="img-fluid mx-auto d-block" name="${post.title}/${post}">
                		</div>
 				</c:if>
@@ -39,10 +39,14 @@
 				</div>
              	<div class="text-center mt-5 mb-5">
 					<a href="${cp}list/modify?pno=${post.pno}" class="btn btn-outline-light btn-mod d-none" > 수정하기 </a>
-					<a href="${cp}list?cno=${post.cno}" class="btn btn-outline-light btn-ret" > 게시판으로 돌아가기 </a>
+					<c:if test="${post.cno == 3}">
+						<a href="${cp}list?promotion=${post.cno}" class="btn btn-outline-light btn-ret" > 프로모션 페이지로 돌아가기 </a>
+					</c:if>
+					<c:if test="${post.cno != 3}">
+						<a href="${cp}list?cno=${post.cno}" class="btn btn-outline-light btn-ret" > 게시판으로 돌아가기 </a>
+					</c:if>
 					<a href="${cp}list/remove?pno=${post.pno}" class="btn btn-outline-light btn-del d-none" onclick="return confirm('Delete this post?')"> 삭제하기 </a>
              	</div>
-            	<jsp:include page="../common/reply.jsp"/> 	
 			</main>
 		</div>
 	<script type="text/javascript">

@@ -55,13 +55,12 @@
 	        let val = $("#cate-select").val();
 	
 	        $("#cate-select").change(function() {
-	            const newVal = $(this).val();
-	            if (val !== newVal) {
+	            if (val != $(this).val()) {
 	                $(".my-target").toggleClass('d-none');
 	            }
-	            val = newVal;
+	            val = $("#cate-select").val();
 	        });
-	
+
 			const attachs = [];
 			
             function previewFiles() {
@@ -145,7 +144,7 @@
 		                	console.log(res);
 		                    if (res == "success") {
 		                        alert("적용 되었습니다. 작성된 게시판을 확인해 보세요!");
-		                		const url = "${cp}list?cno="+myCate;
+		                		const url = "${cp}promotion?cno="+myCate;
 		                		window.location.href= url;
 		                    } else {
 		                        alert("적용 실패하였습니다");

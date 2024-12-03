@@ -14,13 +14,13 @@ import service.PostServiceImpl;
 import service.UserService;
 import service.UserServiceImpl;
 import utils.Commons;
+import vo.Post;
 import vo.User;
 
 @WebServlet("/list/view")
 public class View extends HttpServlet{
 
 	private PostService postService = new PostServiceImpl();
-	private UserService userService = new UserServiceImpl();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -29,21 +29,15 @@ public class View extends HttpServlet{
 		Object userObj = req.getSession().getAttribute("user");
 		String redirectURL = criteria.getQs2();
 		userObj = (User)userObj;
-		System.out.println(userObj + ":::::");
-//		System.out.println(userObj + ":::::");
 		if (((User)userObj) == null || cnoString == null) {
 	    	Commons.printMsg("SYSTEM :: ERR / INVALID APPROACH", redirectURL, resp);
 	        return;
 		}
 		
-//		int idx = req.getQueryString().indexOf('=');
-//		String pno = req.getQueryString().substring(idx+1);
 		String pno = req.getParameter("pno");
-
-		System.out.println(pno);
-		System.out.println(postService.view(Integer.parseInt(pno)));
-		req.setAttribute("post", postService.view(Integer.parseInt(pno)));
-//		req.setAttribute("criteria", criteria);
+		Post pnoView = postService.view(Integer.parseInt(pno));
+		
+		req.setAttribute("post", pnoView);
 		req.setAttribute("criteria", criteria);
 		req.getRequestDispatcher("/WEB-INF/k/post/view.jsp").forward(req,resp);
 	}
