@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import service.manage.MngNtcService;
 import service.manage.MngNtcServiceImpl;
 import utils.Commons;
+import vo.Post;
 
 @SuppressWarnings("serial")
 @WebServlet("/manage/ntc/view")
@@ -20,9 +21,11 @@ public class MngNtcView extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String pno = req.getParameter("pno");
+		Post post = service.findByNtc(pno);
+		System.out.println(post);
 		req.setAttribute("menu", "manage");
 		req.setAttribute("tab", "n");
-		req.setAttribute("post", service.findByNtc(pno));
+		req.setAttribute("post", post);
 		
 		req.getRequestDispatcher("/WEB-INF/k/manage/manageAnnView.jsp").forward(req, resp);
 	}

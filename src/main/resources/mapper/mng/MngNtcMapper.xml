@@ -3,8 +3,18 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.manage.MngNtcMapper">
-
-<select id="select" resultType="vo.Post">
+<resultMap type="vo.Post" id="post">
+	<id column="pno" property="pno"/>
+	<result column="title" property="title"/>
+	<result column="user_id" property="userId"/>
+	<result column="content" property="content"/>
+	<result column="view_cnt" property="viewCnt"/>
+	<result column="create_date" property="createDate"/>
+	<result column="update_date" property="updateDate"/>
+	<result column="cno" property="cno"/>
+	<result column="imgData" property="imgData"/>
+</resultMap>
+<select id="select" resultMap="post">
 	select * 
 	from tbl_post 
 	where cno = #{cno}
@@ -21,7 +31,7 @@
     limit #{amount} offset #{offset}
 </select>
   
-<select id="selectByOne" resultType="vo.Post">
+<select id="selectByOne" resultMap="post">
 	select * from tbl_post where pno = #{pno}
 </select>
    

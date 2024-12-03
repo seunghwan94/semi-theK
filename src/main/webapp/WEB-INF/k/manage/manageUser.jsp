@@ -29,7 +29,6 @@
                                     <th scope="col">NickName</th>
                                     <th scope="col">Gender</th>
                                     <th scope="col">grade</th>
-                                    <th scope="col">last_login</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -40,7 +39,6 @@
 	                                    <td>${user.nickName}</td>
 	                                    <td>${user.gender}</td>
 	                                    <td>${user.grade}</td>
-	                                    <td>${user.lastLogin}</td>
 	                                </tr>
                                 </c:forEach>
                             </tbody>

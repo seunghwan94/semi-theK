@@ -12,6 +12,7 @@ import service.common.ServiceCommon;
 import service.manage.MngNtcService;
 import service.manage.MngNtcServiceImpl;
 import vo.Post;
+import vo.User;
 
 @SuppressWarnings("serial")
 @WebServlet("/manage/ntc/write")
@@ -22,8 +23,15 @@ public class MngNtcWrite extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		String pno = req.getParameter("pno");
+		Post post = new Post();
 		if(pno != null) {
-			Post post = service.findByNtc(pno);
+			post = service.findByNtc(pno);
+			req.setAttribute("post", post);
+			
+		}else {
+			User user = (vo.User)req.getSession().getAttribute("user");
+			post.setUserId(user.getId());
+			
 			req.setAttribute("post", post);
 		}
 		

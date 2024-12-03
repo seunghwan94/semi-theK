@@ -28,7 +28,6 @@
                                     <th >제목</th>
                                     <th style="width: 15%">작성자</th>
                                     <th style="width: 5%">viewCnt</th>
-                                    <th style="width: 15%">create</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -38,7 +37,6 @@
 	                                    <td class="text-start">${post.title}</td>
 	                                    <td>${post.userId}</td>
 	                                    <td>${post.viewCnt}</td>
-	                                    <td>${post.createDate}</td>
 	                                </tr>
                                 </c:forEach>
                             </tbody>
