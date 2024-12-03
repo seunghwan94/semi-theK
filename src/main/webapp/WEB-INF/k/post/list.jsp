@@ -12,6 +12,7 @@
 		<jsp:include page="../common/idshower.jsp"/>
     </c:if>
 	<main class="container mt-5">
+		<h1 class="mt-3" id="post-list-name"> ${categoryName}</h1>
         <table class="table table-hover text-center table-dark text-white">
             <thead class="border-bottom border-light">
                 <tr>

@@ -15,12 +15,12 @@
 					<div class="my-4 row align-items-stretch d-flex justify-content-center text-center">
 						<c:forEach items="${posts}" var="po">
 							<div class="col-sm-3">
-								<div class="card bg-secondary mx-1 my-2 container">
-									<div class="border border-white border-5 border-rounded text-center shadow-lg" style="width:280px; height:280px">
-										<img class="card-img-top mt-1" src="${po.imgData}" alt="Card image" style="object-fit:cover;" >
+								<div class="card bg-secondary mx-1 my-2 container border border-white shadow-lg">
+									<div class="text-center shadow-lg overflow-hidden p-0 bg-secondary" style="width:280px; height:280px">
+										<img class="card-img-top mt-1 z-3" src="${po.imgData}" alt="Card image" style="object-fit:cover;">
 									</div>
 									<div class="card-body">
-										<h4 class="card-title small text-truncate border border-warning border-2 p-3 big bg-light" style="object-fit:contain"><a href="${cp}list/view?pno=${po.pno}"><strong>${po.title}</strong></a></h4>
+										<h4 class="card-title small text-truncate border border-warning border-2 p-3 big bg-light" style="object-fit:contain"><a href="${cp}list/view?pno=${po.pno}" class="text-decoration-none"><strong>${po.title}</strong></a></h4>
 										<hr>
 										<div class="border border-light my-0 border-2 small bg-dark">
 											<p class="card-text small">프로모터 : ${po.userId}</p>

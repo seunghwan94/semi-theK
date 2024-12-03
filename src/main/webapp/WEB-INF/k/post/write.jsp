@@ -22,12 +22,12 @@
 						    <c:forEach items="${categories}" var="cate">
 						        <option value="${cate.cno}" class="post-cate border-light" ${urlCno == cate.cno ? "selected" : "" }>${cate.cname}</option>
 						    </c:forEach>
-						    	<option value="3" class="post-cate">프로모션</option>
+						    	<option value="${promotion.cno}" class="post-cate" ${urlCno == promotion.cno? "selected":""}>${promotion.cname}</option>
 						</select>
 						<div class="my-target">
 							<jsp:include page="../common/writer.jsp"/>
 						</div>
-						<div class="my-target d-none">
+						<div class="my-target-promo d-none">
 							<textarea class="form-control" rows="5" id="comment" name="text">일반</textarea>
 							<input type="file" id="files" name="files" accept="image/png, image/jpeg, image/gif">
 							<div id="preview"></div>
@@ -52,13 +52,20 @@
 		</body>
 	<script>
 	    $(function() {
-	        let val = $("#cate-select").val();
-	
+			let val = ${promotion.cno}; // 프로모션 게시판 cno
+			if(${urlCno == 3}){
+				$('.my-target').addClass('d-none');
+				$('.my-target-promo').removeClass('d-none');
+			}
+	        
 	        $("#cate-select").change(function() {
-	            if (val != $(this).val()) {
-	                $(".my-target").toggleClass('d-none');
+	            if (val != $(this).val()) { // 일반 quill 사용시
+	                $('.my-target-promo').hasClass('d-none') ? '' : $('.my-target-promo').addClass('d-none');
+	                $('.my-target').hasClass('d-none') ?  $('.my-target').removeClass('d-none') : '' ;
+	            }else{ // 프로모션 전용 업로드 사용시
+	            	$('.my-target-promo').hasClass('d-none') ? $('.my-target-promo').removeClass('d-none') : '';
+	                $('.my-target').hasClass('d-none') ?  '' : $('.my-target').addClass('d-none');
 	            }
-	            val = $("#cate-select").val();
 	        });
 
 			const attachs = [];

@@ -27,10 +27,12 @@ public class Write extends HttpServlet{
 		String cno = req.getParameter("cno");
 //		String userId = req.getSession();
 		List<Category> subCategories = categoryService.listSub();
+		List<Category> mainCategories = categoryService.listMain();
+		Category promoCate = mainCategories.get(2);
 	    req.setAttribute("categories", subCategories);
+	    req.setAttribute("promotion", promoCate);
 	    req.setAttribute("urlCno", cno);
 		req.getRequestDispatcher("/WEB-INF/k/post/write.jsp").forward(req, resp);
-//		req.setAttribute("criteria", criteria);
 	}
 
 	@Override

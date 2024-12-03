@@ -31,7 +31,6 @@ public class Promotion extends HttpServlet{
 	        return;
 		}
 		List<Post> postList = postService.listPost(cri);
-		System.out.println(postList);
 		req.setAttribute("posts", postList);
 		req.setAttribute("currentPage", "promotion");
 		req.setAttribute("cno", cno);
