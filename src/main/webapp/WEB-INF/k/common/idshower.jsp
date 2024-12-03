@@ -12,11 +12,9 @@
 					<div class="justify-content-center z-3 position-absolute" >
 					    <a class="text-decoration-none text-light fw-big" href="${cp}mypage?id=${userRealId}"><i class="fa-solid fa-image-portrait"></i> 마이페이지 </a>
 					    <hr class="bg-light">
-					    <a class="text-decoration-none text-light fw-big" href="${cp}intro"><i class="fa-solid fa-right-from-bracket"></i> 로그아웃 </a>
-					    <hr class="bg-light">
 					    <a class="text-decoration-none text-light fw-big" href="${cp}aboutus"><i class="fa-solid fa-users-gear"></i> K - 소개 </a>
 					    <hr class="bg-light">
-					    <a class="text-decoration-none text-light fw-big" href="#"><i class="fa-solid fa-sitemap"></i> 내 문의 </a>
+					    <a class="text-decoration-none text-light fw-big" href="${cp}intro"><i class="fa-solid fa-right-from-bracket"></i> 로그아웃 </a>
 					    <hr class="bg-light">
 					</div>
                     <video class="position-relative z-n1" autoplay muted loop>

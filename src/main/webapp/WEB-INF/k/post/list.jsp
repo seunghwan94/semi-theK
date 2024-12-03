@@ -19,10 +19,9 @@
                 <tr>
                     <th style="width: 10%;"> 글 번호 </th>
                     <th> 제목 </th>
-                    <th style="width: 15%;"> 작성자 </th>
+                    <th style="width: 20%;"> 작성자 </th>
                     <th style="width: 15%;"> 날짜 </th>
                     <th style="width: 10%;"> 조회수 </th>
-                    <th style="width: 10%;"> 댓글 </th>
                 </tr>
             </thead>
             <tbody >
@@ -38,7 +37,6 @@
             			<td><button type="button" class="btn text-decoration-none text-white post-writer" data-bs-toggle="popover" title="${p.userId}" data-bs-content="프로필 정보">${p.userId}</button></td>
            			    <td><fmt:formatDate value="${p.createDate}" pattern="yyyy/MM/dd" /></td>
    	                    <td>${p.viewCnt}</td>
-                  		<td>?</td>
 	                <tr>
             	</c:forEach>
                 </tbody>

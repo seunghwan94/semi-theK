@@ -50,19 +50,12 @@
 	</c:choose>
 </c:forEach>
 </ul>
-<!-- 
-	<form class="d-flex position-relative">
-		<input 	class="form-control" type="search" placeholder="검색하기" id="search-input">
-	</form>
--->
 </div>
 </nav>
 <script>
 	document.querySelector('#Kmp4').addEventListener('click', function(e){
 		e.preventDefault();
 		alert("인트로 화면으로 이동합니다.")
-		// session.invalidate();
-		// alert("로그아웃 성공!")
 		window.location.href = "${cp}/intro";
 	});
 </script>
