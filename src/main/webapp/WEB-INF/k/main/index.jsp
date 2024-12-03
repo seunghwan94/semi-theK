@@ -43,10 +43,10 @@
                 </c:forEach>
             </ul>
         </div>
-         <div class="layer-popup">
+         <div class="layer-popup border">
 	        <img src="${cp}files/common/popup.jpg" alt="굿즈소개"> 
 	        <p class="clearfix">
-	            <span>오늘은 그만 보기 <input type="checkbox"></span>
+	            <!-- <span>오늘은 그만 보기 <input type="checkbox"></span> -->
 	            <a href="#">닫기</a>
 	        </p>
 	    </div>
