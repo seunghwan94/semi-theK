@@ -25,9 +25,11 @@ public class PostList extends HttpServlet{
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int idx = req.getQueryString().indexOf('=');
-		String cno = req.getQueryString().substring(idx+1);
+
+		String cno = req.getParameter("cno");
+		
 		System.out.println(cno);
+		
 		Object userObj = req.getSession().getAttribute("user");
 		Criteria cri = new Criteria(req);
 		List<Category> subCategories = categoryService.listSub();

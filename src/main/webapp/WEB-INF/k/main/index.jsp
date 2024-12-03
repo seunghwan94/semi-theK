@@ -107,8 +107,8 @@
                                     <a href="kallery?cno=2" class="text-decoration-none">
                                     	<div class="card m-2 card-hover" style="width: 250px;" >
 											<div class="card-header text-truncate text-start">${postG.title}</div>
-											<div class="card-body p-1 img-size-target d-flex justify-content-center align-items-center">
-												<img class="w-100 h-100" src="${fnc:split(postG.content,'&%$^&')[0]}">
+											<div class="card-body p-1 img-size-target d-flex justify-content-center align-items-center" 
+												 style="background-image: url('${fnc:split(postG.content,'&%$^&')[0]}'); background-size: cover;">
 											</div>
 											<div class="card-footer">
 												<div class="d-flex justify-content-between">

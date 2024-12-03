@@ -37,7 +37,10 @@
 				<c:forEach items="${posts}" var="post">
 					<div class="card m-2 card-hover" data-bs-toggle="modal" data-bs-target="#exampleModal" data-pno="${post.pno}" style="width:397px;">
 						<div class="card-header text-truncate">${post.title}</div>
-						<div class="card-body p-1 img-size-target d-flex justify-content-center align-items-center">
+						<div class="card-body p-1 img-size-target d-flex justify-content-center align-items-center" 
+							 style="background-image: url('${fnc:split(post.content,'&%$^&')[0]}'); background-size: cover;">
+						</div>
+						<div class="d-none">
 							<img class="w-100 h-100" src="${fnc:split(post.content,'&%$^&')[0]}">
 						</div>
 						<div class="card-footer">
