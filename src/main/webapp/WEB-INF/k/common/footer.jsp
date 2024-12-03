@@ -15,10 +15,10 @@
 		   <div class="row mb-5"></div>   
 		     <div class="col-md-6">
 		       <div class="ar-label fs-6">
-		         <a class="text-decoration-none text-dark" href="#" aria-label="프로모션 안내">프로모션 안내</a> /
+		         <a class="text-decoration-none text-dark" href="${cp}promotion?cno=3" aria-label="프로모션 안내">프로모션 안내</a> /
 		         <a class="text-decoration-none text-dark" href="https://github.com/Sangwon1233/semi-theK" aria-label="github">github</a> /
-		         <a class="text-decoration-none text-dark" href="#" aria-label="발표 자료">발표 자료</a> /
-		         <a class="text-decoration-none text-dark" href="#" aria-label="ppt 자료">ppt 자료</a> /
+		         <a class="text-decoration-none text-dark" href="${cp}files/common/ppt.pptx" download="ppt.pptx" aria-label="발표 자료">발표 자료</a> /
+		         <a class="text-decoration-none text-dark" href="${cp}files/common/Digital Prototype.pptx" download="Digital Prototype.pptx" aria-label="화면정의서">화면정의서</a> /
 		         <a class="text-decoration-none text-dark" href="#" aria-label="about us">about us</a>
 		       </div>
 		     </div>
@@ -34,7 +34,7 @@
 		     <!-- 학원 푸터 정보 -->
 		      <div class="col-md-12 mb-5">
 		        <div class="col-md-6">서울 구로구 디지털로 306 대륭포스트타워 2차 203호</div>
-		        <div class="col-md-6">대표번호: 02-8362-9674</div>
+		        <div class="col-md-6">대표번호: 010-xxxx-xxxx</div>
 		        <div class="col-md-6">Copyright ⓒ 2024 - 2024 dcinside. All rights reserved.</div>
 		      </div>
 		    </div>
