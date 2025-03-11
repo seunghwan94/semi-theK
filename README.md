@@ -2,7 +2,7 @@
         
 - <i>다각화하는 K-컬쳐 외국인 관광객 커뮤니티(정보) 플랫폼 개발 프로젝트</i>
 
-<img src="https://cdn.discordapp.com/attachments/1306176259117813763/1306574917839491142/1.png?ex=67372a37&is=6735d8b7&hm=b8e5ef3451ccac985c715fde656a1ec2697bf72ceb91a3d9733a7b75b947993d&" width="500">
+![Image](https://github.com/user-attachments/assets/103874b3-a4cc-41a5-bea0-07534acf2009)
 
 - ####  기간 : (24.10.29~24.11.29)
 
